@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import { ArrowUpRight, Award, PlayCircle, Layers, Linkedin, Mail, ExternalLink, GraduationCap } from 'lucide-react';
+import { ArrowUpRight, Award, Layers, Linkedin, Mail } from 'lucide-react';
 
 /* --- Data --- */
 const EXPERIENCE = [
@@ -62,7 +62,7 @@ const PROJECTS = [
     description: 'Led delivery of the official AI chatbot serving 40M viewers. Handled 90M queries with sub-second latency using Vertex AI.',
     link: '#',
     type: 'Major Launch',
-    image: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=800&auto=format&fit=crop', 
+    image: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=800&auto=format&fit=crop',
     tech: ['Vertex AI', 'Gen AI', 'High Scale']
   },
   {
@@ -75,20 +75,7 @@ const PROJECTS = [
   }
 ];
 
-const TALKS = [
-  {
-    id: 'nZa5-WyN-rE', 
-    title: 'Intro to Agents (Whitepaper)',
-    event: 'Thought Leadership',
-    tech: ['Generative AI', 'Agentic Workflows']
-  },
-  {
-    id: 'AuJcu_fQfBY', 
-    title: 'Building Autonomous Agents',
-    event: 'Tech Demo',
-    tech: ['Live Coding', 'AI Architecture']
-  }
-];
+
 
 const CERTIFICATIONS = [
   '10x Google Cloud Certified',
@@ -119,7 +106,7 @@ function App() {
   }, []);
 
   return (
-    <div 
+    <div
       className="app"
       style={{
         background: `radial-gradient(600px at ${mousePos.x}px ${mousePos.y}px, rgba(29, 78, 216, 0.15), transparent 80%)`
@@ -132,9 +119,9 @@ function App() {
             <h1 className="name">Enrique Chan</h1>
             <h2 className="role">Outbound Product Manager, Cloud AI at Google</h2>
             <p className="bio">
-              I leverage <strong>Tech, Data & AI</strong> to transform how people experience the world. 
-              <br/><br/>
-              From launching <strong>Disney's MyMagic+ (MagicBands)</strong> to architecting the <strong>2024 Olympic Games AI Chatbot</strong>, 
+              I leverage <strong>Tech, Data & AI</strong> to transform how people experience the world.
+              <br /><br />
+              From launching <strong>Disney's MyMagic+ (MagicBands)</strong> to architecting the <strong>2024 Olympic Games AI Chatbot</strong>,
               I build production-grade systems that impact millions.
             </p>
 
@@ -156,39 +143,39 @@ function App() {
 
           <ul className="socials">
             <li>
-                <a href="https://www.linkedin.com/in/enriquechan/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/enriquechan/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <Linkedin size={24} />
-                </a>
+              </a>
             </li>
             <li>
-                <a href="https://medium.com/@enriq" target="_blank" rel="noopener noreferrer" aria-label="Medium">
+              <a href="https://medium.com/@enriq" target="_blank" rel="noopener noreferrer" aria-label="Medium">
                 <Layers size={24} />
-                </a>
+              </a>
             </li>
             <li>
-                <a href="mailto:enriquekalven@gmail.com" aria-label="Email">
+              <a href="mailto:enriquekalven@gmail.com" aria-label="Email">
                 <Mail size={24} />
-                </a>
+              </a>
             </li>
           </ul>
         </header>
 
         {/* RIGHT COLUMN (Scrollable) */}
         <main className="content">
-          
+
           <section id="about" className="section">
             <h3 className="section-title-mobile">About</h3>
             <p className="text-body">
-              With over 13 years of experience in IT, Cloud, and Data, I specialize in the entire lifecycle of <strong>MLOps</strong>, 
-              <strong>Virtual Assistants</strong>, and <strong>Generative AI</strong>. My strategic vision is simple: 
+              With over 13 years of experience in IT, Cloud, and Data, I specialize in the entire lifecycle of <strong>MLOps</strong>,
+              <strong>Virtual Assistants</strong>, and <strong>Generative AI</strong>. My strategic vision is simple:
               use technology to leverage business impact and create a fairer, evolved world.
             </p>
             <p className="text-body">
-              Recently, I co-authored the "Intro to Agents" whitepaper and led the delivery of the <strong>Oli Chatbot</strong> for the 2024 Paris Olympics. 
+              Recently, I co-authored the "Intro to Agents" whitepaper and led the delivery of the <strong>Oli Chatbot</strong> for the 2024 Paris Olympics.
               I thrive on "mission impossible" projects—like ramping up a delayed modernization for Boeing or launching Disney+ worldwide.
             </p>
             <p className="text-body">
-               <em>"A team is only as strong as its weakest player."</em> — My work philosophy is centered on mentorship, people-centric leadership, and elevating everyone around me.
+              <em>"A team is only as strong as its weakest player."</em> — My work philosophy is centered on mentorship, people-centric leadership, and elevating everyone around me.
             </p>
           </section>
 
@@ -202,7 +189,7 @@ function App() {
                     <h3 className="card-title">
                       {exp.role} · <span className="company">{exp.company}</span>
                       <ArrowUpRight size={14} className="arrow-icon" />
-                     </h3>
+                    </h3>
                     <p className="card-desc">{exp.description}</p>
                     <div className="skill-tags">
                       {exp.skills.map(skill => <span key={skill} className="tag">{skill}</span>)}
@@ -214,58 +201,58 @@ function App() {
           </section>
 
           <section id="projects" className="section">
-             <h3 className="section-title-mobile">Selected Work</h3>
-             <div className="project-list">
-                {PROJECTS.map((proj, idx) => (
-                   <a key={idx} href={proj.link} target="_blank" className="card project-card">
-                      <div className="project-image-wrapper">
-                         <img src={proj.image} alt={proj.title} className="project-thumb" />
-                      </div>
-                      <div className="card-content">
-                         <h3 className="card-title">
-                            {proj.title}
-                            <ArrowUpRight size={14} className="arrow-icon" />
-                         </h3>
-                         <p className="card-desc">{proj.description}</p>
-                         <div className="skill-tags">
-                            {proj.tech.map(t => <span key={t} className="tag">{t}</span>)}
-                         </div>
-                      </div>
-                   </a>
-                ))}
-             </div>
+            <h3 className="section-title-mobile">Selected Work</h3>
+            <div className="project-list">
+              {PROJECTS.map((proj, idx) => (
+                <a key={idx} href={proj.link} target="_blank" className="card project-card">
+                  <div className="project-image-wrapper">
+                    <img src={proj.image} alt={proj.title} className="project-thumb" />
+                  </div>
+                  <div className="card-content">
+                    <h3 className="card-title">
+                      {proj.title}
+                      <ArrowUpRight size={14} className="arrow-icon" />
+                    </h3>
+                    <p className="card-desc">{proj.description}</p>
+                    <div className="skill-tags">
+                      {proj.tech.map(t => <span key={t} className="tag">{t}</span>)}
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
           </section>
 
           <section id="education" className="section">
-             <h3 className="section-title-mobile">Education</h3>
-             {EDUCATION.map((edu, idx) => (
-                <div key={idx} className="card experience-card">
-                   <div className="card-period">{edu.year}</div>
-                   <div className="card-content">
-                      <h3 className="card-title">{edu.school}</h3>
-                      <p className="card-desc">{edu.degree}</p>
-                      <p className="card-desc" style={{color: 'var(--accent)'}}>{edu.honors}</p>
-                   </div>
+            <h3 className="section-title-mobile">Education</h3>
+            {EDUCATION.map((edu, idx) => (
+              <div key={idx} className="card experience-card">
+                <div className="card-period">{edu.year}</div>
+                <div className="card-content">
+                  <h3 className="card-title">{edu.school}</h3>
+                  <p className="card-desc">{edu.degree}</p>
+                  <p className="card-desc" style={{ color: 'var(--accent)' }}>{edu.honors}</p>
                 </div>
-             ))}
+              </div>
+            ))}
           </section>
 
           <section id="certs" className="section">
-             <h3 className="section-title-mobile">Certifications</h3>
-             <div className="certs-list">
-                {CERTIFICATIONS.map((cert, idx) => (
-                   <div key={idx} className="cert-item">
-                      <Award size={16} className="cert-icon" />
-                      <span>{cert}</span>
-                   </div>
-                ))}
-             </div>
+            <h3 className="section-title-mobile">Certifications</h3>
+            <div className="certs-list">
+              {CERTIFICATIONS.map((cert, idx) => (
+                <div key={idx} className="cert-item">
+                  <Award size={16} className="cert-icon" />
+                  <span>{cert}</span>
+                </div>
+              ))}
+            </div>
           </section>
 
           <footer className="footer">
             <p>
-              Designed in the style of 
-              <a href="https://brittanychiang.com/" target="_blank" className="highlight"> Brittany Chiang</a>. 
+              Designed in the style of
+              <a href="https://brittanychiang.com/" target="_blank" className="highlight"> Brittany Chiang</a>.
               Built with React, Vite & Firebase.
             </p>
           </footer>
