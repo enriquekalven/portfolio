@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import { ArrowUpRight, Award, Layers, Linkedin, Mail } from 'lucide-react';
+import { ArrowUpRight, Award, Layers, Linkedin, Mail, PlayCircle } from 'lucide-react';
 
 /* --- Data --- */
 const EXPERIENCE = [
@@ -50,6 +50,14 @@ const EXPERIENCE = [
 
 const PROJECTS = [
   {
+    title: 'Advent of Agents',
+    description: 'A holiday-themed AI challenge site featuring autonomous agents. Built with advanced agentic workflows.',
+    link: 'https://adventofagents.com/',
+    type: 'Featured Product',
+    image: 'https://adventofagents.com/og-image.png', // Assuming or specific placeholder if needed. Or I will use a generic one if this breaks
+    tech: ['AI Agents', 'React', 'Agentic Workflow']
+  },
+  {
     title: 'Gemini Enterprise A2A',
     description: 'A comprehensive guide on setting up Agent-to-Agent communication using Gemini. The definitive resource for enterprise AI orchestration.',
     link: 'https://medium.com/@enriq/register-to-gemini-enterprise-a2a-with-3-commands-688af024d9bb',
@@ -75,7 +83,20 @@ const PROJECTS = [
   }
 ];
 
-
+const MEDIA = [
+  {
+    id: 'nZa5-WyN-rE',
+    title: 'Intro to Agents (Thought Leadership)',
+    description: "Deep dive into the future of autonomous agents and their impact on enterprise workflows.",
+    type: 'Talk'
+  },
+  {
+    id: 'AuJcu_fQfBY',
+    title: 'Building Autonomous Agents',
+    description: "Technical demo showcasing the architecture and implementation of modern AI agents.",
+    type: 'Demo'
+  }
+];
 
 const CERTIFICATIONS = [
   '10x Google Cloud Certified',
@@ -90,6 +111,38 @@ const EDUCATION = [
     degree: 'BS Aerospace Engineering & BS Mechanical Engineering',
     honors: 'Cum Laude Honors',
     year: '2006 — 2011'
+  }
+];
+
+const RELEASE_NOTES = [
+  {
+    version: 'v2.1.0',
+    date: 'Dec 11, 2025',
+    title: 'Content Expansion',
+    changes: [
+      'Added "Media" section featuring YouTube talks and demos.',
+      'Highlighted "Advent of Agents" as a featured project.',
+      'Updated professional experience timeline (15 years).'
+    ]
+  },
+  {
+    version: 'v2.0.0',
+    date: 'Dec 10, 2025',
+    title: 'Spotlight Redesign',
+    changes: [
+      'Implemented "Spotlight" visual theme with mouse-tracking gradients.',
+      'Dark mode overhaul (Navy/Slate palette).',
+      'Migrated to split-screen sticky layout for better readability.'
+    ]
+  },
+  {
+    version: 'v1.2.1',
+    date: 'Dec 11, 2025',
+    title: 'Security Patch (CVE-2025-55182)',
+    changes: [
+      'Updated React to v19.2.1 to resolve critical security vulnerability.',
+      'Refreshed Firebase configuration for enhanced security.'
+    ]
   }
 ];
 
@@ -138,6 +191,14 @@ function App() {
                 <span className="nav-indicator"></span>
                 <span className="nav-text">Selected Work</span>
               </a>
+              <a href="#media" className="nav-link">
+                <span className="nav-indicator"></span>
+                <span className="nav-text">Media</span>
+              </a>
+              <a href="#releases" className="nav-link">
+                <span className="nav-indicator"></span>
+                <span className="nav-text">Releases</span>
+              </a>
             </nav>
           </div>
 
@@ -166,7 +227,7 @@ function App() {
           <section id="about" className="section">
             <h3 className="section-title-mobile">About</h3>
             <p className="text-body">
-              With over 13 years of experience in IT, Cloud, and Data, I specialize in the entire lifecycle of <strong>MLOps</strong>,
+              With over <strong>15 years</strong> of experience in IT, Cloud, and Data, I specialize in the entire lifecycle of <strong>MLOps</strong>,
               <strong>Virtual Assistants</strong>, and <strong>Generative AI</strong>. My strategic vision is simple:
               use technology to leverage business impact and create a fairer, evolved world.
             </p>
@@ -206,7 +267,11 @@ function App() {
               {PROJECTS.map((proj, idx) => (
                 <a key={idx} href={proj.link} target="_blank" className="card project-card">
                   <div className="project-image-wrapper">
-                    <img src={proj.image} alt={proj.title} className="project-thumb" />
+                    {proj.image && !proj.image.includes('placeholder') ? (
+                      <img src={proj.image} alt={proj.title} className="project-thumb" />
+                    ) : (
+                      <div className="project-thumb-placeholder" />
+                    )}
                   </div>
                   <div className="card-content">
                     <h3 className="card-title">
@@ -219,6 +284,34 @@ function App() {
                     </div>
                   </div>
                 </a>
+              ))}
+            </div>
+          </section>
+
+          <section id="media" className="section">
+            <h3 className="section-title-mobile">Media</h3>
+            <div className="project-list">
+              {MEDIA.map((item, idx) => (
+                <div key={idx} className="card project-card video-card">
+                  <div className="video-wrapper">
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src={`https://www.youtube.com/embed/${item.id}`}
+                      title={item.title}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                  <div className="card-content">
+                    <h3 className="card-title">
+                      {item.title}
+                      <PlayCircle size={14} className="arrow-icon" />
+                    </h3>
+                    <p className="card-desc">{item.description}</p>
+                  </div>
+                </div>
               ))}
             </div>
           </section>
@@ -244,6 +337,28 @@ function App() {
                 <div key={idx} className="cert-item">
                   <Award size={16} className="cert-icon" />
                   <span>{cert}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section id="releases" className="section">
+            <h3 className="section-title-mobile">Release Notes</h3>
+            <div className="experience-list">
+              {RELEASE_NOTES.map((note, idx) => (
+                <div key={idx} className="card experience-card">
+                  <div className="card-period">{note.date}</div>
+                  <div className="card-content">
+                    <h3 className="card-title">
+                      {note.version}
+                      <span className="company"> · {note.title}</span>
+                    </h3>
+                    <ul className="card-desc" style={{ listStyleType: 'disc', paddingLeft: '1rem', marginTop: '0.5rem' }}>
+                      {note.changes.map((change, cIdx) => (
+                        <li key={cIdx}>{change}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               ))}
             </div>
