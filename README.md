@@ -1,73 +1,41 @@
-# React + TypeScript + Vite
+# Enrique Chan
+**Outbound Product Manager, Cloud AI @ Google**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+I leverage **Tech, Data & AI** to transform how people experience the world. With over 15 years of experience, I build production-grade AI systems that impact millions. Mentorship and people-centric leadership are at the core of my philosophy.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Key Experience
+### **Google Cloud**
+*   **Outbound Product Manager, Cloud AI** *(Nov 2025 — Present)*
+    *   Co-authored "Intro to Agents" whitepaper (1.5M+ attendees).
+    *   Leading governance strategy between Gemini Enterprise and Agent Builder (ADK & Agent Engine).
+*   **Senior AI Consultant, PSO** *(Jun 2023 — Nov 2025)*
+    *   Led delivery of the 2024 Olympic Games "Oli Chatbot" (40M viewers, 90M queries).
+    *   Pioneered DIY Vertex AI solutions for WBD translation/captioning.
+*   **Senior Data Consultant, PSO** *(May 2021 — Jun 2023)*
+    *   Led Boeing's massive analytics migration to BigQuery.
+    *   Developed technical assets for EDW modernization.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📂 Featured Projects
+*   **[Advent of Agents](https://adventofagents.com/)**: A holiday-themed AI challenge site featuring autonomous agents.
+*   **Oli AI Chatbot**: Official AI assistant for the 2024 Paris Olympics. Served 90M queries with sub-second latency.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## ✍️ Publications & Talks
+*   **Intro to Agents Whitepaper**: Definitive guide on autonomous agents (1.5M+ readers).
+*   **[Register to Gemini Enterprise A2A](https://medium.com/@enriq/register-to-gemini-enterprise-a2a-with-3-commands-688af024d9bb)**: Technical guide on Medium for Agent-to-Agent communication.
+*   **Google Cloud Next Talks**: Featured speaker at Next '24 and Next '25 on Enterprise Agent Orchestration.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🔗 Connect with Me
+- [LinkedIn](https://www.linkedin.com/in/enriquechan/)
+- [Email](mailto:enriquekalven@gmail.com)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+> [!NOTE]
+> For technical documentation regarding the development and deployment of this portfolio, please see [README_TECH.md](./README_TECH.md).

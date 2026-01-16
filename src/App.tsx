@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
-import { ArrowUpRight, Award, Layers, Linkedin, Mail, PlayCircle } from 'lucide-react';
+import { ArrowUpRight, Layers, Linkedin, Mail, PlayCircle, BookOpen, Presentation } from 'lucide-react';
+import MediaPage from './MediaPage';
 
 /* --- Data --- */
 const EXPERIENCE = [
@@ -24,27 +26,54 @@ const EXPERIENCE = [
     period: 'May 2021 — Jun 2023',
     description: 'Led Boeing\'s massive analytics migration to BigQuery (Source Oriented Mesh Architecture). Developed 6 technical assets for EDW modernization. Launched gShadowPSO dashboard.',
     skills: ['BigQuery', 'Data Mesh', 'EDW Modernization', 'TeraData Migration']
+  }
+];
+
+const TECH_TALKS = [
+  {
+    title: "Google Cloud Next '25",
+    location: "Las Vegas",
+    topic: "Enterprise Agent Orchestration",
+    description: "Deep dive into multi-agent systems and governance for global scales.",
+    icon: Presentation
   },
   {
-    company: 'Amazon Web Services',
-    role: 'Senior Cloud Architect',
-    period: 'May 2020 — May 2021',
-    description: 'Administered AWS Well-Architected reviews. Built distributed microservices with TypeScript/CDK. Designed secure landing zones with Control Tower.',
-    skills: ['AWS CDK', 'Serverless', 'Control Tower', 'Splunk']
+    title: "Google Cloud Next '24",
+    location: "Las Vegas",
+    topic: "Building the Oli Chatbot",
+    description: "Architecture and scaling lessons from the 2024 Olympic Games AI launch.",
+    icon: Presentation
   },
   {
-    company: 'Accenture',
-    role: 'Senior Manager, Cloud Strategy',
-    period: 'Nov 2018 — May 2020',
-    description: 'Sold over $10M in delivery work. Led "Journey to Cloud" workshops and gold-standard architecture patterns. Managed career growth for 5 direct reports.',
-    skills: ['Cloud Strategy', 'DevSecOps', 'Sales', 'Team Leadership']
+    title: "Tech Immersion",
+    location: "Mountain View",
+    topic: "Generative AI in Production",
+    description: "Hands-on workshops on RLHF and model tuning for enterprise use cases.",
+    icon: Layers
+  }
+];
+
+const PUBLICATIONS = [
+  {
+    title: 'Intro to Agents Whitepaper',
+    platform: 'Kaggle / Google Cloud',
+    description: 'The definitive guide on autonomous agents, co-authored for over 1.5M readers.',
+    link: '#',
+    tech: ['Whitepaper', 'Agentic AI']
   },
   {
-    company: 'Accenture',
-    role: 'Manager & Tech Consultant',
-    period: 'May 2011 — Nov 2018',
-    description: 'Launched Disney MyMagic+ (FastPass+, MagicBands). Service Delivery Lead for SRE/Monitoring teams. Automated continuous improvement workflows.',
-    skills: ['SRE', 'Disney MyMagic+', 'Automation', 'apm']
+    title: 'Register to Gemini Enterprise A2A',
+    platform: 'Medium',
+    description: 'A technical guide on setting up Agent-to-Agent communication in 3 commands.',
+    link: 'https://medium.com/@enriq/register-to-gemini-enterprise-a2a-with-3-commands-688af024d9bb',
+    tech: ['Medium', 'A2A', 'Gemini']
+  },
+  {
+    title: 'Modernizing Data Mesh for Boeing',
+    platform: 'Google Cloud Blog',
+    description: 'Architecting Source Oriented Mesh for complex ITAR environments.',
+    link: '#',
+    tech: ['Data Mesh', 'BigQuery']
   }
 ];
 
@@ -54,99 +83,20 @@ const PROJECTS = [
     description: 'A holiday-themed AI challenge site featuring autonomous agents. Built with advanced agentic workflows.',
     link: 'https://adventofagents.com/',
     type: 'Featured Product',
-    image: 'https://adventofagents.com/og-image.png', // Assuming or specific placeholder if needed. Or I will use a generic one if this breaks
+    image: 'https://adventofagents.com/og-image.png',
     tech: ['AI Agents', 'React', 'Agentic Workflow']
   },
   {
-    title: 'Gemini Enterprise A2A',
-    description: 'A comprehensive guide on setting up Agent-to-Agent communication using Gemini. The definitive resource for enterprise AI orchestration.',
-    link: 'https://medium.com/@enriq/register-to-gemini-enterprise-a2a-with-3-commands-688af024d9bb',
-    type: 'Featured Writing',
-    image: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*Hotp-D9eC9c9b9b9b9b9b.png',
-    tech: ['Gemini', 'ADK', 'Medium']
-  },
-  {
-    title: '2024 Olympics "Oli" Chatbot',
-    description: 'Led delivery of the official AI chatbot serving 40M viewers. Handled 90M queries with sub-second latency using Vertex AI.',
+    title: 'Oli AI Chatbot',
+    description: 'Official AI assistant for the 2024 Paris Olympics. Served 90M queries with sub-second latency.',
     link: '#',
-    type: 'Major Launch',
+    type: 'High Scale',
     image: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=800&auto=format&fit=crop',
-    tech: ['Vertex AI', 'Gen AI', 'High Scale']
-  },
-  {
-    title: 'Boeing Analytics Modernization',
-    description: 'Reshaped a single-tenant migration into a Source Oriented Mesh Architecture. Enabled analytics for 29 tenants in a strictly compliant ITAR environment.',
-    link: '#',
-    type: 'Enterprise Arch',
-    image: 'https://images.unsplash.com/photo-1559067515-bf7d799b6d42?q=80&w=800&auto=format&fit=crop',
-    tech: ['BigQuery', 'Data Mesh', 'ITAR']
+    tech: ['Vertex AI', 'Gen AI', 'Gemini']
   }
 ];
 
-const MEDIA = [
-  {
-    id: 'nZa5-WyN-rE',
-    title: 'Intro to Agents (Thought Leadership)',
-    description: "Deep dive into the future of autonomous agents and their impact on enterprise workflows.",
-    type: 'Talk'
-  },
-  {
-    id: 'AuJcu_fQfBY',
-    title: 'Building Autonomous Agents',
-    description: "Technical demo showcasing the architecture and implementation of modern AI agents.",
-    type: 'Demo'
-  }
-];
-
-const CERTIFICATIONS = [
-  '10x Google Cloud Certified',
-  '7x AWS Certified',
-  '2x Microsoft Azure Certified',
-  'Scaled Agile Certified SAFe 4 Agilist'
-];
-
-const EDUCATION = [
-  {
-    school: 'University of Florida',
-    degree: 'BS Aerospace Engineering & BS Mechanical Engineering',
-    honors: 'Cum Laude Honors',
-    year: '2006 — 2011'
-  }
-];
-
-const RELEASE_NOTES = [
-  {
-    version: 'v2.1.0',
-    date: 'Dec 11, 2025',
-    title: 'Content Expansion',
-    changes: [
-      'Added "Media" section featuring YouTube talks and demos.',
-      'Highlighted "Advent of Agents" as a featured project.',
-      'Updated professional experience timeline (15 years).'
-    ]
-  },
-  {
-    version: 'v2.0.0',
-    date: 'Dec 10, 2025',
-    title: 'Spotlight Redesign',
-    changes: [
-      'Implemented "Spotlight" visual theme with mouse-tracking gradients.',
-      'Dark mode overhaul (Navy/Slate palette).',
-      'Migrated to split-screen sticky layout for better readability.'
-    ]
-  },
-  {
-    version: 'v1.2.1',
-    date: 'Dec 11, 2025',
-    title: 'Security Patch (CVE-2025-55182)',
-    changes: [
-      'Updated React to v19.2.1 to resolve critical security vulnerability.',
-      'Refreshed Firebase configuration for enhanced security.'
-    ]
-  }
-];
-
-function App() {
+function LandingPage() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -162,20 +112,23 @@ function App() {
     <div
       className="app"
       style={{
-        background: `radial-gradient(600px at ${mousePos.x}px ${mousePos.y}px, rgba(29, 78, 216, 0.15), transparent 80%)`
+        background: `radial-gradient(1000px at ${mousePos.x}px ${mousePos.y}px, rgba(52, 66, 88, 0.4), transparent 80%)`
       }}
     >
+      <img
+        src="https://media.licdn.com/dms/image/v2/D5603AQGRHW0BEJvVIg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1683008109054?e=2147483647&v=beta&t=fxcWMUZyarFigKAjBOU9mP5IHmuabaR5iwMGgGipyyk"
+        alt="Enrique Chan"
+        className="profile-bubble"
+        onClick={() => window.open('https://www.linkedin.com/in/enriquechan/', '_blank')}
+      />
       <div className="layout">
-        {/* LEFT COLUMN (Fixed/Sticky) */}
+        {/* LEFT COLUMN */}
         <header className="header">
           <div>
             <h1 className="name">Enrique Chan</h1>
             <h2 className="role">Outbound Product Manager, Cloud AI at Google</h2>
             <p className="bio">
-              I leverage <strong>Tech, Data & AI</strong> to transform how people experience the world.
-              <br /><br />
-              From launching <strong>Disney's MyMagic+ (MagicBands)</strong> to architecting the <strong>2024 Olympic Games AI Chatbot</strong>,
-              I build production-grade systems that impact millions.
+              I leverage <span className="highlight-orange">Tech, Data & AI</span> to transform how people experience the world.
             </p>
 
             <nav className="nav">
@@ -187,18 +140,23 @@ function App() {
                 <span className="nav-indicator"></span>
                 <span className="nav-text">Experience</span>
               </a>
-              <a href="#projects" className="nav-link">
+              <a href="#talks" className="nav-link">
                 <span className="nav-indicator"></span>
-                <span className="nav-text">Selected Work</span>
+                <span className="nav-text">Tech Talks</span>
               </a>
-              <a href="#media" className="nav-link">
+              <a href="#publications" className="nav-link">
                 <span className="nav-indicator"></span>
-                <span className="nav-text">Media</span>
+                <span className="nav-text">Publications</span>
               </a>
-              <a href="#releases" className="nav-link">
+              <a href="#work" className="nav-link">
                 <span className="nav-indicator"></span>
-                <span className="nav-text">Releases</span>
+                <span className="nav-text">Work</span>
               </a>
+              <Link to="/media" className="nav-link media-nav-link">
+                <span className="nav-indicator"></span>
+                <span className="nav-text">Media & Gallery</span>
+                <PlayCircle size={14} className="ml-2 inline-block opacity-70" />
+              </Link>
             </nav>
           </div>
 
@@ -209,11 +167,6 @@ function App() {
               </a>
             </li>
             <li>
-              <a href="https://medium.com/@enriq" target="_blank" rel="noopener noreferrer" aria-label="Medium">
-                <Layers size={24} />
-              </a>
-            </li>
-            <li>
               <a href="mailto:enriquekalven@gmail.com" aria-label="Email">
                 <Mail size={24} />
               </a>
@@ -221,22 +174,13 @@ function App() {
           </ul>
         </header>
 
-        {/* RIGHT COLUMN (Scrollable) */}
+        {/* RIGHT COLUMN */}
         <main className="content">
-
           <section id="about" className="section">
             <h3 className="section-title-mobile">About</h3>
             <p className="text-body">
-              With over <strong>15 years</strong> of experience in IT, Cloud, and Data, I specialize in the entire lifecycle of <strong>MLOps</strong>,
-              <strong>Virtual Assistants</strong>, and <strong>Generative AI</strong>. My strategic vision is simple:
-              use technology to leverage business impact and create a fairer, evolved world.
-            </p>
-            <p className="text-body">
-              Recently, I co-authored the "Intro to Agents" whitepaper and led the delivery of the <strong>Oli Chatbot</strong> for the 2024 Paris Olympics.
-              I thrive on "mission impossible" projects—like ramping up a delayed modernization for Boeing or launching Disney+ worldwide.
-            </p>
-            <p className="text-body">
-              <em>"A team is only as strong as its weakest player."</em> — My work philosophy is centered on mentorship, people-centric leadership, and elevating everyone around me.
+              With over 15 years of experience, I build production-grade AI systems that impact millions.
+              Mentorship and people-centric leadership are at the core of my <span className="highlight-orange">philosophy</span>.
             </p>
           </section>
 
@@ -261,17 +205,53 @@ function App() {
             </div>
           </section>
 
-          <section id="projects" className="section">
-            <h3 className="section-title-mobile">Selected Work</h3>
+          <section id="talks" className="section">
+            <h3 className="section-title-mobile">Tech Talks</h3>
+            <div className="experience-list">
+              {TECH_TALKS.map((talk, idx) => (
+                <div key={idx} className="card experience-card">
+                  <div className="card-period">{talk.title}</div>
+                  <div className="card-content">
+                    <h3 className="card-title">
+                      {talk.topic}
+                      {talk.icon && <talk.icon size={16} className="ml-2 text-accent-secondary" />}
+                    </h3>
+                    <p className="card-desc" style={{ color: 'var(--white)' }}>{talk.location}</p>
+                    <p className="card-desc">{talk.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section id="publications" className="section">
+            <h3 className="section-title-mobile">Publications</h3>
+            <div className="project-list">
+              {PUBLICATIONS.map((pub, idx) => (
+                <a key={idx} href={pub.link} target="_blank" className="card experience-card">
+                  <div className="card-period">{pub.platform}</div>
+                  <div className="card-content">
+                    <h3 className="card-title">
+                      {pub.title}
+                      <BookOpen size={14} className="arrow-icon" />
+                    </h3>
+                    <p className="card-desc">{pub.description}</p>
+                    <div className="skill-tags">
+                      {pub.tech.map(t => <span key={t} className="tag">{t}</span>)}
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </section>
+
+          <section id="work" className="section">
+            <h3 className="section-title-mobile">Work</h3>
             <div className="project-list">
               {PROJECTS.map((proj, idx) => (
                 <a key={idx} href={proj.link} target="_blank" className="card project-card">
                   <div className="project-image-wrapper">
-                    {proj.image && !proj.image.includes('placeholder') ? (
-                      <img src={proj.image} alt={proj.title} className="project-thumb" />
-                    ) : (
-                      <div className="project-thumb-placeholder" />
-                    )}
+                    <img src={proj.image} alt={proj.title} className="project-thumb" />
                   </div>
                   <div className="card-content">
                     <h3 className="card-title">
@@ -288,93 +268,30 @@ function App() {
             </div>
           </section>
 
-          <section id="media" className="section">
-            <h3 className="section-title-mobile">Media</h3>
-            <div className="project-list">
-              {MEDIA.map((item, idx) => (
-                <div key={idx} className="card project-card video-card">
-                  <div className="video-wrapper">
-                    <iframe
-                      width="100%"
-                      height="100%"
-                      src={`https://www.youtube.com/embed/${item.id}`}
-                      title={item.title}
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    ></iframe>
-                  </div>
-                  <div className="card-content">
-                    <h3 className="card-title">
-                      {item.title}
-                      <PlayCircle size={14} className="arrow-icon" />
-                    </h3>
-                    <p className="card-desc">{item.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          <section id="education" className="section">
-            <h3 className="section-title-mobile">Education</h3>
-            {EDUCATION.map((edu, idx) => (
-              <div key={idx} className="card experience-card">
-                <div className="card-period">{edu.year}</div>
-                <div className="card-content">
-                  <h3 className="card-title">{edu.school}</h3>
-                  <p className="card-desc">{edu.degree}</p>
-                  <p className="card-desc" style={{ color: 'var(--accent)' }}>{edu.honors}</p>
-                </div>
-              </div>
-            ))}
-          </section>
-
-          <section id="certs" className="section">
-            <h3 className="section-title-mobile">Certifications</h3>
-            <div className="certs-list">
-              {CERTIFICATIONS.map((cert, idx) => (
-                <div key={idx} className="cert-item">
-                  <Award size={16} className="cert-icon" />
-                  <span>{cert}</span>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          <section id="releases" className="section">
-            <h3 className="section-title-mobile">Release Notes</h3>
-            <div className="experience-list">
-              {RELEASE_NOTES.map((note, idx) => (
-                <div key={idx} className="card experience-card">
-                  <div className="card-period">{note.date}</div>
-                  <div className="card-content">
-                    <h3 className="card-title">
-                      {note.version}
-                      <span className="company"> · {note.title}</span>
-                    </h3>
-                    <ul className="card-desc" style={{ listStyleType: 'disc', paddingLeft: '1rem', marginTop: '0.5rem' }}>
-                      {note.changes.map((change, cIdx) => (
-                        <li key={cIdx}>{change}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-
           <footer className="footer">
-            <p>
-              Designed in the style of
-              <a href="https://brittanychiang.com/" target="_blank" className="highlight"> Brittany Chiang</a>.
-              Built with React, Vite & Firebase.
-            </p>
+            <div className="footer-content">
+              <p>
+                Aesthetic inspired by <a href="https://cloudrace.info/" target="_blank" className="highlight-orange">CloudRace</a>.
+              </p>
+              <p className="footer-sub">
+                © {new Date().getFullYear()} Enrique Chan. Built with React & Vite.
+              </p>
+            </div>
           </footer>
-
         </main>
       </div>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/media" element={<MediaPage />} />
+      </Routes>
+    </Router>
   );
 }
 
