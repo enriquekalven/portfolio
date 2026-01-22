@@ -460,6 +460,7 @@ function Navbar({ onEasterEgg, comicUnlocked, onShowComic }: { onEasterEgg: () =
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               onClick={onShowComic}
+              className="nav-special-link"
               style={{ 
                 background: 'none',
                 border: 'none',
@@ -468,7 +469,7 @@ function Navbar({ onEasterEgg, comicUnlocked, onShowComic }: { onEasterEgg: () =
                 cursor: 'pointer',
                 fontFamily: 'inherit',
                 fontSize: 'inherit',
-                padding: 0
+                padding: '4px 8px'
               }}
             >
               Comic 🕵️‍♂️
@@ -960,54 +961,56 @@ function LandingPage() {
           <motion.div
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            className="modal-content"
+            className="modal-content responsive-modal"
             onClick={(e) => e.stopPropagation()}
             style={{
               background: 'white',
               maxWidth: '800px',
-              width: '100%',
-              borderRadius: '32px',
-              padding: '60px',
+              width: '95%',
+              borderRadius: '24px',
               position: 'relative',
-              maxHeight: '90vh',
-              overflowY: 'auto'
+              maxHeight: '90dvh',
+              overflowY: 'auto',
+              boxShadow: '0 30px 60px rgba(0,0,0,0.2)'
             }}
           >
             <button
               onClick={() => setSelectedProject(null)}
-              style={{ position: 'absolute', right: '32px', top: '32px', background: '#f8f9fa', border: 'none', borderRadius: '50%', padding: '12px', cursor: 'pointer' }}
+              style={{ position: 'absolute', right: '20px', top: '20px', background: '#f8f9fa', border: 'none', borderRadius: '50%', padding: '8px', cursor: 'pointer', zIndex: 10 }}
             >
-              <X size={24} />
+              <X size={20} />
             </button>
-            <span style={{ color: 'var(--accent-coral)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '2px', fontSize: '13px' }}>{selectedProject.tag}</span>
-            <h2 style={{ fontSize: '48px', margin: '16px 0 32px', letterSpacing: '-1px' }}>{selectedProject.title} Case Study</h2>
+            <div className="modal-inner-padding" style={{ padding: '40px' }}>
+              <span style={{ color: 'var(--accent-coral)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '2px', fontSize: '12px' }}>{selectedProject.tag}</span>
+              <h2 className="modal-title" style={{ fontSize: '36px', margin: '12px 0 24px', letterSpacing: '-0.5px', lineHeight: 1.2 }}>{selectedProject.title} Case Study</h2>
 
-            {selectedProject.details.caseStudyImage && (
-              <div style={{ width: '100%', marginBottom: '40px', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}>
-                <img src={selectedProject.details.caseStudyImage} alt={selectedProject.title} style={{ width: '100%', height: 'auto', display: 'block' }} />
+              {selectedProject.details.caseStudyImage && (
+                <div style={{ width: '100%', marginBottom: '32px', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}>
+                  <img src={selectedProject.details.caseStudyImage} alt={selectedProject.title} style={{ width: '100%', height: 'auto', display: 'block' }} />
+                </div>
+              )}
+
+              <div style={{ marginBottom: '40px' }}>
+                <h4 style={{ fontSize: '18px', marginBottom: '16px', fontWeight: 800 }}>Key Highlights</h4>
+                <div style={{ display: 'grid', gap: '16px' }}>
+                  {selectedProject.details.highlights.map((h: string, i: number) => (
+                    <div key={i} style={{ display: 'flex', gap: '12px', fontSize: '16px', lineHeight: '1.5', opacity: 0.8 }}>
+                      <div style={{ width: '6px', height: '6px', background: 'var(--accent-coral)', borderRadius: '50%', marginTop: '8px', flexShrink: 0 }}></div>
+                      <p>{h}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
-            )}
 
-            <div style={{ marginBottom: '48px' }}>
-              <h4 style={{ fontSize: '20px', marginBottom: '24px', fontWeight: 800 }}>Key Highlights</h4>
-              <div style={{ display: 'grid', gap: '20px' }}>
-                {selectedProject.details.highlights.map((h: string, i: number) => (
-                  <div key={i} style={{ display: 'flex', gap: '16px', fontSize: '18px', lineHeight: '1.6', opacity: 0.8 }}>
-                    <div style={{ width: '8px', height: '8px', background: 'var(--accent-coral)', borderRadius: '50%', marginTop: '10px', flexShrink: 0 }}></div>
-                    <p>{h}</p>
-                  </div>
-                ))}
+              <div style={{ marginBottom: '40px' }}>
+                <h4 style={{ fontSize: '18px', marginBottom: '12px', fontWeight: 800 }}>Strategic Win</h4>
+                <p style={{ fontSize: '16px', lineHeight: '1.6', opacity: 0.8 }}>{selectedProject.details.strategy}</p>
               </div>
-            </div>
 
-            <div style={{ marginBottom: '48px' }}>
-              <h4 style={{ fontSize: '20px', marginBottom: '16px', fontWeight: 800 }}>Strategic Win</h4>
-              <p style={{ fontSize: '18px', lineHeight: '1.7', opacity: 0.8 }}>{selectedProject.details.strategy}</p>
-            </div>
-
-            <div>
-              <h4 style={{ fontSize: '20px', marginBottom: '16px', fontWeight: 800 }}>Lean Operation</h4>
-              <p style={{ fontSize: '16px', opacity: 0.6 }}>Delivered by an agile core team: <span style={{ fontWeight: 600 }}>{selectedProject.details.team}</span></p>
+              <div>
+                <h4 style={{ fontSize: '18px', marginBottom: '12px', fontWeight: 800 }}>Lean Operation</h4>
+                <p style={{ fontSize: '14px', opacity: 0.6 }}>Delivered by: <span style={{ fontWeight: 600 }}>{selectedProject.details.team}</span></p>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -1068,7 +1071,14 @@ function LandingPage() {
                     </button>
                     <h3 style={{ fontSize: '20px', fontWeight: 800, margin: 0 }}>{activeComic.name}</h3>
                   </div>
-                  <div style={{ width: '100%', height: '70vh', background: 'white', borderRadius: '12px', overflow: 'hidden' }}>
+                  <div style={{
+                    width: '100%',
+                    height: '70dvh',
+                    background: 'white',
+                    borderRadius: '12px',
+                    overflow: 'hidden',
+                    WebkitOverflowScrolling: 'touch'
+                  }}>
                     <iframe
                       src={`/${activeComic.file}#toolbar=0`}
                       style={{ width: '100%', height: '100%', border: 'none' }}
@@ -1083,7 +1093,7 @@ function LandingPage() {
                     You've discovered the Architect's Secret Files. Access the full series below.
                   </p>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '12px' }}>
+                    <div className="comic-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '12px' }}>
                     {[
                       { name: 'Business Leaders Edition', file: 'agent_adventures_business_leaders.pdf' },
                       { name: 'Issue #1: Origin', file: 'agent_adventures_part_1.pdf' },

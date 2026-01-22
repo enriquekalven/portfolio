@@ -1,8 +1,9 @@
 /* Main App Wrapper */
 .app {
   background-color: var(--bg-color);
-    color: var(--text-primary);
-  min-height: 100vh;
+  color: var(--text-primary);
+  min-height: 100dvh;
+    overflow-x: hidden;
 }
 
 /* Navbar */
@@ -81,9 +82,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-    gap: 80px;
+  gap: 80px;
     padding: 180px 24px 100px;
-    min-height: 90vh;
+  min-height: 90dvh;
 }
 
 .hero-content {
@@ -250,7 +251,7 @@
 /* Cards Grid */
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 40px;
 }
 
@@ -309,6 +310,8 @@
   overflow: hidden;
   aspect-ratio: 16/10;
   box-shadow: var(--card-shadow);
+  /* Fix for iOS Safari rounding issues */
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .work-card img {
@@ -481,19 +484,31 @@
     display: none;
   }
 
+        .nav-container {
+          padding: 0 16px;
+        }
+    
+        .logo {
+          font-size: 20px;
+        }
   .newsletter-form {
     flex-direction: column;
     padding: 0 20px;
   }
 
-                                                                .hero-title {
-                                                                  font-size: 42px;
-                                                                }
-                                
-                                                                .section-title {
-                                                                  font-size: 36px;
-                                                                }
-                                                                }
+        .hero-title {
+          font-size: 42px;
+        }
+    
+        .section-title {
+    font-size: 32px;
+    }
+    
+    .profile-bubble {
+      width: 300px;
+      height: 300px;
+    }
+    }
                                 
                                                                 /* Speaking Section */
                                                                 .speaking-card {
@@ -534,4 +549,24 @@
 
 .classified-doc BookOpen {
   color: var(--accent-coral-glow);
+}
+/* Responsive Modal Fixes */
+@media (max-width: 768px) {
+  .modal-inner-padding {
+    padding: 32px 20px !important;
+  }
+
+  .modal-title {
+    font-size: 28px !important;
+  }
+
+  .responsive-modal {
+    width: 98% !important;
+    max-height: 95dvh !important;
+  }
+
+  /* Stack comic grid on small screens */
+  .comic-grid {
+    grid-template-columns: 1fr !important;
+  }
 }
