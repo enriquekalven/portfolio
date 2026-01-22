@@ -529,11 +529,11 @@ function LandingPage() {
         >
           <div className="section-tag" style={{ textAlign: 'left', marginBottom: '8px' }}>⚡ Outbound Product Manager, Cloud AI @ Google</div>
           <div style={{ display: 'flex', gap: '16px', marginBottom: '24px', fontSize: '14px', fontWeight: 600 }}>
-            <a href="https://cloud.google.com/gemini" target="_blank" style={{ color: 'var(--accent-coral)', textDecoration: 'none' }}>Gemini Enterprise ↗</a>
+            <a href="https://cloud.google.com/gemini-enterprise?e=48754805" target="_blank" style={{ color: 'var(--accent-coral)', textDecoration: 'none' }}>Gemini Enterprise ↗</a>
             <span style={{ opacity: 0.3 }}>|</span>
-            <a href="https://github.com/GoogleCloudPlatform/agent-development-kit" target="_blank" style={{ color: 'var(--accent-coral)', textDecoration: 'none' }}>ADK ↗</a>
+            <a href="https://google.github.io/adk-docs/" target="_blank" style={{ color: 'var(--accent-coral)', textDecoration: 'none' }}>ADK ↗</a>
             <span style={{ opacity: 0.3 }}>|</span>
-            <a href="https://cloud.google.com/vertex-ai/docs/agents/overview" target="_blank" style={{ color: 'var(--accent-coral)', textDecoration: 'none' }}>Agent Engine ↗</a>
+            <a href="https://docs.cloud.google.com/agent-builder/agent-engine/overview" target="_blank" style={{ color: 'var(--accent-coral)', textDecoration: 'none' }}>Agent Engine ↗</a>
           </div>
           <h1 className="hero-title">
             I help enterprises build <span className="highlight-underline">production-grade</span> AI systems.
