@@ -527,7 +527,14 @@ function LandingPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="section-tag" style={{ textAlign: 'left', marginBottom: '20px' }}>⚡ Outbound Product Manager, Cloud AI @ Google</div>
+          <div className="section-tag" style={{ textAlign: 'left', marginBottom: '8px' }}>⚡ Outbound Product Manager, Cloud AI @ Google</div>
+          <div style={{ display: 'flex', gap: '16px', marginBottom: '24px', fontSize: '14px', fontWeight: 600 }}>
+            <a href="https://cloud.google.com/gemini" target="_blank" style={{ color: 'var(--accent-coral)', textDecoration: 'none' }}>Gemini Enterprise ↗</a>
+            <span style={{ opacity: 0.3 }}>|</span>
+            <a href="https://github.com/GoogleCloudPlatform/agent-development-kit" target="_blank" style={{ color: 'var(--accent-coral)', textDecoration: 'none' }}>ADK ↗</a>
+            <span style={{ opacity: 0.3 }}>|</span>
+            <a href="https://cloud.google.com/vertex-ai/docs/agents/overview" target="_blank" style={{ color: 'var(--accent-coral)', textDecoration: 'none' }}>Agent Engine ↗</a>
+          </div>
           <h1 className="hero-title">
             I help enterprises build <span className="highlight-underline">production-grade</span> AI systems.
           </h1>
