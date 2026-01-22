@@ -1,4 +1,4 @@
-import { ArrowLeft, PlayCircle, ExternalLink, ChevronRight } from 'lucide-react';
+import { PlayCircle, ExternalLink, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import './App.css';
 import { motion } from 'framer-motion';
