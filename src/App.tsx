@@ -528,12 +528,16 @@ function LandingPage() {
           transition={{ duration: 0.8 }}
         >
           <div className="section-tag" style={{ textAlign: 'left', marginBottom: '8px' }}>⚡ Outbound Product Manager, Cloud AI @ Google</div>
-          <div style={{ display: 'flex', gap: '16px', marginBottom: '24px', fontSize: '14px', fontWeight: 600 }}>
+          <div style={{ display: 'flex', gap: '16px', marginBottom: '24px', fontSize: '14px', fontWeight: 600, flexWrap: 'wrap' }}>
             <a href="https://cloud.google.com/gemini-enterprise?e=48754805" target="_blank" style={{ color: 'var(--accent-coral)', textDecoration: 'none' }}>Gemini Enterprise ↗</a>
             <span style={{ opacity: 0.3 }}>|</span>
             <a href="https://google.github.io/adk-docs/" target="_blank" style={{ color: 'var(--accent-coral)', textDecoration: 'none' }}>ADK ↗</a>
             <span style={{ opacity: 0.3 }}>|</span>
             <a href="https://docs.cloud.google.com/agent-builder/agent-engine/overview" target="_blank" style={{ color: 'var(--accent-coral)', textDecoration: 'none' }}>Agent Engine ↗</a>
+            <span style={{ opacity: 0.3 }}>|</span>
+            <a href="https://a2a-protocol.org/latest/" target="_blank" style={{ color: 'var(--accent-coral)', textDecoration: 'none' }}>A2A ↗</a>
+            <span style={{ opacity: 0.3 }}>|</span>
+            <a href="https://a2ui.org/" target="_blank" style={{ color: 'var(--accent-coral)', textDecoration: 'none' }}>A2UI ↗</a>
           </div>
           <h1 className="hero-title">
             I help enterprises build <span className="highlight-underline">production-grade</span> AI systems.
