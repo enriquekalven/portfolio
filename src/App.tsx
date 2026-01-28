@@ -242,6 +242,13 @@ const CERTIFICATIONS = [
 
 const PUBLICATIONS = [
   {
+    title: 'Building with A2UI: Why I Blew Up My Portfolio to Build a "Living" UI ✍️',
+    platform: 'Medium',
+    image: '/fun_factor_a2ui.png',
+    description: "In the AI world, we've spent the last two years obsessed with RAG (Retrieval-Augmented Generation). We've built...",
+    link: 'https://medium.com/@enriq/the-fun-factor-developing-at-the-speed-of-thought-024085b290dd?postPublishedType=repub',
+  },
+  {
     title: 'Building the Future of Agentic Interfaces ✍️',
     platform: 'Medium',
     image: '/a2ui_blog.png',
@@ -324,6 +331,16 @@ const TESTIMONIALS = [
 ];
 
 const SPEAKING = [
+  {
+    title: "Architecting AI Agents 🏗️",
+    event: "Google Cloud Next '26",
+    session: "Keynote / Speaker",
+    time: "April 22 - 24, 2026",
+    location: "Mandalay Bay, Las Vegas",
+    image: "/next_26_session.png",
+    link: "https://cloud.withgoogle.com/next",
+    status: "UPCOMING"
+  },
   {
     title: "Exploring and transferring family language in a world of AI 👨‍👩‍👧‍👦",
     event: "MIXED Googlers — Parenting Committee",
@@ -484,6 +501,16 @@ function Navbar({ onEasterEgg, comicUnlocked, onShowComic }: { onEasterEgg: () =
   );
 }
 
+function WhatsNewBanner() {
+  return (
+    <a href="#speaking" className="whats-new-banner">
+      <span className="banner-tag">JUST ANNOUNCED</span>
+      <span>Enrique Chan to Speak at Cloud Next '26 on "Architecting AI Agents" - see you in Las Vegas! 🎲</span>
+      <ArrowRight size={14} />
+    </a>
+  );
+}
+
 function LandingPage() {
   const [selectedProject, setSelectedProject] = useState<any>(null);
   const [showComic, setShowComic] = useState(false);
@@ -513,6 +540,7 @@ function LandingPage() {
 
   return (
     <div className="app">
+      <WhatsNewBanner />
       <Navbar
         onEasterEgg={triggerEasterEgg}
         comicUnlocked={comicUnlocked}

@@ -6,10 +6,40 @@
     overflow-x: hidden;
 }
 
-/* Navbar */
+/* What's New Banner */
+.whats-new-banner {
+  background: var(--gradient-main);
+  color: white;
+  padding: 10px 24px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  position: relative;
+  z-index: 1001;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.whats-new-banner:hover {
+  filter: brightness(1.1);
+}
+
+.banner-tag {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 .navbar {
   position: fixed;
-  top: 0;
+  top: 40px;
+    /* Offset by banner height */
   left: 0;
   right: 0;
   height: 80px;
@@ -20,6 +50,8 @@
 }
 
 .navbar.scrolled {
+  top: 0;
+    /* Sticky to top when scrolled */
   height: 70px;
   background: rgba(252, 250, 247, 0.8);
   backdrop-filter: blur(20px);
