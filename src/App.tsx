@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import './App.css';
@@ -23,7 +23,7 @@ import {
 } from 'lucide-react';
 import MediaPage from './MediaPage';
 import confetti from 'canvas-confetti';
-// @ts-ignore
+// @ts-expect-error: konami-code-js does not have type definitions
 import Konami from 'konami-code-js';
 
 /* --- Data --- */
@@ -453,7 +453,7 @@ function Navbar({ onEasterEgg, comicUnlocked, onShowComic }: { onEasterEgg: () =
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleTap = (_e: React.MouseEvent) => {
+  const handleTap = () => {
     const now = Date.now();
     if (now - lastTap.current < 600) {
       const newCount = tapCount + 1;
@@ -528,14 +528,33 @@ function WhatsNewBanner() {
   );
 }
 
+interface Comic {
+  name: string;
+  file: string;
+}
+
+interface Project {
+  title: string;
+  tag: string;
+  description: string;
+  image: string;
+  link: string;
+  details?: {
+    highlights: string[];
+    strategy: string;
+    team: string;
+    caseStudyImage?: string;
+  };
+}
+
 function LandingPage() {
-  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [showComic, setShowComic] = useState(false);
-  const [activeComic, setActiveComic] = useState<any>(null);
+  const [activeComic, setActiveComic] = useState<Comic | null>(null);
   const [comicUnlocked, setComicUnlocked] = useState(false);
   const [showHint, setShowHint] = useState(false);
 
-  const triggerEasterEgg = () => {
+  const triggerEasterEgg = useCallback(() => {
     if (comicUnlocked) return; // Already unlocked
 
     confetti({
@@ -547,13 +566,17 @@ function LandingPage() {
     setComicUnlocked(true);
     // Alert or subtle visual feedback that something happened
     console.log("CLASSIFIED ACCESS GRANTED: Check the navbar.");
-  };
+  }, [comicUnlocked]);
 
   useEffect(() => {
     new Konami(() => {
       triggerEasterEgg();
     });
-  }, []);
+    return () => {
+      // If Konami had a cleanup, we'd call it here
+    };
+  }, [comicUnlocked, triggerEasterEgg]); // Adding comicUnlocked as dependency to match the logic if needed or just empty if stable
+
 
   return (
     <div className="app">
@@ -743,7 +766,7 @@ function LandingPage() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              onClick={() => work.details && setSelectedProject(work)}
+              onClick={() => work.details && setSelectedProject(work as Project)}
               style={{ cursor: work.details ? 'pointer' : 'default' }}
             >
               <img src={work.image} alt={work.title} />
@@ -756,7 +779,7 @@ function LandingPage() {
                     onClick={(e) => {
                       if (work.details) {
                         e.stopPropagation();
-                        setSelectedProject(work);
+                        setSelectedProject(work as Project);
                       }
                     }}
                     style={{ background: 'none', border: 'none', color: 'inherit', padding: 0, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px', fontWeight: 600 }}
@@ -918,50 +941,45 @@ function LandingPage() {
                   viewport={{ once: true }}
                   style={{ borderRadius: '32px', overflow: 'hidden', boxShadow: '0 40px 80px rgba(0,0,0,0.1)' }}
                 >
-                  <img src={featured.image} alt={featured.title} style={{ width: '100%', height: 'auto', display: 'block' }} />
+                  <img src={featured.image} alt={featured.title} style={{ width: '100%', height: 'auto' }} />
                 </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', color: 'var(--accent-coral)', fontWeight: 700, marginBottom: '16px' }}>
-                    <Award size={24} /> {featured.organization}
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
+                    <div style={{ background: 'var(--accent-coral)', color: 'white', padding: '4px 12px', borderRadius: '100px', fontSize: '12px', fontWeight: 700 }}>FEATURED RECOGNITION</div>
                   </div>
-                  <h3 style={{ fontSize: '42px', marginBottom: '24px', letterSpacing: '-1px' }}>{featured.title}</h3>
-                  <p style={{ fontSize: '20px', lineHeight: '1.6', opacity: 0.8, marginBottom: '32px' }}>{featured.detail}</p>
+                  <h3 style={{ fontSize: '42px', marginBottom: '24px', lineHeight: 1.1 }}>{featured.title}</h3>
+                  <p style={{ fontSize: '20px', opacity: 0.7, marginBottom: '32px', lineHeight: 1.6 }}>{featured.detail}</p>
                   <div style={{ display: 'flex', gap: '12px' }}>
                     {featured.tags?.map(tag => (
-                      <span key={tag} style={{ padding: '8px 20px', borderRadius: '100px', background: '#f8f9fa', fontSize: '14px', fontWeight: 600 }}>{tag}</span>
+                      <span key={tag} style={{ background: '#f8f9fa', padding: '8px 20px', borderRadius: '100px', fontSize: '14px', fontWeight: 600 }}>{tag}</span>
                     ))}
                   </div>
-                </motion.div>
+                </div>
               </div>
             );
           })()}
 
-          <div className="cards-grid">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
             {AWARDS.filter(a => !a.image).map((award, idx) => (
               <motion.div
                 key={idx}
-                className="service-card"
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                style={{ background: '#fdfaf7', border: 'none' }}
+                style={{ background: '#fdfaf7', padding: '40px', borderRadius: '24px', border: '1px solid #f0e6e0' }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#888', marginBottom: '16px' }}>
-                  <Award size={18} />
-                  <span style={{ fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px' }}>{award.organization}</span>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '24px' }}>
+                  <Award size={32} style={{ color: 'var(--accent-coral)' }} />
+                  <div style={{ display: 'flex', gap: '8px' }}>
+                    {award.tags?.map(tag => (
+                      <span key={tag} style={{ fontSize: '11px', fontWeight: 800, color: 'var(--accent-coral)', textTransform: 'uppercase', letterSpacing: '1px' }}>{tag}</span>
+                    ))}
+                  </div>
                 </div>
-                <h3 className="card-title" style={{ fontSize: '24px' }}>{award.title}</h3>
-                <p className="card-description" style={{ fontSize: '16px' }}>{award.detail}</p>
-                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginTop: 'auto' }}>
-                  {award.tags?.map(tag => (
-                    <span key={tag} style={{ fontSize: '11px', background: 'white', padding: '4px 12px', borderRadius: '100px', border: '1px solid #eee', fontWeight: 600 }}>{tag}</span>
-                  ))}
-                </div>
+                <h4 style={{ fontSize: '20px', fontWeight: 800, marginBottom: '12px' }}>{award.title}</h4>
+                <p style={{ fontSize: '13px', color: '#999', marginBottom: '20px', fontWeight: 700 }}>{award.organization}</p>
+                <p style={{ fontSize: '15px', opacity: 0.7, lineHeight: 1.6 }}>{award.detail}</p>
               </motion.div>
             ))}
           </div>
@@ -1042,33 +1060,37 @@ function LandingPage() {
               <span style={{ color: 'var(--accent-coral)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '2px', fontSize: '12px' }}>{selectedProject.tag}</span>
               <h2 className="modal-title" style={{ fontSize: '36px', margin: '12px 0 24px', letterSpacing: '-0.5px', lineHeight: 1.2 }}>{selectedProject.title} Case Study</h2>
 
-              {selectedProject.details.caseStudyImage && (
+              {selectedProject.details?.caseStudyImage && (
                 <div style={{ width: '100%', marginBottom: '32px', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}>
                   <img src={selectedProject.details.caseStudyImage} alt={selectedProject.title} style={{ width: '100%', height: 'auto', display: 'block' }} />
                 </div>
               )}
 
-              <div style={{ marginBottom: '40px' }}>
-                <h4 style={{ fontSize: '18px', marginBottom: '16px', fontWeight: 800 }}>Key Highlights</h4>
-                <div style={{ display: 'grid', gap: '16px' }}>
-                  {selectedProject.details.highlights.map((h: string, i: number) => (
-                    <div key={i} style={{ display: 'flex', gap: '12px', fontSize: '16px', lineHeight: '1.5', opacity: 0.8 }}>
-                      <div style={{ width: '6px', height: '6px', background: 'var(--accent-coral)', borderRadius: '50%', marginTop: '8px', flexShrink: 0 }}></div>
-                      <p>{h}</p>
+              {selectedProject.details && (
+                <>
+                  <div style={{ marginBottom: '40px' }}>
+                    <h4 style={{ fontSize: '18px', marginBottom: '16px', fontWeight: 800 }}>Key Highlights</h4>
+                    <div style={{ display: 'grid', gap: '16px' }}>
+                      {selectedProject.details.highlights.map((h: string, i: number) => (
+                        <div key={i} style={{ display: 'flex', gap: '12px', fontSize: '16px', lineHeight: '1.5', opacity: 0.8 }}>
+                          <div style={{ width: '6px', height: '6px', background: 'var(--accent-coral)', borderRadius: '50%', marginTop: '8px', flexShrink: 0 }}></div>
+                          <p>{h}</p>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </div>
+                  </div>
 
-              <div style={{ marginBottom: '40px' }}>
-                <h4 style={{ fontSize: '18px', marginBottom: '12px', fontWeight: 800 }}>Strategic Win</h4>
-                <p style={{ fontSize: '16px', lineHeight: '1.6', opacity: 0.8 }}>{selectedProject.details.strategy}</p>
-              </div>
+                  <div style={{ marginBottom: '40px' }}>
+                    <h4 style={{ fontSize: '18px', marginBottom: '12px', fontWeight: 800 }}>Strategic Win</h4>
+                    <p style={{ fontSize: '16px', lineHeight: '1.6', opacity: 0.8 }}>{selectedProject.details.strategy}</p>
+                  </div>
 
-              <div>
-                <h4 style={{ fontSize: '18px', marginBottom: '12px', fontWeight: 800 }}>Lean Operation</h4>
-                <p style={{ fontSize: '14px', opacity: 0.6 }}>Delivered by: <span style={{ fontWeight: 600 }}>{selectedProject.details.team}</span></p>
-              </div>
+                  <div>
+                    <h4 style={{ fontSize: '18px', marginBottom: '12px', fontWeight: 800 }}>Lean Operation</h4>
+                    <p style={{ fontSize: '14px', opacity: 0.6 }}>Delivered by: <span style={{ fontWeight: 600 }}>{selectedProject.details.team}</span></p>
+                  </div>
+                </>
+              )}
             </div>
           </motion.div>
         </div>
