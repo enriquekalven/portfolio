@@ -93,6 +93,23 @@ const SERVICES = [
 
 const RECENT_WORK = [
   {
+    title: 'AgentOps Cockpit 🕹️',
+    tag: 'Open Source / Core Ops',
+    description: 'The professional logic layer for Agentic Apps. Multi-cloud governance and automated SME audits.',
+    image: '/cockpit.png',
+    link: 'https://agent-cockpit.web.app/',
+    details: {
+      highlights: [
+        "Governance as Code: Automated auditing against the Google Well-Architected framework.",
+        "Adversarial Audits: Real-time citations and reviews by specialized FinOps, SecOps, and Architecture personas.",
+        "92% Cost Optimization: Standardized logic layer for managing and securing agents across LLM ecosystems.",
+        "A2A Connectivity: Secure swarm orchestration through the Agent-to-Agent Transmission Standard."
+      ],
+      strategy: "Agent Cockpit provides the 'Intelligence' to match the infrastructure 'Pipes'. By moving beyond basic prompt engineering to framework-agnostic governance and safety, we enable strategic autonomy for enterprise AI fleets.",
+      team: "Enrique Chan (Lead), Agentic Trinity Working Group"
+    }
+  },
+  {
     title: 'NBC Olympic Concierge 🏅',
     tag: 'Marquee / High Scale',
     description: 'Served 40M viewers with sub-second latency via Vertex AI Provisioned Throughput.',
@@ -564,6 +581,8 @@ function LandingPage() {
             <a href="https://docs.cloud.google.com/agent-builder/agent-engine/overview" target="_blank" style={{ color: 'var(--accent-coral)', textDecoration: 'none' }}>Agent Engine ↗</a>
             <span style={{ opacity: 0.3 }}>|</span>
             <a href="https://a2a-protocol.org/latest/" target="_blank" style={{ color: 'var(--accent-coral)', textDecoration: 'none' }}>A2A ↗</a>
+            <span style={{ opacity: 0.3 }}>|</span>
+            <a href="https://agent-cockpit.web.app/" target="_blank" style={{ color: 'var(--accent-coral)', textDecoration: 'none' }}>Cockpit ↗</a>
             <span style={{ opacity: 0.3 }}>|</span>
             <a href="https://a2ui.org/" target="_blank" style={{ color: 'var(--accent-coral)', textDecoration: 'none' }}>A2UI ↗</a>
           </div>
