@@ -99,6 +99,14 @@ EXPERIENCE = [
 
 PROJECTS = [
     {
+        "name": "AgentOps Cockpit",
+        "impact": "Governance as Code | 92% Cost Optimization",
+        "image": f"{BASE_URL}/cockpit.png",
+        "description": "The professional logic layer for Agentic Apps. Multi-cloud governance, automated SME audits, and protocol-level optimization.",
+        "url": "https://agent-cockpit.web.app/",
+        "tag": "Open Source / Core Ops"
+    },
+    {
         "name": "NBC Olympic Concierge",
         "impact": "40M Viewers | 90M Queries",
         "image": f"{BASE_URL}/nbcu_oli_case_study.png",
