@@ -5,10 +5,7 @@ import './App.css';
 import {
   ArrowRight,
   Linkedin,
-  Youtube,
-  Twitter,
   ChevronRight,
-  Brain,
   ShieldCheck,
   MessageSquare,
   Mail,
@@ -16,10 +13,11 @@ import {
   Github,
   Award,
   BookOpen,
-  Calendar,
-  MapPin,
   X,
-  ArrowLeft
+  ArrowLeft,
+  Sparkles,
+  Zap,
+  CheckCircle2
 } from 'lucide-react';
 import MediaPage from './MediaPage';
 import confetti from 'canvas-confetti';
@@ -29,73 +27,164 @@ import Konami from 'konami-code-js';
 /* --- Data --- */
 const EXPERIENCE = [
   {
-    company: 'Google Cloud 🚀',
+    company: 'Google Cloud Delta ⚡',
     logo: 'https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg',
-    role: 'Outbound Product Manager, Cloud AI',
-    period: 'Nov 2025 — Present',
-    description: 'Leading vision and strategy for the AI Agents Enablement Center of Excellence. Co-authored global "Intro to Agents" whitepaper. Drove adoption of "Build Agentic Workflows" offering across the ecosystem.',
-    skills: ['Product Strategy', 'Agent Governance', 'Ecosystem Enablement']
+    role: 'Staff Technical Deployment Lead (TDL) | Delta',
+    period: 'Jun 2026 — Present',
+    description: 'Staff AI Technical Deployment Lead (TDL) for Google Cloud Delta & AI Activation / Forward Deployed Engineering (FDE) team.',
+    highlights: [
+      'Forward Deployed Engineer (FDE) Operating Model lead for 15 top-qualified enterprise accounts (including Ford and Intel).',
+      'Defined forward operating model across GTM FDE, Delta FDE, TDL, PSO, GSD, PL, and CALs to accelerate enterprise AI activation.',
+      'Scoped forward-deployed engineering opportunities for Ford and Intel based on high-impact AI use cases.',
+      'Deal team capturing $2B multi-year commit generating $63M Google Services Funds, $5M Learning, and $32M Partner Services Funds.'
+    ],
+    skills: ['Technical Deployment', 'FDE Operating Model', 'Enterprise Transformation', 'Strategic Deal Scoping']
   },
   {
-    company: 'Google Cloud 🧪',
+    company: 'Google Cloud AI 🎯',
     logo: 'https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg',
-    role: 'Senior AI Consultant, PSO',
-    period: 'Jun 2023 — Nov 2025',
-    description: 'Lead Consultant for NBC Olympic Concierge (served 40M viewers, 90M queries). Architected WBD Caption AI solution using RLHF and SFT, securing $960K Phase 3 expansion.',
-    skills: ['Vertex AI', 'RLHF / SFT', 'Provisioned Throughput', 'Enterprise MLOps']
+    role: 'Outbound Product Manager | 20% Rotator | Gemini Enterprise App',
+    period: 'Jun 2026 — Present',
+    description: 'Outbound Product Manager driving competitive strategy and General Availability (GA) Agent Governance for Gemini Enterprise App.',
+    highlights: [
+      'Led tiger team and escalation sessions for Google Cloud competitive battlecards against Claude Cowork; featured on GTM Prompt Live Seminar.',
+      'Led field team training enablement and captured customer feedback on Agent Identity, Agent Registry, and Agent Gateway for Gemini Enterprise App GA Launch.',
+      'Partnered closely with inbound PM and engineering teams to prioritize enterprise governance features on the core product roadmap.'
+    ],
+    skills: ['Competitive Strategy', 'Agent Governance', 'Field Enablement', 'Product Strategy']
   },
   {
-    company: 'Google Cloud 📊',
+    company: 'Google Cloud AI 🚀',
     logo: 'https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg',
-    role: 'Senior Data Consultant, PSO',
-    period: 'May 2021 — Jun 2023',
-    description: 'Quarterbacked technical delivery for marquee analytics migrations (Boeing, WBD). Developed core assets for EDW modernization and BigQuery optimization at scale.',
-    skills: ['BigQuery', 'Data Architecture', 'Migration Strategy']
+    role: 'Outbound Product Manager | 100% Rotator | GE Agent Platform & Gemini Enterprise App',
+    period: 'Dec 2025 — Jun 2026',
+    description: 'Outbound Product Manager leading developer ecosystem scale, Gartner Magic Quadrant response, and enterprise agent governance strategy.',
+    highlights: [
+      'Co-led Advent of Agents Seasons 1 & 2 developer campaigns reaching over 32,000 developers, trending as a Top 5 global GitHub repo, and driving 5 Trillion tokens to Gemini. Delivered SOL331 talk at Cloud Next \'26.',
+      'Co-authored Executive "Intro to Agents" whitepaper for Kaggle course reaching 1.5M registered attendees, setting the industry standard for LLM Ops & Agent Orchestration.',
+      'Led Gartner® Magic Quadrant response for RFI and Demo resulting in Google recognized as a Leader in AI Application Development Platforms.',
+      'Co-authored pivotal cross-org RFC on Agent Governance, securing VP and Director-level roadmap alignment across 5 distinct product areas (Apigee, Workspace, Gemini Enterprise, Agent Platform, Agent Builder).',
+      'Authored "Gemini Enterprise Governance at Scale" and presented to Top 50 enterprise customers (McKinsey, Accenture, Wells Fargo, Pfizer, Cision, CGC).',
+      'Envisioned and developed AgentOps Cockpit to transition fleet management to Governance-as-Code; directed global security audit of 44 active enterprise agents and embedded OpenTelemetry tracing into ADK.',
+      'Authored rapid-response playbook defending 34,000-seat Gemini Enterprise opportunity with DoorDash and Telus positioning.',
+      'Standardized official GenAI FDE Interview Guide and wrote question banks for Professional ML Engineer exam.'
+    ],
+    skills: ['Developer Ecosystem', 'Gartner Magic Quadrant', 'AgentOps Cockpit', 'Enterprise Governance', 'ADK & A2A']
+  },
+  {
+    company: 'Google Cloud AI Services 🧪',
+    logo: 'https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg',
+    role: 'Senior AI Consultant | Cloud Professional Services (PSO)',
+    period: 'Jun 2023 — Dec 2025',
+    description: 'Delivered AI solutions for 24 customer projects ($14.6M revenue, 81% utilization, 100% CSAT). Closed 21 customer deals ($11M revenue).',
+    highlights: [
+      'NBC Olympic Games Oli Chatbot: Owned technical strategy for Paris 2024 Olympic Games chatbot (40M viewers, 90M queries), autonomously devising Vertex AI Provisioned Throughput adoption strategy before GA with 0.5% error rate.',
+      'WBD Localization & RLHF Architecture: Engineered custom DIY RLHF solution with 4 production-grade pipelines for captions/translation, saving deal from 2-week delay and securing $960K Phase 3 revenue.',
+      'Launched Agent Center of Enablement globally across CEs, TAMs, and GCC.'
+    ],
+    skills: ['Vertex AI', 'RLHF / SFT', 'Provisioned Throughput', 'Enterprise MLOps', 'High-Scale Chatbots']
+  },
+  {
+    company: 'Google Cloud AI Services 📊',
+    logo: 'https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg',
+    role: 'Senior Data Consultant | Cloud Professional Services (PSO)',
+    period: 'Jun 2021 — Jun 2023',
+    description: 'Quarterbacked technical delivery for marquee analytics migrations and source-mesh architecture.',
+    highlights: [
+      'Boeing Analytical Platform: Reshaped single-tenant migration into Source Oriented Mesh Architecture, scaling from 1 tenant to 29 tenants.',
+      'Offering Lead for EDW Modernization into Delivery Navigator.',
+      'Launched gShadowPSO dashboard as part of Hackathon Q3 2022 winning team.'
+    ],
+    skills: ['BigQuery', 'Data Architecture', 'Source Mesh', 'Migration Strategy']
   },
   {
     company: 'Amazon Web Services (AWS) ☁️',
     logo: 'https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg',
-    role: 'Senior Cloud Architect',
-    period: 'Prior to Google',
-    description: 'Designed and deployed large-scale cloud architectures for enterprise clients, focusing on scalability and reliability.',
-    skills: ['AWS Architecture', 'Cloud Infrastructure', 'Enterprise Scaling']
+    role: 'Senior Cloud Architect | ProServe Public Sector',
+    period: 'May 2020 — May 2021',
+    description: 'Administered AWS Well-Architected Framework reviews, built TypeScript/CDK microservices, landing zones with Control Tower, and Kinesis-to-Splunk centralized logging.',
+    highlights: [
+      'Administered Well-Architected Framework reviews for enterprise AWS platforms with a serverless lens.',
+      'Built distributed microservices architecture with TypeScript and AWS CDK.',
+      'Designed Landing Zones with Control Tower and Transit Gateway with security-first posture.'
+    ],
+    skills: ['AWS Architecture', 'TypeScript / CDK', 'Control Tower', 'Enterprise Scaling']
   },
   {
     company: 'Accenture 💼',
     logo: 'https://www.vectorlogo.zone/logos/accenture/accenture-icon.svg',
-    role: 'Lead, Cloud Strategy & Data Analytics',
-    period: '10-Year Tenure',
-    description: 'Led Cloud Strategy, Data Analytics Modernization, SRE, and DevOps engagements across multiple industry sectors.',
-    skills: ['Cloud Strategy', 'Data Modernization', 'SRE / DevOps', 'Leadership']
+    role: 'Senior Manager | Cloud Strategy & Data Analytics',
+    period: 'May 2011 — May 2020',
+    description: 'Sold over $10M in delivery work and generated $25M in pre-sales pipeline. Managed 5 direct reports. Led Disney+ global cloud scaling & MyMagic+ (FastPass+/MagicBands) product development.',
+    highlights: [
+      'Sold $10M+ in delivery work & generated $25M+ in pre-sales pipeline in final 5 years.',
+      'Disney+ Global Scaling: Engineered cloud strategy for 100M+ users.',
+      'MyMagic+ (FastPass+ & MagicBands): Key product development architect for Walt Disney World.'
+    ],
+    skills: ['Cloud Strategy', 'Disney+ / MyMagic+', 'DevSecOps', 'Leadership']
   }
 ];
 
 const SERVICES = [
   {
-    title: 'Agentic Transformations 🤖',
-    description: 'Helping enterprises shift from traditional LLM chat to autonomous agentic workflows that drive measurable ARR.',
-    icon: Brain,
-    color: '#ff7e5f'
+    title: 'Delta AI Activation ⚡',
+    description: 'Leading Forward Deployed Engineering (FDE) operating models for marquee accounts to activate production AI and turn multi-year commits into real ARR.',
+    icon: Zap,
+    color: '#38bdf8'
   },
   {
     title: 'Enterprise AI Governance 🛡️',
-    description: 'Architecting robust frameworks for Agent-to-Agent (A2A) orchestration, brand safety, and provisioned throughput.',
+    description: 'Architecting robust frameworks for Agent-to-Agent (A2A) orchestration, Agent Identity, Agent Gateway, and Governance-as-Code fleets.',
     icon: ShieldCheck,
-    color: '#a8c0ff'
+    color: '#818cf8'
   },
   {
-    title: 'Technical Evangelism 🎤',
-    description: 'Speaking at Google Cloud Next and NorthAm Tech Immersion on productionizing GenAI for global audiences.',
+    title: 'Technical Evangelism & Enablement 🎤',
+    description: 'Keynote speaker at Google Cloud Next & NorthAm Tech Immersion, co-author of Intro to Agents (1.5M attendees) and Advent of Agents (32k+ devs).',
     icon: MessageSquare,
-    color: '#d4fc79'
+    color: '#ff7e5f'
   }
 ];
 
 const RECENT_WORK = [
   {
+    title: 'Economic Research Agent (Agent Garden) 📈',
+    tag: 'ADK 2.0 / Econometrics',
+    description: 'Autonomous Econometrician on Agent Garden bridging natural language inquiries with deterministic math modeling across FRED, Census, & HUD APIs.',
+    image: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=1200&auto=format&fit=crop',
+    link: 'https://economic-research.web.app/',
+    details: {
+      highlights: [
+        "Live-API Grounding: Queries FRED, US Census Bureau, HUD, and Real Estate Yield APIs in real time with zero math drift.",
+        "ADK 2.0 Quantitative Tools: Solves LLM math hallucinations and county FIPS code lookup barriers using 5 deterministic econometric tools.",
+        "Agent Garden Showcase: Featured on Google Cloud Agent Garden (console.cloud.google.com/agent-platform/agent-garden).",
+        "Open-Source Framework: Included in official Google ADK samples repository (google/adk-samples) and economic-research-skills."
+      ],
+      strategy: "Rather than publishing centralized think-tank insights, this agent provides an open-source, fully transparent econometric framework for analysts in real estate, labor, and regional development to run live intelligence pipelines.",
+      team: "Enrique Chan, Casey Justus"
+    }
+  },
+  {
+    title: 'Lily & Robo Story Agent 🤖👧📖',
+    tag: 'GenAI / AlphaEvolve',
+    description: "Autonomous AI children's book publishing engine leveraging Gemini 2.5 Flash and AlphaEvolve algorithms for fixed-layout EPUB & PDF creation.",
+    image: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1200&auto=format&fit=crop',
+    link: 'https://github.com/enriquekalven/story-agent',
+    details: {
+      highlights: [
+        "Evolved Narrative Engine: Uses Gemini 2.5 Flash & AlphaEvolve (climbing 7.45 → 8.91 in narrative virality and visual consistency).",
+        "Unified Artwork Ecosystem: Automatically generates consistent, textless watercolor visual prompts for recurring characters (Lily & Robo).",
+        "Multilingual Translation: Typesets & overlays local editions dynamically across 8 languages (English, Spanish, French, Japanese, etc.).",
+        "Turnkey Compilers: Renders fixed-layout EPUB eBooks and print-ready PDF manuscripts directly to Google Drive."
+      ],
+      strategy: "Bridging creative AI storytelling with production-grade compilation pipelines. Using evolutionary algorithms (AlphaEvolve) to refine prompt structures continuously, ensuring original story arcs and strict character asset consistency.",
+      team: "Enrique Chan"
+    }
+  },
+  {
     title: 'AgentOps Cockpit 🕹️',
     tag: 'Open Source / Core Ops',
-    description: 'The professional logic layer for Agentic Apps. Multi-cloud governance and automated SME audits.',
+    description: 'The professional logic layer for Agentic Apps. Multi-cloud governance, automated SME audits, and protocol-level optimization.',
     image: '/cockpit.png',
     link: 'https://agent-cockpit.web.app/',
     details: {
@@ -112,65 +201,58 @@ const RECENT_WORK = [
   {
     title: 'NBC Olympic Concierge 🏅',
     tag: 'Marquee / High Scale',
-    description: 'Served 40M viewers with sub-second latency via Vertex AI Provisioned Throughput.',
+    description: 'Served 40M viewers with sub-second latency via Vertex AI Provisioned Throughput during Paris 2024.',
     image: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=1200&auto=format&fit=crop',
     link: '#',
     details: {
       highlights: [
         "Served 40M Viewers: Scaled global AI concierge to handle massive traffic during Paris 2024 Olympic Games.",
-        "90M+ Queries Handled: Achieved sub-second latency for natural language schedules and event discovery.",
+        "90M+ Queries Handled: Achieved sub-second latency for natural language schedules and event discovery with 0.5% error rate.",
         "Vertex AI Provisioned Throughput: Orchestrated multi-region deployment to ensure 99.99% availability.",
         "Hyper-Personalized Discovery: Enabled fans to find events by athlete, country, and specific sporting moments."
       ],
-      strategy: "The goal was to solve the discovery problem for 7,000+ hours of live content. We implemented OLI, an AI-powered logic system that synthesis'd real-time data into a conversational UI. By using Gemini Pro on Vertex AI, we delivered production-grade reliability at a scale never before seen in sports broadcasting.",
+      strategy: "The goal was to solve the discovery problem for 7,000+ hours of live content. We implemented OLI, an AI-powered logic system that synthesized real-time data into a conversational UI. By using Gemini Pro on Vertex AI, we delivered production-grade reliability at a scale never before seen in sports broadcasting.",
       team: "Abraham Gomez, Enrique Chan, Huge Inc, Google PSO",
       caseStudyImage: "/nbcu_oli_case_study.png"
     }
   },
   {
+    title: 'Advent of Agents 🎄',
+    tag: 'Community / SOP',
+    description: '32k+ developers, Top 5 global GitHub repo, 5 Trillion tokens driven to Gemini.',
+    image: '/advent_of_agents.png',
+    link: 'https://adventofagents.com/',
+    details: {
+      highlights: [
+        "Global Dev Reach: Reached 32,000+ developers across Seasons 1 & 2.",
+        "High-Intent Engagement: Driven by daily 'Katas', hosting 165k+ visits with a 22% daily return rate.",
+        "Record Adoption Velocity: Onboarded active enterprise customers using ADK.",
+        "Open Source Standard: Agent Starter Pack repo surged into Top 5 global repos on GitHub."
+      ],
+      strategy: "We validated that a 'Code-First' content strategy is highly effective. By shipping daily 'Katas' (deployable skills) instead of static content, we solved the friction between learning and building.",
+      team: "Abraham Gomez, Alan Blount, Elia Secchi, Enrique Chan, Shubham Saboo"
+    }
+  },
+  {
     title: 'Disney+ Global Scaling 🏰',
     tag: 'Strategic Product',
-    description: 'Scaling the digital future of entertainment through the worldwide rollout of Disney+.',
+    description: 'Scaling the digital future of entertainment through the worldwide rollout of Disney+ for 100M+ users.',
     image: 'https://images.unsplash.com/photo-1594908900066-3f47337549d8?q=80&w=1200&auto=format&fit=crop',
     link: 'https://www.disneyplus.com/'
   },
   {
     title: 'MyMagic+ & MagicBands ✨',
     tag: 'UX Innovation / IoT',
-    description: 'Launching transformational guest tech (FastPass+, MagicBands) from WDW to Disneyland.',
+    description: 'Launching transformational guest tech (FastPass+, MagicBands) at Walt Disney World.',
     image: 'https://images.unsplash.com/photo-1505833115364-e28c42c41f97?q=80&w=1200&auto=format&fit=crop',
     link: '#'
   },
   {
     title: 'WBD Caption AI 🎬',
     tag: 'Advanced MLOps',
-    description: 'Production-grade STT/Translation pipelines using human feedback (RLHF) and fine-tuning.',
+    description: 'Production-grade STT/Translation pipelines using human feedback (RLHF) and fine-tuning, securing $960K Phase 3 revenue.',
     image: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=1200&auto=format&fit=crop',
     link: '#'
-  },
-  {
-    title: 'Wayfair Agentspace 🏠',
-    tag: 'Connectivity',
-    description: 'Implementation across 10+ enterprise connectors (Workday, ServiceNow, GitHub).',
-    image: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1200&auto=format&fit=crop',
-    link: '#'
-  },
-  {
-    title: 'Advent of Agents 🎄',
-    tag: 'Community / SOP',
-    description: '1.05M social impressions. 165k+ visits. A record-breaking holiday challenge for autonomous agents.',
-    image: '/advent_of_agents.png',
-    link: 'https://adventofagents.com/',
-    details: {
-      highlights: [
-        "Dominated Share of Voice: Generated 1.05 Million social impressions, breaking out of the \"GCP bubble\" to reach a broader developer audience.",
-        "High-Intent Engagement: Driven by daily \"Katas\", the hub hosted 165k+ visits with a 22% daily return rate and 1.5M events.",
-        "Record Adoption Velocity: Onboarded 600+ new active customers using ADK in one month (Samsung, Home Depot, VW, Atlassian).",
-        "Open Source Standard: Agent Starter Pack repo surged +62% (5,200 stars), trending in Top 5 global repos on GitHub."
-      ],
-      strategy: "We validated that a \"Code-First\" content strategy is highly effective. By shipping daily \"Katas\" (deployable skills) instead of static content, we solved the friction between learning and building. As Data Scientist Kriti C. Parikh noted, it provided \"a clear path from experimenting locally to thinking about production-ready agents\".",
-      team: "Abraham Gomez, Alan Blount, Elia Secchi, Enrique Chan, Shubham Saboo"
-    }
   }
 ];
 
@@ -208,7 +290,7 @@ const AWARDS = [
   },
   {
     title: "Customer Empathy Award ❤️",
-    organization: "Google",
+    organization: "Google Cloud CEO Thomas Kurian",
     detail: "H2 2024 — Awarded for deep customer-centric solutioning and improving the UX lifecycle for marquee clients.",
     tags: ["H2 2024", "Customer Success"]
   },
@@ -259,10 +341,24 @@ const CERTIFICATIONS = [
 
 const PUBLICATIONS = [
   {
+    title: '[Agent Garden] Solving LLM Hallucinations & Math Drift via ADK 2.0 📈',
+    platform: 'Medium',
+    image: '/a2ui_blog.png',
+    description: 'How we built the Economic Research Agent to bridge natural language inquiries with live FRED, Census, and HUD APIs.',
+    link: 'https://medium.com/@enriq/agent-garden-solving-llm-hallucinations-math-drift-and-obscure-identifiers-via-adk-2-0-5047985bfc46',
+  },
+  {
+    title: 'I Built a Live-API Economic Research Agent 🌐',
+    platform: 'google.dev',
+    image: '/kaggle_whitepaper.png',
+    description: 'Deep dive into live economic data querying, FIPS code resolution, and real estate yield calculations.',
+    link: 'https://discuss.google.dev/t/i-built-a-live-api-economic-research-agent-fred-census-hud-real-estate-yields/379128',
+  },
+  {
     title: 'Building with A2UI: Why I Blew Up My Portfolio to Build a "Living" UI ✍️',
     platform: 'Medium',
     image: '/fun_factor_a2ui.png',
-    description: "In the AI world, we've spent the last two years obsessed with RAG (Retrieval-Augmented Generation). We've built...",
+    description: "In the AI world, we've spent the last two years obsessed with RAG. Here's why declarative A2UI changes everything...",
     link: 'https://medium.com/@enriq/the-fun-factor-developing-at-the-speed-of-thought-024085b290dd?postPublishedType=repub',
   },
   {
@@ -290,38 +386,14 @@ const PUBLICATIONS = [
     title: 'Executive Whitepaper: Introduction to Agents 📖',
     platform: 'Kaggle',
     image: '/kaggle_whitepaper.png',
-    description: 'A comprehensive guide for leadership on the architecture and strategy behind production-grade AI agents.',
+    description: 'Co-authored whitepaper for 1.5M registered attendees defining standard LLM Ops and agent orchestration patterns.',
     link: 'https://www.kaggle.com/whitepaper-introduction-to-agents',
-  },
-  {
-    title: 'From OpenAI to Gemini Enterprise 🔄',
-    platform: 'Medium',
-    image: '/gemini_migration.png',
-    description: 'Automating agent migration with Antigravity for seamless ecosystem transitions.',
-    link: 'https://medium.com/@enriq/from-openai-to-gemini-enterprise-automating-agent-migration-with-antigravity-76b41c5d8364',
-  },
-  {
-    title: 'Register to Gemini A2A in 3 Commands ⚡',
-    platform: 'Medium',
-    image: '/gemini_3_commands.png',
-    description: 'A technical guide on setting up Agent-to-Agent communication flows.',
-    link: 'https://medium.com/@enriq/register-to-gemini-enterprise-a2a-with-3-commands-688af024d9bb',
   }
 ];
 
 const TESTIMONIALS = [
   {
-    quote: "Enrique was central to influencing the customer on Google's ability to deliver on their solution… he maintained leadership of Google's solution with deep dives, workshops, and direct executive engagements to continue to build confidence on our architecture.",
-    author: "Amar Raol",
-    role: "Director Global Strategic Intiatives, Google"
-  },
-  {
-    quote: "Amazing work for GCC at Next'24! Your expertise and impactful engagement were instrumental in the GenAI workshop's success. We were so impressed by your ability to go above and beyond to ensure a valuable learning experience.",
-    author: "Lee Moore",
-    role: "VP Google Cloud Consulting"
-  },
-  {
-    quote: "Thank you for your work and commitment to leading with customer empathy. Your team's story is a great example of how we work together to best support our customers and support each other. I am thrilled to recognize you as a Customer Empathy Award winner.",
+    quote: "Thank you for your work and commitment to leading with customer empathy. Your team's story is a great example of how we work together to best support our customers and support each other.",
     author: "Thomas Kurian",
     role: "CEO Google Cloud"
   },
@@ -331,19 +403,19 @@ const TESTIMONIALS = [
     role: "President Google Cloud NorthAm"
   },
   {
-    quote: "By preventing pilots from derailing due to technical hurdles, he secured the future of the Agentspace engagement and paved the way for broader adoption within Wayfair.",
-    author: "Wayfair CAL",
-    role: "Marquee Engagement Lead"
+    quote: "Enrique was central to influencing the customer on Google's ability to deliver on their solution… he maintained leadership of Google's solution with deep dives, workshops, and direct executive engagements.",
+    author: "Amar Raol",
+    role: "Director Global Strategic Initiatives, Google"
   },
   {
-    quote: "Enrique, thank you so much for developing and delivering two insightful customer case study for the Gen AI Production Fuel Up Friday session and the Agentic Workflow Real World Wednesday session Your presentation helped ramp up 328 technically-advanced, customer-facing Googlers on these important topics. This impactful training will now reach an even wider audience as an on-demand learning path for Cloud Googlers.",
-    author: "SME Academy Team",
-    role: "Cloud Enablement & Training, Google"
+    quote: "Amazing work for GCC at Next'24! Your expertise and impactful engagement were instrumental in the GenAI workshop's success.",
+    author: "Lee Moore",
+    role: "VP Google Cloud Consulting"
   },
   {
-    quote: "Thank you for your willingness to review Day 1 whitepaper for Kaggle 5days of AI agents. Your insights were helpful in guiding us to a great whitepaper",
+    quote: "Thank you for your willingness to review Day 1 whitepaper for Kaggle 5days of AI agents. Your insights were helpful in guiding us to a great whitepaper.",
     author: "Brian Delahunty",
-    role: "VP Agents platform"
+    role: "VP Agents Platform"
   }
 ];
 
@@ -356,16 +428,6 @@ const SPEAKING = [
     location: "Mandalay Bay, Las Vegas",
     image: "/next_26_session.png",
     link: "https://cloud.withgoogle.com/next",
-    status: "UPCOMING"
-  },
-  {
-    title: "Exploring and transferring family language in a world of AI 👨‍👩‍👧‍👦",
-    event: "MIXED Googlers — Parenting Committee",
-    session: "Speaker Panel",
-    time: "November 2025",
-    location: "Virtual Engagement",
-    image: "/mixed_googlers_ai.png",
-    link: "https://go/mgp-nov-event",
     status: "COMPLETED"
   },
   {
@@ -387,56 +449,6 @@ const SPEAKING = [
     image: "/tech_immersion_la.png",
     link: "#",
     status: "COMPLETED"
-  },
-  {
-    title: "Unleashing the Power of Data and AI ⚡",
-    event: "NorthAm Tech Immersion",
-    session: "Curriculum Authoring — 900+ Registrations",
-    time: "February 2025",
-    location: "Los Angeles, CA",
-    image: "/tech_immersion_wide.png",
-    link: "#",
-    status: "COMPLETED"
-  },
-  {
-    title: "Generative AI Overcoming barriers to drive adoption 🪜",
-    event: "Google Cloud Next '24",
-    session: "6 sessions — Fully booked (30 C-level Executives each)",
-    time: "April 2024",
-    location: "Mandalay Bay, Las Vegas",
-    image: "/cloud_next_24.png",
-    link: "#",
-    status: "COMPLETED"
-  },
-  {
-    title: "Gen AI Production Fuel Up Friday ⛽",
-    event: "AIML SME Academy",
-    session: "328 Technical Googlers — On-Demand Path",
-    time: "November 2024",
-    location: "Global Internal Training",
-    image: "/gen_ai_fuel_up_friday.png",
-    link: "#",
-    status: "COMPLETED"
-  },
-  {
-    title: "Agentic Workflow Real World Wednesday 🌍",
-    event: "AIML SME Academy",
-    session: "328 Technical Googlers — On-Demand Path",
-    time: "November 2024",
-    location: "Global Internal Training",
-    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop",
-    link: "#",
-    status: "COMPLETED"
-  },
-  {
-    title: "GenAI Live Labs: Hands-on with Vertex AI 🎓",
-    event: "Internal Enablement",
-    session: "Technical Workshop Series",
-    time: "August 2023",
-    location: "Los Angeles, CA",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop",
-    link: "#",
-    status: "COMPLETED"
   }
 ];
 
@@ -447,7 +459,7 @@ function Navbar({ onEasterEgg, comicUnlocked, onShowComic }: { onEasterEgg: () =
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 40);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -477,41 +489,43 @@ function Navbar({ onEasterEgg, comicUnlocked, onShowComic }: { onEasterEgg: () =
           onClick={handleTap}
           style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }}
         >
-          <div style={{ width: '40px', height: '40px', borderRadius: '50%', overflow: 'hidden', border: '2px solid white', boxShadow: '0 2px 10px rgba(0,0,0,0.1)' }}>
+          <div style={{ width: '38px', height: '38px', borderRadius: '50%', overflow: 'hidden', border: '2px solid var(--accent-cyan)', boxShadow: '0 0 12px rgba(56,189,248,0.3)' }}>
             <img src="/profile_bubble.jpg" alt="Enrique Chan" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
-          Enrique Chan
+          <span style={{ fontWeight: 800 }}>Enrique Chan</span>
         </div>
+
         <div className="nav-links">
           <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#work">Work</a>
           <a href="#speaking">Speaking</a>
-          <a href="#work">Projects</a>
-          <a href="#experience">Career</a>
           <a href="#articles">Writing</a>
-          <Link to="/media">Gallery</Link>
+          <Link to="/media" style={{ color: 'var(--accent-cyan)', fontWeight: 600 }}>Gallery</Link>
           {comicUnlocked && (
             <motion.button
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
               onClick={onShowComic}
-              className="nav-special-link"
-              style={{ 
-                background: 'none',
-                border: 'none',
+              style={{
+                background: 'rgba(255,126,95,0.15)',
+                border: '1px solid var(--accent-coral)',
                 color: 'var(--accent-coral)',
                 fontWeight: 700,
                 cursor: 'pointer',
                 fontFamily: 'inherit',
-                fontSize: 'inherit',
-                padding: '4px 8px'
+                fontSize: '13px',
+                padding: '4px 12px',
+                borderRadius: '100px'
               }}
             >
               Comic 🕵️‍♂️
             </motion.button>
           )}
         </div>
-        <a href="mailto:enriquekalven@gmail.com" className="cta-button" style={{ padding: '12px 24px', fontSize: '14px' }}>
-          Work with Me
+
+        <a href="mailto:enriq@google.com" className="cta-button">
+          Get in Touch <ArrowRight size={16} />
         </a>
       </div>
     </nav>
@@ -521,8 +535,8 @@ function Navbar({ onEasterEgg, comicUnlocked, onShowComic }: { onEasterEgg: () =
 function WhatsNewBanner() {
   return (
     <a href="#speaking" className="whats-new-banner">
-      <span className="banner-tag">JUST ANNOUNCED</span>
-      <span>Enrique Chan to Speak at Cloud Next '26 on "Architecting AI Agents" - see you in Las Vegas! 🎲</span>
+      <span className="banner-tag">NEWS</span>
+      <span>Staff AI Technical Deployment Lead (TDL) | Delta & Rotator OPM @ Google Cloud</span>
       <ArrowRight size={14} />
     </a>
   );
@@ -555,28 +569,22 @@ function LandingPage() {
   const [showHint, setShowHint] = useState(false);
 
   const triggerEasterEgg = useCallback(() => {
-    if (comicUnlocked) return; // Already unlocked
+    if (comicUnlocked) return;
 
     confetti({
       particleCount: 150,
       spread: 70,
       origin: { y: 0.6 },
-      colors: ['#ff4d4d', '#ffffff', '#000000', '#00a3ff']
+      colors: ['#38bdf8', '#ff7e5f', '#818cf8', '#ffffff']
     });
     setComicUnlocked(true);
-    // Alert or subtle visual feedback that something happened
-    console.log("CLASSIFIED ACCESS GRANTED: Check the navbar.");
   }, [comicUnlocked]);
 
   useEffect(() => {
     new Konami(() => {
       triggerEasterEgg();
     });
-    return () => {
-      // If Konami had a cleanup, we'd call it here
-    };
-  }, [comicUnlocked, triggerEasterEgg]); // Adding comicUnlocked as dependency to match the logic if needed or just empty if stable
-
+  }, [comicUnlocked, triggerEasterEgg]);
 
   return (
     <div className="app">
@@ -591,47 +599,40 @@ function LandingPage() {
       <section className="hero" id="about">
         <motion.div
           className="hero-content"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
         >
-          <div className="section-tag" style={{ textAlign: 'left', marginBottom: '8px' }}>⚡ Outbound Product Manager, Cloud AI @ Google</div>
-          <div style={{ display: 'flex', gap: '16px', marginBottom: '24px', fontSize: '14px', fontWeight: 600, flexWrap: 'wrap' }}>
-            <a href="https://cloud.google.com/gemini-enterprise?e=48754805" target="_blank" style={{ color: 'var(--accent-coral)', textDecoration: 'none' }}>Gemini Enterprise ↗</a>
-            <span style={{ opacity: 0.3 }}>|</span>
-            <a href="https://google.github.io/adk-docs/" target="_blank" style={{ color: 'var(--accent-coral)', textDecoration: 'none' }}>ADK ↗</a>
-            <span style={{ opacity: 0.3 }}>|</span>
-            <a href="https://docs.cloud.google.com/agent-builder/agent-engine/overview" target="_blank" style={{ color: 'var(--accent-coral)', textDecoration: 'none' }}>Agent Engine ↗</a>
-            <span style={{ opacity: 0.3 }}>|</span>
-            <a href="https://a2a-protocol.org/latest/" target="_blank" style={{ color: 'var(--accent-coral)', textDecoration: 'none' }}>A2A ↗</a>
-            <span style={{ opacity: 0.3 }}>|</span>
-            <a href="https://agent-cockpit.web.app/" target="_blank" style={{ color: 'var(--accent-coral)', textDecoration: 'none' }}>Cockpit ↗</a>
-            <span style={{ opacity: 0.3 }}>|</span>
-            <a href="https://a2ui.org/" target="_blank" style={{ color: 'var(--accent-coral)', textDecoration: 'none' }}>A2UI ↗</a>
+          <div className="role-badge">
+            <Sparkles size={16} /> Staff AI Technical Deployment Lead | Delta @ Google Cloud
           </div>
+
           <h1 className="hero-title">
-            I help enterprises build <span className="highlight-underline">production-grade</span> AI systems.
+            Architecting the next era of <span className="highlight-gradient">Enterprise AI</span> & agentic workflows.
           </h1>
-          <p className="hero-subtitle" style={{ marginBottom: '8px' }}>
-            Husband, father of 3 👨‍👩‍👧‍👦, and Real Estate Investor 🏠 based in Seattle, WA 📍.
+
+          <div className="hero-quote">
+            "I listen, I take ownership to get things done, and I care about making people's lives easier."
+          </div>
+
+          <p className="hero-subtitle">
+            Husband & father of 3 👨‍👩‍👧‍👦 • Real Estate Investor 🏠 • Based in Seattle, WA 📍.
+            <br />
+            With 15+ years of experience across <strong>Google, AWS, and Accenture</strong>, I specialize in taking high-stakes, forward-deployed engineering initiatives from zero to multi-billion dollar scale.
           </p>
-          <p className="hero-subtitle" style={{ marginTop: 0 }}>
-            With 15+ years of experience across Google, AWS, and Accenture, I am passionate about scaling transformational technologies—from Disney's MagicBands and Disney+ worldwide to the future of agentic AI.
-          </p>
-          <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
-            <motion.a
-              href="#work"
-              className="cta-button"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              See Selected Work <ChevronRight size={18} />
-            </motion.a>
-            <a href="https://www.linkedin.com/in/enriquechan/" target="_blank" className="social-link" style={{ fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px', opacity: 0.8 }}>
-              <Linkedin size={20} /> LinkedIn
+
+          <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', alignItems: 'center' }}>
+            <a href="#experience" className="cta-button">
+              Explore Career Journey <ChevronRight size={16} />
             </a>
-            <a href="https://github.com/enriquekalven" target="_blank" className="social-link" style={{ fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px', opacity: 0.8 }}>
-              <Github size={20} /> GitHub
+            <a href="#work" className="cta-button-outline">
+              View Key Work
+            </a>
+            <a href="https://www.linkedin.com/in/enriquechan/" target="_blank" rel="noreferrer" className="cta-button-outline" style={{ padding: '10px 16px' }}>
+              <Linkedin size={18} />
+            </a>
+            <a href="https://github.com/enriquekalven" target="_blank" rel="noreferrer" className="cta-button-outline" style={{ padding: '10px 16px' }}>
+              <Github size={18} />
             </a>
           </div>
         </motion.div>
@@ -640,112 +641,125 @@ function LandingPage() {
           className="hero-image-container"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
         >
           <div className="profile-bubble">
-            <img
-              src="/hero_profile.jpg"
-              alt="Enrique Chan"
-            />
+            <img src="/hero_profile.jpg" alt="Enrique Chan" />
           </div>
         </motion.div>
       </section>
 
-      {/* Social Proof */}
+      {/* Social Proof Logos */}
       <section className="social-proof">
-        <p className="social-proof-title">Trusted by / Featured in</p>
+        <p className="social-proof-title">Impact Across Industry Giants & Global Platforms</p>
         <div className="logo-bar">
           <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" />
-          <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-white.svg" alt="AWS" style={{ height: '30px', filter: 'brightness(0)' }} />
-          <img src="https://www.vectorlogo.zone/logos/disney/disney-ar21.svg" alt="Disney" style={{ height: '40px' }} />
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Olympic_rings_without_rims.svg" alt="Olympics" style={{ height: '45px' }} />
-          <img src="https://www.vectorlogo.zone/logos/kaggle/kaggle-icon.svg" alt="Kaggle" style={{ height: '35px' }} />
-          <img src="https://www.vectorlogo.zone/logos/medium/medium-icon.svg" alt="Medium" style={{ height: '35px' }} />
+          <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-white.svg" alt="AWS" style={{ height: '28px', filter: 'brightness(0) invert(1)' }} />
+          <img src="https://www.vectorlogo.zone/logos/disney/disney-ar21.svg" alt="Disney" style={{ height: '38px', filter: 'brightness(0) invert(1)' }} />
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Olympic_rings_without_rims.svg" alt="Olympics" style={{ height: '36px' }} />
+          <img src="https://www.vectorlogo.zone/logos/kaggle/kaggle-icon.svg" alt="Kaggle" style={{ height: '32px' }} />
+          <img src="https://www.vectorlogo.zone/logos/medium/medium-icon.svg" alt="Medium" style={{ height: '30px', filter: 'brightness(0) invert(1)' }} />
         </div>
       </section>
 
-      {/* Speaking Section */}
-      <section id="speaking" style={{ background: '#f8f9fa', padding: '100px 0' }}>
-        <div className="section-header">
-          <span className="section-tag">Keynotes & Speaking</span>
-          <h2 className="section-title">Sharing Insights at Scale 🎤</h2>
-          <p style={{ maxWidth: '700px', margin: '0 auto', fontSize: '18px', opacity: 0.7 }}>Featured sessions and keynotes on the future of Agentic AI.</p>
+      {/* Impact Metrics Banner */}
+      <div style={{ maxWidth: '1240px', margin: '0 auto', padding: '0 24px' }}>
+        <div className="metrics-grid">
+          <motion.div className="metric-card" whileHover={{ y: -4 }}>
+            <div className="metric-value">$2B+</div>
+            <div className="metric-label">Multi-Year Enterprise Commit Captured</div>
+          </motion.div>
+          <motion.div className="metric-card" whileHover={{ y: -4 }}>
+            <div className="metric-value">40M+</div>
+            <div className="metric-label">Olympic Viewers Served (0.5% Error Rate)</div>
+          </motion.div>
+          <motion.div className="metric-card" whileHover={{ y: -4 }}>
+            <div className="metric-value">1.5M+</div>
+            <div className="metric-label">Whitepaper Readers ("Intro to Agents")</div>
+          </motion.div>
+          <motion.div className="metric-card" whileHover={{ y: -4 }}>
+            <div className="metric-value">32K+</div>
+            <div className="metric-label">Developers Engaged (Advent of Agents)</div>
+          </motion.div>
+          <motion.div className="metric-card" whileHover={{ y: -4 }}>
+            <div className="metric-value">19x</div>
+            <div className="metric-label">Multi-Cloud Certifications</div>
+          </motion.div>
         </div>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px', display: 'flex', flexDirection: 'column', gap: '48px' }}>
-          {SPEAKING.map((speech, idx) => (
-            <motion.div
-              key={idx}
-              className="speaking-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <div style={{ flex: '1.2', padding: '60px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
-                  <Award size={20} style={{ color: 'var(--accent-coral)' }} />
-                  <span style={{ fontWeight: 800, textTransform: 'uppercase', letterSpacing: '2px', fontSize: '12px', color: '#666' }}>Featured Speaker</span>
-                </div>
-                <h3 style={{ fontSize: '36px', marginBottom: '32px', lineHeight: '1.2' }}>{speech.title}</h3>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '32px', marginBottom: '48px' }}>
-                  <div>
-                    <p style={{ fontSize: '12px', fontWeight: 700, color: '#999', textTransform: 'uppercase', marginBottom: '8px' }}>Event</p>
-                    <p style={{ fontSize: '18px', fontWeight: 600 }}>{speech.event}</p>
-                  </div>
-                  <div>
-                    <p style={{ fontSize: '12px', fontWeight: 700, color: '#999', textTransform: 'uppercase', marginBottom: '8px' }}>Session</p>
-                    <p style={{ fontSize: '18px', fontWeight: 600 }}>{speech.session}</p>
-                  </div>
-                  <div>
-                    <p style={{ fontSize: '12px', fontWeight: 700, color: '#999', textTransform: 'uppercase', marginBottom: '8px' }}>Date & Time</p>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <Calendar size={16} />
-                      <p style={{ fontSize: '16px' }}>{speech.time}</p>
-                    </div>
-                  </div>
-                  <div>
-                    <p style={{ fontSize: '12px', fontWeight: 700, color: '#999', textTransform: 'uppercase', marginBottom: '8px' }}>Location</p>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <MapPin size={16} />
-                      <p style={{ fontSize: '16px' }}>{speech.location}</p>
-                    </div>
-                  </div>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent-coral)', fontWeight: 700, fontSize: '14px' }}>
-                  <ExternalLink size={16} /> SESSION {speech.status || 'UPCOMING'}
-                </div>
-              </div>
-              <div style={{ flex: '0.8', position: 'relative', minHeight: '400px' }}>
-                <img src={speech.image} alt={speech.title} style={{ position: 'absolute', width: '100%', height: '100%', objectFit: 'cover' }} />
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+      </div>
 
-      {/* Services Section */}
+      {/* Core Expertise / Services */}
       <section id="services">
         <div className="section-header">
-          <span className="section-tag">Value Proposition</span>
-          <h2 className="section-title">Enabling the Agentic Shift 🤖</h2>
+          <span className="section-tag">Strategic Value</span>
+          <h2 className="section-title">Forward Operating & Agentic Strategy ⚡</h2>
         </div>
         <div className="cards-grid">
           {SERVICES.map((service, idx) => (
             <motion.div
               key={idx}
               className="service-card"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
             >
               <div className="card-icon" style={{ background: service.color }}>
-                <service.icon size={30} />
+                <service.icon size={26} />
               </div>
               <h3 className="card-title">{service.title}</h3>
               <p className="card-description">{service.description}</p>
-              <a href="mailto:enriquekalven@gmail.com" style={{ fontWeight: 700, color: 'var(--accent-coral)', marginTop: 'auto', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '14px' }}>
-                LEARN MORE <ArrowRight size={14} />
+              <a href="mailto:enriq@google.com" style={{ fontWeight: 700, color: 'var(--accent-cyan)', marginTop: 'auto', display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '14px' }}>
+                Collaborate <ArrowRight size={14} />
               </a>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Career Experience Timeline */}
+      <section id="experience">
+        <div className="section-header">
+          <span className="section-tag">Professional Ledger</span>
+          <h2 className="section-title">Career Experience 💎</h2>
+        </div>
+
+        <div className="timeline">
+          {EXPERIENCE.map((exp, idx) => (
+            <motion.div
+              key={idx}
+              className="timeline-item"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.08 }}
+            >
+              <div className="timeline-dot" />
+              <div className="timeline-card">
+                <div className="timeline-header">
+                  <div>
+                    <h3 className="timeline-role">{exp.role}</h3>
+                    <p className="timeline-company">{exp.company}</p>
+                  </div>
+                  <span className="timeline-period">{exp.period}</span>
+                </div>
+
+                <p style={{ fontSize: '15px', color: 'var(--text-secondary)', marginBottom: '16px', lineHeight: '1.6' }}>
+                  {exp.description}
+                </p>
+
+                <ul className="bullet-list">
+                  {exp.highlights.map((item, hIdx) => (
+                    <li key={hIdx}>{item}</li>
+                  ))}
+                </ul>
+
+                <div className="skill-tags">
+                  {exp.skills.map((skill) => (
+                    <span key={skill} className="skill-tag">{skill}</span>
+                  ))}
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -754,16 +768,16 @@ function LandingPage() {
       {/* Work Section */}
       <section id="work">
         <div className="section-header">
-          <span className="section-tag">Marquee Projects</span>
-          <h2 className="section-title">Impact at Scale 🚀</h2>
+          <span className="section-tag">Featured Delivery</span>
+          <h2 className="section-title">Marquee Projects & Innovations 🚀</h2>
         </div>
         <div className="work-grid">
           {RECENT_WORK.map((work, idx) => (
             <motion.div
               key={idx}
               className="work-card"
-              initial={{ opacity: 0, scale: 0.98 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
               onClick={() => work.details && setSelectedProject(work as Project)}
@@ -771,29 +785,33 @@ function LandingPage() {
             >
               <img src={work.image} alt={work.title} />
               <div className="work-info">
-                <span style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '2.5px', fontWeight: 700, opacity: 0.9 }}>{work.tag}</span>
-                <h3 className="work-title" style={{ fontSize: '30px' }}>{work.title}</h3>
-                <p style={{ opacity: 0.8, fontSize: '14px', marginBottom: '16px' }}>{work.description}</p>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                  <button
-                    onClick={(e) => {
-                      if (work.details) {
+                <span style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 800, color: 'var(--accent-cyan)', marginBottom: '8px' }}>
+                  {work.tag}
+                </span>
+                <h3 className="card-title" style={{ fontSize: '24px', marginBottom: '8px' }}>{work.title}</h3>
+                <p className="card-description" style={{ marginBottom: '20px' }}>{work.description}</p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginTop: 'auto' }}>
+                  {work.details && (
+                    <button
+                      onClick={(e) => {
                         e.stopPropagation();
                         setSelectedProject(work as Project);
-                      }
-                    }}
-                    style={{ background: 'none', border: 'none', color: 'inherit', padding: 0, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px', fontWeight: 600 }}
-                  >
-                    Case Study <ArrowRight size={14} />
-                  </button>
+                      }}
+                      className="cta-button-outline"
+                      style={{ padding: '6px 16px', fontSize: '13px' }}
+                    >
+                      Case Study <ArrowRight size={14} />
+                    </button>
+                  )}
                   {work.link !== '#' && (
                     <a
                       href={work.link}
                       target="_blank"
+                      rel="noreferrer"
                       onClick={(e) => e.stopPropagation()}
-                      style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px', fontWeight: 600, color: 'var(--accent-coral)' }}
+                      style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '13px', fontWeight: 700, color: 'var(--accent-cyan)' }}
                     >
-                      Visit Site <ExternalLink size={14} />
+                      Visit <ExternalLink size={14} />
                     </a>
                   )}
                 </div>
@@ -803,82 +821,46 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section style={{ background: '#121212', color: 'white', borderRadius: '60px', margin: '40px 24px' }}>
-        <div className="section-header" style={{ marginBottom: '60px' }}>
-          <span className="section-tag" style={{ color: 'var(--accent-coral)' }}>Social Capital</span>
-          <h2 className="section-title" style={{ color: 'white' }}>Kind Words from Google Leadership 💬</h2>
-        </div>
-        <div className="marquee-container" style={{ overflow: 'hidden', padding: '40px 0 80px' }}>
-          <motion.div
-            className="marquee-track"
-            animate={{ x: [0, "-50%"] }}
-            transition={{
-              duration: 35,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-            style={{ display: 'flex', gap: '30px', width: 'max-content' }}
-          >
-            {[...TESTIMONIALS, ...TESTIMONIALS].map((t, idx) => (
-              <div
-                key={idx}
-                className="testimonial-card"
-                style={{
-                  background: 'rgba(255,255,255,0.05)',
-                  border: '1px solid rgba(255,255,255,0.1)',
-                  color: 'white',
-                  padding: '40px',
-                  borderRadius: '32px',
-                  width: '400px',
-                  flexShrink: 0,
-                  display: 'flex',
-                  flexDirection: 'column'
-                }}
-              >
-                <p style={{ fontSize: '18px', fontStyle: 'italic', marginBottom: '24px', opacity: 0.9, lineHeight: '1.7' }}>"{t.quote}"</p>
-                <div style={{ marginTop: 'auto' }}>
-                  <p style={{ fontWeight: 800, fontSize: '16px' }}>{t.author}</p>
-                  <p style={{ fontSize: '13px', opacity: 0.6 }}>{t.role}</p>
-                </div>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Experience Section */}
-      <section id="experience">
+      {/* Speaking Section */}
+      <section id="speaking">
         <div className="section-header">
-          <span className="section-tag">Career Journey</span>
-          <h2 className="section-title">The "invisible force" quarterbacking AI delivery 💎</h2>
+          <span className="section-tag">Thought Leadership</span>
+          <h2 className="section-title">Keynotes & Speaking 🎤</h2>
         </div>
-        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-          {EXPERIENCE.map((exp, idx) => (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+          {SPEAKING.map((speech, idx) => (
             <motion.div
               key={idx}
-              className="experience-item"
-              style={{ paddingBottom: '60px', borderLeft: '1px solid #eee', paddingLeft: '40px', position: 'relative' }}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              className="speaking-card"
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <div style={{ position: 'absolute', left: '-6px', top: '0', width: '12px', height: '12px', background: 'var(--accent-coral)', borderRadius: '50%' }}></div>
-              <div style={{ display: 'flex', gap: '20px', alignItems: 'flex-start' }}>
-                {exp.logo && <img src={exp.logo} alt={exp.company} style={{ width: '40px', height: '40px', objectFit: 'contain', marginTop: '4px' }} />}
-                <div style={{ flex: 1 }}>
-                  <span style={{ fontSize: '13px', fontWeight: 700, color: '#999' }}>{exp.period}</span>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '8px 0 16px' }}>
-                    <h3 style={{ fontSize: '26px' }}>{exp.role}</h3>
-                    <p style={{ fontWeight: 800, fontSize: '18px', color: 'var(--accent-coral)' }}>{exp.company}</p>
+              <div style={{ flex: '1.2', padding: '40px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
+                  <Award size={18} style={{ color: 'var(--accent-cyan)' }} />
+                  <span style={{ fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1.5px', fontSize: '11px', color: 'var(--accent-cyan)' }}>
+                    {speech.status} SESSION
+                  </span>
+                </div>
+                <h3 style={{ fontSize: '28px', marginBottom: '20px', lineHeight: '1.3' }}>{speech.title}</h3>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '20px', marginBottom: '24px' }}>
+                  <div>
+                    <p style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase' }}>Event</p>
+                    <p style={{ fontSize: '16px', fontWeight: 600 }}>{speech.event}</p>
                   </div>
-                  <p className="card-description" style={{ fontSize: '18px', maxWidth: '800px' }}>{exp.description}</p>
-                  <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '24px' }}>
-                    {exp.skills.map(skill => (
-                      <span key={skill} style={{ fontSize: '12px', background: 'white', border: '1px solid #ddd', padding: '6px 16px', borderRadius: '100px', fontWeight: 600 }}>{skill}</span>
-                    ))}
+                  <div>
+                    <p style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase' }}>Session</p>
+                    <p style={{ fontSize: '16px', fontWeight: 600 }}>{speech.session}</p>
+                  </div>
+                  <div>
+                    <p style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase' }}>Date & Location</p>
+                    <p style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>{speech.time} • {speech.location}</p>
                   </div>
                 </div>
+              </div>
+              <div style={{ flex: '0.8', minHeight: '260px', position: 'relative' }}>
+                <img src={speech.image} alt={speech.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
             </motion.div>
           ))}
@@ -886,10 +868,10 @@ function LandingPage() {
       </section>
 
       {/* Publications Section */}
-      <section id="articles" style={{ background: '#fdfaf7' }}>
+      <section id="articles">
         <div className="section-header">
-          <span className="section-tag">Publications & Ledger</span>
-          <h2 className="section-title">The Architect's Ledger ✍️</h2>
+          <span className="section-tag">Articles & Research</span>
+          <h2 className="section-title">Writing & Whitepapers ✍️</h2>
         </div>
         <div className="cards-grid">
           {PUBLICATIONS.map((pub, idx) => (
@@ -897,24 +879,25 @@ function LandingPage() {
               key={idx}
               href={pub.link}
               target="_blank"
+              rel="noreferrer"
               className="service-card"
-              style={{ textDecoration: 'none', padding: pub.image ? '0' : '50px', overflow: 'hidden' }}
-              whileHover={{ y: -8 }}
+              style={{ padding: '0', overflow: 'hidden' }}
+              whileHover={{ y: -6 }}
             >
               {pub.image && (
-                <div style={{ width: '100%', height: '200px', overflow: 'hidden', marginBottom: '32px' }}>
+                <div style={{ width: '100%', height: '180px', overflow: 'hidden' }}>
                   <img src={pub.image} alt={pub.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
               )}
-              <div style={{ padding: pub.image ? '0 40px 40px' : '0' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#888', marginBottom: '16px' }}>
+              <div style={{ padding: '28px', display: 'flex', flexDirection: 'column', flex: 1 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent-cyan)', marginBottom: '12px' }}>
                   <BookOpen size={16} />
                   <span style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: 700 }}>{pub.platform}</span>
                 </div>
-                <h3 className="card-title" style={{ fontSize: '22px', lineHeight: '1.4' }}>{pub.title}</h3>
-                <p className="card-description" style={{ fontSize: '15px' }}>{pub.description}</p>
-                <span style={{ color: 'var(--accent-coral)', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '6px', fontSize: '14px' }}>
-                  READ MORE <ArrowRight size={14} />
+                <h3 className="card-title" style={{ fontSize: '19px', lineHeight: '1.4' }}>{pub.title}</h3>
+                <p className="card-description" style={{ fontSize: '14px', marginBottom: '20px' }}>{pub.description}</p>
+                <span style={{ color: 'var(--accent-cyan)', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '13px', marginTop: 'auto' }}>
+                  Read Publication <ArrowRight size={14} />
                 </span>
               </div>
             </motion.a>
@@ -922,101 +905,91 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* Awards Section */}
-      <section id="awards" style={{ padding: '100px 0', background: 'white' }}>
-        <div className="section-header">
-          <span className="section-tag">Recognition & Impact</span>
-          <h2 className="section-title">Awards & Honors 🏆</h2>
+      {/* Testimonials Marquee */}
+      <div className="testimonial-section">
+        <div className="section-header" style={{ marginBottom: '48px' }}>
+          <span className="section-tag">Executive Endorsements</span>
+          <h2 className="section-title">Kind Words from Google Leadership 💬</h2>
         </div>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
-          {/* Featured Award (The one with the image) */}
-          {(() => {
-            const featured = AWARDS.find(a => a.image);
-            if (!featured) return null;
-            return (
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: '60px', alignItems: 'center', marginBottom: '80px' }}>
-                <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  style={{ borderRadius: '32px', overflow: 'hidden', boxShadow: '0 40px 80px rgba(0,0,0,0.1)' }}
-                >
-                  <img src={featured.image} alt={featured.title} style={{ width: '100%', height: 'auto' }} />
-                </motion.div>
-                <div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
-                    <div style={{ background: 'var(--accent-coral)', color: 'white', padding: '4px 12px', borderRadius: '100px', fontSize: '12px', fontWeight: 700 }}>FEATURED RECOGNITION</div>
-                  </div>
-                  <h3 style={{ fontSize: '42px', marginBottom: '24px', lineHeight: 1.1 }}>{featured.title}</h3>
-                  <p style={{ fontSize: '20px', opacity: 0.7, marginBottom: '32px', lineHeight: 1.6 }}>{featured.detail}</p>
-                  <div style={{ display: 'flex', gap: '12px' }}>
-                    {featured.tags?.map(tag => (
-                      <span key={tag} style={{ background: '#f8f9fa', padding: '8px 20px', borderRadius: '100px', fontSize: '14px', fontWeight: 600 }}>{tag}</span>
-                    ))}
-                  </div>
+        <div style={{ overflow: 'hidden' }}>
+          <motion.div
+            animate={{ x: [0, "-50%"] }}
+            transition={{
+              duration: 35,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+            style={{ display: 'flex', gap: '24px', width: 'max-content', padding: '0 24px' }}
+          >
+            {[...TESTIMONIALS, ...TESTIMONIALS].map((t, idx) => (
+              <div key={idx} className="testimonial-card">
+                <p style={{ fontSize: '15px', fontStyle: 'italic', marginBottom: '20px', color: '#e2e8f0', lineHeight: '1.7' }}>
+                  "{t.quote}"
+                </p>
+                <div style={{ marginTop: 'auto' }}>
+                  <p style={{ fontWeight: 800, fontSize: '15px', color: 'var(--accent-cyan)' }}>{t.author}</p>
+                  <p style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{t.role}</p>
                 </div>
               </div>
-            );
-          })()}
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
-            {AWARDS.filter(a => !a.image).map((award, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                style={{ background: '#fdfaf7', padding: '40px', borderRadius: '24px', border: '1px solid #f0e6e0' }}
-              >
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '24px' }}>
-                  <Award size={32} style={{ color: 'var(--accent-coral)' }} />
-                  <div style={{ display: 'flex', gap: '8px' }}>
-                    {award.tags?.map(tag => (
-                      <span key={tag} style={{ fontSize: '11px', fontWeight: 800, color: 'var(--accent-coral)', textTransform: 'uppercase', letterSpacing: '1px' }}>{tag}</span>
-                    ))}
-                  </div>
-                </div>
-                <h4 style={{ fontSize: '20px', fontWeight: 800, marginBottom: '12px' }}>{award.title}</h4>
-                <p style={{ fontSize: '13px', color: '#999', marginBottom: '20px', fontWeight: 700 }}>{award.organization}</p>
-                <p style={{ fontSize: '15px', opacity: 0.7, lineHeight: 1.6 }}>{award.detail}</p>
-              </motion.div>
             ))}
-          </div>
+          </motion.div>
+        </div>
+      </div>
 
-          <div style={{ marginTop: '100px' }}>
-            <h3 style={{ fontSize: '32px', marginBottom: '40px', textAlign: 'center' }}>Professional Certifications</h3>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px' }}>
-              {CERTIFICATIONS.map((group, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  style={{ background: '#f8f9fa', padding: '40px', borderRadius: '24px' }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
-                    <img src={group.logo} alt={group.provider} style={{ height: '24px' }} />
-                    <h4 style={{ fontSize: '18px', fontWeight: 800 }}>{group.provider}</h4>
-                  </div>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-                    {group.certs.map(cert => (
-                      <span key={cert} style={{ fontSize: '13px', background: 'white', padding: '6px 14px', borderRadius: '8px', border: '1px solid #eee', fontWeight: 500 }}>
-                        {cert}
-                      </span>
-                    ))}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
+      {/* Awards & Certifications */}
+      <section id="awards">
+        <div className="section-header">
+          <span className="section-tag">Accreditation</span>
+          <h2 className="section-title">Awards & Certifications 🏆</h2>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', marginBottom: '60px' }}>
+          {AWARDS.map((award, idx) => (
+            <motion.div
+              key={idx}
+              className="glass-card"
+              style={{ padding: '28px' }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
+                <Award size={28} style={{ color: 'var(--accent-cyan)' }} />
+                <div style={{ display: 'flex', gap: '6px' }}>
+                  {award.tags?.map(tag => (
+                    <span key={tag} style={{ fontSize: '10px', fontWeight: 800, color: 'var(--accent-cyan)', textTransform: 'uppercase', letterSpacing: '1px' }}>{tag}</span>
+                  ))}
+                </div>
+              </div>
+              <h3 style={{ fontSize: '18px', fontWeight: 800, marginBottom: '8px' }}>{award.title}</h3>
+              <p style={{ fontSize: '12px', color: 'var(--text-muted)', marginBottom: '12px', fontWeight: 700 }}>{award.organization}</p>
+              <p style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: '1.6' }}>{award.detail}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        <h3 style={{ fontSize: '26px', marginBottom: '28px', textAlign: 'center' }}>Professional Multi-Cloud Certifications</h3>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
+          {CERTIFICATIONS.map((group, idx) => (
+            <motion.div key={idx} className="glass-card" style={{ padding: '28px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
+                <img src={group.logo} alt={group.provider} style={{ height: '24px' }} />
+                <h4 style={{ fontSize: '17px', fontWeight: 800 }}>{group.provider}</h4>
+              </div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                {group.certs.map(cert => (
+                  <span key={cert} style={{ fontSize: '12px', background: 'rgba(255,255,255,0.04)', padding: '5px 12px', borderRadius: '8px', border: '1px solid var(--border-subtle)', color: 'var(--text-secondary)' }}>
+                    <CheckCircle2 size={12} style={{ display: 'inline', marginRight: '4px', color: 'var(--accent-cyan)' }} />
+                    {cert}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
-      {/* Newsletter Section Removed */}
-
-      {/* Project Modal */}
+      {/* Case Study Modal */}
       {selectedProject && (
         <div
           style={{
@@ -1035,84 +1008,83 @@ function LandingPage() {
           onClick={() => setSelectedProject(null)}
         >
           <motion.div
-            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            initial={{ opacity: 0, y: 40, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            className="modal-content responsive-modal"
+            className="modal-content"
             onClick={(e) => e.stopPropagation()}
             style={{
-              background: 'white',
-              maxWidth: '800px',
-              width: '95%',
+              background: 'var(--bg-secondary)',
+              border: '1px solid var(--border-subtle)',
+              maxWidth: '760px',
+              width: '100%',
               borderRadius: '24px',
               position: 'relative',
-              maxHeight: '90dvh',
+              maxHeight: '85dvh',
               overflowY: 'auto',
-              boxShadow: '0 30px 60px rgba(0,0,0,0.2)'
+              padding: '36px'
             }}
           >
             <button
               onClick={() => setSelectedProject(null)}
-              style={{ position: 'absolute', right: '20px', top: '20px', background: '#f8f9fa', border: 'none', borderRadius: '50%', padding: '8px', cursor: 'pointer', zIndex: 10 }}
+              style={{ position: 'absolute', right: '20px', top: '20px', background: 'rgba(255,255,255,0.1)', border: 'none', borderRadius: '50%', padding: '8px', cursor: 'pointer', color: 'white' }}
             >
               <X size={20} />
             </button>
-            <div className="modal-inner-padding" style={{ padding: '40px' }}>
-              <span style={{ color: 'var(--accent-coral)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '2px', fontSize: '12px' }}>{selectedProject.tag}</span>
-              <h2 className="modal-title" style={{ fontSize: '36px', margin: '12px 0 24px', letterSpacing: '-0.5px', lineHeight: 1.2 }}>{selectedProject.title} Case Study</h2>
+            <span style={{ color: 'var(--accent-cyan)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '2px', fontSize: '11px' }}>{selectedProject.tag}</span>
+            <h2 style={{ fontSize: '32px', margin: '8px 0 20px', lineHeight: 1.2 }}>{selectedProject.title} Case Study</h2>
 
-              {selectedProject.details?.caseStudyImage && (
-                <div style={{ width: '100%', marginBottom: '32px', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}>
-                  <img src={selectedProject.details.caseStudyImage} alt={selectedProject.title} style={{ width: '100%', height: 'auto', display: 'block' }} />
+            {selectedProject.details?.caseStudyImage && (
+              <div style={{ width: '100%', marginBottom: '24px', borderRadius: '16px', overflow: 'hidden' }}>
+                <img src={selectedProject.details.caseStudyImage} alt={selectedProject.title} style={{ width: '100%', height: 'auto', display: 'block' }} />
+              </div>
+            )}
+
+            {selectedProject.details && (
+              <>
+                <div style={{ marginBottom: '28px' }}>
+                  <h4 style={{ fontSize: '17px', marginBottom: '14px', fontWeight: 800, color: 'var(--accent-cyan)' }}>Key Highlights</h4>
+                  <div style={{ display: 'grid', gap: '12px' }}>
+                    {selectedProject.details.highlights.map((h: string, i: number) => (
+                      <div key={i} style={{ display: 'flex', gap: '10px', fontSize: '15px', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
+                        <div style={{ width: '6px', height: '6px', background: 'var(--accent-cyan)', borderRadius: '50%', marginTop: '8px', flexShrink: 0 }} />
+                        <p>{h}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              )}
 
-              {selectedProject.details && (
-                <>
-                  <div style={{ marginBottom: '40px' }}>
-                    <h4 style={{ fontSize: '18px', marginBottom: '16px', fontWeight: 800 }}>Key Highlights</h4>
-                    <div style={{ display: 'grid', gap: '16px' }}>
-                      {selectedProject.details.highlights.map((h: string, i: number) => (
-                        <div key={i} style={{ display: 'flex', gap: '12px', fontSize: '16px', lineHeight: '1.5', opacity: 0.8 }}>
-                          <div style={{ width: '6px', height: '6px', background: 'var(--accent-coral)', borderRadius: '50%', marginTop: '8px', flexShrink: 0 }}></div>
-                          <p>{h}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                <div style={{ marginBottom: '28px' }}>
+                  <h4 style={{ fontSize: '17px', marginBottom: '10px', fontWeight: 800, color: 'var(--accent-cyan)' }}>Strategic Win</h4>
+                  <p style={{ fontSize: '15px', lineHeight: '1.6', color: 'var(--text-secondary)' }}>{selectedProject.details.strategy}</p>
+                </div>
 
-                  <div style={{ marginBottom: '40px' }}>
-                    <h4 style={{ fontSize: '18px', marginBottom: '12px', fontWeight: 800 }}>Strategic Win</h4>
-                    <p style={{ fontSize: '16px', lineHeight: '1.6', opacity: 0.8 }}>{selectedProject.details.strategy}</p>
-                  </div>
-
-                  <div>
-                    <h4 style={{ fontSize: '18px', marginBottom: '12px', fontWeight: 800 }}>Lean Operation</h4>
-                    <p style={{ fontSize: '14px', opacity: 0.6 }}>Delivered by: <span style={{ fontWeight: 600 }}>{selectedProject.details.team}</span></p>
-                  </div>
-                </>
-              )}
-            </div>
+                <div>
+                  <h4 style={{ fontSize: '17px', marginBottom: '8px', fontWeight: 800, color: 'var(--accent-cyan)' }}>Delivery Team</h4>
+                  <p style={{ fontSize: '14px', color: 'var(--text-muted)' }}>{selectedProject.details.team}</p>
+                </div>
+              </>
+            )}
           </motion.div>
         </div>
       )}
 
-      {/* Konami Easter Egg Modal (Comic) */}
+      {/* Easter Egg Modal */}
       {showComic && (
         <div
           style={{
             position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
-            background: 'rgba(0,0,0,0.95)', display: 'flex', alignItems: 'center',
+            background: 'rgba(0,0,0,0.92)', display: 'flex', alignItems: 'center',
             justifyContent: 'center', zIndex: 1100, padding: '24px'
           }}
           onClick={() => setShowComic(false)}
         >
           <motion.div
-            initial={{ opacity: 0, scale: 0.5, rotate: -5 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
             style={{
-              maxWidth: activeComic ? '1000px' : '800px', width: '100%', position: 'relative',
-              boxShadow: '0 50px 100px rgba(0,0,0,0.5)', borderRadius: '20px', overflow: 'hidden',
-              transition: 'max-width 0.5s cubic-bezier(0.16, 1, 0.3, 1)'
+              maxWidth: activeComic ? '950px' : '750px', width: '100%', position: 'relative',
+              background: 'var(--bg-secondary)', border: '1px solid var(--border-subtle)',
+              borderRadius: '24px', overflow: 'hidden', padding: '32px'
             }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -1121,93 +1093,77 @@ function LandingPage() {
                 setShowComic(false);
                 setActiveComic(null);
               }}
-              style={{ position: 'absolute', right: '20px', top: '20px', background: 'rgba(255,255,255,0.9)', border: 'none', borderRadius: '50%', padding: '10px', cursor: 'pointer', zIndex: 10 }}
+              style={{ position: 'absolute', right: '20px', top: '20px', background: 'rgba(255,255,255,0.1)', border: 'none', borderRadius: '50%', padding: '8px', cursor: 'pointer', color: 'white' }}
             >
               <X size={20} />
             </button>
-            {!activeComic && <img src="/agent_comic.png" alt="Agentic Adventures Comic" style={{ width: '100%', height: 'auto', display: 'block' }} />}
 
-            <div style={{ background: 'var(--gradient-main)', padding: '24px', color: 'white' }}>
-              {activeComic ? (
-                <div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-                    <button
-                      onClick={() => setActiveComic(null)}
+            {activeComic ? (
+              <div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+                  <button
+                    onClick={() => setActiveComic(null)}
+                    style={{
+                      background: 'rgba(255,255,255,0.08)',
+                      border: '1px solid var(--border-subtle)',
+                      color: 'white',
+                      padding: '8px 16px',
+                      borderRadius: '100px',
+                      cursor: 'pointer',
+                      fontSize: '13px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px'
+                    }}
+                  >
+                    <ArrowLeft size={16} /> Back to Secret Library
+                  </button>
+                  <h3 style={{ fontSize: '18px', fontWeight: 800, margin: 0 }}>{activeComic.name}</h3>
+                </div>
+                <div style={{ width: '100%', height: '65dvh', background: 'white', borderRadius: '12px', overflow: 'hidden' }}>
+                  <iframe src={`/${activeComic.file}#toolbar=0`} style={{ width: '100%', height: '100%', border: 'none' }} title={activeComic.name} />
+                </div>
+              </div>
+            ) : (
+              <>
+                <h3 style={{ fontSize: '26px', fontWeight: 800, textAlign: 'center', marginBottom: '8px' }}>
+                  UNLOCKED: THE AGENTIC ADVENTURES 📂
+                </h3>
+                <p style={{ opacity: 0.8, fontSize: '14px', textAlign: 'center', marginBottom: '28px' }}>
+                  Architect's Classified Series. Select an edition to read.
+                </p>
+
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '12px' }}>
+                  {[
+                    { name: 'Business Leaders Edition', file: 'agent_adventures_business_leaders.pdf' },
+                    { name: 'Issue #1: Origin', file: 'agent_adventures_part_1.pdf' },
+                    { name: 'Issue #2: Core', file: 'agent_adventures_part_2.pdf' },
+                    { name: 'Issue #3: Evolution', file: 'agent_adventures_part_3.pdf' },
+                    { name: 'Issue #4: Horizon', file: 'agent_adventures_part_4.pdf' }
+                  ].map((doc, i) => (
+                    <div
+                      key={i}
+                      onClick={() => setActiveComic(doc)}
                       style={{
-                        background: 'rgba(255,255,255,0.2)',
-                        border: 'none',
-                        color: 'white',
-                        padding: '8px 16px',
-                        borderRadius: '100px',
+                        background: 'rgba(255,255,255,0.04)',
+                        border: '1px solid var(--border-subtle)',
+                        padding: '16px',
+                        borderRadius: '16px',
                         cursor: 'pointer',
-                        fontSize: '14px',
-                        fontWeight: 600,
                         display: 'flex',
+                        flexDirection: 'column',
                         alignItems: 'center',
-                        gap: '8px'
+                        gap: '10px',
+                        textAlign: 'center'
                       }}
                     >
-                      <ArrowLeft size={16} /> Back to Library
-                    </button>
-                    <h3 style={{ fontSize: '20px', fontWeight: 800, margin: 0 }}>{activeComic.name}</h3>
-                  </div>
-                  <div style={{
-                    width: '100%',
-                    height: '70dvh',
-                    background: 'white',
-                    borderRadius: '12px',
-                    overflow: 'hidden',
-                    WebkitOverflowScrolling: 'touch'
-                  }}>
-                    <iframe
-                      src={`/${activeComic.file}#toolbar=0`}
-                      style={{ width: '100%', height: '100%', border: 'none' }}
-                      title={activeComic.name}
-                    />
-                  </div>
-                </div>
-              ) : (
-                <>
-                  <h3 style={{ fontSize: '28px', fontWeight: 800, margin: 0, textAlign: 'center' }}>UNLOCKED: THE AGENTIC ADVENTURES 📂</h3>
-                  <p style={{ opacity: 0.9, fontSize: '15px', marginTop: '8px', textAlign: 'center', marginBottom: '32px' }}>
-                    You've discovered the Architect's Secret Files. Access the full series below.
-                  </p>
-
-                    <div className="comic-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '12px' }}>
-                    {[
-                      { name: 'Business Leaders Edition', file: 'agent_adventures_business_leaders.pdf' },
-                      { name: 'Issue #1: Origin', file: 'agent_adventures_part_1.pdf' },
-                      { name: 'Issue #2: Core', file: 'agent_adventures_part_2.pdf' },
-                      { name: 'Issue #3: Evolution', file: 'agent_adventures_part_3.pdf' },
-                      { name: 'Issue #4: Horizon', file: 'agent_adventures_part_4.pdf' }
-                    ].map((doc, i) => (
-                      <div
-                        key={i}
-                        onClick={() => setActiveComic(doc)}
-                        className="classified-doc"
-                        style={{
-                          background: 'rgba(255,255,255,0.1)',
-                          border: '1px solid rgba(255,255,255,0.2)',
-                          padding: '12px',
-                          borderRadius: '12px',
-                          cursor: 'pointer',
-                          color: 'white',
-                          display: 'flex',
-                          flexDirection: 'column',
-                          alignItems: 'center',
-                          gap: '8px',
-                          transition: 'all 0.3s ease',
-                          textAlign: 'center'
-                        }}
-                      >
-                        <BookOpen size={24} />
-                        <span style={{ fontSize: '12px', fontWeight: 600, lineHeight: 1.2 }}>{doc.name}</span>
-                      </div>
-                    ))}
+                      <BookOpen size={24} style={{ color: 'var(--accent-cyan)' }} />
+                      <span style={{ fontSize: '13px', fontWeight: 600 }}>{doc.name}</span>
                     </div>
-                </>
-              )}
-            </div>
+                  ))}
+                </div>
+              </>
+            )}
           </motion.div>
         </div>
       )}
@@ -1217,48 +1173,38 @@ function LandingPage() {
         <div className="footer-logo">Enrique Chan</div>
         <div className="footer-links">
           <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#work">Work</a>
           <a href="#speaking">Speaking</a>
-          <a href="#work">Projects</a>
-          <a href="#experience">Career</a>
           <a href="#articles">Writing</a>
           <Link to="/media">Gallery</Link>
         </div>
         <div className="footer-socials">
-          <a href="https://github.com/enriquekalven" target="_blank" className="social-icon"><Github size={22} /></a>
-          <a href="https://www.linkedin.com/in/enriquechan/" target="_blank" className="social-icon"><Linkedin size={22} /></a>
-          <a href="mailto:enriquekalven@gmail.com" className="social-icon"><Mail size={22} /></a>
-          <a href="#" className="social-icon"><Twitter size={22} /></a>
-          <a href="#" className="social-icon"><Youtube size={22} /></a>
+          <a href="https://github.com/enriquekalven" target="_blank" rel="noreferrer" className="social-icon"><Github size={20} /></a>
+          <a href="https://www.linkedin.com/in/enriquechan/" target="_blank" rel="noreferrer" className="social-icon"><Linkedin size={20} /></a>
+          <a href="mailto:enriq@google.com" className="social-icon"><Mail size={20} /></a>
         </div>
-        <p style={{ marginTop: '80px', fontSize: '14px', color: '#999', letterSpacing: '1px' }}>
-          © {new Date().getFullYear()} ENRIQUE CHAN PORTFOLIO. BUILT FOR THE AGENTIC AGE.
+        <p style={{ marginTop: '48px', fontSize: '13px', color: 'var(--text-muted)' }}>
+          © {new Date().getFullYear()} ENRIQUE CHAN • STAFF AI TECHNICAL DEPLOYMENT LEAD • DELTA
         </p>
       </footer>
 
-      {/* Hidden Easter Egg Hint */}
+      {/* Easter Egg Hint */}
       <motion.div
-        animate={{
-          rotate: [0, -10, 10, -10, 10, 0],
-          scale: [1, 1.1, 1]
-        }}
-        transition={{
-          duration: 0.5,
-          repeat: Infinity,
-          repeatDelay: 3
-        }}
+        animate={{ rotate: [0, -10, 10, 0], scale: [1, 1.08, 1] }}
+        transition={{ duration: 0.6, repeat: Infinity, repeatDelay: 4 }}
         style={{
           position: 'fixed',
-          bottom: '30px',
-          right: '30px',
-          fontSize: '32px',
+          bottom: '24px',
+          right: '24px',
+          fontSize: '28px',
           cursor: 'pointer',
           zIndex: 100,
-          filter: 'drop-shadow(0 0 10px rgba(255,126,95,0.3))'
+          filter: 'drop-shadow(0 0 12px rgba(56,189,248,0.4))'
         }}
         onClick={() => {
           setShowHint(true);
           setTimeout(() => setShowHint(false), 3000);
-          console.log("Looking for something? Maybe an old school code or a triple tap...");
         }}
       >
         🎁
@@ -1271,18 +1217,19 @@ function LandingPage() {
               position: 'absolute',
               bottom: '100%',
               right: '0',
-              background: '#fff',
-              color: '#000',
-              padding: '12px 18px',
+              background: 'var(--bg-secondary)',
+              border: '1px solid var(--border-subtle)',
+              color: 'var(--text-primary)',
+              padding: '10px 16px',
               borderRadius: '12px',
-              fontSize: '14px',
+              fontSize: '13px',
               fontWeight: 600,
-              boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
+              boxShadow: '0 8px 30px rgba(0,0,0,0.5)',
               whiteSpace: 'nowrap',
-              marginBottom: '15px'
+              marginBottom: '12px'
             }}
           >
-            Looking for a secret? Try an old school code or a triple-tap! 🤫
+            Looking for a secret? Try Konami code or triple-tap the logo! 🤫
           </motion.div>
         )}
       </motion.div>

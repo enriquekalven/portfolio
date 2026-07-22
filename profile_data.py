@@ -1,4 +1,4 @@
-# Copyright 2025 Google LLC
+# Copyright 2026 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,12 +15,13 @@
 BASE_URL = "https://enriquekchan.web.app"
 
 PROFILE = {
-    "name": "Enrique K Chan",
-    "title": "Outbound Product Manager, Cloud AI @ Google",
+    "name": "Enrique Chan",
+    "title": "Staff AI Technical Deployment Lead, Delta @ Google Cloud",
     "location": "Seattle, WA",
-    "phone": "(305) 905 2331",
-    "email": "enriquekalven@gmail.com",
-    "summary": "Passionate to use AI to transform the way people experience the world. Husband, father of 3, and Real Estate Investor. 15+ years transforming IT, Cloud, and Data into Agentic Workflows.",
+    "phone": "(650) 889-8983",
+    "email": "enriq@google.com",
+    "about_me": "I listen, I take ownership to get things done, and I care about making people's lives easier.",
+    "summary": "Staff AI Technical Deployment Lead (TDL) for Google Cloud Delta & PM Rotator (L6). Husband, father of 3, and Real Estate Investor. 15+ years transforming Enterprise IT, Cloud, and Data into Agentic Workflows.",
     "images": {
         "hero": f"{BASE_URL}/hero_profile.jpg",
         "bubble": f"{BASE_URL}/profile_bubble.jpg",
@@ -36,68 +37,115 @@ PROFILE = {
 
 EXPERIENCE = [
     {
-        "company": "Google Cloud",
-        "role": "Outbound Product Manager, Cloud AI",
-        "period": "Nov 2025 - Present",
+        "company": "Google Cloud Delta",
+        "role": "Staff Technical Deployment Lead (TDL) | Delta | AI Activation & FDE Team",
+        "period": "Jun 2026 - Present",
         "highlights": [
-            "Co-Authored Intro to Agents whitepaper (1.5M registered attendees).",
-            "Led Agent Governance discussions for Vertex AI (Gemini Enterprise, ADK, Agent Engine).",
-            "Technical champion for the Agent Optimizer (73% performance/cost gains).",
-            "Leading vision and strategy for the AI Agents Enablement Center of Excellence."
+            "Forward Deployed Engineer Operating Model with PSO and GSD.",
+            "Defined with FDE and AI Transformation Leads the forward operating model for 15 top qualified accounts among GTM FDE, Delta FDE, TDL, PSO, GSD, PL and CALs.",
+            "Led scoping FDE opportunities for Ford and Intel based on their AI use cases.",
+            "Deal team capturing $2B multi-year commit generating $63M Google Services Funds, $5M Learning and $32M Partner Services Funds."
         ],
-        "skills": ["Product Strategy", "Agent Governance", "Ecosystem Enablement"]
+        "skills": ["Technical Deployment", "FDE Operating Model", "Enterprise Transformation", "Strategic Deal Scoping"]
     },
     {
-        "company": "Google Cloud",
-        "role": "Senior AI Consultant, PSO",
-        "period": "Jun 2023 - Nov 2025",
+        "company": "Google Cloud AI",
+        "role": "Outbound Product Manager | 20% Rotator | Gemini Enterprise App",
+        "period": "Jun 2026 - Present",
         "highlights": [
-            "NBC Olympic Games Oli Chatbot: 40M viewers, 90M queries, $1.3M Gemini revenue in 17 days.",
-            "WBD Localization: Co-led translation/captioning for 11 workstreams using RLHF and SFT (secured $960K expansion).",
-            "Wayfair Agentspace: Led technical delivery for Project Bozeman, implementing 10+ connectors (Workday, ServiceNow, GitHub).",
-            "Best Buy Gift Finder: Led strategic planning for scaling Black Friday Sales traffic.",
-            "Awards: GTM Cloud Excellence, Customer Empathy, and Flying-in-Formation winner."
+            "Launched Cowork Battlecard effort for Google Cloud: Led tiger team and escalation sessions to mitigate battlecards and build competitive strategy against Claude Cowork.",
+            "Refreshed battlecards featured on Oliver Parker's Prompt Live Seminar.",
+            "Launched General Availability for Agent Governance for Gemini Enterprise App.",
+            "Led field team training enablement and captured customer feedback on Agent Identity, Agent Registry, and Agent Gateway for Gemini Enterprise App."
         ],
-        "skills": ["Vertex AI", "RLHF / SFT", "Provisioned Throughput", "Enterprise MLOps"]
+        "skills": ["Product Strategy", "Agent Governance", "Competitive Intelligence", "Field Enablement"]
     },
     {
-        "company": "Google Cloud",
-        "role": "Senior Data Consultant, PSO",
-        "period": "May 2021 - Jun 2023",
+        "company": "Google Cloud AI",
+        "role": "Outbound Product Manager | 100% Rotator | GE Agent Platform & Gemini Enterprise App",
+        "period": "Dec 2025 - Jun 2026",
         "highlights": [
-            "Boeing Analytical Platform: Scaled from 1 tenant to 29 tenants using Mesh Architecture.",
+            "Co-led Advent of Agents Seasons 1 & 2 reaching over 32,000 developers, trending as a Top 5 global repo, and driving 5 Trillion tokens to Gemini.",
+            "Co-authored Executive 'Intro to Agents' whitepaper for Kaggle course reaching 1.5M registered attendees, setting industry standard for LLM Ops.",
+            "Led Gartner Magic Quadrant response for RFI and Demo, resulting in Google named a Leader in AI Application Development Platforms.",
+            "Enterprise Agent Governance & Platform Strategy: Co-authored pivotal RFC resolving strategic messaging fragmentation across 5 product areas; secured VP and Director-level roadmap alignment for H1 2026.",
+            "Gemini Enterprise Governance at Scale: Authored seller-facing guidance presented to top T50 customers (McKinsey, Accenture, Wells Fargo, Pfizer, Cision, CGC).",
+            "Co-owner solving end-to-end OAuth flow from Gemini Enterprise to custom agents (ADK & A2A).",
+            "Proposed and launched ADK Skills within ADK core based on UX and user requirements.",
+            "Competitive Strategy: Authored rapid-response playbook defending 34,000-seat Gemini Enterprise opportunity with DoorDash and Telus.",
+            "Envisioned and developed AgentOps Cockpit to transition fleet management to Governance-as-Code; directed global security audit of 44 enterprise agents, hardened 450+ sample agents, and embedded OpenTelemetry tracing into ADK.",
+            "Standardized official GenAI FDE Interview Guide and authored question banks for Professional ML Engineer exam."
+        ],
+        "skills": ["Developer Ecosystem", "Gartner Magic Quadrant", "AgentOps Cockpit", "Enterprise Governance", "ADK & A2A"]
+    },
+    {
+        "company": "Google Cloud AI Services",
+        "role": "Senior AI Consultant | Cloud Professional Services Organization (PSO)",
+        "period": "Jun 2023 - Dec 2025",
+        "highlights": [
+            "Delivered AI solutions for 24 customer projects ($14.6M revenue, 81% utilization, 100% CSAT).",
+            "NBC Olympic Games Oli Chatbot: Owned technical strategy for Paris 2024 Olympic Games chatbot (40M viewers, 90M queries), autonomously devising Provisioned Throughput adoption strategy.",
+            "WBD Localization & RLHF Architecture: Engineered custom DIY RLHF solution with 4 production-grade pipelines for captions/translation, saving deal from 2-week delay and securing $960K Phase 3 revenue.",
+            "Closed 21 customer deals ($11M revenue) cross-functionally with sales and PSO.",
+            "Launched Agent Center of Enablement globally across CEs, TAMs, and GCC."
+        ],
+        "skills": ["Vertex AI", "RLHF / SFT", "Provisioned Throughput", "Enterprise MLOps", "High-Scale Chatbots"]
+    },
+    {
+        "company": "Google Cloud AI Services",
+        "role": "Senior Data Consultant | Cloud Professional Services Organization (PSO)",
+        "period": "Jun 2021 - Jun 2023",
+        "highlights": [
+            "Boeing Analytical Platform: Scaled from 1 tenant to 29 tenants using Source Oriented Mesh Architecture.",
             "WBD Analytics: Quarterbacked massive analytics migrations to BigQuery.",
-            "Launched gShadowPSO dashboard (Hackathon Q3 2022 winner).",
-            "Authored Security Data Lake content for TechCon 2022."
+            "Offering Lead for EDW Modernization into Delivery Navigator.",
+            "Launched gShadowPSO dashboard as part of Hackathon Q3 2022 winning team."
         ],
-        "skills": ["BigQuery", "Data Architecture", "Migration Strategy"]
+        "skills": ["BigQuery", "Data Architecture", "Mesh Architecture", "Migration Strategy"]
     },
     {
         "company": "AWS",
-        "role": "Senior Cloud Architect",
+        "role": "Senior Cloud Architect | ProServe Public Sector",
         "period": "May 2020 - May 2021",
         "highlights": [
-            "Built distributed microservices with TS and AWS CDK.",
+            "Administered AWS Well-Architected Framework reviews with serverless lens.",
+            "Built distributed microservices architecture with TypeScript and AWS CDK.",
             "Designed Landing Zones with Control Tower and Transit Gateway.",
-            "Developed Cloudformation stacks for Kinesis-to-Splunk centralized logging."
+            "Developed CloudFormation stacks for centralized logging solution from AWS Kinesis to Splunk."
         ],
-        "skills": ["AWS Architecture", "Cloud Infrastructure", "Enterprise Scaling"]
+        "skills": ["AWS Architecture", "TypeScript / CDK", "Control Tower", "Enterprise Scaling"]
     },
     {
         "company": "Accenture",
-        "role": "Lead, Cloud Strategy & Data Analytics",
+        "role": "Senior Manager | Cloud Strategy & Data Analytics",
         "period": "May 2011 - May 2020",
         "highlights": [
-            "Sold $10M+ delivery work; generated $25M+ pre-sales pipeline.",
-            "Disney+ Global Scaling: Engineered the cloud strategy for 100M+ users.",
-            "MyMagic+ (FastPass+/MagicBands): Key architect for the product development team.",
-            "10-Year Tenure leading Cloud Strategy, Data Modernization, and DevOps engagements."
+            "Sold over $10M in delivery work and generated $25M in pre-sales pipeline.",
+            "Managed 5 direct reports (counselees) responsible for career growth and retention.",
+            "Disney+ Global Scaling: Engineered cloud strategy for 100M+ users.",
+            "MyMagic+ (FastPass+ / MagicBands): Key product development architect for Walt Disney World."
         ],
-        "skills": ["Cloud Strategy", "Data Modernization", "SRE / DevOps", "Leadership"]
+        "skills": ["Cloud Strategy", "Disney+ / MyMagic+", "DevSecOps", "Agile / Scrum"]
     }
 ]
 
 PROJECTS = [
+    {
+        "name": "Economic Research Agent",
+        "impact": "Agent Garden | ADK 2.0 Econometrician",
+        "image": f"{BASE_URL}/economic_research.png",
+        "description": "Autonomous Econometrician on Agent Garden querying FRED, Census, & HUD APIs with zero math drift.",
+        "url": "https://economic-research.web.app/",
+        "tag": "Open Source / ADK"
+    },
+    {
+        "name": "Lily & Robo Story Agent",
+        "impact": "AlphaEvolve Optimized | Multi-lingual Publishing",
+        "image": f"{BASE_URL}/storybook.png",
+        "description": "Autonomous AI children's book generator and multi-lingual publishing orchestrator leveraging Gemini 2.5 Flash and AlphaEvolve.",
+        "url": "https://github.com/enriquekalven/story-agent",
+        "tag": "Open Source / GenAI"
+    },
     {
         "name": "AgentOps Cockpit",
         "impact": "Governance as Code | 92% Cost Optimization",
@@ -124,9 +172,9 @@ PROJECTS = [
     },
     {
         "name": "Advent of Agents",
-        "impact": "1.05M Impressions | 165k Visits",
+        "impact": "1.05M Impressions | 32k+ Developers",
         "image": f"{BASE_URL}/advent_of_agents.png",
-        "description": "25-day global quest democratizing Agentic AI for developers through daily Katas.",
+        "description": "Global developer campaign democratizing Agentic AI for developers through daily Katas.",
         "url": "https://adventofagents.com/",
         "tag": "Community / SOP"
     },
@@ -134,7 +182,7 @@ PROJECTS = [
         "name": "Disney+ Global Scaling",
         "impact": "100M+ Users",
         "image": "https://images.unsplash.com/photo-1594908900066-3f47337549d8?q=80&w=1200&auto=format&fit=crop",
-        "description": "Global scale cloud architecture and data strategy for Disney's streaming giant.",
+        "description": "Global scale cloud architecture and data strategy for Disney's streaming platform.",
         "url": "https://www.disneyplus.com/",
         "tag": "Strategic Product"
     },
@@ -144,24 +192,22 @@ PROJECTS = [
         "image": "https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=1200&auto=format&fit=crop",
         "description": "Production-grade STT/Translation pipelines using human feedback (RLHF) and fine-tuning.",
         "tag": "Advanced MLOps"
-    },
-    {
-        "name": "Wayfair Agentspace",
-        "impact": "10+ Enterprise Connectors",
-        "image": "https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1200&auto=format&fit=crop",
-        "description": "Connectivity implementation across Workday, ServiceNow, GitHub, and more.",
-        "tag": "Connectivity"
-    },
-    {
-        "name": "MyMagic+ & MagicBands",
-        "impact": "Transformational Guest Tech",
-        "image": "https://images.unsplash.com/photo-1505833115364-e28c42c41f97?q=80&w=1200&auto=format&fit=crop",
-        "description": "Launching FastPass+ and MagicBands IoT ecosystem from WDW to Disneyland.",
-        "tag": "UX Innovation / IoT"
     }
 ]
 
 WRITING = [
+    {
+        "title": "[Agent Garden] Solving LLM Hallucinations, Math Drift, and Obscure Identifiers via ADK 2.0",
+        "platform": "Medium",
+        "image": f"{BASE_URL}/economic_research_blog.png",
+        "url": "https://medium.com/@enriq/agent-garden-solving-llm-hallucinations-math-drift-and-obscure-identifiers-via-adk-2-0-5047985bfc46"
+    },
+    {
+        "title": "I Built a Live-API Economic Research Agent (FRED, Census, HUD & Real Estate Yields)",
+        "platform": "google.dev",
+        "image": f"{BASE_URL}/google_dev_post.png",
+        "url": "https://discuss.google.dev/t/i-built-a-live-api-economic-research-agent-fred-census-hud-real-estate-yields/379128"
+    },
     {
         "title": "Building with A2UI: Why I Blew Up My Portfolio to Build a 'Living' UI",
         "platform": "Medium",
@@ -192,122 +238,22 @@ WRITING = [
         "platform": "Medium",
         "image": f"{BASE_URL}/agent_optimizer_guide.png",
         "url": "https://medium.com/@enriq/introducing-the-agent-optimizer-for-google-adk-3872856e6d7b"
-    },
-    {
-        "title": "From OpenAI to Gemini Enterprise",
-        "platform": "Medium",
-        "image": f"{BASE_URL}/gemini_migration.png",
-        "url": "https://medium.com/@enriq/from-openai-to-gemini-enterprise-automating-agent-migration-with-antigravity-76b41c5d8364"
-    },
-    {
-        "title": "Register to Gemini A2A in 3 Commands",
-        "platform": "Medium",
-        "image": f"{BASE_URL}/gemini_3_commands.png",
-        "url": "https://medium.com/@enriq/register-to-gemini-enterprise-a2a-with-3-commands-688af024d9bb"
     }
-]
-
-MEDIA = [
-    {
-        "title": "Cloud Next '26 Session",
-        "event": "Google Cloud Next '26",
-        "session": "Keynote / Speaker",
-        "image": f"{BASE_URL}/next_26_session.png",
-        "type": "Keynote",
-        "url": "https://cloud.withgoogle.com/next",
-        "date": "April 22 - 24, 2026",
-        "location": "Mandalay Bay, Las Vegas",
-        "topic": "Architecting AI Agents"
-    },
-    {
-        "title": "Cloud Next '25 Session",
-        "event": "Google Cloud Next '25",
-        "session": "SOL308",
-        "image": f"{BASE_URL}/next_25_session.png",
-        "type": "Keynote",
-        "url": "https://cloud.withgoogle.com/next"
-    },
-    {
-        "title": "Why 80% of AI Agents Fail",
-        "type": "YouTube / Mini-Talk",
-        "url": "https://youtube.com/watch?v=zvNJqZNaKNY",
-        "description": "Technical post-mortem on agentic failures and the architectural patterns to fix them."
-    },
-    {
-        "title": "Retail Concierge GenAI Gotchas",
-        "event": "NorthAm Tech Immersion",
-        "location": "Los Angeles, CA",
-        "image": f"{BASE_URL}/tech_immersion_la.png",
-        "type": "Keynote",
-        "description": "Production pitfalls to avoid when deploying retail agents."
-    },
-    {
-        "title": "Agent Adventures Comic",
-        "image": f"{BASE_URL}/agent_comic.png",
-        "url": f"{BASE_URL}/agent_adventures_part_1.pdf",
-        "type": "Digital Asset"
-    },
-    {
-        "title": "4 Pillars of AI Agent Trust",
-        "type": "YouTube / Strategy",
-        "url": "https://youtube.com/watch?v=qCuGWmghmII",
-        "description": "The ultimate guide to building high-quality, reliable, and trustworthy AI agents."
-    },
-    {
-        "title": "MCP: The Protocol Your Agents Need",
-        "type": "YouTube / Protocol",
-        "url": "https://youtube.com/watch?v=AuJcu_fQfBY",
-        "description": "Why AI agents are useless without standardized tool communication. MCP explained."
-    }
-]
-
-CERTIFICATIONS = [
-    "10x Google Cloud (ML Engineer, Cloud Architect, Data Engineer, Security Engineer, Network Engineer, Database Engineer, etc.)",
-    "7x AWS (Solutions Architect Pro, DevOps Pro, Security Specialty, Data Analytics Specialty, etc.)",
-    "2x Azure / Others (SAFe 4, Splunk Certified Power User)",
-    "19x TOTAL CLOUD CERTIFICATIONS"
 ]
 
 AWARDS = [
-    "Winner: Cards Against Humanity Agent 🃏 (AIS Offsite Hackathon, Nov 2025)",
+    "Winner: Cards Against Humanity Agent (AIS Offsite Hackathon, Nov 2025)",
     "Cloud GTM Excellence Award 2025 (Wayfair Retail Agentic Use Cases)",
     "GTM Cloud Tech Impact Award 2024 (NBC Olympics OLI Chatbot)",
-    "Google Cloud Customer Empathy Award (from CEO Thomas Kurian, H2 2024)",
+    "Google Cloud Customer Empathy Award (H2 2024)",
     "GTM Cloud Function Flying-in-Formation Award (H2 2024)",
     "GTM Cloud Excellence: Connecting Teams (H2 2024)",
     "PSO Noogler Shadow Dashboard Regional Winner (2022)"
 ]
 
-TESTIMONIALS = [
-    {
-        "author": "Thomas Kurian",
-        "role": "CEO, Google Cloud",
-        "quote": "Thank you for your work and commitment to leading with customer empathy. Your team's story is a great example of how we work together to best support our customers and support each other."
-    },
-    {
-        "author": "Michael Clark",
-        "role": "President, Google Cloud NorthAm",
-        "quote": "GTM Cloud Excellence Connecting Teams Award: Congratulations on being awarded a GTM Cloud Regional Award. On behalf of Michael Clark and the Leadership Team we thank you for your dedication and impactful work!"
-    },
-    {
-        "author": "Amar Raol",
-        "role": "Director Global Strategic Initiatives, Google",
-        "quote": "Enrique was central to influencing the customer on Google's ability to deliver on their solution… he maintained leadership of Google's solution with deep dives, workshops, and direct executive engagements to continue to build confidence on our architecture."
-    },
-    {
-        "author": "Lee Moore",
-        "role": "VP, Google Cloud Consulting",
-        "quote": "Amazing work for GCC at Next'24! Your expertise and impactful engagement were instrumental in the GenAI workshop's success. We were so impressed by your ability to go above and beyond to ensure a valuable learning experience."
-    },
-    {
-        "author": "Brian Delahunty",
-        "role": "VP Agents Platform, Google",
-        "quote": "Thank you for your willingness to review Day 1 whitepaper for Kaggle 5days of AI agents. Your insights were helpful in guiding us to a great whitepaper."
-    }
+CERTIFICATIONS = [
+    "8x Google Cloud (ML Engineer, Cloud Architect, Data Engineer, Security Engineer, Network Engineer, Database Engineer, etc.)",
+    "6x AWS (Solutions Architect Pro, Security Specialty, Data Analytics Specialty, etc.)",
+    "2x Agile & Data (SAFe 4, Splunk Certified Power User)",
+    "19x TOTAL CLOUD & AI CERTIFICATIONS"
 ]
-
-SKILLS_SCHEMA = {
-    "Advanced": ["Architecture", "Leadership", "Communication", "People-centric", "Scrum / PMBOK", "DevOps", "Observability", "ETL data Platforms", "Product Strategy", "Agent Governance", "Ecosystem Enablement"],
-    "Intermediate": ["LLM", "AIML", "Vertex AI", "RLHF / SFT", "Provisioned Throughput", "Enterprise MLOps", "BigQuery", "Data Architecture"],
-    "Languages": ["English (Native)", "Spanish (Fluent)", "Cantonese (Advanced)"]
-}
