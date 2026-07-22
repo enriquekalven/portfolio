@@ -5,6 +5,12 @@ import { motion } from 'framer-motion';
 
 const MEDIA = [
   {
+    id: "b542qAXlnwc",
+    title: "[Agent Garden] Economic Research Agent",
+    description: "Live-API Economic Intelligence Agent querying FRED, Census, HUD & Real Estate Yields via ADK 2.0 with zero math drift.",
+    type: "Agent Garden"
+  },
+  {
     id: "FrfaAwq0YNg",
     title: "Advent of Agents Day 20 - Kaggle Capstone",
     description: "Kaggle Capstone Winners Highlight. Deep dive into the most innovative agentic solutions.",
