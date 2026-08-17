@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { PlayCircle, ExternalLink, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import './App.css';
 import { motion } from 'framer-motion';
+import { ContactModal } from './App';
 
 const MEDIA = [
   {
@@ -109,6 +111,8 @@ const MEDIA = [
 ];
 
 function MediaPage() {
+  const [showContact, setShowContact] = useState(false);
+
   return (
     <div className="app">
       <nav className="navbar scrolled">
@@ -117,9 +121,13 @@ function MediaPage() {
           <div className="nav-links">
             <Link to="/">Home</Link>
           </div>
-          <a href="mailto:enriquekalven@gmail.com" className="cta-button" style={{ padding: '10px 20px', fontSize: '14px' }}>
+          <button
+            onClick={() => setShowContact(true)}
+            className="cta-button"
+            style={{ padding: '10px 20px', fontSize: '14px', border: 'none', cursor: 'pointer' }}
+          >
             Work with Me
-          </a>
+          </button>
         </div>
       </nav>
 
@@ -174,15 +182,21 @@ function MediaPage() {
         <p style={{ maxWidth: '600px', margin: '0 auto 40px', fontSize: '18px', opacity: 0.8 }}>
           I deliver customized workshops and keynotes for executive leadership teams on transitioning from POC to production-grade AI agents.
         </p>
-        <a href="mailto:enriquekalven@gmail.com" className="cta-button">
+        <button
+          onClick={() => setShowContact(true)}
+          className="cta-button"
+          style={{ border: 'none', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+        >
           Book a Workshop <ChevronRight size={18} />
-        </a>
+        </button>
       </section>
 
       <footer className="footer">
         <div className="footer-logo">Enrique Chan</div>
         <p style={{ opacity: 0.5, fontSize: '14px' }}>© {new Date().getFullYear()} Enrique Chan. Built for the future of AI.</p>
       </footer>
+
+      {showContact && <ContactModal onClose={() => setShowContact(false)} />}
     </div>
   );
 }
