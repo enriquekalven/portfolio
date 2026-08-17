@@ -17,7 +17,10 @@ import {
   ArrowLeft,
   Sparkles,
   Zap,
-  CheckCircle2
+  CheckCircle2,
+  Copy,
+  Check,
+  MapPin
 } from 'lucide-react';
 import MediaPage from './MediaPage';
 import confetti from 'canvas-confetti';
@@ -140,7 +143,7 @@ const SERVICES = [
   },
   {
     title: 'Technical Evangelism & Enablement 🎤',
-    description: 'Keynote speaker at Google Cloud Next & NorthAm Tech Immersion, co-author of Intro to Agents (1.5M attendees) and Advent of Agents (32k+ devs).',
+    description: 'Keynote speaker at Google Cloud Next, Build with Gemini, & NorthAm Tech Immersion, co-author of Intro to Agents (1.5M attendees) and Advent of Agents (32k+ devs).',
     icon: MessageSquare,
     color: '#ff7e5f'
   }
@@ -178,6 +181,23 @@ const RECENT_WORK = [
         "Turnkey Compilers: Renders fixed-layout EPUB eBooks and print-ready PDF manuscripts directly to Google Drive."
       ],
       strategy: "Bridging creative AI storytelling with production-grade compilation pipelines. Using evolutionary algorithms (AlphaEvolve) to refine prompt structures continuously, ensuring original story arcs and strict character asset consistency.",
+      team: "Enrique Chan"
+    }
+  },
+  {
+    title: 'SafeKids Portal 🛡️👶',
+    tag: 'Parenting Tech / Family Blueprint',
+    description: 'Research-backed parent action plan, low-stimulus channel directory, and technical lockdown guides for algorithm-free kids media.',
+    image: 'https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?q=80&w=1200&auto=format&fit=crop',
+    link: 'https://safe-kids.web.app/',
+    details: {
+      highlights: [
+        "Parent Decision Framework: Actionable guidance across Zero Screen Time (0–3), Curated Media Rips (PBS Kids/Plex), and Approval Bots.",
+        "Low-Stimulus Channel Directory: 18+ vetted, overstimulation-free channel and series recommendations categorized by age group.",
+        "Open-Source Tools Comparison: Detailed architectural and UX breakdown of 6 parent-controlled tools (BrainRotGuard, KidzTV, YouTubeWhitelist, KidTube).",
+        "Technical Lockdown Blueprints: Step-by-step hardened configuration guides for iOS Guided Access, Android Screen Pinning, and Fire Tablets."
+      ],
+      strategy: "As a father of 3, I engineered SafeKids Portal to give parents a practical, research-backed blueprint for eliminating algorithmic overstimulation and reclaiming intentional family screen time.",
       team: "Enrique Chan"
     }
   },
@@ -419,7 +439,40 @@ const TESTIMONIALS = [
   }
 ];
 
-const SPEAKING = [
+interface SpeakingEvent {
+  title: string;
+  event: string;
+  session: string;
+  time: string;
+  location: string;
+  image: string;
+  images?: string[];
+  link: string;
+  status: string;
+}
+
+const SPEAKING: SpeakingEvent[] = [
+  {
+    title: "Build with Gemini: AI for Enterprise Builders 🚀",
+    event: "Build with Gemini",
+    session: "Keynote & Hands-On Architecture",
+    time: "August 20, 2026",
+    location: "Bellevue, WA",
+    image: "/tech_immersion_wide.png",
+    link: "#",
+    status: "UPCOMING"
+  },
+  {
+    title: "Build with Gemini: AI for Business Builders 🚀",
+    event: "Build with Gemini",
+    session: "Keynote & Live Demo (215+ Guests)",
+    time: "August 6, 2026",
+    location: "Seattle, WA",
+    image: "/build_with_gemini_seattle.jpg",
+    images: ["/build_with_gemini_seattle.jpg", "/build_with_gemini_seattle_wide.jpg"],
+    link: "#",
+    status: "COMPLETED"
+  },
   {
     title: "Architecting AI Agents 🏗️",
     event: "Google Cloud Next '26",
@@ -452,7 +505,336 @@ const SPEAKING = [
   }
 ];
 
-function Navbar({ onEasterEgg, comicUnlocked, onShowComic }: { onEasterEgg: () => void, comicUnlocked: boolean, onShowComic: () => void }) {
+function SpeakingCardItem({ speech }: { speech: SpeakingEvent }) {
+  const images = speech.images && speech.images.length > 0 ? speech.images : [speech.image];
+  const [activeImgIdx, setActiveImgIdx] = useState(0);
+
+  return (
+    <motion.div
+      className="speaking-card"
+      initial={{ opacity: 0, y: 25 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+    >
+      <div style={{ flex: '1.2', padding: '40px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
+          <Award size={18} style={{ color: 'var(--accent-cyan)' }} />
+          <span style={{ fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1.5px', fontSize: '11px', color: 'var(--accent-cyan)' }}>
+            {speech.status} SESSION
+          </span>
+        </div>
+        <h3 style={{ fontSize: '28px', marginBottom: '20px', lineHeight: '1.3' }}>{speech.title}</h3>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '20px', marginBottom: '24px' }}>
+          <div>
+            <p style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase' }}>Event</p>
+            <p style={{ fontSize: '16px', fontWeight: 600 }}>{speech.event}</p>
+          </div>
+          <div>
+            <p style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase' }}>Session</p>
+            <p style={{ fontSize: '16px', fontWeight: 600 }}>{speech.session}</p>
+          </div>
+          <div>
+            <p style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase' }}>Date & Location</p>
+            <p style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>{speech.time} • {speech.location}</p>
+          </div>
+        </div>
+      </div>
+      <div style={{ flex: '0.8', minHeight: '260px', position: 'relative', overflow: 'hidden' }}>
+        <img
+          src={images[activeImgIdx]}
+          alt={speech.title}
+          style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'all 0.3s ease' }}
+        />
+        {images.length > 1 && (
+          <div style={{
+            position: 'absolute',
+            bottom: '16px',
+            right: '16px',
+            display: 'flex',
+            gap: '8px',
+            background: 'rgba(0, 0, 0, 0.7)',
+            backdropFilter: 'blur(8px)',
+            padding: '6px 12px',
+            borderRadius: '20px',
+            zIndex: 2
+          }}>
+            {images.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveImgIdx(i)}
+                style={{
+                  width: activeImgIdx === i ? '20px' : '8px',
+                  height: '8px',
+                  borderRadius: '4px',
+                  background: activeImgIdx === i ? 'var(--accent-cyan)' : 'rgba(255, 255, 255, 0.4)',
+                  border: 'none',
+                  cursor: 'pointer',
+                  padding: 0,
+                  transition: 'all 0.2s ease'
+                }}
+                title={`View Photo ${i + 1}`}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+    </motion.div>
+  );
+}
+
+export function ContactModal({ onClose }: { onClose: () => void }) {
+  const [copiedKey, setCopiedKey] = useState<string | null>(null);
+
+  const handleCopy = (text: string, key: string) => {
+    navigator.clipboard.writeText(text);
+    setCopiedKey(key);
+    setTimeout(() => setCopiedKey(null), 2500);
+  };
+
+  return (
+    <div
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        background: 'rgba(0,0,0,0.88)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 1200,
+        padding: '24px'
+      }}
+      onClick={onClose}
+    >
+      <motion.div
+        initial={{ opacity: 0, scale: 0.92, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.92, y: 20 }}
+        className="modal-content"
+        onClick={(e) => e.stopPropagation()}
+        style={{
+          background: 'var(--bg-secondary)',
+          border: '1px solid var(--border-subtle)',
+          maxWidth: '560px',
+          width: '100%',
+          borderRadius: '24px',
+          position: 'relative',
+          padding: '36px',
+          boxShadow: '0 20px 60px rgba(0,0,0,0.6)'
+        }}
+      >
+        <button
+          onClick={onClose}
+          style={{
+            position: 'absolute',
+            right: '20px',
+            top: '20px',
+            background: 'rgba(255,255,255,0.08)',
+            border: 'none',
+            borderRadius: '50%',
+            padding: '8px',
+            cursor: 'pointer',
+            color: 'white',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            transition: 'background 0.2s ease'
+          }}
+        >
+          <X size={18} />
+        </button>
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
+          <div style={{
+            width: '56px',
+            height: '56px',
+            borderRadius: '50%',
+            overflow: 'hidden',
+            border: '2px solid var(--accent-cyan)',
+            boxShadow: '0 0 16px rgba(56,189,248,0.35)',
+            flexShrink: 0
+          }}>
+            <img src="/profile_bubble.jpg" alt="Enrique Chan" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          </div>
+          <div>
+            <span style={{ fontSize: '11px', fontWeight: 800, color: 'var(--accent-cyan)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
+              DIRECT CONTACT
+            </span>
+            <h2 style={{ fontSize: '24px', margin: '4px 0 0', fontWeight: 800 }}>Let's Build Together ⚡</h2>
+          </div>
+        </div>
+
+        <p style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '28px' }}>
+          Reach out for Enterprise AI Transformation, Forward Deployed Engineering, keynote speaking, or advisory engagements.
+        </p>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', marginBottom: '28px' }}>
+          {/* Work Email */}
+          <div style={{
+            background: 'rgba(255,255,255,0.03)',
+            border: '1px solid var(--border-subtle)',
+            borderRadius: '16px',
+            padding: '16px 20px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '12px'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <div style={{ background: 'rgba(56,189,248,0.15)', color: 'var(--accent-cyan)', padding: '10px', borderRadius: '12px' }}>
+                <Mail size={18} />
+              </div>
+              <div>
+                <p style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Google Cloud / Work</p>
+                <p style={{ fontSize: '15px', fontWeight: 600, color: '#f8fafc' }}>enriq@google.com</p>
+              </div>
+            </div>
+            <div style={{ display: 'flex', gap: '8px' }}>
+              <button
+                onClick={() => handleCopy('enriq@google.com', 'work')}
+                style={{
+                  background: copiedKey === 'work' ? 'rgba(74,222,128,0.2)' : 'rgba(255,255,255,0.08)',
+                  border: `1px solid ${copiedKey === 'work' ? '#4ade80' : 'var(--border-subtle)'}`,
+                  color: copiedKey === 'work' ? '#4ade80' : 'white',
+                  borderRadius: '10px',
+                  padding: '8px 12px',
+                  fontSize: '12px',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  transition: 'all 0.2s ease'
+                }}
+              >
+                {copiedKey === 'work' ? <><Check size={14} /> Copied</> : <><Copy size={14} /> Copy</>}
+              </button>
+              <a
+                href="mailto:enriq@google.com"
+                style={{
+                  background: 'var(--accent-cyan)',
+                  color: '#0b1120',
+                  borderRadius: '10px',
+                  padding: '8px 14px',
+                  fontSize: '12px',
+                  fontWeight: 800,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  textDecoration: 'none'
+                }}
+              >
+                Send <ArrowRight size={14} />
+              </a>
+            </div>
+          </div>
+
+          {/* Personal Email */}
+          <div style={{
+            background: 'rgba(255,255,255,0.03)',
+            border: '1px solid var(--border-subtle)',
+            borderRadius: '16px',
+            padding: '16px 20px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '12px'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <div style={{ background: 'rgba(255,126,95,0.15)', color: 'var(--accent-coral)', padding: '10px', borderRadius: '12px' }}>
+                <Mail size={18} />
+              </div>
+              <div>
+                <p style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Direct / Advisory</p>
+                <p style={{ fontSize: '15px', fontWeight: 600, color: '#f8fafc' }}>enriquekalven@gmail.com</p>
+              </div>
+            </div>
+            <div style={{ display: 'flex', gap: '8px' }}>
+              <button
+                onClick={() => handleCopy('enriquekalven@gmail.com', 'personal')}
+                style={{
+                  background: copiedKey === 'personal' ? 'rgba(74,222,128,0.2)' : 'rgba(255,255,255,0.08)',
+                  border: `1px solid ${copiedKey === 'personal' ? '#4ade80' : 'var(--border-subtle)'}`,
+                  color: copiedKey === 'personal' ? '#4ade80' : 'white',
+                  borderRadius: '10px',
+                  padding: '8px 12px',
+                  fontSize: '12px',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  transition: 'all 0.2s ease'
+                }}
+              >
+                {copiedKey === 'personal' ? <><Check size={14} /> Copied</> : <><Copy size={14} /> Copy</>}
+              </button>
+              <a
+                href="mailto:enriquekalven@gmail.com"
+                style={{
+                  background: 'var(--accent-coral)',
+                  color: '#0b1120',
+                  borderRadius: '10px',
+                  padding: '8px 14px',
+                  fontSize: '12px',
+                  fontWeight: 800,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  textDecoration: 'none'
+                }}
+              >
+                Send <ArrowRight size={14} />
+              </a>
+            </div>
+          </div>
+
+          {/* LinkedIn */}
+          <a
+            href="https://www.linkedin.com/in/enriquechan/"
+            target="_blank"
+            rel="noreferrer"
+            style={{
+              background: 'rgba(255,255,255,0.03)',
+              border: '1px solid var(--border-subtle)',
+              borderRadius: '16px',
+              padding: '16px 20px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              textDecoration: 'none',
+              transition: 'border-color 0.2s ease'
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <div style={{ background: 'rgba(129,140,248,0.15)', color: '#818cf8', padding: '10px', borderRadius: '12px' }}>
+                <Linkedin size={18} />
+              </div>
+              <div>
+                <p style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>LinkedIn Professional</p>
+                <p style={{ fontSize: '15px', fontWeight: 600, color: '#f8fafc' }}>linkedin.com/in/enriquechan</p>
+              </div>
+            </div>
+            <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--accent-cyan)', display: 'flex', alignItems: 'center', gap: '4px' }}>
+              Connect <ExternalLink size={14} />
+            </span>
+          </a>
+        </div>
+
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '16px', borderTop: '1px solid var(--border-subtle)', fontSize: '12px', color: 'var(--text-muted)' }}>
+          <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <MapPin size={14} style={{ color: 'var(--accent-cyan)' }} /> Seattle, WA
+          </span>
+          <span>Open for Keynotes & Advisory</span>
+        </div>
+      </motion.div>
+    </div>
+  );
+}
+
+function Navbar({ onEasterEgg, comicUnlocked, onShowComic, onContact }: { onEasterEgg: () => void, comicUnlocked: boolean, onShowComic: () => void, onContact: () => void }) {
   const [scrolled, setScrolled] = useState(false);
   const [tapCount, setTapCount] = useState(0);
   const lastTap = useRef<number>(0);
@@ -524,9 +906,9 @@ function Navbar({ onEasterEgg, comicUnlocked, onShowComic }: { onEasterEgg: () =
           )}
         </div>
 
-        <a href="mailto:enriq@google.com" className="cta-button">
+        <button onClick={onContact} className="cta-button" style={{ border: 'none', cursor: 'pointer' }}>
           Get in Touch <ArrowRight size={16} />
-        </a>
+        </button>
       </div>
     </nav>
   );
@@ -567,6 +949,7 @@ function LandingPage() {
   const [activeComic, setActiveComic] = useState<Comic | null>(null);
   const [comicUnlocked, setComicUnlocked] = useState(false);
   const [showHint, setShowHint] = useState(false);
+  const [showContact, setShowContact] = useState(false);
 
   const triggerEasterEgg = useCallback(() => {
     if (comicUnlocked) return;
@@ -593,6 +976,7 @@ function LandingPage() {
         onEasterEgg={triggerEasterEgg}
         comicUnlocked={comicUnlocked}
         onShowComic={() => setShowComic(true)}
+        onContact={() => setShowContact(true)}
       />
 
       {/* Hero Section */}
@@ -709,9 +1093,25 @@ function LandingPage() {
               </div>
               <h3 className="card-title">{service.title}</h3>
               <p className="card-description">{service.description}</p>
-              <a href="mailto:enriq@google.com" style={{ fontWeight: 700, color: 'var(--accent-cyan)', marginTop: 'auto', display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '14px' }}>
+              <button
+                onClick={() => setShowContact(true)}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  padding: 0,
+                  cursor: 'pointer',
+                  fontWeight: 700,
+                  color: 'var(--accent-cyan)',
+                  marginTop: 'auto',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  fontSize: '14px',
+                  fontFamily: 'inherit'
+                }}
+              >
                 Collaborate <ArrowRight size={14} />
-              </a>
+              </button>
             </motion.div>
           ))}
         </div>
@@ -829,40 +1229,7 @@ function LandingPage() {
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
           {SPEAKING.map((speech, idx) => (
-            <motion.div
-              key={idx}
-              className="speaking-card"
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <div style={{ flex: '1.2', padding: '40px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
-                  <Award size={18} style={{ color: 'var(--accent-cyan)' }} />
-                  <span style={{ fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1.5px', fontSize: '11px', color: 'var(--accent-cyan)' }}>
-                    {speech.status} SESSION
-                  </span>
-                </div>
-                <h3 style={{ fontSize: '28px', marginBottom: '20px', lineHeight: '1.3' }}>{speech.title}</h3>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '20px', marginBottom: '24px' }}>
-                  <div>
-                    <p style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase' }}>Event</p>
-                    <p style={{ fontSize: '16px', fontWeight: 600 }}>{speech.event}</p>
-                  </div>
-                  <div>
-                    <p style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase' }}>Session</p>
-                    <p style={{ fontSize: '16px', fontWeight: 600 }}>{speech.session}</p>
-                  </div>
-                  <div>
-                    <p style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase' }}>Date & Location</p>
-                    <p style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>{speech.time} • {speech.location}</p>
-                  </div>
-                </div>
-              </div>
-              <div style={{ flex: '0.8', minHeight: '260px', position: 'relative' }}>
-                <img src={speech.image} alt={speech.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              </div>
-            </motion.div>
+            <SpeakingCardItem key={idx} speech={speech} />
           ))}
         </div>
       </section>
@@ -1182,12 +1549,15 @@ function LandingPage() {
         <div className="footer-socials">
           <a href="https://github.com/enriquekalven" target="_blank" rel="noreferrer" className="social-icon"><Github size={20} /></a>
           <a href="https://www.linkedin.com/in/enriquechan/" target="_blank" rel="noreferrer" className="social-icon"><Linkedin size={20} /></a>
-          <a href="mailto:enriq@google.com" className="social-icon"><Mail size={20} /></a>
+          <button onClick={() => setShowContact(true)} className="social-icon" style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'inherit', display: 'flex', alignItems: 'center', justifyContent: 'center' }} title="Contact Enrique"><Mail size={20} /></button>
         </div>
         <p style={{ marginTop: '48px', fontSize: '13px', color: 'var(--text-muted)' }}>
           © {new Date().getFullYear()} ENRIQUE CHAN • STAFF AI TECHNICAL DEPLOYMENT LEAD • DELTA
         </p>
       </footer>
+
+      {/* Contact Modal */}
+      {showContact && <ContactModal onClose={() => setShowContact(false)} />}
 
       {/* Easter Egg Hint */}
       <motion.div

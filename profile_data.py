@@ -31,7 +31,8 @@ PROFILE = {
         "linkedin": "https://www.linkedin.com/in/enriquechan/",
         "github": "https://github.com/enriquekalven",
         "advent": "https://adventofagents.com/",
-        "a2ui": "https://a2ui.org/"
+        "a2ui": "https://a2ui.org/",
+        "safekids": "https://safe-kids.web.app/"
     }
 }
 
@@ -147,6 +148,14 @@ PROJECTS = [
         "tag": "Open Source / GenAI"
     },
     {
+        "name": "SafeKids Portal",
+        "impact": "Parent-Curated Media Hub & Technical Lockdown Guide",
+        "image": "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?q=80&w=1200&auto=format&fit=crop",
+        "description": "Algorithm-free parent action plan, low-stimulus channel directory, open-source tool comparison, and technical lockdown guides.",
+        "url": "https://safe-kids.web.app/",
+        "tag": "Parenting Tech / Family Blueprint"
+    },
+    {
         "name": "AgentOps Cockpit",
         "impact": "Governance as Code | 92% Cost Optimization",
         "image": f"{BASE_URL}/cockpit.png",
@@ -257,3 +266,53 @@ CERTIFICATIONS = [
     "2x Agile & Data (SAFe 4, Splunk Certified Power User)",
     "19x TOTAL CLOUD & AI CERTIFICATIONS"
 ]
+
+SPEAKING = [
+    {
+        "title": "Build with Gemini: AI for Enterprise Builders",
+        "event": "Build with Gemini",
+        "session": "Keynote & Hands-On Architecture",
+        "date": "August 20, 2026",
+        "location": "Bellevue, WA",
+        "image": f"{BASE_URL}/tech_immersion_wide.png",
+        "status": "UPCOMING"
+    },
+    {
+        "title": "Build with Gemini: AI for Business Builders",
+        "event": "Build with Gemini",
+        "session": "Keynote & Live Demo (215+ Guests)",
+        "date": "August 6, 2026",
+        "location": "Seattle, WA",
+        "image": f"{BASE_URL}/build_with_gemini_seattle.jpg",
+        "images": [
+            f"{BASE_URL}/build_with_gemini_seattle.jpg",
+            f"{BASE_URL}/build_with_gemini_seattle_wide.jpg"
+        ],
+        "status": "COMPLETED"
+    },
+    {
+        "title": "Architecting AI Agents",
+        "event": "Google Cloud Next '26",
+        "session": "Keynote / Speaker",
+        "date": "April 22 - 24, 2026",
+        "location": "Mandalay Bay, Las Vegas",
+        "image": f"{BASE_URL}/next_26_session.png"
+    },
+    {
+        "title": "Architecting gen AI agents from LLM ops to advanced techniques",
+        "event": "Google Cloud Next '25",
+        "session": "SOL308",
+        "date": "April 2025",
+        "location": "Solution Talks 1",
+        "image": f"{BASE_URL}/next_25_session.png"
+    },
+    {
+        "title": "Retail Concierge GenAI Gotchas: Production Pitfalls to Avoid",
+        "event": "NorthAm Tech Immersion",
+        "session": "900+ Registrations (AMER & LATAM)",
+        "date": "February 2025",
+        "location": "Los Angeles, CA",
+        "image": f"{BASE_URL}/tech_immersion_la.png"
+    }
+]
+
