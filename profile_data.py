@@ -32,7 +32,8 @@ PROFILE = {
         "github": "https://github.com/enriquekalven",
         "advent": "https://adventofagents.com/",
         "a2ui": "https://a2ui.org/",
-        "safekids": "https://safe-kids.web.app/"
+        "safekids": "https://safe-kids.web.app/",
+        "curious_little_minds": "https://curious-little-minds.web.app/"
     }
 }
 
@@ -144,7 +145,7 @@ PROJECTS = [
         "impact": "AlphaEvolve Optimized | Multi-lingual Publishing",
         "image": f"{BASE_URL}/storybook.png",
         "description": "Autonomous AI children's book generator and multi-lingual publishing orchestrator leveraging Gemini 2.5 Flash and AlphaEvolve.",
-        "url": "https://github.com/enriquekalven/story-agent",
+        "url": "https://curious-little-minds.web.app/",
         "tag": "Open Source / GenAI"
     },
     {
@@ -274,8 +275,8 @@ SPEAKING = [
         "session": "Keynote & Hands-On Architecture",
         "date": "August 20, 2026",
         "location": "Bellevue, WA",
-        "image": f"{BASE_URL}/tech_immersion_wide.png",
-        "status": "UPCOMING"
+        "image": f"{BASE_URL}/build_with_gemini_bellevue.jpg",
+        "status": "COMPLETED"
     },
     {
         "title": "Build with Gemini: AI for Business Builders",
@@ -312,7 +313,35 @@ SPEAKING = [
         "session": "900+ Registrations (AMER & LATAM)",
         "date": "February 2025",
         "location": "Los Angeles, CA",
-        "image": f"{BASE_URL}/tech_immersion_la.png"
+        "image": f"{BASE_URL}/tech_immersion_la.png",
+        "status": "COMPLETED"
+    },
+    {
+        "title": "Gen AI Production Fuel Up Friday",
+        "event": "AIML SME Academy",
+        "session": "328 Technical Googlers — On-Demand Path",
+        "date": "November 2024",
+        "location": "Global Internal Training",
+        "image": f"{BASE_URL}/gen_ai_fuel_up_friday.png",
+        "status": "COMPLETED"
+    },
+    {
+        "title": "Agentic Workflow Real World Wednesday",
+        "event": "AIML SME Academy",
+        "session": "328 Technical Googlers — On-Demand Path",
+        "date": "November 2024",
+        "location": "Global Internal Training",
+        "image": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop",
+        "status": "COMPLETED"
+    },
+    {
+        "title": "Generative AI Overcoming barriers to drive adoption",
+        "event": "Google Cloud Next '24",
+        "session": "6 sessions — Fully booked (30 C-level Executives each)",
+        "date": "April 2024",
+        "location": "Mandalay Bay, Las Vegas",
+        "image": f"{BASE_URL}/cloud_next_24.png",
+        "status": "COMPLETED"
     }
 ]
 
