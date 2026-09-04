@@ -1,11 +1,13 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
 import {
   ArrowRight,
   Linkedin,
   ChevronRight,
+  ChevronDown,
+  ChevronUp,
   ShieldCheck,
   MessageSquare,
   Mail,
@@ -172,7 +174,7 @@ const RECENT_WORK = [
     tag: 'GenAI / AlphaEvolve',
     description: "Autonomous AI children's book publishing engine leveraging Gemini 2.5 Flash and AlphaEvolve algorithms for fixed-layout EPUB & PDF creation.",
     image: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1200&auto=format&fit=crop',
-    link: 'https://github.com/enriquekalven/story-agent',
+    link: 'https://curious-little-minds.web.app/',
     details: {
       highlights: [
         "Evolved Narrative Engine: Uses Gemini 2.5 Flash & AlphaEvolve (climbing 7.45 → 8.91 in narrative virality and visual consistency).",
@@ -458,9 +460,9 @@ const SPEAKING: SpeakingEvent[] = [
     session: "Keynote & Hands-On Architecture",
     time: "August 20, 2026",
     location: "Bellevue, WA",
-    image: "/tech_immersion_wide.png",
+    image: "/build_with_gemini_bellevue.jpg",
     link: "#",
-    status: "UPCOMING"
+    status: "COMPLETED"
   },
   {
     title: "Build with Gemini: AI for Business Builders 🚀",
@@ -502,6 +504,36 @@ const SPEAKING: SpeakingEvent[] = [
     image: "/tech_immersion_la.png",
     link: "#",
     status: "COMPLETED"
+  },
+  {
+    title: "Gen AI Production Fuel Up Friday ⛽",
+    event: "AIML SME Academy",
+    session: "328 Technical Googlers — On-Demand Path",
+    time: "November 2024",
+    location: "Global Internal Training",
+    image: "/gen_ai_fuel_up_friday.png",
+    link: "#",
+    status: "COMPLETED"
+  },
+  {
+    title: "Agentic Workflow Real World Wednesday 🌍",
+    event: "AIML SME Academy",
+    session: "328 Technical Googlers — On-Demand Path",
+    time: "November 2024",
+    location: "Global Internal Training",
+    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop",
+    link: "#",
+    status: "COMPLETED"
+  },
+  {
+    title: "Generative AI Overcoming barriers to drive adoption 🪜",
+    event: "Google Cloud Next '24",
+    session: "6 sessions — Fully booked (30 C-level Executives each)",
+    time: "April 2024",
+    location: "Mandalay Bay, Las Vegas",
+    image: "/cloud_next_24.png",
+    link: "#",
+    status: "COMPLETED"
   }
 ];
 
@@ -515,6 +547,8 @@ function SpeakingCardItem({ speech }: { speech: SpeakingEvent }) {
       initial={{ opacity: 0, y: 25 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
+      exit={{ opacity: 0, scale: 0.98 }}
+      layout
     >
       <div style={{ flex: '1.2', padding: '40px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
@@ -918,7 +952,7 @@ function WhatsNewBanner() {
   return (
     <a href="#speaking" className="whats-new-banner">
       <span className="banner-tag">NEWS</span>
-      <span>Staff AI Technical Deployment Lead (TDL) | Delta & Rotator OPM @ Google Cloud</span>
+      <span>Enrique completed Build with Gemini sessions in Seattle & Bellevue 🚀</span>
       <ArrowRight size={14} />
     </a>
   );
@@ -950,6 +984,11 @@ function LandingPage() {
   const [comicUnlocked, setComicUnlocked] = useState(false);
   const [showHint, setShowHint] = useState(false);
   const [showContact, setShowContact] = useState(false);
+  const [projectsExpanded, setProjectsExpanded] = useState(false);
+  const [speakingExpanded, setSpeakingExpanded] = useState(false);
+
+  const displayedProjects = projectsExpanded ? RECENT_WORK : RECENT_WORK.slice(0, 4);
+  const displayedSpeaking = speakingExpanded ? SPEAKING : SPEAKING.slice(0, 3);
 
   const triggerEasterEgg = useCallback(() => {
     if (comicUnlocked) return;
@@ -1167,70 +1206,195 @@ function LandingPage() {
 
       {/* Work Section */}
       <section id="work">
-        <div className="section-header">
-          <span className="section-tag">Featured Delivery</span>
-          <h2 className="section-title">Marquee Projects & Innovations 🚀</h2>
+        <div className="section-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '16px' }}>
+          <div>
+            <span className="section-tag">Featured Delivery</span>
+            <h2 className="section-title" style={{ margin: 0 }}>Marquee Projects & Innovations 🚀</h2>
+          </div>
+          <button
+            onClick={() => setProjectsExpanded(!projectsExpanded)}
+            className="cta-button-outline"
+            style={{
+              padding: '8px 18px',
+              fontSize: '13px',
+              fontWeight: 700,
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              borderRadius: '100px',
+              cursor: 'pointer'
+            }}
+          >
+            {projectsExpanded ? (
+              <>
+                Collapse to Featured (4) <ChevronUp size={16} />
+              </>
+            ) : (
+              <>
+                View All Projects ({RECENT_WORK.length}) <ChevronDown size={16} />
+              </>
+            )}
+          </button>
         </div>
         <div className="work-grid">
-          {RECENT_WORK.map((work, idx) => (
-            <motion.div
-              key={idx}
-              className="work-card"
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              onClick={() => work.details && setSelectedProject(work as Project)}
-              style={{ cursor: work.details ? 'pointer' : 'default' }}
-            >
-              <img src={work.image} alt={work.title} />
-              <div className="work-info">
-                <span style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 800, color: 'var(--accent-cyan)', marginBottom: '8px' }}>
-                  {work.tag}
-                </span>
-                <h3 className="card-title" style={{ fontSize: '24px', marginBottom: '8px' }}>{work.title}</h3>
-                <p className="card-description" style={{ marginBottom: '20px' }}>{work.description}</p>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginTop: 'auto' }}>
-                  {work.details && (
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setSelectedProject(work as Project);
-                      }}
-                      className="cta-button-outline"
-                      style={{ padding: '6px 16px', fontSize: '13px' }}
-                    >
-                      Case Study <ArrowRight size={14} />
-                    </button>
-                  )}
-                  {work.link !== '#' && (
-                    <a
-                      href={work.link}
-                      target="_blank"
-                      rel="noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '13px', fontWeight: 700, color: 'var(--accent-cyan)' }}
-                    >
-                      Visit <ExternalLink size={14} />
-                    </a>
-                  )}
+          <AnimatePresence initial={false}>
+            {displayedProjects.map((work) => (
+              <motion.div
+                key={work.title}
+                className="work-card"
+                initial={{ opacity: 0, y: 25 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.25 }}
+                layout
+                onClick={() => work.details && setSelectedProject(work as Project)}
+                style={{ cursor: work.details ? 'pointer' : 'default' }}
+              >
+                <img src={work.image} alt={work.title} />
+                <div className="work-info">
+                  <span style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 800, color: 'var(--accent-cyan)', marginBottom: '8px' }}>
+                    {work.tag}
+                  </span>
+                  <h3 className="card-title" style={{ fontSize: '24px', marginBottom: '8px' }}>{work.title}</h3>
+                  <p className="card-description" style={{ marginBottom: '20px' }}>{work.description}</p>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginTop: 'auto' }}>
+                    {work.details && (
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedProject(work as Project);
+                        }}
+                        className="cta-button-outline"
+                        style={{ padding: '6px 16px', fontSize: '13px' }}
+                      >
+                        Case Study <ArrowRight size={14} />
+                      </button>
+                    )}
+                    {work.link !== '#' && (
+                      <a
+                        href={work.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '13px', fontWeight: 700, color: 'var(--accent-cyan)' }}
+                      >
+                        Visit <ExternalLink size={14} />
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '36px' }}>
+          <button
+            onClick={() => {
+              if (projectsExpanded) {
+                document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
+              }
+              setProjectsExpanded(!projectsExpanded);
+            }}
+            className="cta-button-outline"
+            style={{
+              padding: '12px 28px',
+              fontSize: '14px',
+              fontWeight: 700,
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '10px',
+              borderRadius: '100px',
+              cursor: 'pointer',
+              background: 'rgba(255, 255, 255, 0.03)',
+              borderColor: 'var(--border-subtle)',
+              transition: 'all 0.2s ease'
+            }}
+          >
+            {projectsExpanded ? (
+              <>
+                Collapse Projects <ChevronUp size={16} />
+              </>
+            ) : (
+              <>
+                Show More Projects ({RECENT_WORK.length - 4} More) <ChevronDown size={16} />
+              </>
+            )}
+          </button>
         </div>
       </section>
 
       {/* Speaking Section */}
       <section id="speaking">
-        <div className="section-header">
-          <span className="section-tag">Thought Leadership</span>
-          <h2 className="section-title">Keynotes & Speaking 🎤</h2>
+        <div className="section-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '16px' }}>
+          <div>
+            <span className="section-tag">Thought Leadership</span>
+            <h2 className="section-title" style={{ margin: 0 }}>Keynotes & Speaking 🎤</h2>
+          </div>
+          <button
+            onClick={() => setSpeakingExpanded(!speakingExpanded)}
+            className="cta-button-outline"
+            style={{
+              padding: '8px 18px',
+              fontSize: '13px',
+              fontWeight: 700,
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              borderRadius: '100px',
+              cursor: 'pointer'
+            }}
+          >
+            {speakingExpanded ? (
+              <>
+                Collapse to Recent (3) <ChevronUp size={16} />
+              </>
+            ) : (
+              <>
+                View All Keynotes ({SPEAKING.length}) <ChevronDown size={16} />
+              </>
+            )}
+          </button>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-          {SPEAKING.map((speech, idx) => (
-            <SpeakingCardItem key={idx} speech={speech} />
-          ))}
+          <AnimatePresence initial={false}>
+            {displayedSpeaking.map((speech) => (
+              <SpeakingCardItem key={speech.title + speech.time} speech={speech} />
+            ))}
+          </AnimatePresence>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '36px' }}>
+          <button
+            onClick={() => {
+              if (speakingExpanded) {
+                document.getElementById('speaking')?.scrollIntoView({ behavior: 'smooth' });
+              }
+              setSpeakingExpanded(!speakingExpanded);
+            }}
+            className="cta-button-outline"
+            style={{
+              padding: '12px 28px',
+              fontSize: '14px',
+              fontWeight: 700,
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '10px',
+              borderRadius: '100px',
+              cursor: 'pointer',
+              background: 'rgba(255, 255, 255, 0.03)',
+              borderColor: 'var(--border-subtle)',
+              transition: 'all 0.2s ease'
+            }}
+          >
+            {speakingExpanded ? (
+              <>
+                Collapse Keynotes <ChevronUp size={16} />
+              </>
+            ) : (
+              <>
+                Show All Keynotes & Past Talks ({SPEAKING.length - 3} More) <ChevronDown size={16} />
+              </>
+            )}
+          </button>
         </div>
       </section>
 
