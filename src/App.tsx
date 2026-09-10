@@ -22,9 +22,13 @@ import {
   CheckCircle2,
   Copy,
   Check,
-  MapPin
+  MapPin,
+  Sun,
+  Moon,
+  Globe
 } from 'lucide-react';
 import MediaPage from './MediaPage';
+import { type Language, TRANSLATIONS, type Translations } from './i18n';
 import confetti from 'canvas-confetti';
 // @ts-expect-error: konami-code-js does not have type definitions
 import Konami from 'konami-code-js';
@@ -152,24 +156,42 @@ const SERVICES = [
   }
 ];
 
-const RECENT_WORK = [
+const ANALYST_REPORTS = [
   {
-    title: '4x Gartner® & Forrester™ AI Leader Wins 📊',
-    tag: 'Analyst Relations / Strategic Leadership',
-    description: 'Engineered technical RFIs, architectural proof points, and live demo builds across 4 consecutive Google Cloud AI Leader quadrant & wave wins in 2026.',
-    image: '/next_26_session.png',
-    link: 'https://cloud.google.com/blog/products/ai-machine-learning/google-is-a-leader-in-2026-gartner-magic-quadrant-for-enterprise-ai-assistants?e=48754805',
-    details: {
-      highlights: [
-        "Gartner® Magic Quadrant™ for Enterprise AI Assistants: Leader in Inaugural Report (Published Sep 10, 2026).",
-        "Gartner® Magic Quadrant™ for Cloud-Native Application Platforms (CNAP): Leader for 3rd Consecutive Year (Published Aug 20, 2026).",
-        "The Forrester Wave™: AI Platforms: Leader with Top Score in Strategy Category (Published Aug 10, 2026).",
-        "Gartner® Magic Quadrant™ for AI Application Development Platforms (AIADP): Leader & Highest for Ability to Execute (Published May 14, 2026)."
-      ],
-      strategy: "Behind every top-right analyst dot is months in the trenches: dissecting hundreds of deeply technical RFI prompts, translating architectural reality into airtight proof points, and building and debugging live demo environments under tight deadlines across Product, Engineering, Field, and AR teams.",
-      team: "Enrique Chan, Google Cloud Product, Engineering, Field & AR Teams"
-    }
+    title: "Gartner® Magic Quadrant™ for Enterprise AI Assistants",
+    badge: "Leader • Inaugural Report",
+    date: "Published Sept 10, 2026",
+    description: "Engineered technical RFI responses, architectural proof points, and live demo environments establishing Google Cloud as a Leader in the inaugural Enterprise AI Assistants Magic Quadrant.",
+    link: "https://cloud.google.com/blog/products/ai-machine-learning/google-is-a-leader-in-2026-gartner-magic-quadrant-for-enterprise-ai-assistants?e=48754805",
+    linkLabel: "Read Official Announcement"
   },
+  {
+    title: "Gartner® Magic Quadrant™ for Cloud-Native Application Platforms",
+    badge: "Leader • 3rd Consecutive Year",
+    date: "Published Aug 20, 2026",
+    description: "Partnered across Product, Engineering, and Field teams to craft technical narratives and defend platform capabilities for Google Cloud's 3rd consecutive year as a CNAP Leader.",
+    link: "https://www.gartner.com/doc/reprints?id=00ThR000008iZa9UAE&ct=260804&st=sb",
+    linkLabel: "View Official Gartner Reprint"
+  },
+  {
+    title: "The Forrester Wave™: AI Platforms",
+    badge: "Leader • Top Score in Strategy",
+    date: "Published Aug 10, 2026",
+    description: "Built live demo environments and dissected deeply technical prompts under tight deadlines, securing Google Cloud the highest score in the Strategy category.",
+    link: "https://cloud.google.com/blog/products/ai-machine-learning/google-named-a-leader-in-the-forrester-wave-ai-platforms",
+    linkLabel: "Read Forrester Wave Announcement"
+  },
+  {
+    title: "Gartner® Magic Quadrant™ for AI Application Development Platforms",
+    badge: "Leader • Highest Ability to Execute",
+    date: "Published May 14, 2026",
+    description: "Led technical RFI and live demo builds for GE Agent Platform & ADK, resulting in Google Cloud positioned highest for Ability to Execute.",
+    link: "https://cloud.google.com/blog/products/ai-machine-learning/google-named-a-leader-in-the-gartner-magic-quadrant?e=48754805",
+    linkLabel: "Read AIADP Leader Blog"
+  }
+];
+
+const RECENT_WORK = [
   {
     title: 'Economic Research Agent (Agent Garden) 📈',
     tag: 'ADK 2.0 / Econometrics',
@@ -898,7 +920,27 @@ export function ContactModal({ onClose }: { onClose: () => void }) {
   );
 }
 
-function Navbar({ onEasterEgg, comicUnlocked, onShowComic, onContact }: { onEasterEgg: () => void, comicUnlocked: boolean, onShowComic: () => void, onContact: () => void }) {
+function Navbar({
+  onEasterEgg,
+  comicUnlocked,
+  onShowComic,
+  onContact,
+  theme,
+  onToggleTheme,
+  lang,
+  onChangeLang,
+  t
+}: {
+  onEasterEgg: () => void;
+  comicUnlocked: boolean;
+  onShowComic: () => void;
+  onContact: () => void;
+  theme: 'dark' | 'light';
+  onToggleTheme: () => void;
+  lang: Language;
+  onChangeLang: (lang: Language) => void;
+  t: Translations;
+}) {
   const [scrolled, setScrolled] = useState(false);
   const [tapCount, setTapCount] = useState(0);
   const lastTap = useRef<number>(0);
@@ -942,12 +984,14 @@ function Navbar({ onEasterEgg, comicUnlocked, onShowComic, onContact }: { onEast
         </div>
 
         <div className="nav-links">
-          <a href="#about">About</a>
-          <a href="#experience">Experience</a>
-          <a href="#work">Work</a>
-          <a href="#speaking">Speaking</a>
-          <a href="#articles">Writing</a>
-          <Link to="/media" style={{ color: 'var(--accent-cyan)', fontWeight: 600 }}>Gallery</Link>
+          <a href="#about">{t.nav.about}</a>
+          <a href="#analyst">{t.nav.analyst}</a>
+          <a href="#experience">{t.nav.experience}</a>
+          <a href="#work">{t.nav.work}</a>
+          <a href="#speaking">{t.nav.speaking}</a>
+          <a href="#articles">{t.nav.articles}</a>
+          <a href="#awards">{t.nav.awards}</a>
+          <Link to="/media" style={{ color: 'var(--accent-cyan)', fontWeight: 600 }}>{t.nav.media}</Link>
           {comicUnlocked && (
             <motion.button
               initial={{ opacity: 0, scale: 0.8 }}
@@ -965,24 +1009,57 @@ function Navbar({ onEasterEgg, comicUnlocked, onShowComic, onContact }: { onEast
                 borderRadius: '100px'
               }}
             >
-              Comic 🕵️‍♂️
+              {t.nav.comic}
             </motion.button>
           )}
         </div>
 
-        <button onClick={onContact} className="cta-button" style={{ border: 'none', cursor: 'pointer' }}>
-          Get in Touch <ArrowRight size={16} />
-        </button>
+        <div className="nav-actions">
+          <div className="lang-switcher" title="Language / Idioma / 语言">
+            <Globe size={13} style={{ marginLeft: '6px', color: 'var(--text-secondary)' }} />
+            <button
+              onClick={() => onChangeLang('en')}
+              className={`lang-btn ${lang === 'en' ? 'active' : ''}`}
+            >
+              EN
+            </button>
+            <button
+              onClick={() => onChangeLang('es')}
+              className={`lang-btn ${lang === 'es' ? 'active' : ''}`}
+            >
+              ES
+            </button>
+            <button
+              onClick={() => onChangeLang('zh')}
+              className={`lang-btn ${lang === 'zh' ? 'active' : ''}`}
+            >
+              中文
+            </button>
+          </div>
+
+          <button
+            onClick={onToggleTheme}
+            className="theme-toggle-btn"
+            aria-label="Toggle Light/Dark Theme"
+            title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+          >
+            {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
+          </button>
+
+          <button onClick={onContact} className="cta-button" style={{ border: 'none', cursor: 'pointer' }}>
+            {t.nav.contact} <ArrowRight size={16} />
+          </button>
+        </div>
       </div>
     </nav>
   );
 }
 
-function WhatsNewBanner() {
+function WhatsNewBanner({ t }: { t: Translations }) {
   return (
     <a href="#awards" className="whats-new-banner">
-      <span className="banner-tag">NEWS</span>
-      <span>Enrique won a Silver Google AI Award (SWIFTY, 2026 Q3) for Advent of Agents & drove 4x Gartner/Forrester Leader wins 🏆</span>
+      <span className="banner-tag">{t.banner.tag}</span>
+      <span>{t.banner.text}</span>
       <ArrowRight size={14} />
     </a>
   );
@@ -1017,6 +1094,24 @@ function LandingPage() {
   const [projectsExpanded, setProjectsExpanded] = useState(false);
   const [speakingExpanded, setSpeakingExpanded] = useState(false);
 
+  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
+    return (localStorage.getItem('theme') as 'dark' | 'light') || 'dark';
+  });
+  const [lang, setLang] = useState<Language>(() => {
+    return (localStorage.getItem('lang') as Language) || 'en';
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  useEffect(() => {
+    localStorage.setItem('lang', lang);
+  }, [lang]);
+
+  const t = TRANSLATIONS[lang];
+
   const displayedProjects = projectsExpanded ? RECENT_WORK : RECENT_WORK.slice(0, 4);
   const displayedSpeaking = speakingExpanded ? SPEAKING : SPEAKING.slice(0, 3);
 
@@ -1040,12 +1135,17 @@ function LandingPage() {
 
   return (
     <div className="app">
-      <WhatsNewBanner />
+      <WhatsNewBanner t={t} />
       <Navbar
         onEasterEgg={triggerEasterEgg}
         comicUnlocked={comicUnlocked}
         onShowComic={() => setShowComic(true)}
         onContact={() => setShowContact(true)}
+        theme={theme}
+        onToggleTheme={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+        lang={lang}
+        onChangeLang={setLang}
+        t={t}
       />
 
       {/* Hero Section */}
@@ -1057,11 +1157,11 @@ function LandingPage() {
           transition={{ duration: 0.7 }}
         >
           <div className="role-badge">
-            <Sparkles size={16} /> Staff AI Technical Deployment Lead | Delta @ Google Cloud
+            <Sparkles size={16} /> {t.hero.badge}
           </div>
 
           <h1 className="hero-title">
-            Architecting the next era of <span className="highlight-gradient">Enterprise AI</span> & agentic workflows.
+            {t.hero.titleLine1} <span className="highlight-gradient">{t.hero.titleHighlight}</span>
           </h1>
 
           <div className="hero-quote">
@@ -1069,17 +1169,15 @@ function LandingPage() {
           </div>
 
           <p className="hero-subtitle">
-            Husband & father of 3 👨‍👩‍👧‍👦 • Real Estate Investor 🏠 • Based in Seattle, WA 📍.
-            <br />
-            With 15+ years of experience across <strong>Google, AWS, and Accenture</strong>, I specialize in taking high-stakes, forward-deployed engineering initiatives from zero to multi-billion dollar scale.
+            {t.hero.subtitle}
           </p>
 
           <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', alignItems: 'center' }}>
             <a href="#experience" className="cta-button">
-              Explore Career Journey <ChevronRight size={16} />
+              {t.hero.ctaPrimary} <ChevronRight size={16} />
             </a>
             <a href="#work" className="cta-button-outline">
-              View Key Work
+              {t.hero.ctaSecondary}
             </a>
             <a href="https://www.linkedin.com/in/enriquechan/" target="_blank" rel="noreferrer" className="cta-button-outline" style={{ padding: '10px 16px' }}>
               <Linkedin size={18} />
@@ -1107,11 +1205,11 @@ function LandingPage() {
         <p className="social-proof-title">Impact Across Industry Giants & Global Platforms</p>
         <div className="logo-bar">
           <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" />
-          <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-white.svg" alt="AWS" style={{ height: '28px', filter: 'brightness(0) invert(1)' }} />
-          <img src="https://www.vectorlogo.zone/logos/disney/disney-ar21.svg" alt="Disney" style={{ height: '38px', filter: 'brightness(0) invert(1)' }} />
+          <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-white.svg" alt="AWS" style={{ height: '28px', filter: theme === 'dark' ? 'brightness(0) invert(1)' : 'none' }} />
+          <img src="https://www.vectorlogo.zone/logos/disney/disney-ar21.svg" alt="Disney" style={{ height: '38px', filter: theme === 'dark' ? 'brightness(0) invert(1)' : 'none' }} />
           <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Olympic_rings_without_rims.svg" alt="Olympics" style={{ height: '36px' }} />
           <img src="https://www.vectorlogo.zone/logos/kaggle/kaggle-icon.svg" alt="Kaggle" style={{ height: '32px' }} />
-          <img src="https://www.vectorlogo.zone/logos/medium/medium-icon.svg" alt="Medium" style={{ height: '30px', filter: 'brightness(0) invert(1)' }} />
+          <img src="https://www.vectorlogo.zone/logos/medium/medium-icon.svg" alt="Medium" style={{ height: '30px', filter: theme === 'dark' ? 'brightness(0) invert(1)' : 'none' }} />
         </div>
       </section>
 
@@ -1120,32 +1218,91 @@ function LandingPage() {
         <div className="metrics-grid">
           <motion.div className="metric-card" whileHover={{ y: -4 }}>
             <div className="metric-value">$2B+</div>
-            <div className="metric-label">Multi-Year Enterprise Commit Captured</div>
+            <div className="metric-label">{t.hero.metrics.deals}</div>
           </motion.div>
           <motion.div className="metric-card" whileHover={{ y: -4 }}>
             <div className="metric-value">40M+</div>
-            <div className="metric-label">Olympic Viewers Served (0.5% Error Rate)</div>
+            <div className="metric-label">{t.hero.metrics.viewers}</div>
           </motion.div>
           <motion.div className="metric-card" whileHover={{ y: -4 }}>
-            <div className="metric-value">1.5M+</div>
-            <div className="metric-label">Whitepaper Readers ("Intro to Agents")</div>
+            <div className="metric-value">5T+</div>
+            <div className="metric-label">{t.hero.metrics.tokens}</div>
           </motion.div>
           <motion.div className="metric-card" whileHover={{ y: -4 }}>
             <div className="metric-value">32K+</div>
-            <div className="metric-label">Developers Engaged (Advent of Agents)</div>
+            <div className="metric-label">{t.hero.metrics.devs}</div>
           </motion.div>
           <motion.div className="metric-card" whileHover={{ y: -4 }}>
-            <div className="metric-value">19x</div>
-            <div className="metric-label">Multi-Cloud Certifications</div>
+            <div className="metric-value">4x</div>
+            <div className="metric-label">Gartner® & Forrester™ Leader Wins</div>
           </motion.div>
         </div>
       </div>
 
+      {/* Analyst Relations & Market Leadership Section */}
+      <section id="analyst">
+        <div className="section-header">
+          <span className="section-tag">{t.sections.analystTag}</span>
+          <h2 className="section-title">{t.sections.analystTitle}</h2>
+          <p style={{ maxWidth: '820px', color: 'var(--text-secondary)', fontSize: '15px', marginTop: '12px', lineHeight: 1.7 }}>
+            {t.sections.analystSubtitle}
+          </p>
+        </div>
+        <div className="cards-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
+          {ANALYST_REPORTS.map((report, idx) => (
+            <motion.div
+              key={report.title}
+              className="service-card"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.08 }}
+              style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
+            >
+              <div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px', gap: '8px', flexWrap: 'wrap' }}>
+                  <span style={{ fontSize: '11px', fontWeight: 800, color: 'var(--accent-cyan)', textTransform: 'uppercase', letterSpacing: '1px', background: 'rgba(56, 189, 248, 0.12)', padding: '4px 10px', borderRadius: '999px' }}>
+                    {report.badge}
+                  </span>
+                  <span style={{ fontSize: '12px', color: 'var(--text-muted)', fontWeight: 600 }}>
+                    {report.date}
+                  </span>
+                </div>
+                <h3 className="card-title" style={{ fontSize: '19px', marginBottom: '10px', lineHeight: 1.35 }}>
+                  {report.title}
+                </h3>
+                <p className="card-description" style={{ fontSize: '14px', marginBottom: '20px' }}>
+                  {report.description}
+                </p>
+              </div>
+              <a
+                href={report.link}
+                target="_blank"
+                rel="noreferrer"
+                className="cta-button-outline"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '8px',
+                  fontSize: '13px',
+                  fontWeight: 700,
+                  padding: '10px 16px',
+                  width: '100%'
+                }}
+              >
+                {report.linkLabel} <ExternalLink size={14} />
+              </a>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
       {/* Core Expertise / Services */}
       <section id="services">
         <div className="section-header">
-          <span className="section-tag">Strategic Value</span>
-          <h2 className="section-title">Forward Operating & Agentic Strategy ⚡</h2>
+          <span className="section-tag">{t.sections.servicesTag}</span>
+          <h2 className="section-title">{t.sections.servicesTitle}</h2>
         </div>
         <div className="cards-grid">
           {SERVICES.map((service, idx) => (

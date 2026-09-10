@@ -132,15 +132,38 @@ EXPERIENCE = [
     }
 ]
 
-PROJECTS = [
+ANALYST_REPORTS = [
     {
-        "name": "4x Gartner® & Forrester™ AI Leader Wins",
-        "impact": "4x Leader Quadrant & Wave Wins | Live Demos & RFIs",
-        "image": f"{BASE_URL}/next_26_session.png",
-        "description": "Engineered technical RFIs, architectural proof points, and live demo builds for 4 consecutive Google Cloud Leader recognitions across Gartner Magic Quadrants (Enterprise AI Assistants, CNAP, AIADP) and Forrester Wave (AI Platforms).",
-        "url": "https://cloud.google.com/blog/products/ai-machine-learning/google-is-a-leader-in-2026-gartner-magic-quadrant-for-enterprise-ai-assistants?e=48754805",
-        "tag": "Analyst Relations / Strategic Leadership"
+        "title": "Gartner® Magic Quadrant™ for Enterprise AI Assistants",
+        "result": "Google Named a Leader (Inaugural Report)",
+        "date": "September 10, 2026",
+        "role": "Technical RFI & Live Demo Lead",
+        "url": "https://cloud.google.com/blog/products/ai-machine-learning/google-is-a-leader-in-2026-gartner-magic-quadrant-for-enterprise-ai-assistants?e=48754805"
     },
+    {
+        "title": "Gartner® Magic Quadrant™ for Cloud-Native Application Platforms (CNAP)",
+        "result": "Google Named a Leader (3rd Consecutive Year)",
+        "date": "August 20, 2026",
+        "role": "Technical RFI & Live Demo Lead",
+        "url": "https://www.gartner.com/doc/reprints?id=00ThR000008iZa9UAE&ct=260804&st=sb"
+    },
+    {
+        "title": "The Forrester Wave™: AI Platforms",
+        "result": "Google Named a Leader (Top Score in Strategy Category)",
+        "date": "August 10, 2026",
+        "role": "Technical Submission & Demo Lead",
+        "url": "https://cloud.google.com/blog/products/ai-machine-learning/google-named-a-leader-in-the-forrester-wave-ai-platforms"
+    },
+    {
+        "title": "Gartner® Magic Quadrant™ for AI Application Development Platforms (AIADP)",
+        "result": "Google Named a Leader (Positioned Highest for Ability to Execute)",
+        "date": "May 14, 2026",
+        "role": "Technical RFI & Live Demo Lead",
+        "url": "https://cloud.google.com/blog/products/ai-machine-learning/google-named-a-leader-in-the-gartner-magic-quadrant?e=48754805"
+    }
+]
+
+PROJECTS = [
     {
         "name": "Economic Research Agent",
         "impact": "Agent Garden | ADK 2.0 Econometrician",

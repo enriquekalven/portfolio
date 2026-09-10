@@ -35,6 +35,32 @@
   --gradient-accent-text: linear-gradient(135deg, #38bdf8 0%, #a78bfa 50%, #ff7e5f 100%);
 }
 
+[data-theme="light"] {
+  --bg-color: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --bg-card-hover: rgba(255, 255, 255, 0.95);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --accent-cyan: #0284c7;
+  --accent-blue: #2563eb;
+  --accent-indigo: #4f46e5;
+  --accent-violet: #7c3aed;
+  --accent-coral: #e11d48;
+  --accent-coral-glow: rgba(225, 29, 72, 0.15);
+  --accent-emerald: #059669;
+
+  --border-subtle: rgba(15, 23, 42, 0.1);
+  --border-glow: rgba(2, 132, 199, 0.35);
+
+  --glass-bg: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(15, 23, 42, 0.12);
+  --card-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+  --glow-shadow: 0 0 30px rgba(2, 132, 199, 0.12);
+  --gradient-text: linear-gradient(135deg, #0f172a 30%, #334155 100%);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -43,7 +69,6 @@
 
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
 }
 
 body {
