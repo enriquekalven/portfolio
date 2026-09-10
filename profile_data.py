@@ -54,12 +54,13 @@ EXPERIENCE = [
         "role": "Outbound Product Manager | 20% Rotator | Gemini Enterprise App",
         "period": "Jun 2026 - Present",
         "highlights": [
+            "Led technical RFIs, architectural proof points, and live demo builds for 4 consecutive Google Cloud Analyst Leader wins: Gartner® MQ for Enterprise AI Assistants (Inaugural Leader, Sep 2026), Gartner® MQ for Cloud-Native Application Platforms (Leader 3rd consecutive year, Aug 2026), The Forrester Wave™: AI Platforms (Leader & Top Strategy Score, Aug 2026), and Gartner® MQ for AI Application Development Platforms (Leader & Highest Ability to Execute, May 2026).",
             "Launched Led tiger team and escalation sessions to mitigate battlecards and build competitive strategy across enterprise agent platforms.",
             "Refreshed battlecards featured on Oliver Parker's Prompt Live Seminar.",
             "Launched General Availability for Agent Governance for Gemini Enterprise App.",
             "Led field team training enablement and captured customer feedback on Agent Identity, Agent Registry, and Agent Gateway for Gemini Enterprise App."
         ],
-        "skills": ["Product Strategy", "Agent Governance", "Competitive Intelligence", "Field Enablement"]
+        "skills": ["Product Strategy", "Analyst Relations (Gartner / Forrester)", "Agent Governance", "Competitive Intelligence", "Field Enablement"]
     },
     {
         "company": "Google Cloud AI",
@@ -68,7 +69,7 @@ EXPERIENCE = [
         "highlights": [
             "Co-led Advent of Agents Seasons 1 & 2 reaching over 32,000 developers, trending as a Top 5 global repo, and driving 5 Trillion tokens to Gemini.",
             "Co-authored Executive 'Intro to Agents' whitepaper for Kaggle course reaching 1.5M registered attendees, setting industry standard for LLM Ops.",
-            "Led Gartner Magic Quadrant response for RFI and Demo, resulting in Google named a Leader in AI Application Development Platforms.",
+            "Led Gartner Magic Quadrant response for RFI and Demo, resulting in Google named a Leader in AI Application Development Platforms (Positioned highest for Ability to Execute).",
             "Enterprise Agent Governance & Platform Strategy: Co-authored pivotal RFC resolving strategic messaging fragmentation across 5 product areas; secured VP and Director-level roadmap alignment for H1 2026.",
             "Gemini Enterprise Governance at Scale: Authored seller-facing guidance presented to top T50 customers across financial services, life sciences, consulting, and media.",
             "Co-owner solving end-to-end OAuth flow from Gemini Enterprise to custom agents (ADK & A2A).",
@@ -131,6 +132,14 @@ EXPERIENCE = [
 ]
 
 PROJECTS = [
+    {
+        "name": "4x Gartner® & Forrester™ AI Leader Wins",
+        "impact": "4x Leader Quadrant & Wave Wins | Live Demos & RFIs",
+        "image": f"{BASE_URL}/next_26_session.png",
+        "description": "Engineered technical RFIs, architectural proof points, and live demo builds for 4 consecutive Google Cloud Leader recognitions across Gartner Magic Quadrants (Enterprise AI Assistants, CNAP, AIADP) and Forrester Wave (AI Platforms).",
+        "url": "https://cloud.google.com/blog/products/ai-machine-learning/google-is-a-leader-in-2026-gartner-magic-quadrant-for-enterprise-ai-assistants?e=48754805",
+        "tag": "Analyst Relations / Strategic Leadership"
+    },
     {
         "name": "Economic Research Agent",
         "impact": "Agent Garden | ADK 2.0 Econometrician",
@@ -251,6 +260,8 @@ WRITING = [
 ]
 
 AWARDS = [
+    "Recipient of a Silver Google AI Award (2026 Q3) for Advent of Agents",
+    "4x Gartner® Magic Quadrant™ & Forrester Wave™ Leader Recognition (Enterprise AI Assistants, CNAP, AIADP, AI Platforms - 2026)",
     "Winner: Cards Against Humanity Agent (AIS Offsite Hackathon, Nov 2025)",
     "Cloud GTM Excellence Award 2025 (Enterprise Retail Agentic Commerce Use Cases)",
     "GTM Cloud Tech Impact Award 2024 (NBC Olympics OLI Chatbot)",
