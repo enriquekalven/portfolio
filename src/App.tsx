@@ -8,8 +8,6 @@ import {
   ChevronRight,
   ChevronDown,
   ChevronUp,
-  ShieldCheck,
-  MessageSquare,
   Mail,
   ExternalLink,
   Github,
@@ -18,7 +16,6 @@ import {
   X,
   ArrowLeft,
   Sparkles,
-  Zap,
   CheckCircle2,
   Copy,
   Check,
@@ -29,6 +26,13 @@ import {
 } from 'lucide-react';
 import MediaPage from './MediaPage';
 import { type Language, TRANSLATIONS, type Translations } from './i18n';
+import {
+  getLocalizedAnalystReports,
+  getLocalizedServices,
+  getLocalizedExperience,
+  getLocalizedRecentWork,
+  getLocalizedAwards
+} from './localizedData';
 import confetti from 'canvas-confetti';
 // @ts-expect-error: konami-code-js does not have type definitions
 import Konami from 'konami-code-js';
@@ -132,62 +136,6 @@ const EXPERIENCE = [
       'MyMagic+ (FastPass+ & MagicBands): Key product development architect for Walt Disney World.'
     ],
     skills: ['Cloud Strategy', 'Disney+ / MyMagic+', 'DevSecOps', 'Leadership']
-  }
-];
-
-const SERVICES = [
-  {
-    title: 'Delta AI Activation ⚡',
-    description: 'Leading Forward Deployed Engineering (FDE) operating models for marquee accounts to activate production AI and turn multi-year commits into real ARR.',
-    icon: Zap,
-    color: '#38bdf8'
-  },
-  {
-    title: 'Enterprise AI Governance 🛡️',
-    description: 'Architecting robust frameworks for Agent-to-Agent (A2A) orchestration, Agent Identity, Agent Gateway, and Governance-as-Code fleets.',
-    icon: ShieldCheck,
-    color: '#818cf8'
-  },
-  {
-    title: 'Technical Evangelism & Enablement 🎤',
-    description: 'Keynote speaker at Google Cloud Next, Build with Gemini, & NorthAm Tech Immersion, co-author of Intro to Agents (1.5M attendees) and Advent of Agents (32k+ devs).',
-    icon: MessageSquare,
-    color: '#ff7e5f'
-  }
-];
-
-const ANALYST_REPORTS = [
-  {
-    title: "Gartner® Magic Quadrant™ for Enterprise AI Assistants",
-    badge: "Leader • Inaugural Report",
-    date: "Published Sept 10, 2026",
-    description: "Engineered technical RFI responses, architectural proof points, and live demo environments establishing Google Cloud as a Leader in the inaugural Enterprise AI Assistants Magic Quadrant.",
-    link: "https://cloud.google.com/blog/products/ai-machine-learning/google-is-a-leader-in-2026-gartner-magic-quadrant-for-enterprise-ai-assistants?e=48754805",
-    linkLabel: "Read Official Announcement"
-  },
-  {
-    title: "Gartner® Magic Quadrant™ for Cloud-Native Application Platforms",
-    badge: "Leader • 3rd Consecutive Year",
-    date: "Published Aug 20, 2026",
-    description: "Partnered across Product, Engineering, and Field teams to craft technical narratives and defend platform capabilities for Google Cloud's 3rd consecutive year as a CNAP Leader.",
-    link: "https://www.gartner.com/doc/reprints?id=00ThR000008iZa9UAE&ct=260804&st=sb",
-    linkLabel: "View Official Gartner Reprint"
-  },
-  {
-    title: "The Forrester Wave™: AI Platforms",
-    badge: "Leader • Top Score in Strategy",
-    date: "Published Aug 10, 2026",
-    description: "Built live demo environments and dissected deeply technical prompts under tight deadlines, securing Google Cloud the highest score in the Strategy category.",
-    link: "https://cloud.google.com/blog/products/ai-machine-learning/google-named-a-leader-in-the-forrester-wave-ai-platforms",
-    linkLabel: "Read Forrester Wave Announcement"
-  },
-  {
-    title: "Gartner® Magic Quadrant™ for AI Application Development Platforms",
-    badge: "Leader • Highest Ability to Execute",
-    date: "Published May 14, 2026",
-    description: "Led technical RFI and live demo builds for GE Agent Platform & ADK, resulting in Google Cloud positioned highest for Ability to Execute.",
-    link: "https://cloud.google.com/blog/products/ai-machine-learning/google-named-a-leader-in-the-gartner-magic-quadrant?e=48754805",
-    linkLabel: "Read AIADP Leader Blog"
   }
 ];
 
@@ -1111,8 +1059,13 @@ function LandingPage() {
   }, [lang]);
 
   const t = TRANSLATIONS[lang];
+  const localizedAnalystReports = getLocalizedAnalystReports(lang);
+  const localizedServices = getLocalizedServices(lang);
+  const localizedExperience = getLocalizedExperience(lang, EXPERIENCE);
+  const localizedRecentWork = getLocalizedRecentWork(lang, RECENT_WORK);
+  const localizedAwards = getLocalizedAwards(lang, AWARDS);
 
-  const displayedProjects = projectsExpanded ? RECENT_WORK : RECENT_WORK.slice(0, 4);
+  const displayedProjects = projectsExpanded ? localizedRecentWork : localizedRecentWork.slice(0, 4);
   const displayedSpeaking = speakingExpanded ? SPEAKING : SPEAKING.slice(0, 3);
 
   const triggerEasterEgg = useCallback(() => {
@@ -1165,7 +1118,7 @@ function LandingPage() {
           </h1>
 
           <div className="hero-quote">
-            "I listen, I take ownership to get things done, and I care about making people's lives easier."
+            {t.hero.quote}
           </div>
 
           <p className="hero-subtitle">
@@ -1202,7 +1155,7 @@ function LandingPage() {
 
       {/* Social Proof Logos */}
       <section className="social-proof">
-        <p className="social-proof-title">Impact Across Industry Giants & Global Platforms</p>
+        <p className="social-proof-title">{t.hero.socialProof}</p>
         <div className="logo-bar">
           <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" />
           <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-white.svg" alt="AWS" style={{ height: '28px', filter: theme === 'dark' ? 'brightness(0) invert(1)' : 'none' }} />
@@ -1234,7 +1187,7 @@ function LandingPage() {
           </motion.div>
           <motion.div className="metric-card" whileHover={{ y: -4 }}>
             <div className="metric-value">4x</div>
-            <div className="metric-label">Gartner® & Forrester™ Leader Wins</div>
+            <div className="metric-label">{t.hero.metrics.analystWins}</div>
           </motion.div>
         </div>
       </div>
@@ -1249,7 +1202,7 @@ function LandingPage() {
           </p>
         </div>
         <div className="cards-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
-          {ANALYST_REPORTS.map((report, idx) => (
+          {localizedAnalystReports.map((report, idx) => (
             <motion.div
               key={report.title}
               className="service-card"
@@ -1305,7 +1258,7 @@ function LandingPage() {
           <h2 className="section-title">{t.sections.servicesTitle}</h2>
         </div>
         <div className="cards-grid">
-          {SERVICES.map((service, idx) => (
+          {localizedServices.map((service, idx) => (
             <motion.div
               key={idx}
               className="service-card"
@@ -1336,7 +1289,7 @@ function LandingPage() {
                   fontFamily: 'inherit'
                 }}
               >
-                Collaborate <ArrowRight size={14} />
+                {t.sections.collaborateBtn} <ArrowRight size={14} />
               </button>
             </motion.div>
           ))}
@@ -1346,12 +1299,12 @@ function LandingPage() {
       {/* Career Experience Timeline */}
       <section id="experience">
         <div className="section-header">
-          <span className="section-tag">Professional Ledger</span>
-          <h2 className="section-title">Career Experience 💎</h2>
+          <span className="section-tag">{t.sections.experienceTag}</span>
+          <h2 className="section-title">{t.sections.experienceTitle}</h2>
         </div>
 
         <div className="timeline">
-          {EXPERIENCE.map((exp, idx) => (
+          {localizedExperience.map((exp, idx) => (
             <motion.div
               key={idx}
               className="timeline-item"
@@ -1375,13 +1328,13 @@ function LandingPage() {
                 </p>
 
                 <ul className="bullet-list">
-                  {exp.highlights.map((item, hIdx) => (
+                  {exp.highlights.map((item: string, hIdx: number) => (
                     <li key={hIdx}>{item}</li>
                   ))}
                 </ul>
 
                 <div className="skill-tags">
-                  {exp.skills.map((skill) => (
+                  {exp.skills.map((skill: string) => (
                     <span key={skill} className="skill-tag">{skill}</span>
                   ))}
                 </div>
@@ -1395,8 +1348,8 @@ function LandingPage() {
       <section id="work">
         <div className="section-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '16px' }}>
           <div>
-            <span className="section-tag">Featured Delivery</span>
-            <h2 className="section-title" style={{ margin: 0 }}>Marquee Projects & Innovations 🚀</h2>
+            <span className="section-tag">{t.sections.workTag}</span>
+            <h2 className="section-title" style={{ margin: 0 }}>{t.sections.workTitle}</h2>
           </div>
           <button
             onClick={() => setProjectsExpanded(!projectsExpanded)}
@@ -1414,11 +1367,11 @@ function LandingPage() {
           >
             {projectsExpanded ? (
               <>
-                Collapse to Featured (4) <ChevronUp size={16} />
+                {t.sections.collapseFeatured} <ChevronUp size={16} />
               </>
             ) : (
               <>
-                View All Projects ({RECENT_WORK.length}) <ChevronDown size={16} />
+                {t.sections.viewAllProjects} ({localizedRecentWork.length}) <ChevronDown size={16} />
               </>
             )}
           </button>
@@ -1454,7 +1407,7 @@ function LandingPage() {
                         className="cta-button-outline"
                         style={{ padding: '6px 16px', fontSize: '13px' }}
                       >
-                        Case Study <ArrowRight size={14} />
+                        {t.sections.caseStudyBtn} <ArrowRight size={14} />
                       </button>
                     )}
                     {work.link !== '#' && (
@@ -1465,7 +1418,7 @@ function LandingPage() {
                         onClick={(e) => e.stopPropagation()}
                         style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '13px', fontWeight: 700, color: 'var(--accent-cyan)' }}
                       >
-                        Visit <ExternalLink size={14} />
+                        {t.sections.visitBtn} <ExternalLink size={14} />
                       </a>
                     )}
                   </div>
@@ -1499,11 +1452,11 @@ function LandingPage() {
           >
             {projectsExpanded ? (
               <>
-                Collapse Projects <ChevronUp size={16} />
+                {t.sections.collapseProjects} <ChevronUp size={16} />
               </>
             ) : (
               <>
-                Show More Projects ({RECENT_WORK.length - 4} More) <ChevronDown size={16} />
+                {t.sections.showMoreProjects} ({localizedRecentWork.length - 4}) <ChevronDown size={16} />
               </>
             )}
           </button>
@@ -1514,8 +1467,8 @@ function LandingPage() {
       <section id="speaking">
         <div className="section-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '16px' }}>
           <div>
-            <span className="section-tag">Thought Leadership</span>
-            <h2 className="section-title" style={{ margin: 0 }}>Keynotes & Speaking 🎤</h2>
+            <span className="section-tag">{t.sections.speakingTag}</span>
+            <h2 className="section-title" style={{ margin: 0 }}>{t.sections.speakingTitle}</h2>
           </div>
           <button
             onClick={() => setSpeakingExpanded(!speakingExpanded)}
@@ -1533,11 +1486,11 @@ function LandingPage() {
           >
             {speakingExpanded ? (
               <>
-                Collapse to Recent (3) <ChevronUp size={16} />
+                {t.sections.collapseRecentSpeaking} <ChevronUp size={16} />
               </>
             ) : (
               <>
-                View All Keynotes ({SPEAKING.length}) <ChevronDown size={16} />
+                {t.sections.viewAllKeynotes} ({SPEAKING.length}) <ChevronDown size={16} />
               </>
             )}
           </button>
@@ -1574,11 +1527,11 @@ function LandingPage() {
           >
             {speakingExpanded ? (
               <>
-                Collapse Keynotes <ChevronUp size={16} />
+                {t.sections.collapseKeynotes} <ChevronUp size={16} />
               </>
             ) : (
               <>
-                Show All Keynotes & Past Talks ({SPEAKING.length - 3} More) <ChevronDown size={16} />
+                {t.sections.showAllKeynotes} ({SPEAKING.length - 3}) <ChevronDown size={16} />
               </>
             )}
           </button>
@@ -1588,8 +1541,8 @@ function LandingPage() {
       {/* Publications Section */}
       <section id="articles">
         <div className="section-header">
-          <span className="section-tag">Articles & Research</span>
-          <h2 className="section-title">Writing & Whitepapers ✍️</h2>
+          <span className="section-tag">{t.sections.articlesTag}</span>
+          <h2 className="section-title">{t.sections.articlesTitle}</h2>
         </div>
         <div className="cards-grid">
           {PUBLICATIONS.map((pub, idx) => (
@@ -1615,7 +1568,7 @@ function LandingPage() {
                 <h3 className="card-title" style={{ fontSize: '19px', lineHeight: '1.4' }}>{pub.title}</h3>
                 <p className="card-description" style={{ fontSize: '14px', marginBottom: '20px' }}>{pub.description}</p>
                 <span style={{ color: 'var(--accent-cyan)', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '13px', marginTop: 'auto' }}>
-                  Read Publication <ArrowRight size={14} />
+                  {t.sections.readPublication} <ArrowRight size={14} />
                 </span>
               </div>
             </motion.a>
@@ -1626,8 +1579,8 @@ function LandingPage() {
       {/* Testimonials Marquee */}
       <div className="testimonial-section">
         <div className="section-header" style={{ marginBottom: '48px' }}>
-          <span className="section-tag">Executive Endorsements</span>
-          <h2 className="section-title">Kind Words from Google Leadership 💬</h2>
+          <span className="section-tag">{t.sections.testimonialsTag}</span>
+          <h2 className="section-title">{t.sections.testimonialsTitle}</h2>
         </div>
         <div style={{ overflow: 'hidden' }}>
           <motion.div
@@ -1639,14 +1592,14 @@ function LandingPage() {
             }}
             style={{ display: 'flex', gap: '24px', width: 'max-content', padding: '0 24px' }}
           >
-            {[...TESTIMONIALS, ...TESTIMONIALS].map((t, idx) => (
+            {[...TESTIMONIALS, ...TESTIMONIALS].map((testi, idx) => (
               <div key={idx} className="testimonial-card">
-                <p style={{ fontSize: '15px', fontStyle: 'italic', marginBottom: '20px', color: '#e2e8f0', lineHeight: '1.7' }}>
-                  "{t.quote}"
+                <p style={{ fontSize: '15px', fontStyle: 'italic', marginBottom: '20px', color: 'var(--text-primary)', lineHeight: '1.7' }}>
+                  "{testi.quote}"
                 </p>
                 <div style={{ marginTop: 'auto' }}>
-                  <p style={{ fontWeight: 800, fontSize: '15px', color: 'var(--accent-cyan)' }}>{t.author}</p>
-                  <p style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{t.role}</p>
+                  <p style={{ fontWeight: 800, fontSize: '15px', color: 'var(--accent-cyan)' }}>{testi.author}</p>
+                  <p style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{testi.role}</p>
                 </div>
               </div>
             ))}
@@ -1657,12 +1610,12 @@ function LandingPage() {
       {/* Awards & Certifications */}
       <section id="awards">
         <div className="section-header">
-          <span className="section-tag">Accreditation</span>
-          <h2 className="section-title">Awards & Certifications 🏆</h2>
+          <span className="section-tag">{t.sections.awardsTag}</span>
+          <h2 className="section-title">{t.sections.awardsTitle}</h2>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', marginBottom: '60px' }}>
-          {AWARDS.map((award, idx) => (
+          {localizedAwards.map((award, idx) => (
             <motion.div
               key={idx}
               className="glass-card"
@@ -1674,7 +1627,7 @@ function LandingPage() {
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
                 <Award size={28} style={{ color: 'var(--accent-cyan)' }} />
                 <div style={{ display: 'flex', gap: '6px' }}>
-                  {award.tags?.map(tag => (
+                  {award.tags?.map((tag: string) => (
                     <span key={tag} style={{ fontSize: '10px', fontWeight: 800, color: 'var(--accent-cyan)', textTransform: 'uppercase', letterSpacing: '1px' }}>{tag}</span>
                   ))}
                 </div>
@@ -1686,7 +1639,7 @@ function LandingPage() {
           ))}
         </div>
 
-        <h3 style={{ fontSize: '26px', marginBottom: '28px', textAlign: 'center' }}>Professional Multi-Cloud Certifications</h3>
+        <h3 style={{ fontSize: '26px', marginBottom: '28px', textAlign: 'center' }}>{t.sections.certsSubtitle}</h3>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
           {CERTIFICATIONS.map((group, idx) => (
             <motion.div key={idx} className="glass-card" style={{ padding: '28px' }}>
@@ -1749,7 +1702,7 @@ function LandingPage() {
               <X size={20} />
             </button>
             <span style={{ color: 'var(--accent-cyan)', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '2px', fontSize: '11px' }}>{selectedProject.tag}</span>
-            <h2 style={{ fontSize: '32px', margin: '8px 0 20px', lineHeight: 1.2 }}>{selectedProject.title} Case Study</h2>
+            <h2 style={{ fontSize: '32px', margin: '8px 0 20px', lineHeight: 1.2 }}>{selectedProject.title} {t.modal.caseStudySuffix}</h2>
 
             {selectedProject.details?.caseStudyImage && (
               <div style={{ width: '100%', marginBottom: '24px', borderRadius: '16px', overflow: 'hidden' }}>
@@ -1760,7 +1713,7 @@ function LandingPage() {
             {selectedProject.details && (
               <>
                 <div style={{ marginBottom: '28px' }}>
-                  <h4 style={{ fontSize: '17px', marginBottom: '14px', fontWeight: 800, color: 'var(--accent-cyan)' }}>Key Highlights</h4>
+                  <h4 style={{ fontSize: '17px', marginBottom: '14px', fontWeight: 800, color: 'var(--accent-cyan)' }}>{t.modal.highlights}</h4>
                   <div style={{ display: 'grid', gap: '12px' }}>
                     {selectedProject.details.highlights.map((h: string, i: number) => (
                       <div key={i} style={{ display: 'flex', gap: '10px', fontSize: '15px', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
@@ -1772,12 +1725,12 @@ function LandingPage() {
                 </div>
 
                 <div style={{ marginBottom: '28px' }}>
-                  <h4 style={{ fontSize: '17px', marginBottom: '10px', fontWeight: 800, color: 'var(--accent-cyan)' }}>Strategic Win</h4>
+                  <h4 style={{ fontSize: '17px', marginBottom: '10px', fontWeight: 800, color: 'var(--accent-cyan)' }}>{t.modal.strategy}</h4>
                   <p style={{ fontSize: '15px', lineHeight: '1.6', color: 'var(--text-secondary)' }}>{selectedProject.details.strategy}</p>
                 </div>
 
                 <div>
-                  <h4 style={{ fontSize: '17px', marginBottom: '8px', fontWeight: 800, color: 'var(--accent-cyan)' }}>Delivery Team</h4>
+                  <h4 style={{ fontSize: '17px', marginBottom: '8px', fontWeight: 800, color: 'var(--accent-cyan)' }}>{t.modal.team}</h4>
                   <p style={{ fontSize: '14px', color: 'var(--text-muted)' }}>{selectedProject.details.team}</p>
                 </div>
               </>
@@ -1890,12 +1843,13 @@ function LandingPage() {
       <footer className="footer">
         <div className="footer-logo">Enrique Chan</div>
         <div className="footer-links">
-          <a href="#about">About</a>
-          <a href="#experience">Experience</a>
-          <a href="#work">Work</a>
-          <a href="#speaking">Speaking</a>
-          <a href="#articles">Writing</a>
-          <Link to="/media">Gallery</Link>
+          <a href="#about">{t.nav.about}</a>
+          <a href="#analyst">{t.nav.analyst}</a>
+          <a href="#experience">{t.nav.experience}</a>
+          <a href="#work">{t.nav.work}</a>
+          <a href="#speaking">{t.nav.speaking}</a>
+          <a href="#articles">{t.nav.articles}</a>
+          <Link to="/media">{t.nav.media}</Link>
         </div>
         <div className="footer-socials">
           <a href="https://github.com/enriquekalven" target="_blank" rel="noreferrer" className="social-icon"><Github size={20} /></a>
@@ -1903,7 +1857,7 @@ function LandingPage() {
           <button onClick={() => setShowContact(true)} className="social-icon" style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'inherit', display: 'flex', alignItems: 'center', justifyContent: 'center' }} title="Contact Enrique"><Mail size={20} /></button>
         </div>
         <p style={{ marginTop: '48px', fontSize: '13px', color: 'var(--text-muted)' }}>
-          © {new Date().getFullYear()} ENRIQUE CHAN • STAFF AI TECHNICAL DEPLOYMENT LEAD • DELTA
+          © {new Date().getFullYear()} {t.footer.rights}
         </p>
       </footer>
 
