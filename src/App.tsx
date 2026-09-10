@@ -50,13 +50,14 @@ const EXPERIENCE = [
     logo: 'https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg',
     role: 'Outbound Product Manager | 20% Rotator | Gemini Enterprise App',
     period: 'Jun 2026 — Present',
-    description: 'Outbound Product Manager driving competitive strategy and General Availability (GA) Agent Governance for Gemini Enterprise App.',
+    description: 'Outbound Product Manager driving analyst relations (4x Gartner/Forrester Leader wins), competitive strategy, and General Availability (GA) Agent Governance for Gemini Enterprise App.',
     highlights: [
+      'Led technical RFIs, architectural proof points, and live demo builds for 4 consecutive Google Cloud Analyst Leader wins: Gartner® MQ for Enterprise AI Assistants (Inaugural Leader, Sep 2026), Gartner® MQ for Cloud-Native Application Platforms (Leader 3rd consecutive year, Aug 2026), The Forrester Wave™: AI Platforms (Leader & Top Strategy Score, Aug 2026), and Gartner® MQ for AI Application Development Platforms (Leader & Highest Ability to Execute, May 2026).',
       'Led tiger team and escalation sessions for Google Cloud competitive battlecards against Claude Cowork; featured on GTM Prompt Live Seminar.',
       'Led field team training enablement and captured customer feedback on Agent Identity, Agent Registry, and Agent Gateway for Gemini Enterprise App GA Launch.',
       'Partnered closely with inbound PM and engineering teams to prioritize enterprise governance features on the core product roadmap.'
     ],
-    skills: ['Competitive Strategy', 'Agent Governance', 'Field Enablement', 'Product Strategy']
+    skills: ['Analyst Relations (4x Leader)', 'Competitive Strategy', 'Agent Governance', 'Field Enablement', 'Product Strategy']
   },
   {
     company: 'Google Cloud AI 🚀',
@@ -67,7 +68,7 @@ const EXPERIENCE = [
     highlights: [
       'Co-led Advent of Agents Seasons 1 & 2 developer campaigns reaching over 32,000 developers, trending as a Top 5 global GitHub repo, and driving 5 Trillion tokens to Gemini. Delivered SOL331 talk at Cloud Next \'26.',
       'Co-authored Executive "Intro to Agents" whitepaper for Kaggle course reaching 1.5M registered attendees, setting the industry standard for LLM Ops & Agent Orchestration.',
-      'Led Gartner® Magic Quadrant response for RFI and Demo resulting in Google recognized as a Leader in AI Application Development Platforms.',
+      'Led Gartner® Magic Quadrant response for RFI and Demo resulting in Google recognized as a Leader in AI Application Development Platforms (Positioned highest for Ability to Execute).',
       'Co-authored pivotal cross-org RFC on Agent Governance, securing VP and Director-level roadmap alignment across 5 distinct product areas (Apigee, Workspace, Gemini Enterprise, Agent Platform, Agent Builder).',
       'Authored "Gemini Enterprise Governance at Scale" and presented to Top 50 enterprise customers (McKinsey, Accenture, Wells Fargo, Pfizer, Cision, CGC).',
       'Envisioned and developed AgentOps Cockpit to transition fleet management to Governance-as-Code; directed global security audit of 44 active enterprise agents and embedded OpenTelemetry tracing into ADK.',
@@ -152,6 +153,23 @@ const SERVICES = [
 ];
 
 const RECENT_WORK = [
+  {
+    title: '4x Gartner® & Forrester™ AI Leader Wins 📊',
+    tag: 'Analyst Relations / Strategic Leadership',
+    description: 'Engineered technical RFIs, architectural proof points, and live demo builds across 4 consecutive Google Cloud AI Leader quadrant & wave wins in 2026.',
+    image: '/next_26_session.png',
+    link: 'https://cloud.google.com/blog/products/ai-machine-learning/google-is-a-leader-in-2026-gartner-magic-quadrant-for-enterprise-ai-assistants?e=48754805',
+    details: {
+      highlights: [
+        "Gartner® Magic Quadrant™ for Enterprise AI Assistants: Leader in Inaugural Report (Published Sep 10, 2026).",
+        "Gartner® Magic Quadrant™ for Cloud-Native Application Platforms (CNAP): Leader for 3rd Consecutive Year (Published Aug 20, 2026).",
+        "The Forrester Wave™: AI Platforms: Leader with Top Score in Strategy Category (Published Aug 10, 2026).",
+        "Gartner® Magic Quadrant™ for AI Application Development Platforms (AIADP): Leader & Highest for Ability to Execute (Published May 14, 2026)."
+      ],
+      strategy: "Behind every top-right analyst dot is months in the trenches: dissecting hundreds of deeply technical RFI prompts, translating architectural reality into airtight proof points, and building and debugging live demo environments under tight deadlines across Product, Engineering, Field, and AR teams.",
+      team: "Enrique Chan, Google Cloud Product, Engineering, Field & AR Teams"
+    }
+  },
   {
     title: 'Economic Research Agent (Agent Garden) 📈',
     tag: 'ADK 2.0 / Econometrics',
@@ -279,6 +297,18 @@ const RECENT_WORK = [
 ];
 
 const AWARDS = [
+  {
+    title: "Silver Google AI Award (SWIFTY) 🥈",
+    organization: "Google AI",
+    detail: "2026 Q3 — Recipient of a Silver Google AI Award (SWIFTY, 2026 Q3) for Advent of Agents.",
+    tags: ["Silver Award", "2026 Q3"]
+  },
+  {
+    title: "4x Gartner® & Forrester™ Leader Wins 📊",
+    organization: "Google Cloud AI",
+    detail: "2026 — Led technical RFIs, architectural proof points & live demo builds for 4 consecutive Leader wins: Gartner MQ Enterprise AI Assistants (Inaugural Leader), Gartner MQ CNAP (3rd yr), Forrester Wave AI Platforms (Top Strategy), & Gartner MQ AIADP (Highest Execution).",
+    tags: ["4x Leader", "2026"]
+  },
   {
     title: "Winner: Cards Against Humanity Agent 🃏",
     organization: "AIS Offsite Hackathon",
@@ -950,9 +980,9 @@ function Navbar({ onEasterEgg, comicUnlocked, onShowComic, onContact }: { onEast
 
 function WhatsNewBanner() {
   return (
-    <a href="#speaking" className="whats-new-banner">
+    <a href="#awards" className="whats-new-banner">
       <span className="banner-tag">NEWS</span>
-      <span>Enrique completed Build with Gemini sessions in Seattle & Bellevue 🚀</span>
+      <span>Enrique won a Silver Google AI Award (SWIFTY, 2026 Q3) for Advent of Agents & drove 4x Gartner/Forrester Leader wins 🏆</span>
       <ArrowRight size={14} />
     </a>
   );
