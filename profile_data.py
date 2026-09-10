@@ -206,6 +206,13 @@ PROJECTS = [
         "tag": "Strategic Product"
     },
     {
+        "name": "MyMagic+ & MagicBands",
+        "impact": "Transformational Guest Tech | Walt Disney World",
+        "image": f"{BASE_URL}/magicbands.png",
+        "description": "Key product development architect launching transformational guest tech (FastPass+, MagicBands) at Walt Disney World.",
+        "tag": "UX Innovation / IoT"
+    },
+    {
         "name": "WBD Caption AI",
         "impact": "99% Translation Accuracy",
         "image": "https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=1200&auto=format&fit=crop",

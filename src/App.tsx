@@ -284,7 +284,7 @@ const RECENT_WORK = [
     title: 'MyMagic+ & MagicBands ✨',
     tag: 'UX Innovation / IoT',
     description: 'Launching transformational guest tech (FastPass+, MagicBands) at Walt Disney World.',
-    image: 'https://images.unsplash.com/photo-1505833115364-e28c42c41f97?q=80&w=1200&auto=format&fit=crop',
+    image: '/magicbands.png',
     link: '#'
   },
   {
