@@ -10,6 +10,7 @@ export interface Translations {
     analyst: string;
     services: string;
     experience: string;
+    author: string;
     work: string;
     speaking: string;
     articles: string;
@@ -44,6 +45,11 @@ export interface Translations {
     collaborateBtn: string;
     experienceTag: string;
     experienceTitle: string;
+    authorTag: string;
+    authorTitle: string;
+    authorSubtitle: string;
+    authorBadge: string;
+    launchAppBtn: string;
     workTag: string;
     workTitle: string;
     collapseFeatured: string;
@@ -94,6 +100,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       analyst: 'Analyst Relations',
       services: 'Capabilities',
       experience: 'Career',
+      author: 'Author',
       work: 'Work',
       speaking: 'Speaking',
       articles: 'Writing',
@@ -128,6 +135,11 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       collaborateBtn: 'Collaborate',
       experienceTag: 'Professional Ledger',
       experienceTitle: 'Career Experience 💎',
+      authorTag: 'Author & Creator Spotlight',
+      authorTitle: 'Original Platforms & Applied Research 💡',
+      authorSubtitle: 'Beyond enterprise cloud deployments, Enrique envisions, authors, and ships full-stack autonomous platforms, AI research agents, and family-first digital wellness architectures from scratch.',
+      authorBadge: 'Author & Lead Architect',
+      launchAppBtn: 'Launch App',
       workTag: 'Featured Delivery',
       workTitle: 'Marquee Projects & Innovations 🚀',
       collapseFeatured: 'Collapse to Featured (4)',
@@ -173,9 +185,10 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     },
     nav: {
       about: 'Perfil',
-      analyst: 'Analistas (Gartner/Forrester)',
+      analyst: 'Analistas',
       services: 'Capacidades',
       experience: 'Trayectoria',
+      author: 'Autor',
       work: 'Proyectos',
       speaking: 'Conferencias',
       articles: 'Publicaciones',
@@ -210,6 +223,11 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       collaborateBtn: 'Colaborar',
       experienceTag: 'Registro Profesional',
       experienceTitle: 'Experiencia Profesional 💎',
+      authorTag: 'Autor y Creador',
+      authorTitle: 'Plataformas Originales e Investigación 💡',
+      authorSubtitle: 'Más allá de implementaciones empresariales en la nube, Enrique diseña, programa y publica plataformas autónomas, agentes de investigación de IA y arquitecturas familiares de bienestar digital desde cero.',
+      authorBadge: 'Autor y Arquitecto Líder',
+      launchAppBtn: 'Abrir App',
       workTag: 'Portafolio Destacado',
       workTitle: 'Proyectos e Innovaciones Clave 🚀',
       collapseFeatured: 'Ver Destacados (4)',
@@ -255,9 +273,10 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     },
     nav: {
       about: '关于我',
-      analyst: '分析师报告 (Gartner/Forrester)',
+      analyst: '分析师报告',
       services: '核心能力',
       experience: '职业履历',
+      author: '原创作品',
       work: '精选作品',
       speaking: '演讲动态',
       articles: '技术专栏',
@@ -292,6 +311,11 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       collaborateBtn: '探讨合作',
       experienceTag: '职业档案',
       experienceTitle: '职业履历与关键成就 💎',
+      authorTag: '作者与独立创造者',
+      authorTitle: '原创智能体平台与前沿研究 💡',
+      authorSubtitle: '除企业级大规模云与智能体部署外，Enrique 独立主导研发了多个端到端全栈自主平台、AI 经济研究智能体与数字健康守护体系。',
+      authorBadge: '作者与首席架构师',
+      launchAppBtn: '体验应用',
       workTag: '精选项目',
       workTitle: '生产级 AI 与标杆项目 🚀',
       collapseFeatured: '收起至精选 (4)',
