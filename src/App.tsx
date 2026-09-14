@@ -141,40 +141,6 @@ const EXPERIENCE = [
 
 const RECENT_WORK = [
   {
-    title: 'Economic Research Agent (Agent Garden) 📈',
-    tag: 'ADK 2.0 / Econometrics',
-    description: 'Autonomous Econometrician on Agent Garden bridging natural language inquiries with deterministic math modeling across FRED, Census, & HUD APIs.',
-    image: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=1200&auto=format&fit=crop',
-    link: 'https://economic-research.web.app/',
-    details: {
-      highlights: [
-        "Live-API Grounding: Queries FRED, US Census Bureau, HUD, and Real Estate Yield APIs in real time with zero math drift.",
-        "ADK 2.0 Quantitative Tools: Solves LLM math hallucinations and county FIPS code lookup barriers using 5 deterministic econometric tools.",
-        "Agent Garden Showcase: Featured on Google Cloud Agent Garden (console.cloud.google.com/agent-platform/agent-garden).",
-        "Open-Source Framework: Included in official Google ADK samples repository (google/adk-samples) and economic-research-skills."
-      ],
-      strategy: "Rather than publishing centralized think-tank insights, this agent provides an open-source, fully transparent econometric framework for analysts in real estate, labor, and regional development to run live intelligence pipelines.",
-      team: "Enrique Chan, Casey Justus"
-    }
-  },
-  {
-    title: 'Lily & Robo Story Agent 🤖👧📖',
-    tag: 'GenAI / AlphaEvolve',
-    description: "Autonomous AI children's book publishing engine leveraging Gemini 2.5 Flash and AlphaEvolve algorithms for fixed-layout EPUB & PDF creation.",
-    image: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1200&auto=format&fit=crop',
-    link: 'https://curious-little-minds.web.app/',
-    details: {
-      highlights: [
-        "Evolved Narrative Engine: Uses Gemini 2.5 Flash & AlphaEvolve (climbing 7.45 → 8.91 in narrative virality and visual consistency).",
-        "Unified Artwork Ecosystem: Automatically generates consistent, textless watercolor visual prompts for recurring characters (Lily & Robo).",
-        "Multilingual Translation: Typesets & overlays local editions dynamically across 8 languages (English, Spanish, French, Japanese, etc.).",
-        "Turnkey Compilers: Renders fixed-layout EPUB eBooks and print-ready PDF manuscripts directly to Google Drive."
-      ],
-      strategy: "Bridging creative AI storytelling with production-grade compilation pipelines. Using evolutionary algorithms (AlphaEvolve) to refine prompt structures continuously, ensuring original story arcs and strict character asset consistency.",
-      team: "Enrique Chan"
-    }
-  },
-  {
     title: 'SafeKids Portal 🛡️👶',
     tag: 'Parenting Tech / Family Blueprint',
     description: 'Research-backed parent action plan, low-stimulus channel directory, and technical lockdown guides for algorithm-free kids media.',
@@ -192,6 +158,23 @@ const RECENT_WORK = [
     }
   },
   {
+    title: 'Economic Research Agent (Agent Garden) 📈',
+    tag: 'ADK 2.0 / Econometrics',
+    description: 'Autonomous Econometrician on Agent Garden bridging natural language inquiries with deterministic math modeling across FRED, Census, & HUD APIs.',
+    image: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=1200&auto=format&fit=crop',
+    link: 'https://economic-research.web.app/',
+    details: {
+      highlights: [
+        "Live-API Grounding: Queries FRED, US Census Bureau, HUD, and Real Estate Yield APIs in real time with zero math drift.",
+        "ADK 2.0 Quantitative Tools: Solves LLM math hallucinations and county FIPS code lookup barriers using 5 deterministic econometric tools.",
+        "Agent Garden Showcase: Featured on Google Cloud Agent Garden (console.cloud.google.com/agent-platform/agent-garden).",
+        "Open-Source Framework: Included in official Google ADK samples repository (google/adk-samples) and economic-research-skills."
+      ],
+      strategy: "Rather than publishing centralized think-tank insights, this agent provides an open-source, fully transparent econometric framework for analysts in real estate, labor, and regional development to run live intelligence pipelines.",
+      team: "Enrique Chan, Casey Justus"
+    }
+  },
+  {
     title: 'AgentOps Cockpit 🕹️',
     tag: 'Open Source / Core Ops',
     description: 'The professional logic layer for Agentic Apps. Multi-cloud governance, automated SME audits, and protocol-level optimization.',
@@ -206,6 +189,23 @@ const RECENT_WORK = [
       ],
       strategy: "Agent Cockpit provides the 'Intelligence' to match the infrastructure 'Pipes'. By moving beyond basic prompt engineering to framework-agnostic governance and safety, we enable strategic autonomy for enterprise AI fleets.",
       team: "Enrique Chan (Lead), Agentic Trinity Working Group"
+    }
+  },
+  {
+    title: 'Curious Little Minds (Lily & Robo Story Agent) 🤖👧📖',
+    tag: 'GenAI / AlphaEvolve',
+    description: "Autonomous AI children's book publishing engine leveraging Gemini 2.5 Flash and AlphaEvolve algorithms for fixed-layout EPUB & PDF creation.",
+    image: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1200&auto=format&fit=crop',
+    link: 'https://curious-little-minds.web.app/',
+    details: {
+      highlights: [
+        "Evolved Narrative Engine: Uses Gemini 2.5 Flash & AlphaEvolve (climbing 7.45 → 8.91 in narrative virality and visual consistency).",
+        "Unified Artwork Ecosystem: Automatically generates consistent, textless watercolor visual prompts for recurring characters (Lily & Robo).",
+        "Multilingual Translation: Typesets & overlays local editions dynamically across 8 languages (English, Spanish, French, Japanese, etc.).",
+        "Turnkey Compilers: Renders fixed-layout EPUB eBooks and print-ready PDF manuscripts directly to Google Drive."
+      ],
+      strategy: "Bridging creative AI storytelling with production-grade compilation pipelines. Using evolutionary algorithms (AlphaEvolve) to refine prompt structures continuously, ensuring original story arcs and strict character asset consistency.",
+      team: "Enrique Chan"
     }
   },
   {
@@ -935,11 +935,12 @@ function Navbar({
           <a href="#about">{t.nav.about}</a>
           <a href="#analyst">{t.nav.analyst}</a>
           <a href="#experience">{t.nav.experience}</a>
+          <a href="#author">{t.nav.author}</a>
           <a href="#work">{t.nav.work}</a>
           <a href="#speaking">{t.nav.speaking}</a>
           <a href="#articles">{t.nav.articles}</a>
           <a href="#awards">{t.nav.awards}</a>
-          <Link to="/media" style={{ color: 'var(--accent-cyan)', fontWeight: 600 }}>{t.nav.media}</Link>
+          <Link to="/media" className="nav-media-btn">{t.nav.media}</Link>
           {comicUnlocked && (
             <motion.button
               initial={{ opacity: 0, scale: 0.8 }}
@@ -1065,7 +1066,9 @@ function LandingPage() {
   const localizedRecentWork = getLocalizedRecentWork(lang, RECENT_WORK);
   const localizedAwards = getLocalizedAwards(lang, AWARDS);
 
-  const displayedProjects = projectsExpanded ? localizedRecentWork : localizedRecentWork.slice(0, 4);
+  const authorCreations = localizedRecentWork.slice(0, 4);
+  const enterpriseDeployments = localizedRecentWork.slice(4);
+  const displayedEnterpriseProjects = projectsExpanded ? enterpriseDeployments : enterpriseDeployments.slice(0, 3);
   const displayedSpeaking = speakingExpanded ? SPEAKING : SPEAKING.slice(0, 3);
 
   const triggerEasterEgg = useCallback(() => {
@@ -1344,6 +1347,85 @@ function LandingPage() {
         </div>
       </section>
 
+      {/* Author & Creator Section */}
+      <section id="author">
+        <div className="section-header" style={{ marginBottom: '40px' }}>
+          <div>
+            <span className="section-tag">{t.sections.authorTag}</span>
+            <h2 className="section-title">{t.sections.authorTitle}</h2>
+            <p className="section-subtitle" style={{ maxWidth: '820px', margin: '14px 0 0', color: 'var(--text-secondary)', fontSize: '16px', lineHeight: 1.6 }}>
+              {t.sections.authorSubtitle}
+            </p>
+          </div>
+        </div>
+
+        <div className="author-grid">
+          {authorCreations.map((creation) => (
+            <motion.div
+              key={creation.title}
+              className="author-card"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.35 }}
+              onClick={() => creation.details && setSelectedProject(creation as Project)}
+              style={{ cursor: creation.details ? 'pointer' : 'default' }}
+            >
+              <div className="author-card-media">
+                <img src={creation.image} alt={creation.title} />
+                <div className="author-role-pill">
+                  <Sparkles size={13} />
+                  <span>{t.sections.authorBadge}</span>
+                </div>
+              </div>
+              <div className="author-card-content">
+                <span className="author-card-tag">{creation.tag}</span>
+                <h3 className="author-card-title">{creation.title}</h3>
+                <p className="author-card-desc">{creation.description}</p>
+
+                {creation.details?.highlights && (
+                  <ul className="author-highlights-list">
+                    {creation.details.highlights.slice(0, 3).map((hl: string, idx: number) => (
+                      <li key={idx} className="author-highlight-item">
+                        <span className="author-highlight-dot" />
+                        <span>{hl}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                <div className="author-card-actions">
+                  {creation.link && creation.link !== '#' && (
+                    <a
+                      href={creation.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="cta-button"
+                      style={{ padding: '8px 18px', fontSize: '13px', fontWeight: 700 }}
+                    >
+                      {t.sections.launchAppBtn} <ExternalLink size={14} />
+                    </a>
+                  )}
+                  {creation.details && (
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedProject(creation as Project);
+                      }}
+                      className="cta-button-outline"
+                      style={{ padding: '8px 18px', fontSize: '13px' }}
+                    >
+                      {t.sections.caseStudyBtn} <ArrowRight size={14} />
+                    </button>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
       {/* Work Section */}
       <section id="work">
         <div className="section-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '16px' }}>
@@ -1371,14 +1453,14 @@ function LandingPage() {
               </>
             ) : (
               <>
-                {t.sections.viewAllProjects} ({localizedRecentWork.length}) <ChevronDown size={16} />
+                {t.sections.viewAllProjects} ({enterpriseDeployments.length}) <ChevronDown size={16} />
               </>
             )}
           </button>
         </div>
         <div className="work-grid">
           <AnimatePresence initial={false}>
-            {displayedProjects.map((work) => (
+            {displayedEnterpriseProjects.map((work) => (
               <motion.div
                 key={work.title}
                 className="work-card"
@@ -1456,7 +1538,7 @@ function LandingPage() {
               </>
             ) : (
               <>
-                {t.sections.showMoreProjects} ({localizedRecentWork.length - 4}) <ChevronDown size={16} />
+                {t.sections.showMoreProjects} ({enterpriseDeployments.length - 3}) <ChevronDown size={16} />
               </>
             )}
           </button>
