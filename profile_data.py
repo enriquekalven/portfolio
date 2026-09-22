@@ -246,6 +246,12 @@ PROJECTS = [
 
 WRITING = [
     {
+        "title": "Upskill Your AI Using Daily Micro-Habits",
+        "platform": "Google Cloud Blog",
+        "image": f"{BASE_URL}/upskill_ai_micro_habits.jpg",
+        "url": "https://cloud.google.com/blog/topics/consulting/upskill-your-ai-using-daily-micro-habits?e=48754805"
+    },
+    {
         "title": "[Agent Garden] Solving LLM Hallucinations, Math Drift, and Obscure Identifiers via ADK 2.0",
         "platform": "Medium",
         "image": f"{BASE_URL}/economic_research_blog.png",

@@ -363,6 +363,13 @@ const CERTIFICATIONS = [
 
 const PUBLICATIONS = [
   {
+    title: 'How to Upskill Enterprise AI Builders by Using Daily Micro-Habits ⚡',
+    platform: 'Google Cloud Blog',
+    image: '/upskill_ai_micro_habits.jpg',
+    description: "Co-authored with Google Cloud Consulting: A four-pillar framework and lessons from global developer challenges to embed daily micro-habits into enterprise AI enablement.",
+    link: 'https://cloud.google.com/blog/topics/consulting/upskill-your-ai-using-daily-micro-habits?e=48754805',
+  },
+  {
     title: '[Agent Garden] Solving LLM Hallucinations & Math Drift via ADK 2.0 📈',
     platform: 'Medium',
     image: '/a2ui_blog.png',
