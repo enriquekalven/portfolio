@@ -252,6 +252,30 @@ WRITING = [
         "url": "https://cloud.google.com/blog/topics/consulting/upskill-your-ai-using-daily-micro-habits?e=48754805"
     },
     {
+        "title": "Breaking the Dopamine Loop: SafeKids, An Algorithm-Free Media Portal for Parents",
+        "platform": "Medium",
+        "image": f"{BASE_URL}/safekids_blog.png",
+        "url": "https://medium.com/@enriq/breaking-the-dopamine-loop-safekids-an-algorithm-free-media-portal-for-parents-5be8ca023d08"
+    },
+    {
+        "title": "How to Reuse Gemini Enterprise Data Connectors with Your ADK Agent",
+        "platform": "Medium",
+        "image": f"{BASE_URL}/gemini_connectors_adk.png",
+        "url": "https://medium.com/@enriq/how-to-reuse-gemini-enterprise-data-connectors-with-your-adk-agent-a6e6cea35458"
+    },
+    {
+        "title": "The CXO Guide to Loop Engineering and Day 2 AI Operations",
+        "platform": "Medium",
+        "image": f"{BASE_URL}/cockpit.png",
+        "url": "https://medium.com/@enriq/the-cxo-guide-to-loop-engineering-and-day-2-ai-operations-f4c08b6d819c"
+    },
+    {
+        "title": "The Outer Loop: How Google Cloud and AlphaEvolve Are Defining Agentic Governance and Self-Evolution",
+        "platform": "google.dev",
+        "image": f"{BASE_URL}/outer_loop_alphaevolve.png",
+        "url": "https://discuss.google.dev/t/the-outer-loop-how-google-cloud-and-alphaevolve-are-defining-agentic-governance-and-self-evolution/383304"
+    },
+    {
         "title": "[Agent Garden] Solving LLM Hallucinations, Math Drift, and Obscure Identifiers via ADK 2.0",
         "platform": "Medium",
         "image": f"{BASE_URL}/economic_research_blog.png",
@@ -262,6 +286,12 @@ WRITING = [
         "platform": "google.dev",
         "image": f"{BASE_URL}/google_dev_post.png",
         "url": "https://discuss.google.dev/t/i-built-a-live-api-economic-research-agent-fred-census-hud-real-estate-yields/379128"
+    },
+    {
+        "title": "Taming the Rogue Agent: From Vibe-Coded to Production with the AgentOps Cockpit",
+        "platform": "google.dev",
+        "image": f"{BASE_URL}/taming_rogue_agent_cockpit.jpg",
+        "url": "https://discuss.google.dev/t/taming-the-rogue-agent-from-vibe-coded-to-production-with-the-agentops-cockpit/345620"
     },
     {
         "title": "Building with A2UI: Why I Blew Up My Portfolio to Build a 'Living' UI",
