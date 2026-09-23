@@ -370,6 +370,34 @@ const PUBLICATIONS = [
     link: 'https://cloud.google.com/blog/topics/consulting/upskill-your-ai-using-daily-micro-habits?e=48754805',
   },
   {
+    title: 'Breaking the Dopamine Loop: SafeKids, An Algorithm-Free Media Portal 🛡️',
+    platform: 'Medium',
+    image: '/safekids_blog.png',
+    description: 'How hyper-stimulating algorithms hijacked kids’ media, why native parental controls fall short, and the open-source blueprint to reclaim calm screen time.',
+    link: 'https://medium.com/@enriq/breaking-the-dopamine-loop-safekids-an-algorithm-free-media-portal-for-parents-5be8ca023d08',
+  },
+  {
+    title: 'How to Reuse Gemini Enterprise Data Connectors with Your ADK Agent 🔌',
+    platform: 'Medium',
+    image: '/gemini_connectors_adk.png',
+    description: 'Balancing rich connectivity to enterprise business systems with strict security governance by bridging Gemini Enterprise data connectors with ADK agents.',
+    link: 'https://medium.com/@enriq/how-to-reuse-gemini-enterprise-data-connectors-with-your-adk-agent-a6e6cea35458',
+  },
+  {
+    title: 'The CXO Guide to Loop Engineering and Day 2 AI Operations 🧭',
+    platform: 'Medium',
+    image: '/cockpit.png',
+    description: 'Executive framework for transitioning enterprise Generative AI from ad-hoc prompt productivity to autonomous Loop Engineering and Day-2 AI operations.',
+    link: 'https://medium.com/@enriq/the-cxo-guide-to-loop-engineering-and-day-2-ai-operations-f4c08b6d819c',
+  },
+  {
+    title: 'The Outer Loop: Agentic Governance & Self-Evolution with AlphaEvolve 🧬',
+    platform: 'google.dev',
+    image: '/outer_loop_alphaevolve.png',
+    description: 'How Google Cloud and AlphaEvolve are defining Loop Engineering, outer-loop agentic governance, and self-evolving AI systems.',
+    link: 'https://discuss.google.dev/t/the-outer-loop-how-google-cloud-and-alphaevolve-are-defining-agentic-governance-and-self-evolution/383304',
+  },
+  {
     title: '[Agent Garden] Solving LLM Hallucinations & Math Drift via ADK 2.0 📈',
     platform: 'Medium',
     image: '/a2ui_blog.png',
@@ -382,6 +410,13 @@ const PUBLICATIONS = [
     image: '/kaggle_whitepaper.png',
     description: 'Deep dive into live economic data querying, FIPS code resolution, and real estate yield calculations.',
     link: 'https://discuss.google.dev/t/i-built-a-live-api-economic-research-agent-fred-census-hud-real-estate-yields/379128',
+  },
+  {
+    title: 'Taming the Rogue Agent: From Vibe-Coded to Production with AgentOps Cockpit 🕹️',
+    platform: 'google.dev',
+    image: '/taming_rogue_agent_cockpit.jpg',
+    description: 'Solving the "Day 2" problem of Agentic AI: Using AST parsing to autonomously refactor, harden, and evolve production AI agents.',
+    link: 'https://discuss.google.dev/t/taming-the-rogue-agent-from-vibe-coded-to-production-with-the-agentops-cockpit/345620',
   },
   {
     title: 'Building with A2UI: Why I Blew Up My Portfolio to Build a "Living" UI ✍️',
