@@ -252,6 +252,12 @@ WRITING = [
         "url": "https://cloud.google.com/blog/topics/consulting/upskill-your-ai-using-daily-micro-habits?e=48754805"
     },
     {
+        "title": "Hardening OAuth ACLs and Prompt Injection in Gemini Enterprise ADK Agents (Part 2)",
+        "platform": "Medium",
+        "image": f"{BASE_URL}/gemini_connectors_adk.png",
+        "url": "https://medium.com/@enriq/hardening-oauth-acls-and-prompt-injection-in-gemini-enterprise-adk-agents-part-2-cace1d3acd86"
+    },
+    {
         "title": "Breaking the Dopamine Loop: SafeKids, An Algorithm-Free Media Portal for Parents",
         "platform": "Medium",
         "image": f"{BASE_URL}/safekids_blog.png",

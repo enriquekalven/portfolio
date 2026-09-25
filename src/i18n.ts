@@ -27,7 +27,23 @@ export interface Translations {
     subtitle: string;
     ctaPrimary: string;
     ctaSecondary: string;
+    ctaContact: string;
+    copyEmail: string;
+    emailCopied: string;
     socialProof: string;
+    executivePills: {
+      role: string;
+      deals: string;
+      analyst: string;
+      experience: string;
+    };
+    endorsement: {
+      quote: string;
+      author: string;
+      role: string;
+      tag: string;
+      awardTag: string;
+    };
     metrics: {
       devs: string;
       tokens: string;
@@ -117,7 +133,23 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       subtitle: '15+ years transforming Enterprise Cloud, Data & AI into production-grade Agentic Workflows. Husband, father of 3, and Real Estate Investor in Seattle, WA.',
       ctaPrimary: 'Explore Career Journey',
       ctaSecondary: 'View Key Work',
+      ctaContact: 'Quick Connect',
+      copyEmail: 'Copy Email',
+      emailCopied: 'Copied enriq@google.com!',
       socialProof: 'Impact Across Industry Giants & Global Platforms',
+      executivePills: {
+        role: 'L6 Staff TDL & Outbound PM',
+        deals: '$2B+ Multi-Year Deal Scope',
+        analyst: '4x Gartner & Forrester Leader',
+        experience: '15+ Yrs Enterprise Cloud & AI'
+      },
+      endorsement: {
+        quote: "Thank you for your work and commitment to leading with customer empathy. Your team's story is a great example of how we work together to best support our customers and support each other.",
+        author: 'Thomas Kurian',
+        role: 'CEO, Google Cloud',
+        tag: 'Executive Recognition',
+        awardTag: 'Verified Leadership Commendation'
+      },
       metrics: {
         devs: 'Developers Engaged (Advent of Agents)',
         tokens: 'Tokens Driven to Gemini',
@@ -205,7 +237,23 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       subtitle: 'Más de 15 años transformando Nube Empresarial, Datos e IA en flujos de trabajo agénticos de producción. Esposo, padre de 3 e inversionista inmobiliario en Seattle, WA.',
       ctaPrimary: 'Ver Trayectoria Profesional',
       ctaSecondary: 'Ver Proyectos Clave',
+      ctaContact: 'Contacto Rápido',
+      copyEmail: 'Copiar Email',
+      emailCopied: '¡Copiado enriq@google.com!',
       socialProof: 'Impacto en Gigantes de la Industria y Plataformas Globales',
+      executivePills: {
+        role: 'L6 Staff TDL y PM Rotador',
+        deals: 'Alcance de Acuerdos $2B+',
+        analyst: '4x Líder Gartner y Forrester',
+        experience: 'Más de 15 Años Nube e IA Empresarial'
+      },
+      endorsement: {
+        quote: 'Gracias por tu trabajo y compromiso al liderar con empatía hacia el cliente. La historia de tu equipo es un gran ejemplo de cómo trabajamos juntos para apoyar mejor a nuestros clientes y apoyarnos mutuamente.',
+        author: 'Thomas Kurian',
+        role: 'CEO, Google Cloud',
+        tag: 'Reconocimiento Ejecutivo',
+        awardTag: 'Felicitación de Liderazgo Verificada'
+      },
       metrics: {
         devs: 'Desarrolladores (Advent of Agents)',
         tokens: 'Tokens Generados en Gemini',
@@ -293,7 +341,23 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       subtitle: '深耕企业级云架构、数据与 AI 领域逾 15 年，专注将前沿大模型转化为生产级智能体 (Agentic) 工作流。定居西雅图，三个孩子的父亲与地产投资者。',
       ctaPrimary: '查看职业轨迹',
       ctaSecondary: '浏览代表作品',
+      ctaContact: '即时联络',
+      copyEmail: '复制邮箱',
+      emailCopied: '已复制 enriq@google.com！',
       socialProof: '赋能全球科技巨头与行业领军平台',
+      executivePills: {
+        role: 'L6 Staff TDL & 跨职能产品负责人 (PM)',
+        deals: '主导 $2B+ 商业合同架构',
+        analyst: '4x Gartner 与 Forrester 领军象限',
+        experience: '15+ 年企业级云与 AI 经验'
+      },
+      endorsement: {
+        quote: '感谢你的杰出工作以及坚持以客户同理心为导向的担当。你团队的故事展示了我们如何紧密协作、全力支持客户并相互成就的最佳典范。',
+        author: 'Thomas Kurian',
+        role: 'CEO, Google Cloud',
+        tag: '高管特别嘉奖',
+        awardTag: 'Google Cloud 最高领导层官方评语'
+      },
       metrics: {
         devs: '赋能开发者 (Advent of Agents)',
         tokens: '驱动 Gemini Token 消耗',
