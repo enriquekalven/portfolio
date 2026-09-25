@@ -370,6 +370,13 @@ const PUBLICATIONS = [
     link: 'https://cloud.google.com/blog/topics/consulting/upskill-your-ai-using-daily-micro-habits?e=48754805',
   },
   {
+    title: 'Hardening OAuth ACLs & Prompt Injection in Gemini Enterprise ADK Agents (Part 2) 🔒',
+    platform: 'Medium',
+    image: '/gemini_connectors_adk.png',
+    description: 'Enterprise governance and security deep dive: Hardening OAuth ACLs, securing data connectors, and mitigating prompt injection in production ADK agents.',
+    link: 'https://medium.com/@enriq/hardening-oauth-acls-and-prompt-injection-in-gemini-enterprise-adk-agents-part-2-cace1d3acd86',
+  },
+  {
     title: 'Breaking the Dopamine Loop: SafeKids, An Algorithm-Free Media Portal 🛡️',
     platform: 'Medium',
     image: '/safekids_blog.png',
@@ -1084,6 +1091,13 @@ function LandingPage() {
   const [showContact, setShowContact] = useState(false);
   const [projectsExpanded, setProjectsExpanded] = useState(false);
   const [speakingExpanded, setSpeakingExpanded] = useState(false);
+  const [emailCopied, setEmailCopied] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText('enriq@google.com');
+    setEmailCopied(true);
+    setTimeout(() => setEmailCopied(false), 2500);
+  };
 
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
     return (localStorage.getItem('theme') as 'dark' | 'light') || 'dark';
@@ -1158,6 +1172,23 @@ function LandingPage() {
             <Sparkles size={16} /> {t.hero.badge}
           </div>
 
+          {/* Executive Fast-Track Badges */}
+          <div className="hero-executive-pills">
+            <span className="exec-pill">
+              <Sparkles size={13} style={{ color: 'var(--accent-cyan)' }} />
+              <strong>{t.hero.executivePills.role}</strong>
+            </span>
+            <span className="exec-pill">
+              <strong>{t.hero.executivePills.deals}</strong>
+            </span>
+            <span className="exec-pill">
+              <strong>{t.hero.executivePills.analyst}</strong>
+            </span>
+            <span className="exec-pill">
+              <strong>{t.hero.executivePills.experience}</strong>
+            </span>
+          </div>
+
           <h1 className="hero-title">
             {t.hero.titleLine1} <span className="highlight-gradient">{t.hero.titleHighlight}</span>
           </h1>
@@ -1170,17 +1201,37 @@ function LandingPage() {
             {t.hero.subtitle}
           </p>
 
-          <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', alignItems: 'center' }}>
+          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
             <a href="#experience" className="cta-button">
               {t.hero.ctaPrimary} <ChevronRight size={16} />
             </a>
             <a href="#work" className="cta-button-outline">
               {t.hero.ctaSecondary}
             </a>
-            <a href="https://www.linkedin.com/in/enriquechan/" target="_blank" rel="noreferrer" className="cta-button-outline" style={{ padding: '10px 16px' }}>
+            <button
+              onClick={() => setShowContact(true)}
+              className="cta-button-outline"
+              style={{ cursor: 'pointer' }}
+            >
+              <Mail size={16} /> {t.hero.ctaContact}
+            </button>
+            <button
+              onClick={handleCopyEmail}
+              className="cta-button-outline"
+              style={{
+                cursor: 'pointer',
+                borderColor: emailCopied ? 'var(--accent-cyan)' : undefined,
+                color: emailCopied ? 'var(--accent-cyan)' : undefined
+              }}
+              title="Copy enriq@google.com"
+            >
+              {emailCopied ? <Check size={16} /> : <Copy size={16} />}
+              <span>{emailCopied ? t.hero.emailCopied : t.hero.copyEmail}</span>
+            </button>
+            <a href="https://www.linkedin.com/in/enriquechan/" target="_blank" rel="noreferrer" className="cta-button-outline" style={{ padding: '10px 14px' }} title="LinkedIn Profile">
               <Linkedin size={18} />
             </a>
-            <a href="https://github.com/enriquekalven" target="_blank" rel="noreferrer" className="cta-button-outline" style={{ padding: '10px 16px' }}>
+            <a href="https://github.com/enriquekalven" target="_blank" rel="noreferrer" className="cta-button-outline" style={{ padding: '10px 14px' }} title="GitHub Profile">
               <Github size={18} />
             </a>
           </div>
@@ -1209,6 +1260,45 @@ function LandingPage() {
           <img src="https://www.vectorlogo.zone/logos/kaggle/kaggle-icon.svg" alt="Kaggle" style={{ height: '32px' }} />
           <img src="https://www.vectorlogo.zone/logos/medium/medium-icon.svg" alt="Medium" style={{ height: '30px', filter: theme === 'dark' ? 'brightness(0) invert(1)' : 'none' }} />
         </div>
+      </section>
+
+      {/* Executive Endorsement Feature Callout (Thomas Kurian, CEO Google Cloud) */}
+      <section className="executive-endorsement-section">
+        <motion.div
+          className="endorsement-card"
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="endorsement-header">
+            <span className="endorsement-tag">
+              <Award size={14} /> {t.hero.endorsement.tag}
+            </span>
+            <span className="endorsement-award-tag">
+              <CheckCircle2 size={14} style={{ color: 'var(--accent-cyan)' }} /> {t.hero.endorsement.awardTag}
+            </span>
+          </div>
+          <blockquote className="endorsement-quote-text">
+            "{t.hero.endorsement.quote}"
+          </blockquote>
+          <div className="endorsement-footer">
+            <div className="endorsement-author-info">
+              <div className="endorsement-avatar-badge">TK</div>
+              <div>
+                <div className="endorsement-name">{t.hero.endorsement.author}</div>
+                <div className="endorsement-sub">{t.hero.endorsement.role}</div>
+              </div>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
+                alt="Google Cloud"
+                style={{ height: '20px', opacity: 0.85 }}
+              />
+            </div>
+          </div>
+        </motion.div>
       </section>
 
       {/* Impact Metrics Banner */}
