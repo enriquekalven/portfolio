@@ -1048,45 +1048,108 @@
   }
 }
 
-/* Print-to-PDF Styles for Executive Resume Modal */
-@media print {
-  body * {
-    visibility: hidden;
+/* Light theme contrast fixes (these components hardcode dark-theme colors) */
+[data-theme="light"] .hero-quote {
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .metric-card {
+  background: var(--bg-card);
+}
+
+/* Media page: keep the compact navbar inside small screens */
+@media (max-width: 560px) {
+  .hide-on-small {
+    display: none !important;
   }
 
-  .resume-modal-backdrop,
-  .resume-printable-sheet,
-  .resume-printable-sheet * {
-    visibility: visible;
+  .media-nav-actions .cta-button {
+    padding: 8px 14px !important;
+    font-size: 13px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .hide-on-xs {
+    display: none !important;
+  }
+
+  .media-nav-actions {
+    gap: 6px !important;
+  }
+}
+
+/*
+ * Print-to-PDF for the Executive Resume.
+ * The modal is portaled to <body>, so the rest of the app can be removed with display:none.
+ * (visibility:hidden keeps the hidden page's full height and produced ~23 blank trailing pages.)
+ */
+@media print {
+  @page {
+    size: letter;
+    margin: 0.5in;
+  }
+
+  body.resume-open > :not(.resume-modal-backdrop) {
+    display: none !important;
+  }
+
+  body.resume-open {
+    background: #ffffff !important;
+  }
+
+  body.resume-open::before,
+  body.resume-open::after {
+    display: none !important;
   }
 
   .resume-modal-backdrop {
-    position: absolute !important;
-    inset: 0 !important;
-    background: #ffffff !important;
-    padding: 0 !important;
+    position: static !important;
     display: block !important;
+    padding: 0 !important;
+    background: #ffffff !important;
   }
 
   .resume-printable-sheet {
     position: static !important;
-    max-width: 100% !important;
+    max-width: none !important;
     max-height: none !important;
     overflow: visible !important;
-    background: #ffffff !important;
-    color: #0f172a !important;
+    padding: 0 !important;
     border: none !important;
+    border-radius: 0 !important;
     box-shadow: none !important;
-    padding: 16px !important;
+    opacity: 1 !important;
+    transform: none !important;
+    background: #ffffff !important;
   }
 
-  .resume-printable-sheet h2,
-  .resume-printable-sheet h3,
-  .resume-printable-sheet h4,
-  .resume-printable-sheet p,
-  .resume-printable-sheet li,
-  .resume-printable-sheet span {
+  /* Print-safe ink: dark text on white regardless of the active screen theme */
+  .resume-printable-sheet,
+  .resume-printable-sheet * {
     color: #0f172a !important;
+    background: transparent !important;
+    border-color: #cbd5e1 !important;
+    box-shadow: none !important;
+  }
+
+  .resume-printable-sheet .resume-accent {
+    color: #075985 !important;
+  }
+
+  .resume-printable-sheet .resume-block {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Compact print layout: one row of metric tiles and a slight scale keeps the resume to 2 pages */
+  .resume-printable-sheet {
+    zoom: 0.92;
+  }
+
+  .resume-printable-sheet .resume-metrics {
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 8px !important;
   }
 
   .no-print {

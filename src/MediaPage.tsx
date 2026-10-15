@@ -160,10 +160,10 @@ function MediaPage() {
           <div className="nav-links">
             <Link to="/">Home</Link>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <div className="media-nav-actions" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="theme-toggle-btn"
+              className="theme-toggle-btn hide-on-small"
               title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
               aria-label="Toggle Theme"
             >
@@ -172,14 +172,16 @@ function MediaPage() {
             <button
               onClick={() => setShowResume(true)}
               className="cta-button-outline"
-              style={{ padding: '9px 16px', fontSize: '13px', cursor: 'pointer' }}
+              style={{ padding: '9px 14px', fontSize: '13px', cursor: 'pointer' }}
+              aria-label="Executive Resume"
+              title="Executive Resume"
             >
-              <FileText size={15} /> Resume
+              <FileText size={15} /> <span className="hide-on-xs">Resume</span>
             </button>
             <button
               onClick={() => setShowContact(true)}
               className="cta-button"
-              style={{ padding: '10px 20px', fontSize: '14px', border: 'none', cursor: 'pointer' }}
+              style={{ padding: '10px 20px', fontSize: '14px', border: 'none', cursor: 'pointer', whiteSpace: 'nowrap' }}
             >
               Work with Me
             </button>
@@ -190,14 +192,14 @@ function MediaPage() {
       <section style={{ paddingTop: '140px' }}>
         <div className="section-header">
           <span className="section-tag">Media Center</span>
-          <h1 className="section-title">Talks & Technical Demos</h1>
-          <p style={{ maxWidth: '700px', color: 'var(--text-secondary)', fontSize: '17px', lineHeight: 1.6 }}>
+          <h1 className="section-title">Talks &amp; Technical Demos</h1>
+          <p style={{ maxWidth: '700px', margin: '0 auto', color: 'var(--text-secondary)', fontSize: '17px', lineHeight: 1.6 }}>
             A comprehensive library of technical demonstrations, keynotes, and thought leadership on
             <span style={{ color: 'var(--accent-cyan)', fontWeight: 700 }}> Agentic Workflows</span>.
           </p>
 
           {/* Category Filter Pills */}
-          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '24px' }}>
+          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', justifyContent: 'center', marginTop: '24px' }}>
             {CATEGORIES.map(category => {
               const isActive = activeCategory === category;
               return (
