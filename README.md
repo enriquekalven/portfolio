@@ -14,11 +14,11 @@ A production-grade, multilingual (`EN` / `ES` / `中文`) executive portfolio sh
 | Metric | Scope & Outcome |
 | :--- | :--- |
 | **$2B+ Multi-Year Deal Scope** | Core deal & technical scoping team for marquee enterprise AI transformations ($63M Google Services, $32M Partner Services, $5M Learning). |
-| **4x Analyst Leader Wins (2026)** | Technical RFI & Live Demo Lead for **Gartner® MQ Enterprise AI Assistants** (Inaugural Leader), **Gartner® MQ CNAP** (3rd consecutive year), **The Forrester Wave™: AI Platforms** (Highest Strategy Score), and **Gartner® MQ AIADP** (Highest Ability to Execute). |
+| **4x Analyst Leader Wins (2026)** | Technical RFI & Live Demo Lead for **Gartner® MQ Enterprise AI Assistants** (Inaugural Leader), **Gartner® MQ CNAP** (3rd consecutive year), **The Forrester Wave™: AI Platforms** (Top Strategy Score), and **Gartner® MQ AIADP** (Highest Ability to Execute). |
 | **40M+ Viewers / 90M+ Queries** | Owned technical strategy for the **NBC Paris 2024 Olympic Games AI Concierge (OLI)** on Vertex AI Provisioned Throughput (0.5% error rate). |
 | **32,000+ Developers & 5T Tokens** | Co-led **Advent of Agents** (Seasons 1 & 2), surging into a Top 5 Global GitHub repository and winning a **Silver Google AI Award (SWIFTY)**. |
 | **1.5M+ Registered Learners** | Co-authored the official Kaggle **Executive "Intro to Agents" Whitepaper**, establishing industry patterns for LLM Ops & Agent Orchestration. |
-| **19x Multi-Cloud Certifications** | 8x Google Cloud (including Professional ML Engineer, Architect, Security, Data) & 6x AWS (including Solutions Architect Pro, Security, Data Analytics). |
+| **Multi-Cloud Certified** | 8x Google Cloud (including Professional ML Engineer, Cloud Architect, Security Engineer) & 6x AWS (including Solutions Architect Professional, Security, Data Analytics). |
 
 ---
 
@@ -26,16 +26,16 @@ A production-grade, multilingual (`EN` / `ES` / `中文`) executive portfolio sh
 
 | Platform | Category | Highlights | Links |
 | :--- | :--- | :--- | :--- |
-| **Economic Research Agent** | `ADK 2.0 / Econometrics` | Live-API Econometrician featured on **Google Cloud Agent Garden** querying FRED, US Census & HUD APIs with deterministic math tools. | [Live App](https://economic-research.web.app/) • [ADK Samples](https://github.com/google/adk-samples) |
-| **AgentOps Cockpit** | `Open Source / Core Ops` | Governance-as-Code logic layer for enterprise agent fleets with automated FinOps/SecOps audits, A2A connectivity, and 92% cost optimization. | [Live App](https://agent-cockpit.web.app/) • [GitHub](https://github.com/enriquekalven) |
-| **Curious Little Minds** | `GenAI / AlphaEvolve` | Autonomous multilingual children's book publishing engine built with Gemini 2.5 Flash and AlphaEvolve evolutionary prompt optimization. | [Live App](https://curious-little-minds.web.app/) • [GitHub](https://github.com/enriquekalven) |
-| **SafeKids Portal** | `Digital Wellness` | Research-backed, algorithm-free parent action plan, low-stimulus media directory, and hardware lockdown blueprints. | [Live App](https://safe-kids.web.app/) • [GitHub](https://github.com/enriquekalven) |
+| **Economic Research Agent** | `ADK 2.0 / Econometrics` | Live-API Econometrician featured on **Google Cloud Agent Garden** querying FRED, US Census & HUD APIs with deterministic math tools. | [Live App](https://economic-research.web.app/) • [GitHub](https://github.com/enriquekalven/economic-research-agent) |
+| **AgentOps Cockpit** | `Open Source / Core Ops` | Governance-as-Code logic layer for enterprise agent fleets with automated FinOps/SecOps audits, A2A connectivity, and 92% cost optimization. | [Live App](https://agent-cockpit.web.app/) • [GitHub](https://github.com/enriquekalven/agent-cockpit) • [PyPI](https://pypi.org/project/agentops-cockpit/) |
+| **Curious Little Minds** | `GenAI / AlphaEvolve` | Autonomous multilingual children's book publishing engine built with Gemini 2.5 Flash and AlphaEvolve evolutionary prompt optimization. | [Live App](https://curious-little-minds.web.app/) • [GitHub](https://github.com/enriquekalven/story-agent) |
+| **SafeKids Portal** | `Digital Wellness` | Research-backed, algorithm-free parent action plan, low-stimulus media directory, and hardware lockdown blueprints. | [Live App](https://safe-kids.web.app/) • [GitHub](https://github.com/enriquekalven/safe-kids) |
 
 ---
 
 ## ✨ Portfolio Architecture & Recruiter Features
 
-- **Executive Resume & 1-Page Brief Modal**: Built-in recruiter fast-track with one-click **Print / Save as PDF** (`@media print` stylesheet) and **Copy Executive Bio** for instant ATS/speaker submissions.
+- **Executive Resume (`/resume`)**: Shareable deep link with one-click **Print / Save as PDF** (`@media print` stylesheet), **Copy Link**, and **Copy Executive Bio** for recruiter and speaker submissions.
 - **Trilingual Localization (`EN` / `ES` / `中文`)**: Full runtime dictionary & content localization in [`src/i18n.ts`](./src/i18n.ts) and [`src/localizedData.ts`](./src/localizedData.ts).
 - **Adaptive Dark / Light Theme Engine**: CSS custom properties with glassmorphic elevation and persistent user preferences.
 - **Click-to-Play Media Center (`/media`)**: High-performance video library in [`src/MediaPage.tsx`](./src/MediaPage.tsx) with category filtering and zero-lag YouTube thumbnail facades.

@@ -35,10 +35,10 @@ EXPERIENCE = [
         "role": "Staff Technical Deployment Lead (TDL) | Delta | AI Activation & Forward Deployed Engineering",
         "period": "Jun 2026 - Present",
         "highlights": [
-            "Forward Deployed Engineer (FDE) Operating Model lead for 15 top-qualified Fortune 500 accounts (including Ford and Intel).",
+            "Forward Deployed Engineer (FDE) Operating Model lead for 15 top-qualified enterprise accounts (including Ford and Intel).",
             "Defined the unified enterprise operating model across Go-To-Market FDE, Delta FDE, Professional Services, Global Strategic Deals, Product Leadership, and Executive Account Leaders.",
-            "Led technical scoping of Forward Deployed Engineering engagements for Ford and Intel across high-impact production AI use cases.",
-            "Core deal team member capturing $2B+ in multi-year cloud commitments, generating $63M in Google Services Funds, $5M in Executive Learning, and $32M in Partner Services Funds."
+            "Led scoping of Forward Deployed Engineering opportunities for Ford and Intel based on their AI use cases.",
+            "Deal team capturing a $2B multi-year commit, generating $63M in Google Services Funds, $5M in Learning, and $32M in Partner Services Funds."
         ],
         "skills": ["Technical Deployment", "FDE Operating Model", "Enterprise Transformation", "Strategic Deal Scoping"]
     },
@@ -48,9 +48,9 @@ EXPERIENCE = [
         "period": "Jun 2026 - Present",
         "highlights": [
             "Led technical RFIs, architectural proof points, and live demo builds for 4 consecutive Google Cloud Analyst Leader wins: Gartner® MQ for Enterprise AI Assistants (Inaugural Leader, Sep 2026), Gartner® MQ for Cloud-Native Application Platforms (Leader 3rd consecutive year, Aug 2026), The Forrester Wave™: AI Platforms (Leader & Top Strategy Score, Aug 2026), and Gartner® MQ for AI Application Development Platforms (Leader & Highest Ability to Execute, May 2026).",
-            "Led cross-functional tiger team and executive escalation sessions to build competitive strategy and field battlecards against Claude Cowork, featured on Google Cloud's global GTM Prompt Live Seminar.",
+            "Launched Cowork Battlecard effort for Google Cloud: led tiger team and escalation sessions to build competitive strategy against Claude Cowork; refreshed battlecards featured on the GTM Prompt Live Seminar.",
             "Launched General Availability (GA) of Agent Governance for Gemini Enterprise App.",
-            "Led global field enablement and captured enterprise customer feedback on Agent Identity, Agent Registry, and Agent Gateway for Gemini Enterprise App."
+            "Led field team training enablement and captured customer feedback on Agent Identity, Agent Registry, and Agent Gateway for Gemini Enterprise App."
         ],
         "skills": ["Product Strategy", "Analyst Relations (Gartner / Forrester)", "Agent Governance", "Competitive Intelligence", "Field Enablement"]
     },
@@ -63,9 +63,9 @@ EXPERIENCE = [
             "Co-authored Executive 'Intro to Agents' whitepaper for Kaggle course reaching 1.5M registered attendees, setting the industry standard for LLM Ops and agent orchestration.",
             "Led Gartner Magic Quadrant response for RFI and Demo, resulting in Google named a Leader in AI Application Development Platforms (Positioned highest for Ability to Execute).",
             "Enterprise Agent Governance & Platform Strategy: Co-authored pivotal cross-org RFC resolving strategic messaging across 5 product areas (Apigee, Workspace, Gemini Enterprise, Agent Platform, Agent Builder); secured VP and Director-level roadmap alignment.",
-            "Gemini Enterprise Governance at Scale: Authored executive guidance presented to Top 50 enterprise customers (McKinsey, Accenture, Wells Fargo, Pfizer, Cision, CGC).",
-            "Co-owner solving end-to-end OAuth security flow from Gemini Enterprise to custom agents (ADK & A2A).",
-            "Proposed and launched ADK Skills within ADK core based on developer UX and enterprise requirements.",
+            "Gemini Enterprise Governance at Scale: Authored seller-facing guidance presented to Top 50 customers (McKinsey, Accenture, Wells Fargo, Pfizer, Cision, CGC).",
+            "Co-owner solving end-to-end OAuth flow from Gemini Enterprise to custom agents (ADK & A2A).",
+            "Proposed and launched ADK Skills within ADK core based on UX and user requirements.",
             "Competitive Strategy: Authored rapid-response playbook defending a 34,000-seat Gemini Enterprise opportunity with DoorDash and Telus.",
             "Envisioned and developed AgentOps Cockpit to transition fleet management to Governance-as-Code; directed global security audit of 44 enterprise agents, hardened 450+ sample agents, and embedded OpenTelemetry tracing into ADK.",
             "Standardized official GenAI Forward Deployed Engineer (FDE) Interview Guide and authored question banks for the Google Cloud Professional ML Engineer certification exam."
@@ -77,10 +77,10 @@ EXPERIENCE = [
         "role": "Senior AI Consultant | Cloud Professional Services Organization (PSO)",
         "period": "Jun 2023 - Dec 2025",
         "highlights": [
-            "Delivered production AI solutions for 24 enterprise customer projects ($14.6M delivery revenue, 81% utilization, 100% CSAT).",
+            "Delivered AI solutions for 24 customer projects ($14.6M revenue, 81% utilization, 100% CSAT).",
             "NBC Olympic Games Oli Chatbot: Owned technical strategy for Paris 2024 Olympic Games AI concierge (40M viewers, 90M queries), autonomously devising Vertex AI Provisioned Throughput strategy with a 0.5% error rate.",
             "Warner Bros. Discovery (WBD) Localization & RLHF Architecture: Engineered custom RLHF solution with 4 production-grade pipelines for captions and translation, preventing a 2-week deal delay and securing $960K in Phase 3 expansion revenue.",
-            "Closed 21 enterprise customer deals ($11M revenue) partnering across Sales and Professional Services.",
+            "Closed 21 customer deals ($11M revenue) cross-functionally with Sales and Professional Services.",
             "Launched global Agent Center of Enablement across Customer Engineers, Technical Account Managers, and Google Cloud Consulting."
         ],
         "skills": ["Vertex AI", "RLHF / SFT", "Provisioned Throughput", "Enterprise MLOps", "High-Scale Chatbots"]
@@ -90,7 +90,7 @@ EXPERIENCE = [
         "role": "Senior Data Consultant | Cloud Professional Services Organization (PSO)",
         "period": "Jun 2021 - Jun 2023",
         "highlights": [
-            "Boeing Analytical Platform: Re-architected single-tenant migration into a Source-Oriented Data Mesh Architecture, scaling from 1 tenant to 29 tenants.",
+            "Boeing Analytical Platform: Re-architected single-tenant migration into a Source-Oriented Mesh Architecture, scaling from 1 tenant to 29 tenants.",
             "Warner Bros. Discovery (WBD) Analytics: Quarterbacked large-scale enterprise analytics migrations to BigQuery.",
             "Offering Lead for Enterprise Data Warehouse (EDW) Modernization into Google Cloud Delivery Navigator.",
             "Launched gShadowPSO mentorship dashboard as part of the Q3 2022 Hackathon North America winning team."
@@ -102,10 +102,10 @@ EXPERIENCE = [
         "role": "Senior Cloud Architect | ProServe Public Sector",
         "period": "May 2020 - May 2021",
         "highlights": [
-            "Administered AWS Well-Architected Framework reviews with a serverless lens for mission-critical workloads.",
+            "Administered AWS Well-Architected Framework reviews with a serverless lens.",
             "Built distributed microservices architectures with TypeScript and AWS CDK.",
             "Designed multi-account Landing Zones with AWS Control Tower and Transit Gateway.",
-            "Developed CloudFormation stacks for centralized real-time logging from AWS Kinesis to Splunk."
+            "Developed CloudFormation stacks for a centralized logging solution from AWS Kinesis to Splunk."
         ],
         "skills": ["AWS Architecture", "TypeScript / CDK", "Control Tower", "Enterprise Scaling"]
     },
@@ -114,9 +114,9 @@ EXPERIENCE = [
         "role": "Senior Manager | Cloud Strategy & Data Analytics",
         "period": "May 2011 - May 2020",
         "highlights": [
-            "Sold over $10M in enterprise delivery engagements and generated $25M+ in pre-sales pipeline.",
-            "Managed 5 direct reports responsible for technical delivery, career growth, and retention.",
-            "Disney+ Global Scaling: Engineered cloud strategy and high-concurrency architecture supporting 100M+ subscribers.",
+            "Sold over $10M in delivery work and generated $25M in pre-sales pipeline.",
+            "Managed 5 direct reports (counselees), responsible for their career growth and retention.",
+            "Disney+ Global Scaling: Engineered cloud strategy for 100M+ users.",
             "MyMagic+ (FastPass+ / MagicBands): Key product development architect for Walt Disney World guest technology."
         ],
         "skills": ["Cloud Strategy", "Disney+ / MyMagic+", "DevSecOps", "Agile / Scrum"]
@@ -161,7 +161,7 @@ PROJECTS = [
         "image": f"{BASE_URL}/economic_research.png",
         "description": "Autonomous Econometrician on Agent Garden querying FRED, Census, & HUD APIs with zero math drift.",
         "url": "https://economic-research.web.app/",
-        "repo_url": "https://github.com/google/adk-samples",
+        "repo_url": "https://github.com/enriquekalven/economic-research-agent",
         "tag": "Open Source / ADK"
     },
     {
@@ -170,7 +170,7 @@ PROJECTS = [
         "image": f"{BASE_URL}/storybook.png",
         "description": "Autonomous AI children's book generator and multi-lingual publishing orchestrator leveraging Gemini 2.5 Flash and AlphaEvolve.",
         "url": "https://curious-little-minds.web.app/",
-        "repo_url": "https://github.com/enriquekalven",
+        "repo_url": "https://github.com/enriquekalven/story-agent",
         "tag": "Open Source / GenAI"
     },
     {
@@ -179,7 +179,7 @@ PROJECTS = [
         "image": "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?q=80&w=1200&auto=format&fit=crop",
         "description": "Algorithm-free parent action plan, low-stimulus channel directory, open-source tool comparison, and technical lockdown guides.",
         "url": "https://safe-kids.web.app/",
-        "repo_url": "https://github.com/enriquekalven",
+        "repo_url": "https://github.com/enriquekalven/safe-kids",
         "tag": "Parenting Tech / Family Blueprint"
     },
     {
@@ -188,7 +188,7 @@ PROJECTS = [
         "image": f"{BASE_URL}/cockpit.png",
         "description": "The professional logic layer for Agentic Apps. Multi-cloud governance, automated SME audits, and protocol-level optimization.",
         "url": "https://agent-cockpit.web.app/",
-        "repo_url": "https://github.com/enriquekalven",
+        "repo_url": "https://github.com/enriquekalven/agent-cockpit",
         "tag": "Open Source / Core Ops"
     },
     {
@@ -213,7 +213,6 @@ PROJECTS = [
         "image": f"{BASE_URL}/advent_of_agents.png",
         "description": "Global developer campaign democratizing Agentic AI for developers through daily Katas.",
         "url": "https://adventofagents.com/",
-        "repo_url": "https://github.com/google/adk-samples",
         "tag": "Community / SOP"
     },
     {

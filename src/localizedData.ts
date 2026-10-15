@@ -197,10 +197,10 @@ export function getLocalizedExperience(lang: Language, defaultExp: ExperienceIte
         period: 'Jun 2026 — Presente',
         description: 'Líder Técnico de Despliegue de IA (Staff TDL) para Google Cloud Delta y el equipo de Activación de IA / Forward Deployed Engineering (FDE).',
         highlights: [
-          'Líder del modelo operativo de Forward Deployed Engineering (FDE) para 15 cuentas Fortune 500 prioritarias (incluyendo Ford e Intel).',
+          'Líder del modelo operativo de Forward Deployed Engineering (FDE) para 15 cuentas empresariales prioritarias (incluyendo Ford e Intel).',
           'Definió el modelo operativo conjunto entre Ingeniería Desplegada (FDE), Servicios Profesionales, Acuerdos Estratégicos Globales, Liderazgo de Producto y Directores de Cuenta para acelerar la activación de IA empresarial.',
-          'Dimensionó oportunidades de ingeniería desplegada para Ford e Intel basadas en casos de uso de IA en producción de alto impacto.',
-          'Miembro del equipo de cierre de acuerdos por $2B+ multianuales, generando $63M en Fondos de Servicios de Google, $5M en Aprendizaje Ejecutivo y $32M en Fondos para Partners.'
+          'Dimensionó oportunidades de ingeniería desplegada para Ford e Intel basadas en casos de uso de IA de alto impacto.',
+          'Miembro del equipo de cierre de acuerdos por $2B multianuales, generando $63M en Fondos de Servicios de Google, $5M en Aprendizaje y $32M en Fondos para Partners.'
         ],
         skills: ['Despliegue Técnico', 'Modelo Operativo FDE', 'Transformación Empresarial', 'Estructuración de Acuerdos']
       },
@@ -212,7 +212,7 @@ export function getLocalizedExperience(lang: Language, defaultExp: ExperienceIte
         description: 'Outbound Product Manager impulsando relaciones con analistas (4 victorias como Líder en Gartner/Forrester), estrategia competitiva y Gobernanza de Agentes GA.',
         highlights: [
           'Lideró las respuestas técnicas RFI, pruebas de arquitectura y construcción de demos en vivo para 4 victorias consecutivas como Líder en Gartner y Forrester (Asistentes de IA Empresarial, CNAP, Forrester Wave AI Platforms y AIADP).',
-          'Dirigió el equipo táctico y sesiones ejecutivas para la estrategia competitiva de Google Cloud frente a Claude Cowork; destacado en el GTM Prompt Live Seminar global.',
+          'Dirigió el equipo táctico y sesiones de escalamiento para tarjetas competitivas de Google Cloud frente a Claude Cowork; destacado en GTM Prompt Live Seminar.',
           'Lideró la habilitación de equipos de campo y capturó feedback de clientes sobre Agent Identity, Agent Registry y Agent Gateway para el lanzamiento GA.',
           'Colaboró estrechamente con PMs de producto e ingeniería para priorizar funciones de gobernanza empresarial en la hoja de ruta.'
         ],
@@ -254,7 +254,7 @@ export function getLocalizedExperience(lang: Language, defaultExp: ExperienceIte
         period: 'Jun 2021 — Jun 2023',
         description: 'Lideró la entrega técnica de migraciones analíticas estratégicas y arquitecturas Data Mesh.',
         highlights: [
-          'Plataforma Analítica de Boeing: Transformó la migración mono-inquilino en una Arquitectura Mesh Orientada a Fuentes, escalando de 1 a 29 unidades de negocio.',
+          'Plataforma Analítica de Boeing: Transformó la migración mono-inquilino en una Arquitectura Mesh Orientada a Fuentes, escalando de 1 a 29 inquilinos.',
           'Líder de Oferta para Modernización de Enterprise Data Warehouse (EDW) en Delivery Navigator.',
           'Lanzó el panel gShadowPSO como parte del equipo ganador del Hackathon Q3 2022.'
         ],
@@ -297,10 +297,10 @@ export function getLocalizedExperience(lang: Language, defaultExp: ExperienceIte
         period: '2026 年 6 月 — 至今',
         description: '担任 Google Cloud Delta 团队及 AI 激活 / 前线部署工程 (FDE) 团队的首席技术部署负责人 (Staff TDL)。',
         highlights: [
-          '主导 15 家顶级世界 500 强战略客户（包括福特 Ford 与英特尔 Intel）的前线部署工程 (FDE) 运营模式。',
+          '主导 15 家顶级战略客户（包括福特 Ford 与英特尔 Intel）的前线部署工程 (FDE) 运营模式。',
           '跨前线部署工程 (FDE)、专业服务部、全球战略交易团队、产品领导层与大客户高管团队建立联合运营体系，加速企业级 AI 激活。',
-          '围绕高影响力生产级 AI 用例，为福特和英特尔规划并落地前线部署工程项目。',
-          '作为核心交易团队成员斩获 20 亿美元以上多年期云承诺，驱动 6300 万美元 Google 服务基金、500 万美元高管培训基金及 3200 万美元合作伙伴基金。'
+          '围绕高影响力 AI 用例，为福特和英特尔规划并落地前线部署工程项目。',
+          '作为核心交易团队成员斩获 20 亿美元多年期云承诺，驱动 6300 万美元 Google 服务基金、500 万美元培训基金及 3200 万美元合作伙伴基金。'
         ],
         skills: ['技术部署 (TDL)', 'FDE 运营模式', '企业级 AI 转型', '战略级交易架构']
       },
@@ -312,7 +312,7 @@ export function getLocalizedExperience(lang: Language, defaultExp: ExperienceIte
         description: '负责分析师关系（主导 4 项 Gartner/Forrester 领导者象限大满贯）、竞争策略及 Gemini Enterprise App 智能体治理 GA 发布。',
         highlights: [
           '主导 Google Cloud 连续 4 项权威分析师报告领导者象限的技术 RFI 答辩、架构实证与现场演示环境搭建（Gartner 企业级 AI 助手、云原生应用平台 CNAP、Forrester Wave AI 平台及 Gartner AI 应用开发平台）。',
-          '领导针对 Claude Cowork 的竞争策略与高管攻防演练特别小组，成果在 Google Cloud 全球 GTM 峰会上作为标杆展示。',
+          '领导针对 Claude Cowork 的竞争策略与攻防演练特别小组，成果在 Google Cloud GTM 峰会上作为标杆展示。',
           '主导一线团队技术赋能，收集客户对 Agent Identity、Agent Registry 与 Agent Gateway 的核心反馈并推动 GA 上线。',
           '与核心产品及工程团队紧密协作，将企业级智能体安全与治理特性纳入核心路线图。'
         ],

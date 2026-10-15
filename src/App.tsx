@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, Navigate, useMatch, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
 import {
@@ -48,10 +48,10 @@ const EXPERIENCE = [
     period: 'Jun 2026 — Present',
     description: 'Staff AI Technical Deployment Lead (TDL) for Google Cloud Delta & AI Activation / Forward Deployed Engineering (FDE) team.',
     highlights: [
-      'Forward Deployed Engineer (FDE) Operating Model lead for 15 top-qualified Fortune 500 accounts (including Ford and Intel).',
+      'Forward Deployed Engineer (FDE) Operating Model lead for 15 top-qualified enterprise accounts (including Ford and Intel).',
       'Defined the unified enterprise operating model across Go-To-Market FDE, Delta FDE, Professional Services, Global Strategic Deals, Product Leadership, and Executive Account Leaders to accelerate enterprise AI activation.',
-      'Scoped forward-deployed engineering engagements for Ford and Intel based on high-impact production AI use cases.',
-      'Core deal team member capturing $2B+ in multi-year cloud commitments, generating $63M in Google Services Funds, $5M in Executive Learning, and $32M in Partner Services Funds.'
+      'Scoped forward-deployed engineering opportunities for Ford and Intel based on high-impact AI use cases.',
+      'Deal team capturing a $2B multi-year commit, generating $63M in Google Services Funds, $5M in Learning, and $32M in Partner Services Funds.'
     ],
     skills: ['Technical Deployment', 'FDE Operating Model', 'Enterprise Transformation', 'Strategic Deal Scoping']
   },
@@ -63,9 +63,9 @@ const EXPERIENCE = [
     description: 'Outbound Product Manager driving analyst relations (4x Gartner/Forrester Leader wins), competitive strategy, and General Availability (GA) Agent Governance for Gemini Enterprise App.',
     highlights: [
       'Led technical RFIs, architectural proof points, and live demo builds for 4 consecutive Google Cloud Analyst Leader wins: Gartner® MQ for Enterprise AI Assistants (Inaugural Leader, Sep 2026), Gartner® MQ for Cloud-Native Application Platforms (Leader 3rd consecutive year, Aug 2026), The Forrester Wave™: AI Platforms (Leader & Top Strategy Score, Aug 2026), and Gartner® MQ for AI Application Development Platforms (Leader & Highest Ability to Execute, May 2026).',
-      'Led cross-functional tiger team and executive escalation sessions for Google Cloud competitive strategy against Claude Cowork; featured on global GTM Prompt Live Seminar.',
-      'Led global field enablement and captured enterprise customer feedback on Agent Identity, Agent Registry, and Agent Gateway for Gemini Enterprise App GA Launch.',
-      'Partnered closely with core PM and engineering teams to prioritize enterprise governance features on the product roadmap.'
+      'Led tiger team and escalation sessions for Google Cloud competitive battlecards against Claude Cowork; featured on GTM Prompt Live Seminar.',
+      'Led field team training enablement and captured customer feedback on Agent Identity, Agent Registry, and Agent Gateway for Gemini Enterprise App GA Launch.',
+      'Partnered closely with inbound PM and engineering teams to prioritize enterprise governance features on the core product roadmap.'
     ],
     skills: ['Analyst Relations (4x Leader)', 'Competitive Strategy', 'Agent Governance', 'Field Enablement', 'Product Strategy']
   },
@@ -107,7 +107,7 @@ const EXPERIENCE = [
     period: 'Jun 2021 — Jun 2023',
     description: 'Quarterbacked technical delivery for marquee analytics migrations and source-mesh architecture.',
     highlights: [
-      'Boeing Analytical Platform: Reshaped single-tenant migration into a Source-Oriented Data Mesh Architecture, scaling from 1 tenant to 29 business units.',
+      'Boeing Analytical Platform: Reshaped single-tenant migration into a Source-Oriented Mesh Architecture, scaling from 1 tenant to 29 tenants.',
       'Offering Lead for Enterprise Data Warehouse (EDW) Modernization into Delivery Navigator.',
       'Launched gShadowPSO mentorship dashboard as part of Hackathon Q3 2022 North America winning team.'
     ],
@@ -148,7 +148,7 @@ const RECENT_WORK = [
     description: 'Research-backed parent action plan, low-stimulus channel directory, and technical lockdown guides for algorithm-free kids media.',
     image: 'https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?q=80&w=1200&auto=format&fit=crop',
     link: 'https://safe-kids.web.app/',
-    repoUrl: 'https://github.com/enriquekalven',
+    repoUrl: 'https://github.com/enriquekalven/safe-kids',
     details: {
       highlights: [
         "Parent Decision Framework: Actionable guidance across Zero Screen Time (0–3), Curated Media Rips (PBS Kids/Plex), and Approval Bots.",
@@ -166,7 +166,7 @@ const RECENT_WORK = [
     description: 'Autonomous Econometrician on Agent Garden bridging natural language inquiries with deterministic math modeling across FRED, Census, & HUD APIs.',
     image: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=1200&auto=format&fit=crop',
     link: 'https://economic-research.web.app/',
-    repoUrl: 'https://github.com/google/adk-samples',
+    repoUrl: 'https://github.com/enriquekalven/economic-research-agent',
     details: {
       highlights: [
         "Live-API Grounding: Queries FRED, US Census Bureau, HUD, and Real Estate Yield APIs in real time with zero math drift.",
@@ -184,7 +184,7 @@ const RECENT_WORK = [
     description: 'The professional logic layer for Agentic Apps. Multi-cloud governance, automated SME audits, and protocol-level optimization.',
     image: '/cockpit.png',
     link: 'https://agent-cockpit.web.app/',
-    repoUrl: 'https://github.com/enriquekalven',
+    repoUrl: 'https://github.com/enriquekalven/agent-cockpit',
     details: {
       highlights: [
         "Governance as Code: Automated auditing against the Google Well-Architected framework.",
@@ -202,7 +202,7 @@ const RECENT_WORK = [
     description: "Autonomous AI children's book publishing engine leveraging Gemini 2.5 Flash and AlphaEvolve algorithms for fixed-layout EPUB & PDF creation.",
     image: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1200&auto=format&fit=crop',
     link: 'https://curious-little-minds.web.app/',
-    repoUrl: 'https://github.com/enriquekalven',
+    repoUrl: 'https://github.com/enriquekalven/story-agent',
     details: {
       highlights: [
         "Evolved Narrative Engine: Uses Gemini 2.5 Flash & AlphaEvolve (climbing 7.45 → 8.91 in narrative virality and visual consistency).",
@@ -238,7 +238,6 @@ const RECENT_WORK = [
     description: '32k+ developers, Top 5 global GitHub repo, 5 Trillion tokens driven to Gemini.',
     image: '/advent_of_agents.png',
     link: 'https://adventofagents.com/',
-    repoUrl: 'https://github.com/google/adk-samples',
     details: {
       highlights: [
         "Global Dev Reach: Reached 32,000+ developers across Seasons 1 & 2.",
@@ -633,6 +632,8 @@ function SpeakingCardItem({ speech }: { speech: SpeakingEvent }) {
         <img
           src={images[activeImgIdx]}
           alt={speech.title}
+          loading="lazy"
+          decoding="async"
           style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'all 0.3s ease' }}
         />
         {images.length > 1 && (
@@ -727,12 +728,12 @@ export function ContactModal({
             position: 'absolute',
             right: '20px',
             top: '20px',
-            background: 'rgba(255,255,255,0.08)',
+            background: 'var(--border-subtle)',
             border: 'none',
             borderRadius: '50%',
             padding: '8px',
             cursor: 'pointer',
-            color: 'white',
+            color: 'var(--text-primary)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -796,7 +797,7 @@ export function ContactModal({
                   gap: '5px'
                 }}
               >
-                <FileText size={12} /> View 1-Page Executive Resume / PDF
+                <FileText size={12} /> View Executive Resume / PDF
               </button>
             )}
           </div>
@@ -1162,7 +1163,15 @@ function LandingPage() {
   const [comicUnlocked, setComicUnlocked] = useState(false);
   const [showHint, setShowHint] = useState(false);
   const [showContact, setShowContact] = useState(false);
-  const [showResume, setShowResume] = useState(false);
+  const navigate = useNavigate();
+  // The Executive Resume is URL-driven (/resume) so recruiters can share or bookmark a direct link.
+  const showResume = useMatch('/resume') !== null;
+  const openResume = useCallback(() => navigate('/resume'), [navigate]);
+  const closeResume = useCallback(() => {
+    const historyIdx = (window.history.state as { idx?: number } | null)?.idx ?? 0;
+    if (historyIdx > 0) navigate(-1);
+    else navigate('/', { replace: true });
+  }, [navigate]);
   const [projectsExpanded, setProjectsExpanded] = useState(false);
   const [speakingExpanded, setSpeakingExpanded] = useState(false);
   const [emailCopied, setEmailCopied] = useState(false);
@@ -1280,7 +1289,7 @@ function LandingPage() {
               {t.hero.ctaPrimary} <ChevronRight size={16} />
             </a>
             <button
-              onClick={() => setShowResume(true)}
+              onClick={openResume}
               className="cta-button-outline"
               style={{
                 cursor: 'pointer',
@@ -1289,7 +1298,7 @@ function LandingPage() {
                 color: 'var(--accent-cyan)',
                 fontWeight: 700
               }}
-              title="View & Print 1-Page Executive Brief"
+              title="View, print, or save as PDF"
             >
               <FileText size={16} /> {t.hero.ctaResume}
             </button>
@@ -1592,7 +1601,7 @@ function LandingPage() {
               style={{ cursor: creation.details ? 'pointer' : 'default' }}
             >
               <div className="author-card-media">
-                <img src={creation.image} alt={creation.title} />
+                <img src={creation.image} alt={creation.title} loading="lazy" decoding="async" />
                 <div className="author-role-pill">
                   <Sparkles size={13} />
                   <span>{t.sections.authorBadge}</span>
@@ -1704,7 +1713,7 @@ function LandingPage() {
                 onClick={() => work.details && setSelectedProject(work as Project)}
                 style={{ cursor: work.details ? 'pointer' : 'default' }}
               >
-                <img src={work.image} alt={work.title} />
+                <img src={work.image} alt={work.title} loading="lazy" decoding="async" />
                 <div className="work-info">
                   <span style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 800, color: 'var(--accent-cyan)', marginBottom: '8px' }}>
                     {work.tag}
@@ -1883,7 +1892,7 @@ function LandingPage() {
             >
               {pub.image && (
                 <div style={{ width: '100%', height: '180px', overflow: 'hidden' }}>
-                  <img src={pub.image} alt={pub.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img src={pub.image} alt={pub.title} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
               )}
               <div style={{ padding: '28px', display: 'flex', flexDirection: 'column', flex: 1 }}>
@@ -1970,7 +1979,7 @@ function LandingPage() {
           {CERTIFICATIONS.map((group, idx) => (
             <motion.div key={idx} className="glass-card" style={{ padding: '28px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
-                <img src={group.logo} alt={group.provider} style={{ height: '24px' }} />
+                <img src={group.logo} alt={group.provider} loading="lazy" decoding="async" style={{ height: '24px' }} />
                 <h4 style={{ fontSize: '17px', fontWeight: 800 }}>{group.provider}</h4>
               </div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
@@ -2023,7 +2032,7 @@ function LandingPage() {
           >
             <button
               onClick={() => setSelectedProject(null)}
-              style={{ position: 'absolute', right: '20px', top: '20px', background: 'rgba(255,255,255,0.1)', border: 'none', borderRadius: '50%', padding: '8px', cursor: 'pointer', color: 'white' }}
+              style={{ position: 'absolute', right: '20px', top: '20px', background: 'var(--border-subtle)', border: 'none', borderRadius: '50%', padding: '8px', cursor: 'pointer', color: 'var(--text-primary)' }}
             >
               <X size={20} />
             </button>
@@ -2090,7 +2099,7 @@ function LandingPage() {
                 setShowComic(false);
                 setActiveComic(null);
               }}
-              style={{ position: 'absolute', right: '20px', top: '20px', background: 'rgba(255,255,255,0.1)', border: 'none', borderRadius: '50%', padding: '8px', cursor: 'pointer', color: 'white' }}
+              style={{ position: 'absolute', right: '20px', top: '20px', background: 'var(--border-subtle)', border: 'none', borderRadius: '50%', padding: '8px', cursor: 'pointer', color: 'var(--text-primary)' }}
             >
               <X size={20} />
             </button>
@@ -2103,7 +2112,7 @@ function LandingPage() {
                     style={{
                       background: 'rgba(255,255,255,0.08)',
                       border: '1px solid var(--border-subtle)',
-                      color: 'white',
+                      color: 'var(--text-primary)',
                       padding: '8px 16px',
                       borderRadius: '100px',
                       cursor: 'pointer',
@@ -2180,7 +2189,7 @@ function LandingPage() {
         <div className="footer-socials">
           <a href="https://github.com/enriquekalven" target="_blank" rel="noopener noreferrer" className="social-icon" title="GitHub"><Github size={20} /></a>
           <a href="https://www.linkedin.com/in/enriquechan/" target="_blank" rel="noopener noreferrer" className="social-icon" title="LinkedIn"><Linkedin size={20} /></a>
-          <button onClick={() => setShowResume(true)} className="social-icon" style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'inherit', display: 'flex', alignItems: 'center', justifyContent: 'center' }} title="1-Page Executive Resume"><FileText size={20} /></button>
+          <button onClick={openResume} className="social-icon" style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'inherit', display: 'flex', alignItems: 'center', justifyContent: 'center' }} title="Executive Resume"><FileText size={20} /></button>
           <button onClick={() => setShowContact(true)} className="social-icon" style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'inherit', display: 'flex', alignItems: 'center', justifyContent: 'center' }} title="Contact Enrique"><Mail size={20} /></button>
         </div>
         <p style={{ marginTop: '48px', fontSize: '13px', color: 'var(--text-muted)' }}>
@@ -2189,10 +2198,10 @@ function LandingPage() {
       </footer>
 
       {/* Contact Modal */}
-      {showContact && <ContactModal onClose={() => setShowContact(false)} onOpenResume={() => setShowResume(true)} />}
+      {showContact && <ContactModal onClose={() => setShowContact(false)} onOpenResume={openResume} />}
 
       {/* Executive Resume Modal */}
-      {showResume && <ExecutiveResumeModal onClose={() => setShowResume(false)} />}
+      {showResume && <ExecutiveResumeModal onClose={closeResume} />}
 
       {/* Easter Egg Hint */}
       <motion.div
@@ -2246,8 +2255,13 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        {/* Nested /resume keeps LandingPage mounted and opens the Executive Resume as a shareable deep link */}
+        <Route path="/" element={<LandingPage />}>
+          <Route path="resume" element={null} />
+        </Route>
         <Route path="/media" element={<MediaPage />} />
+        {/* Unknown or stale links (e.g. the old /oli-chatbot) land on the homepage instead of a blank page */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
   );

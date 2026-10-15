@@ -1,37 +1,47 @@
-# Enrique Chan — Staff AI Technical Deployment Lead (TDL), Delta @ Google Cloud
+# Enrique Chan — Staff AI Technical Deployment Lead (Delta) & Outbound Product Manager, Google Cloud
 
-> 15+ years leading Enterprise Cloud, Data, and Agentic AI transformations across Google Cloud, AWS, and The Walt Disney Company.
+> 15+ years transforming Enterprise Cloud, Data, and AI into production-grade agentic workflows across Google Cloud, AWS, and Accenture. Based in Seattle, WA.
 
-- **Portfolio**: https://enriquekchan.web.app
-- **Media & Talks**: https://enriquekchan.web.app/media
-- **GitHub**: https://github.com/enriquekalven
-- **LinkedIn**: https://www.linkedin.com/in/enriquechan/
-- **Location**: Seattle, WA
-- **Contact**: enriq@google.com | enriquekalven@gmail.com
-- **Languages**: English, Spanish, Mandarin Chinese, Cantonese
+Every fact below mirrors the portfolio site (https://enriquekchan.web.app). Executive resume: https://enriquekchan.web.app/resume
 
-## Executive Impact Highlights
-- **$2B+ Multi-Year Enterprise Deals Closed**: Core technical deal team member for landmark Fortune 500 AI commitments ($63M Google Services Funds, $32M Partner Funds, $5M Executive Learning).
-- **Forward Deployed Engineering (FDE) Operating Model Lead**: Spearheaded the FDE operating model for 15 priority Fortune 500 accounts (including Ford and Intel) at Google Cloud Delta.
-- **4x Gartner® & Forrester™ Leader (2026)**: Technical RFI & Live Architecture Demo Lead for Gartner MQ Enterprise AI Assistants (Apr 2026), Gartner MQ Cloud-Native Application Platforms (Mar 2026), Forrester Wave AI Platforms (Q1 2026), and Gartner MQ AI Application Development Platforms (Nov 2025).
-- **40M+ Viewers Served (Paris 2024 Olympics)**: Lead Solution Architect for the NBCUniversal "OLI" AI Olympic Concierge on Vertex AI Provisioned Throughput (<1s latency, 99.99% uptime).
-- **32,000+ Developers & 5T+ Gemini Tokens**: Co-Creator of Advent of Agents (Top 5 global GitHub repo) and Co-Author of the Google/Kaggle 5-Day Gen AI Intensive Course ("Intro to Agents", 1.5M+ attendees).
+## Links
+- Portfolio: https://enriquekchan.web.app
+- Executive resume: https://enriquekchan.web.app/resume
+- Talks & demos: https://enriquekchan.web.app/media
+- LinkedIn: https://www.linkedin.com/in/enriquechan/
+- GitHub: https://github.com/enriquekalven
+- Writing: https://medium.com/@enriq
+- Contact: enriq@google.com (work) · enriquekalven@gmail.com (direct / advisory)
 
-## Featured Open-Source & Agentic Platforms
-- **AgentOps Cockpit (v2.0.10)**: https://github.com/enriquekalven/agentops-cockpit — Autonomous Quality & FinOps Gatekeeper for Enterprise AI Agents (PyPI: `agentops-cockpit`, Live: https://agentops-cockpit.web.app).
-- **Economic Research Agent (Agent Garden)**: https://github.com/enriquekalven/economic-research-agent — Autonomous Econometrician on ADK 2.0 querying live FRED, Census & HUD APIs with zero math drift (Live: https://economic-research-agent-ag.web.app).
-- **Lily & Robo's AI Storybook Agent**: https://github.com/enriquekalven/story-gen — Multi-agent bilingual children's book publishing engine powered by Gemini 2.5 Flash & AlphaEvolve (Live: https://storybook-agent.web.app).
-- **SafeKids Healthy Media Portal**: https://github.com/enriquekalven/safekids — Research-backed parent action plan & zero-algorithm family hardware lockdown blueprint (Live: https://safekids-portal.web.app).
+## Career
+- Google Cloud Delta — Staff Technical Deployment Lead (TDL), Delta (Jun 2026 — Present). Forward Deployed Engineering (FDE) operating-model lead for 15 top-qualified enterprise accounts (including Ford and Intel); deal team capturing a $2B multi-year commit ($63M Google Services Funds, $5M Learning, $32M Partner Services Funds).
+- Google Cloud AI — Outbound Product Manager, Gemini Enterprise App (20% rotation, Jun 2026 — Present). Led technical RFIs and live demos for 4 consecutive Google Cloud analyst Leader recognitions; GA launch of Agent Governance for Gemini Enterprise App.
+- Google Cloud AI — Outbound Product Manager, GE Agent Platform & Gemini Enterprise App (full-time rotation, Dec 2025 — Jun 2026). Co-led Advent of Agents Seasons 1 & 2; co-authored the Executive "Intro to Agents" whitepaper for the Kaggle course (1.5M registered attendees); built AgentOps Cockpit.
+- Google Cloud — Senior AI Consultant, Professional Services (PSO) (Jun 2023 — Dec 2025). 24 customer projects ($14.6M revenue, 100% CSAT); 21 customer deals closed ($11M); technical strategy for the NBC Paris 2024 Olympic Games chatbot (40M viewers, 90M queries).
+- Google Cloud — Senior Data Consultant, Professional Services (PSO) (Jun 2021 — Jun 2023). Scaled the Boeing Analytical Platform from 1 to 29 tenants with a source-oriented mesh architecture.
+- Amazon Web Services — Senior Cloud Architect, ProServe Public Sector (May 2020 — May 2021).
+- Accenture — Senior Manager, Cloud Strategy & Data Analytics (May 2011 — May 2020). Led Disney+ global cloud scaling (100M+ users) and MyMagic+ (FastPass+ / MagicBands) product development for Walt Disney World.
 
-## Career Summary
-- **Google Cloud Delta** — Staff Technical Deployment Lead (TDL) | Delta (Jun 2026 — Present)
-- **Google Cloud AI** — Outbound Product Manager | 20% Rotation | Gemini Enterprise App (Nov 2025 — May 2026)
-- **Google Cloud AI** — Global Agentic Solution Architect Lead | Technical Evangelist (Jul 2024 — May 2026)
-- **Google Cloud** — Principal Architect | Global Cloud Consulting (Sep 2022 — Jul 2024)
-- **Google Cloud** — Technical Account Manager | Media & Entertainment (Oct 2020 — Sep 2022)
-- **Amazon Web Services (AWS)** — Sr. Technical Account Manager (Apr 2019 — Oct 2020)
-- **The Walt Disney Company** — Lead Technologist (May 2012 — Apr 2019) — Disney+ Global Scaling (100M+ users) & MyMagic+ / MagicBands.
+## Analyst recognitions (technical RFI & demo lead; Google Cloud named a Leader)
+- Gartner® Magic Quadrant for Enterprise AI Assistants — Inaugural Leader (Sep 2026)
+- Gartner® Magic Quadrant for Cloud-Native Application Platforms — Leader, 3rd consecutive year (Aug 2026)
+- The Forrester Wave™: AI Platforms — Leader, Top Strategy Score (Aug 2026)
+- Gartner® Magic Quadrant for AI Application Development Platforms — Leader, Highest Ability to Execute (May 2026)
 
-## Education & Honors
-- **Purdue University** — B.S. in Electrical & Computer Engineering (ECE)
-- **Executive Endorsement**: Commended by Thomas Kurian (CEO, Google Cloud) & recipient of the Google Cloud Tech Impact Award (2025) and Google AI Silver Award (SWIFTY, 2026 Q3).
+## Open-source projects & live apps
+- AgentOps Cockpit — Governance-as-Code for enterprise agent fleets. Live: https://agent-cockpit.web.app/ · Code: https://github.com/enriquekalven/agent-cockpit · PyPI: https://pypi.org/project/agentops-cockpit/
+- Economic Research Agent (Agent Garden) — ADK econometrics agent over FRED, Census & HUD APIs. Live: https://economic-research.web.app/ · Code: https://github.com/enriquekalven/economic-research-agent
+- Curious Little Minds (Lily & Robo Story Agent) — Gemini + AlphaEvolve children's book publishing engine. Live: https://curious-little-minds.web.app/ · Code: https://github.com/enriquekalven/story-agent
+- SafeKids Portal — algorithm-free kids media blueprint for parents. Live: https://safe-kids.web.app/ · Code: https://github.com/enriquekalven/safe-kids
+- Advent of Agents — global developer campaign (32,000+ developers, Top 5 global GitHub repo, 5T tokens driven to Gemini). https://adventofagents.com/
+
+## Awards
+- Silver Google AI Award (SWIFTY, 2026 Q3) — Advent of Agents
+- Cloud GTM Excellence Award (2025) — Wayfair retail agentic use cases
+- GTM Cloud Tech Impact Award (2024) — NBC Olympics concierge
+- Customer Empathy Award from Google Cloud CEO Thomas Kurian (H2 2024)
+
+## Certifications
+- Google Cloud (8): Professional ML Engineer, Cloud Architect, Cloud Security Engineer, Cloud Database Engineer, Network Engineer, Workspace Administrator; Associate Cloud Engineer; Cloud Digital Leader
+- AWS (6): Solutions Architect Professional & Associate, Security Specialty, Data Analytics Specialty, Developer Associate, SysOps Administrator Associate
+- Scaled Agile SAFe 4; Splunk Certified Power User
