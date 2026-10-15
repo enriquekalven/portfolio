@@ -27,6 +27,7 @@ export interface Translations {
     subtitle: string;
     ctaPrimary: string;
     ctaSecondary: string;
+    ctaResume: string;
     ctaContact: string;
     copyEmail: string;
     emailCopied: string;
@@ -66,6 +67,7 @@ export interface Translations {
     authorSubtitle: string;
     authorBadge: string;
     launchAppBtn: string;
+    repoBtn: string;
     workTag: string;
     workTitle: string;
     collapseFeatured: string;
@@ -133,6 +135,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       subtitle: '15+ years transforming Enterprise Cloud, Data & AI into production-grade Agentic Workflows. Husband, father of 3, and Real Estate Investor in Seattle, WA.',
       ctaPrimary: 'Explore Career Journey',
       ctaSecondary: 'View Key Work',
+      ctaResume: 'Executive Resume',
       ctaContact: 'Quick Connect',
       copyEmail: 'Copy Email',
       emailCopied: 'Copied enriq@google.com!',
@@ -172,9 +175,10 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       authorSubtitle: 'Beyond enterprise cloud deployments, Enrique envisions, authors, and ships full-stack autonomous platforms, AI research agents, and family-first digital wellness architectures from scratch.',
       authorBadge: 'Author & Lead Architect',
       launchAppBtn: 'Launch App',
+      repoBtn: 'Source / Repo',
       workTag: 'Featured Delivery',
       workTitle: 'Marquee Projects & Innovations 🚀',
-      collapseFeatured: 'Collapse to Featured (4)',
+      collapseFeatured: 'Collapse to Featured (3)',
       viewAllProjects: 'View All Projects',
       showMoreProjects: 'Show More Projects',
       collapseProjects: 'Collapse Projects',
@@ -237,6 +241,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       subtitle: 'Más de 15 años transformando Nube Empresarial, Datos e IA en flujos de trabajo agénticos de producción. Esposo, padre de 3 e inversionista inmobiliario en Seattle, WA.',
       ctaPrimary: 'Ver Trayectoria Profesional',
       ctaSecondary: 'Ver Proyectos Clave',
+      ctaResume: 'CV Ejecutivo',
       ctaContact: 'Contacto Rápido',
       copyEmail: 'Copiar Email',
       emailCopied: '¡Copiado enriq@google.com!',
@@ -276,9 +281,10 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       authorSubtitle: 'Más allá de implementaciones empresariales en la nube, Enrique diseña, programa y publica plataformas autónomas, agentes de investigación de IA y arquitecturas familiares de bienestar digital desde cero.',
       authorBadge: 'Autor y Arquitecto Líder',
       launchAppBtn: 'Abrir App',
+      repoBtn: 'Código / Repo',
       workTag: 'Portafolio Destacado',
       workTitle: 'Proyectos e Innovaciones Clave 🚀',
-      collapseFeatured: 'Ver Destacados (4)',
+      collapseFeatured: 'Ver Destacados (3)',
       viewAllProjects: 'Ver Todos los Proyectos',
       showMoreProjects: 'Mostrar Más Proyectos',
       collapseProjects: 'Colapsar Proyectos',
@@ -341,6 +347,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       subtitle: '深耕企业级云架构、数据与 AI 领域逾 15 年，专注将前沿大模型转化为生产级智能体 (Agentic) 工作流。定居西雅图，三个孩子的父亲与地产投资者。',
       ctaPrimary: '查看职业轨迹',
       ctaSecondary: '浏览代表作品',
+      ctaResume: '高管简历 / PDF',
       ctaContact: '即时联络',
       copyEmail: '复制邮箱',
       emailCopied: '已复制 enriq@google.com！',
@@ -380,9 +387,10 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       authorSubtitle: '除企业级大规模云与智能体部署外，Enrique 独立主导研发了多个端到端全栈自主平台、AI 经济研究智能体与数字健康守护体系。',
       authorBadge: '作者与首席架构师',
       launchAppBtn: '体验应用',
+      repoBtn: '源码仓库',
       workTag: '精选项目',
       workTitle: '生产级 AI 与标杆项目 🚀',
-      collapseFeatured: '收起至精选 (4)',
+      collapseFeatured: '收起至精选 (3)',
       viewAllProjects: '查看全部项目',
       showMoreProjects: '展开更多项目',
       collapseProjects: '收起项目列表',
