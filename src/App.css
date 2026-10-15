@@ -1047,3 +1047,49 @@
     display: none;
   }
 }
+
+/* Print-to-PDF Styles for Executive Resume Modal */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .resume-modal-backdrop,
+  .resume-printable-sheet,
+  .resume-printable-sheet * {
+    visibility: visible;
+  }
+
+  .resume-modal-backdrop {
+    position: absolute !important;
+    inset: 0 !important;
+    background: #ffffff !important;
+    padding: 0 !important;
+    display: block !important;
+  }
+
+  .resume-printable-sheet {
+    position: static !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 16px !important;
+  }
+
+  .resume-printable-sheet h2,
+  .resume-printable-sheet h3,
+  .resume-printable-sheet h4,
+  .resume-printable-sheet p,
+  .resume-printable-sheet li,
+  .resume-printable-sheet span {
+    color: #0f172a !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}

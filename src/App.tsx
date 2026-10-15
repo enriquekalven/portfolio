@@ -22,9 +22,11 @@ import {
   MapPin,
   Sun,
   Moon,
-  Globe
+  Globe,
+  FileText
 } from 'lucide-react';
 import MediaPage from './MediaPage';
+import { ExecutiveResumeModal } from './ExecutiveResumeModal';
 import { type Language, TRANSLATIONS, type Translations } from './i18n';
 import {
   getLocalizedAnalystReports,
@@ -46,10 +48,10 @@ const EXPERIENCE = [
     period: 'Jun 2026 — Present',
     description: 'Staff AI Technical Deployment Lead (TDL) for Google Cloud Delta & AI Activation / Forward Deployed Engineering (FDE) team.',
     highlights: [
-      'Forward Deployed Engineer (FDE) Operating Model lead for 15 top-qualified enterprise accounts (including Ford and Intel).',
-      'Defined forward operating model across GTM FDE, Delta FDE, TDL, PSO, GSD, PL, and CALs to accelerate enterprise AI activation.',
-      'Scoped forward-deployed engineering opportunities for Ford and Intel based on high-impact AI use cases.',
-      'Deal team capturing $2B multi-year commit generating $63M Google Services Funds, $5M Learning, and $32M Partner Services Funds.'
+      'Forward Deployed Engineer (FDE) Operating Model lead for 15 top-qualified Fortune 500 accounts (including Ford and Intel).',
+      'Defined the unified enterprise operating model across Go-To-Market FDE, Delta FDE, Professional Services, Global Strategic Deals, Product Leadership, and Executive Account Leaders to accelerate enterprise AI activation.',
+      'Scoped forward-deployed engineering engagements for Ford and Intel based on high-impact production AI use cases.',
+      'Core deal team member capturing $2B+ in multi-year cloud commitments, generating $63M in Google Services Funds, $5M in Executive Learning, and $32M in Partner Services Funds.'
     ],
     skills: ['Technical Deployment', 'FDE Operating Model', 'Enterprise Transformation', 'Strategic Deal Scoping']
   },
@@ -61,9 +63,9 @@ const EXPERIENCE = [
     description: 'Outbound Product Manager driving analyst relations (4x Gartner/Forrester Leader wins), competitive strategy, and General Availability (GA) Agent Governance for Gemini Enterprise App.',
     highlights: [
       'Led technical RFIs, architectural proof points, and live demo builds for 4 consecutive Google Cloud Analyst Leader wins: Gartner® MQ for Enterprise AI Assistants (Inaugural Leader, Sep 2026), Gartner® MQ for Cloud-Native Application Platforms (Leader 3rd consecutive year, Aug 2026), The Forrester Wave™: AI Platforms (Leader & Top Strategy Score, Aug 2026), and Gartner® MQ for AI Application Development Platforms (Leader & Highest Ability to Execute, May 2026).',
-      'Led tiger team and escalation sessions for Google Cloud competitive battlecards against Claude Cowork; featured on GTM Prompt Live Seminar.',
-      'Led field team training enablement and captured customer feedback on Agent Identity, Agent Registry, and Agent Gateway for Gemini Enterprise App GA Launch.',
-      'Partnered closely with inbound PM and engineering teams to prioritize enterprise governance features on the core product roadmap.'
+      'Led cross-functional tiger team and executive escalation sessions for Google Cloud competitive strategy against Claude Cowork; featured on global GTM Prompt Live Seminar.',
+      'Led global field enablement and captured enterprise customer feedback on Agent Identity, Agent Registry, and Agent Gateway for Gemini Enterprise App GA Launch.',
+      'Partnered closely with core PM and engineering teams to prioritize enterprise governance features on the product roadmap.'
     ],
     skills: ['Analyst Relations (4x Leader)', 'Competitive Strategy', 'Agent Governance', 'Field Enablement', 'Product Strategy']
   },
@@ -81,7 +83,7 @@ const EXPERIENCE = [
       'Authored "Gemini Enterprise Governance at Scale" and presented to Top 50 enterprise customers (McKinsey, Accenture, Wells Fargo, Pfizer, Cision, CGC).',
       'Envisioned and developed AgentOps Cockpit to transition fleet management to Governance-as-Code; directed global security audit of 44 active enterprise agents and embedded OpenTelemetry tracing into ADK.',
       'Authored rapid-response playbook defending 34,000-seat Gemini Enterprise opportunity with DoorDash and Telus positioning.',
-      'Standardized official GenAI FDE Interview Guide and wrote question banks for Professional ML Engineer exam.'
+      'Standardized official GenAI Forward Deployed Engineer (FDE) Interview Guide and wrote question banks for the Google Cloud Professional ML Engineer exam.'
     ],
     skills: ['Developer Ecosystem', 'Gartner Magic Quadrant', 'AgentOps Cockpit', 'Enterprise Governance', 'ADK & A2A']
   },
@@ -93,8 +95,8 @@ const EXPERIENCE = [
     description: 'Delivered AI solutions for 24 customer projects ($14.6M revenue, 81% utilization, 100% CSAT). Closed 21 customer deals ($11M revenue).',
     highlights: [
       'NBC Olympic Games Oli Chatbot: Owned technical strategy for Paris 2024 Olympic Games chatbot (40M viewers, 90M queries), autonomously devising Vertex AI Provisioned Throughput adoption strategy before GA with 0.5% error rate.',
-      'WBD Localization & RLHF Architecture: Engineered custom DIY RLHF solution with 4 production-grade pipelines for captions/translation, saving deal from 2-week delay and securing $960K Phase 3 revenue.',
-      'Launched Agent Center of Enablement globally across CEs, TAMs, and GCC.'
+      'Warner Bros. Discovery (WBD) Localization & RLHF Architecture: Engineered custom RLHF solution with 4 production-grade pipelines for captions/translation, preventing a 2-week deal delay and securing $960K Phase 3 expansion revenue.',
+      'Launched global Agent Center of Enablement across Customer Engineers, Technical Account Managers, and Google Cloud Consulting.'
     ],
     skills: ['Vertex AI', 'RLHF / SFT', 'Provisioned Throughput', 'Enterprise MLOps', 'High-Scale Chatbots']
   },
@@ -105,9 +107,9 @@ const EXPERIENCE = [
     period: 'Jun 2021 — Jun 2023',
     description: 'Quarterbacked technical delivery for marquee analytics migrations and source-mesh architecture.',
     highlights: [
-      'Boeing Analytical Platform: Reshaped single-tenant migration into Source Oriented Mesh Architecture, scaling from 1 tenant to 29 tenants.',
-      'Offering Lead for EDW Modernization into Delivery Navigator.',
-      'Launched gShadowPSO dashboard as part of Hackathon Q3 2022 winning team.'
+      'Boeing Analytical Platform: Reshaped single-tenant migration into a Source-Oriented Data Mesh Architecture, scaling from 1 tenant to 29 business units.',
+      'Offering Lead for Enterprise Data Warehouse (EDW) Modernization into Delivery Navigator.',
+      'Launched gShadowPSO mentorship dashboard as part of Hackathon Q3 2022 North America winning team.'
     ],
     skills: ['BigQuery', 'Data Architecture', 'Source Mesh', 'Migration Strategy']
   },
@@ -146,6 +148,7 @@ const RECENT_WORK = [
     description: 'Research-backed parent action plan, low-stimulus channel directory, and technical lockdown guides for algorithm-free kids media.',
     image: 'https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?q=80&w=1200&auto=format&fit=crop',
     link: 'https://safe-kids.web.app/',
+    repoUrl: 'https://github.com/enriquekalven',
     details: {
       highlights: [
         "Parent Decision Framework: Actionable guidance across Zero Screen Time (0–3), Curated Media Rips (PBS Kids/Plex), and Approval Bots.",
@@ -163,6 +166,7 @@ const RECENT_WORK = [
     description: 'Autonomous Econometrician on Agent Garden bridging natural language inquiries with deterministic math modeling across FRED, Census, & HUD APIs.',
     image: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=1200&auto=format&fit=crop',
     link: 'https://economic-research.web.app/',
+    repoUrl: 'https://github.com/google/adk-samples',
     details: {
       highlights: [
         "Live-API Grounding: Queries FRED, US Census Bureau, HUD, and Real Estate Yield APIs in real time with zero math drift.",
@@ -180,6 +184,7 @@ const RECENT_WORK = [
     description: 'The professional logic layer for Agentic Apps. Multi-cloud governance, automated SME audits, and protocol-level optimization.',
     image: '/cockpit.png',
     link: 'https://agent-cockpit.web.app/',
+    repoUrl: 'https://github.com/enriquekalven',
     details: {
       highlights: [
         "Governance as Code: Automated auditing against the Google Well-Architected framework.",
@@ -197,6 +202,7 @@ const RECENT_WORK = [
     description: "Autonomous AI children's book publishing engine leveraging Gemini 2.5 Flash and AlphaEvolve algorithms for fixed-layout EPUB & PDF creation.",
     image: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1200&auto=format&fit=crop',
     link: 'https://curious-little-minds.web.app/',
+    repoUrl: 'https://github.com/enriquekalven',
     details: {
       highlights: [
         "Evolved Narrative Engine: Uses Gemini 2.5 Flash & AlphaEvolve (climbing 7.45 → 8.91 in narrative virality and visual consistency).",
@@ -232,6 +238,7 @@ const RECENT_WORK = [
     description: '32k+ developers, Top 5 global GitHub repo, 5 Trillion tokens driven to Gemini.',
     image: '/advent_of_agents.png',
     link: 'https://adventofagents.com/',
+    repoUrl: 'https://github.com/google/adk-samples',
     details: {
       highlights: [
         "Global Dev Reach: Reached 32,000+ developers across Seasons 1 & 2.",
@@ -665,7 +672,13 @@ function SpeakingCardItem({ speech }: { speech: SpeakingEvent }) {
   );
 }
 
-export function ContactModal({ onClose }: { onClose: () => void }) {
+export function ContactModal({
+  onClose,
+  onOpenResume
+}: {
+  onClose: () => void;
+  onOpenResume?: () => void;
+}) {
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
 
   const handleCopy = (text: string, key: string) => {
@@ -700,7 +713,7 @@ export function ContactModal({ onClose }: { onClose: () => void }) {
         style={{
           background: 'var(--bg-secondary)',
           border: '1px solid var(--border-subtle)',
-          maxWidth: '560px',
+          maxWidth: '580px',
           width: '100%',
           borderRadius: '24px',
           position: 'relative',
@@ -729,7 +742,7 @@ export function ContactModal({ onClose }: { onClose: () => void }) {
           <X size={18} />
         </button>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '20px' }}>
           <div style={{
             width: '56px',
             height: '56px',
@@ -743,17 +756,76 @@ export function ContactModal({ onClose }: { onClose: () => void }) {
           </div>
           <div>
             <span style={{ fontSize: '11px', fontWeight: 800, color: 'var(--accent-cyan)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>
-              DIRECT CONTACT
+              DIRECT CONTACT &amp; RECRUITER FAST-TRACK
             </span>
             <h2 style={{ fontSize: '24px', margin: '4px 0 0', fontWeight: 800 }}>Let's Build Together ⚡</h2>
           </div>
         </div>
 
-        <p style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '28px' }}>
-          Reach out for Enterprise AI Transformation, Forward Deployed Engineering, keynote speaking, or advisory engagements.
-        </p>
+        {/* Executive & Recruiter Fast-Track Box */}
+        <div
+          style={{
+            background: 'rgba(56,189,248,0.06)',
+            border: '1px solid var(--border-subtle)',
+            borderRadius: '16px',
+            padding: '14px 16px',
+            marginBottom: '20px'
+          }}
+        >
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '10px', flexWrap: 'wrap', marginBottom: '10px' }}>
+            <span style={{ fontSize: '11px', fontWeight: 800, color: 'var(--accent-cyan)', textTransform: 'uppercase', letterSpacing: '1px' }}>
+              Executive &amp; Advisory Focus
+            </span>
+            {onOpenResume && (
+              <button
+                onClick={() => {
+                  onClose();
+                  onOpenResume();
+                }}
+                style={{
+                  background: 'rgba(56,189,248,0.16)',
+                  border: '1px solid var(--accent-cyan)',
+                  color: 'var(--accent-cyan)',
+                  borderRadius: '999px',
+                  padding: '4px 12px',
+                  fontSize: '11.5px',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '5px'
+                }}
+              >
+                <FileText size={12} /> View 1-Page Executive Resume / PDF
+              </button>
+            )}
+          </div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+            {[
+              'Forward Deployed Engineering (FDE) Leadership',
+              'Principal / Staff AI Architecture',
+              'Head of AI Product & GTM',
+              'Keynote Speaking & CXO Advisory'
+            ].map((scope) => (
+              <span
+                key={scope}
+                style={{
+                  fontSize: '11px',
+                  fontWeight: 600,
+                  padding: '3px 9px',
+                  borderRadius: '999px',
+                  background: 'rgba(255,255,255,0.05)',
+                  border: '1px solid var(--border-subtle)',
+                  color: 'var(--text-secondary)'
+                }}
+              >
+                {scope}
+              </span>
+            ))}
+          </div>
+        </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', marginBottom: '28px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', marginBottom: '24px' }}>
           {/* Work Email */}
           <div style={{
             background: 'rgba(255,255,255,0.03)',
@@ -771,7 +843,7 @@ export function ContactModal({ onClose }: { onClose: () => void }) {
               </div>
               <div>
                 <p style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Google Cloud / Work</p>
-                <p style={{ fontSize: '15px', fontWeight: 600, color: '#f8fafc' }}>enriq@google.com</p>
+                <p style={{ fontSize: '15px', fontWeight: 600, color: 'var(--text-primary)' }}>enriq@google.com</p>
               </div>
             </div>
             <div style={{ display: 'flex', gap: '8px' }}>
@@ -780,7 +852,7 @@ export function ContactModal({ onClose }: { onClose: () => void }) {
                 style={{
                   background: copiedKey === 'work' ? 'rgba(74,222,128,0.2)' : 'rgba(255,255,255,0.08)',
                   border: `1px solid ${copiedKey === 'work' ? '#4ade80' : 'var(--border-subtle)'}`,
-                  color: copiedKey === 'work' ? '#4ade80' : 'white',
+                  color: copiedKey === 'work' ? '#4ade80' : 'var(--text-primary)',
                   borderRadius: '10px',
                   padding: '8px 12px',
                   fontSize: '12px',
@@ -830,8 +902,8 @@ export function ContactModal({ onClose }: { onClose: () => void }) {
                 <Mail size={18} />
               </div>
               <div>
-                <p style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Direct / Advisory</p>
-                <p style={{ fontSize: '15px', fontWeight: 600, color: '#f8fafc' }}>enriquekalven@gmail.com</p>
+                <p style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Direct / Executive &amp; Advisory</p>
+                <p style={{ fontSize: '15px', fontWeight: 600, color: 'var(--text-primary)' }}>enriquekalven@gmail.com</p>
               </div>
             </div>
             <div style={{ display: 'flex', gap: '8px' }}>
@@ -840,7 +912,7 @@ export function ContactModal({ onClose }: { onClose: () => void }) {
                 style={{
                   background: copiedKey === 'personal' ? 'rgba(74,222,128,0.2)' : 'rgba(255,255,255,0.08)',
                   border: `1px solid ${copiedKey === 'personal' ? '#4ade80' : 'var(--border-subtle)'}`,
-                  color: copiedKey === 'personal' ? '#4ade80' : 'white',
+                  color: copiedKey === 'personal' ? '#4ade80' : 'var(--text-primary)',
                   borderRadius: '10px',
                   padding: '8px 12px',
                   fontSize: '12px',
@@ -878,7 +950,7 @@ export function ContactModal({ onClose }: { onClose: () => void }) {
           <a
             href="https://www.linkedin.com/in/enriquechan/"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             style={{
               background: 'rgba(255,255,255,0.03)',
               border: '1px solid var(--border-subtle)',
@@ -897,7 +969,7 @@ export function ContactModal({ onClose }: { onClose: () => void }) {
               </div>
               <div>
                 <p style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>LinkedIn Professional</p>
-                <p style={{ fontSize: '15px', fontWeight: 600, color: '#f8fafc' }}>linkedin.com/in/enriquechan</p>
+                <p style={{ fontSize: '15px', fontWeight: 600, color: 'var(--text-primary)' }}>linkedin.com/in/enriquechan</p>
               </div>
             </div>
             <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--accent-cyan)', display: 'flex', alignItems: 'center', gap: '4px' }}>
@@ -910,7 +982,7 @@ export function ContactModal({ onClose }: { onClose: () => void }) {
           <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
             <MapPin size={14} style={{ color: 'var(--accent-cyan)' }} /> Seattle, WA
           </span>
-          <span>Open for Keynotes & Advisory</span>
+          <span>Open for Keynotes, Executive Leadership &amp; Advisory</span>
         </div>
       </motion.div>
     </div>
@@ -1074,6 +1146,7 @@ interface Project {
   description: string;
   image: string;
   link: string;
+  repoUrl?: string;
   details?: {
     highlights: string[];
     strategy: string;
@@ -1089,6 +1162,7 @@ function LandingPage() {
   const [comicUnlocked, setComicUnlocked] = useState(false);
   const [showHint, setShowHint] = useState(false);
   const [showContact, setShowContact] = useState(false);
+  const [showResume, setShowResume] = useState(false);
   const [projectsExpanded, setProjectsExpanded] = useState(false);
   const [speakingExpanded, setSpeakingExpanded] = useState(false);
   const [emailCopied, setEmailCopied] = useState(false);
@@ -1205,6 +1279,20 @@ function LandingPage() {
             <a href="#experience" className="cta-button">
               {t.hero.ctaPrimary} <ChevronRight size={16} />
             </a>
+            <button
+              onClick={() => setShowResume(true)}
+              className="cta-button-outline"
+              style={{
+                cursor: 'pointer',
+                borderColor: 'rgba(56, 189, 248, 0.45)',
+                background: 'rgba(56, 189, 248, 0.08)',
+                color: 'var(--accent-cyan)',
+                fontWeight: 700
+              }}
+              title="View & Print 1-Page Executive Brief"
+            >
+              <FileText size={16} /> {t.hero.ctaResume}
+            </button>
             <a href="#work" className="cta-button-outline">
               {t.hero.ctaSecondary}
             </a>
@@ -1228,10 +1316,10 @@ function LandingPage() {
               {emailCopied ? <Check size={16} /> : <Copy size={16} />}
               <span>{emailCopied ? t.hero.emailCopied : t.hero.copyEmail}</span>
             </button>
-            <a href="https://www.linkedin.com/in/enriquechan/" target="_blank" rel="noreferrer" className="cta-button-outline" style={{ padding: '10px 14px' }} title="LinkedIn Profile">
+            <a href="https://www.linkedin.com/in/enriquechan/" target="_blank" rel="noopener noreferrer" className="cta-button-outline" style={{ padding: '10px 14px' }} title="LinkedIn Profile">
               <Linkedin size={18} />
             </a>
-            <a href="https://github.com/enriquekalven" target="_blank" rel="noreferrer" className="cta-button-outline" style={{ padding: '10px 14px' }} title="GitHub Profile">
+            <a href="https://github.com/enriquekalven" target="_blank" rel="noopener noreferrer" className="cta-button-outline" style={{ padding: '10px 14px' }} title="GitHub Profile">
               <Github size={18} />
             </a>
           </div>
@@ -1531,12 +1619,24 @@ function LandingPage() {
                     <a
                       href={creation.link}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
                       className="cta-button"
                       style={{ padding: '8px 18px', fontSize: '13px', fontWeight: 700 }}
                     >
                       {t.sections.launchAppBtn} <ExternalLink size={14} />
+                    </a>
+                  )}
+                  {(creation as Project).repoUrl && (
+                    <a
+                      href={(creation as Project).repoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="cta-button-outline"
+                      style={{ padding: '8px 16px', fontSize: '13px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                    >
+                      <Github size={14} /> {t.sections.repoBtn}
                     </a>
                   )}
                   {creation.details && (
@@ -1611,7 +1711,7 @@ function LandingPage() {
                   </span>
                   <h3 className="card-title" style={{ fontSize: '24px', marginBottom: '8px' }}>{work.title}</h3>
                   <p className="card-description" style={{ marginBottom: '20px' }}>{work.description}</p>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginTop: 'auto' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginTop: 'auto', flexWrap: 'wrap' }}>
                     {work.details && (
                       <button
                         onClick={(e) => {
@@ -1624,11 +1724,23 @@ function LandingPage() {
                         {t.sections.caseStudyBtn} <ArrowRight size={14} />
                       </button>
                     )}
+                    {(work as Project).repoUrl && (
+                      <a
+                        href={(work as Project).repoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="cta-button-outline"
+                        style={{ padding: '6px 14px', fontSize: '13px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                      >
+                        <Github size={14} /> {t.sections.repoBtn}
+                      </a>
+                    )}
                     {work.link !== '#' && (
                       <a
                         href={work.link}
                         target="_blank"
-                        rel="noreferrer"
+                        rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
                         style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '13px', fontWeight: 700, color: 'var(--accent-cyan)' }}
                       >
@@ -2066,8 +2178,9 @@ function LandingPage() {
           <Link to="/media">{t.nav.media}</Link>
         </div>
         <div className="footer-socials">
-          <a href="https://github.com/enriquekalven" target="_blank" rel="noreferrer" className="social-icon"><Github size={20} /></a>
-          <a href="https://www.linkedin.com/in/enriquechan/" target="_blank" rel="noreferrer" className="social-icon"><Linkedin size={20} /></a>
+          <a href="https://github.com/enriquekalven" target="_blank" rel="noopener noreferrer" className="social-icon" title="GitHub"><Github size={20} /></a>
+          <a href="https://www.linkedin.com/in/enriquechan/" target="_blank" rel="noopener noreferrer" className="social-icon" title="LinkedIn"><Linkedin size={20} /></a>
+          <button onClick={() => setShowResume(true)} className="social-icon" style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'inherit', display: 'flex', alignItems: 'center', justifyContent: 'center' }} title="1-Page Executive Resume"><FileText size={20} /></button>
           <button onClick={() => setShowContact(true)} className="social-icon" style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'inherit', display: 'flex', alignItems: 'center', justifyContent: 'center' }} title="Contact Enrique"><Mail size={20} /></button>
         </div>
         <p style={{ marginTop: '48px', fontSize: '13px', color: 'var(--text-muted)' }}>
@@ -2076,7 +2189,10 @@ function LandingPage() {
       </footer>
 
       {/* Contact Modal */}
-      {showContact && <ContactModal onClose={() => setShowContact(false)} />}
+      {showContact && <ContactModal onClose={() => setShowContact(false)} onOpenResume={() => setShowResume(true)} />}
+
+      {/* Executive Resume Modal */}
+      {showResume && <ExecutiveResumeModal onClose={() => setShowResume(false)} />}
 
       {/* Easter Egg Hint */}
       <motion.div

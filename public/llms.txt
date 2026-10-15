@@ -1,0 +1,37 @@
+# Enrique Chan — Staff AI Technical Deployment Lead (TDL), Delta @ Google Cloud
+
+> 15+ years leading Enterprise Cloud, Data, and Agentic AI transformations across Google Cloud, AWS, and The Walt Disney Company.
+
+- **Portfolio**: https://enriquekchan.web.app
+- **Media & Talks**: https://enriquekchan.web.app/media
+- **GitHub**: https://github.com/enriquekalven
+- **LinkedIn**: https://www.linkedin.com/in/enriquechan/
+- **Location**: Seattle, WA
+- **Contact**: enriq@google.com | enriquekalven@gmail.com
+- **Languages**: English, Spanish, Mandarin Chinese, Cantonese
+
+## Executive Impact Highlights
+- **$2B+ Multi-Year Enterprise Deals Closed**: Core technical deal team member for landmark Fortune 500 AI commitments ($63M Google Services Funds, $32M Partner Funds, $5M Executive Learning).
+- **Forward Deployed Engineering (FDE) Operating Model Lead**: Spearheaded the FDE operating model for 15 priority Fortune 500 accounts (including Ford and Intel) at Google Cloud Delta.
+- **4x Gartner® & Forrester™ Leader (2026)**: Technical RFI & Live Architecture Demo Lead for Gartner MQ Enterprise AI Assistants (Apr 2026), Gartner MQ Cloud-Native Application Platforms (Mar 2026), Forrester Wave AI Platforms (Q1 2026), and Gartner MQ AI Application Development Platforms (Nov 2025).
+- **40M+ Viewers Served (Paris 2024 Olympics)**: Lead Solution Architect for the NBCUniversal "OLI" AI Olympic Concierge on Vertex AI Provisioned Throughput (<1s latency, 99.99% uptime).
+- **32,000+ Developers & 5T+ Gemini Tokens**: Co-Creator of Advent of Agents (Top 5 global GitHub repo) and Co-Author of the Google/Kaggle 5-Day Gen AI Intensive Course ("Intro to Agents", 1.5M+ attendees).
+
+## Featured Open-Source & Agentic Platforms
+- **AgentOps Cockpit (v2.0.10)**: https://github.com/enriquekalven/agentops-cockpit — Autonomous Quality & FinOps Gatekeeper for Enterprise AI Agents (PyPI: `agentops-cockpit`, Live: https://agentops-cockpit.web.app).
+- **Economic Research Agent (Agent Garden)**: https://github.com/enriquekalven/economic-research-agent — Autonomous Econometrician on ADK 2.0 querying live FRED, Census & HUD APIs with zero math drift (Live: https://economic-research-agent-ag.web.app).
+- **Lily & Robo's AI Storybook Agent**: https://github.com/enriquekalven/story-gen — Multi-agent bilingual children's book publishing engine powered by Gemini 2.5 Flash & AlphaEvolve (Live: https://storybook-agent.web.app).
+- **SafeKids Healthy Media Portal**: https://github.com/enriquekalven/safekids — Research-backed parent action plan & zero-algorithm family hardware lockdown blueprint (Live: https://safekids-portal.web.app).
+
+## Career Summary
+- **Google Cloud Delta** — Staff Technical Deployment Lead (TDL) | Delta (Jun 2026 — Present)
+- **Google Cloud AI** — Outbound Product Manager | 20% Rotation | Gemini Enterprise App (Nov 2025 — May 2026)
+- **Google Cloud AI** — Global Agentic Solution Architect Lead | Technical Evangelist (Jul 2024 — May 2026)
+- **Google Cloud** — Principal Architect | Global Cloud Consulting (Sep 2022 — Jul 2024)
+- **Google Cloud** — Technical Account Manager | Media & Entertainment (Oct 2020 — Sep 2022)
+- **Amazon Web Services (AWS)** — Sr. Technical Account Manager (Apr 2019 — Oct 2020)
+- **The Walt Disney Company** — Lead Technologist (May 2012 — Apr 2019) — Disney+ Global Scaling (100M+ users) & MyMagic+ / MagicBands.
+
+## Education & Honors
+- **Purdue University** — B.S. in Electrical & Computer Engineering (ECE)
+- **Executive Endorsement**: Commended by Thomas Kurian (CEO, Google Cloud) & recipient of the Google Cloud Tech Impact Award (2025) and Google AI Silver Award (SWIFTY, 2026 Q3).
