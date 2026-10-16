@@ -156,7 +156,12 @@ function MediaPage() {
     <div className="app">
       <nav className="navbar scrolled">
         <div className="nav-container">
-          <Link to="/" className="logo">Enrique Chan</Link>
+          <Link to="/" className="logo" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
+            <div style={{ width: '38px', height: '38px', borderRadius: '50%', overflow: 'hidden', border: '2px solid var(--accent-cyan)', boxShadow: '0 0 12px rgba(56,189,248,0.3)' }}>
+              <img src="/profile_bubble.jpg" alt="Enrique Chan" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
+            <span style={{ fontWeight: 800 }}>Enrique Chan</span>
+          </Link>
           <div className="nav-links">
             <Link to="/">Home</Link>
           </div>

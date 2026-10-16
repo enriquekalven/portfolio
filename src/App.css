@@ -1057,6 +1057,12 @@
   background: var(--bg-card);
 }
 
+[data-theme="light"] .exec-pill {
+  background: rgba(2, 132, 199, 0.08);
+  border-color: rgba(2, 132, 199, 0.25);
+  color: var(--text-primary);
+}
+
 /* Media page: keep the compact navbar inside small screens */
 @media (max-width: 560px) {
   .hide-on-small {
