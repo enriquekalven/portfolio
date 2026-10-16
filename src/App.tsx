@@ -682,6 +682,14 @@ export function ContactModal({
 }) {
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
 
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [onClose]);
+
   const handleCopy = (text: string, key: string) => {
     navigator.clipboard.writeText(text);
     setCopiedKey(key);
@@ -690,6 +698,9 @@ export function ContactModal({
 
   return (
     <div
+      role="dialog"
+      aria-modal="true"
+      aria-label="Direct Contact & Recruiter Fast-Track"
       style={{
         position: 'fixed',
         top: 0,
@@ -1240,6 +1251,21 @@ function LandingPage() {
       triggerEasterEgg();
     });
   }, [comicUnlocked, triggerEasterEgg]);
+
+  useEffect(() => {
+    if (!selectedProject && !showComic) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        if (selectedProject) setSelectedProject(null);
+        if (showComic) {
+          setShowComic(false);
+          setActiveComic(null);
+        }
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [selectedProject, showComic]);
 
   return (
     <div className="app">
@@ -2025,6 +2051,9 @@ function LandingPage() {
       {/* Case Study Modal */}
       {selectedProject && (
         <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${selectedProject.title} ${t.modal.caseStudySuffix}`}
           style={{
             position: 'fixed',
             top: 0,
@@ -2059,6 +2088,7 @@ function LandingPage() {
           >
             <button
               onClick={() => setSelectedProject(null)}
+              aria-label={t.modal.close}
               style={{ position: 'absolute', right: '20px', top: '20px', background: 'var(--border-subtle)', border: 'none', borderRadius: '50%', padding: '8px', cursor: 'pointer', color: 'var(--text-primary)' }}
             >
               <X size={20} />
@@ -2091,9 +2121,41 @@ function LandingPage() {
                   <p style={{ fontSize: '15px', lineHeight: '1.6', color: 'var(--text-secondary)' }}>{selectedProject.details.strategy}</p>
                 </div>
 
-                <div>
+                <div style={{ marginBottom: '24px' }}>
                   <h4 style={{ fontSize: '17px', marginBottom: '8px', fontWeight: 800, color: 'var(--accent-cyan)' }}>{t.modal.team}</h4>
                   <p style={{ fontSize: '14px', color: 'var(--text-muted)' }}>{selectedProject.details.team}</p>
+                </div>
+
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center', paddingTop: '20px', borderTop: '1px solid var(--border-subtle)' }}>
+                  {selectedProject.link && selectedProject.link !== '#' && (
+                    <a
+                      href={selectedProject.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cta-button"
+                      style={{ padding: '10px 20px', fontSize: '13px', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+                    >
+                      {t.modal.visitProject} <ExternalLink size={14} />
+                    </a>
+                  )}
+                  {selectedProject.repoUrl && (
+                    <a
+                      href={selectedProject.repoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cta-button-outline"
+                      style={{ padding: '10px 18px', fontSize: '13px', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+                    >
+                      <Github size={15} /> {t.sections.repoBtn}
+                    </a>
+                  )}
+                  <button
+                    onClick={() => setSelectedProject(null)}
+                    className="cta-button-outline"
+                    style={{ padding: '10px 18px', fontSize: '13px', cursor: 'pointer', marginLeft: 'auto' }}
+                  >
+                    {t.modal.close}
+                  </button>
                 </div>
               </>
             )}

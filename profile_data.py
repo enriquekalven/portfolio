@@ -158,7 +158,7 @@ PROJECTS = [
     {
         "name": "Economic Research Agent",
         "impact": "Agent Garden | ADK 2.0 Econometrician",
-        "image": f"{BASE_URL}/economic_research.png",
+        "image": "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=1200&auto=format&fit=crop",
         "description": "Autonomous Econometrician on Agent Garden querying FRED, Census, & HUD APIs with zero math drift.",
         "url": "https://economic-research.web.app/",
         "repo_url": "https://github.com/enriquekalven/economic-research-agent",
@@ -167,7 +167,7 @@ PROJECTS = [
     {
         "name": "Lily & Robo Story Agent",
         "impact": "AlphaEvolve Optimized | Multi-lingual Publishing",
-        "image": f"{BASE_URL}/storybook.png",
+        "image": "https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1200&auto=format&fit=crop",
         "description": "Autonomous AI children's book generator and multi-lingual publishing orchestrator leveraging Gemini 2.5 Flash and AlphaEvolve.",
         "url": "https://curious-little-minds.web.app/",
         "repo_url": "https://github.com/enriquekalven/story-agent",
@@ -176,7 +176,7 @@ PROJECTS = [
     {
         "name": "SafeKids Portal",
         "impact": "Parent-Curated Media Hub & Technical Lockdown Guide",
-        "image": "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?q=80&w=1200&auto=format&fit=crop",
+        "image": f"{BASE_URL}/safekids_blog.png",
         "description": "Algorithm-free parent action plan, low-stimulus channel directory, open-source tool comparison, and technical lockdown guides.",
         "url": "https://safe-kids.web.app/",
         "repo_url": "https://github.com/enriquekalven/safe-kids",
@@ -228,6 +228,7 @@ PROJECTS = [
         "impact": "Transformational Guest Tech | Walt Disney World",
         "image": f"{BASE_URL}/magicbands.png",
         "description": "Key product development architect launching transformational guest tech (FastPass+, MagicBands) at Walt Disney World.",
+        "url": f"{BASE_URL}/#work",
         "tag": "UX Innovation / IoT"
     },
     {
@@ -235,6 +236,7 @@ PROJECTS = [
         "impact": "99% Translation Accuracy",
         "image": "https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=1200&auto=format&fit=crop",
         "description": "Production-grade STT/Translation pipelines using human feedback (RLHF) and fine-tuning.",
+        "url": f"{BASE_URL}/#work",
         "tag": "Advanced MLOps"
     }
 ]
@@ -279,13 +281,13 @@ WRITING = [
     {
         "title": "[Agent Garden] Solving LLM Hallucinations, Math Drift, and Obscure Identifiers via ADK 2.0",
         "platform": "Medium",
-        "image": f"{BASE_URL}/economic_research_blog.png",
+        "image": f"{BASE_URL}/a2ui_blog.png",
         "url": "https://medium.com/@enriq/agent-garden-solving-llm-hallucinations-math-drift-and-obscure-identifiers-via-adk-2-0-5047985bfc46"
     },
     {
         "title": "I Built a Live-API Economic Research Agent (FRED, Census, HUD & Real Estate Yields)",
         "platform": "google.dev",
-        "image": f"{BASE_URL}/google_dev_post.png",
+        "image": f"{BASE_URL}/kaggle_whitepaper.png",
         "url": "https://discuss.google.dev/t/i-built-a-live-api-economic-research-agent-fred-census-hud-real-estate-yields/379128"
     },
     {
@@ -343,7 +345,7 @@ CERTIFICATIONS = [
     "8x Google Cloud (ML Engineer, Cloud Architect, Data Engineer, Security Engineer, Network Engineer, Database Engineer, etc.)",
     "6x AWS (Solutions Architect Pro, Security Specialty, Data Analytics Specialty, etc.)",
     "2x Agile & Data (SAFe 4, Splunk Certified Power User)",
-    "19x TOTAL CLOUD & AI CERTIFICATIONS"
+    "16x TOTAL CLOUD & AI CERTIFICATIONS"
 ]
 
 SPEAKING = [
