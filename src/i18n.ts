@@ -16,6 +16,7 @@ export interface Translations {
     articles: string;
     awards: string;
     media: string;
+    concierge: string;
     comic: string;
     contact: string;
   };
@@ -28,6 +29,7 @@ export interface Translations {
     ctaPrimary: string;
     ctaSecondary: string;
     ctaResume: string;
+    ctaConcierge: string;
     ctaContact: string;
     copyEmail: string;
     emailCopied: string;
@@ -124,6 +126,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       articles: 'Writing',
       awards: 'Trophies',
       media: 'Media 🎥',
+      concierge: 'AI Concierge ✨',
       comic: 'Comic 🕵️‍♂️',
       contact: 'Get in Touch'
     },
@@ -136,6 +139,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       ctaPrimary: 'Explore Career Journey',
       ctaSecondary: 'View Key Work',
       ctaResume: 'Executive Resume',
+      ctaConcierge: 'Ask My AI Concierge',
       ctaContact: 'Quick Connect',
       copyEmail: 'Copy Email',
       emailCopied: 'Copied enriq@google.com!',
@@ -230,6 +234,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       articles: 'Publicaciones',
       awards: 'Trofeos',
       media: 'Videos 🎥',
+      concierge: 'Concierge IA ✨',
       comic: 'Cómic 🕵️‍♂️',
       contact: 'Contacto'
     },
@@ -242,6 +247,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       ctaPrimary: 'Ver Trayectoria Profesional',
       ctaSecondary: 'Ver Proyectos Clave',
       ctaResume: 'CV Ejecutivo',
+      ctaConcierge: 'Preguntar a mi Concierge IA',
       ctaContact: 'Contacto Rápido',
       copyEmail: 'Copiar Email',
       emailCopied: '¡Copiado enriq@google.com!',
@@ -336,6 +342,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       articles: '技术专栏',
       awards: '荣誉与认证',
       media: '视频中心 🎥',
+      concierge: 'AI 智能助手 ✨',
       comic: '漫画 🕵️‍♂️',
       contact: '联系合作'
     },

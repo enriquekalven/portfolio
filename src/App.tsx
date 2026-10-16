@@ -1063,6 +1063,19 @@ function Navbar({
           <a href="#articles">{t.nav.articles}</a>
           <a href="#awards">{t.nav.awards}</a>
           <Link to="/media" className="nav-media-btn">{t.nav.media}</Link>
+          <a
+            href="https://enriquekchan-concierge.web.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-media-btn"
+            style={{
+              background: "rgba(56, 189, 248, 0.14)",
+              borderColor: "rgba(56, 189, 248, 0.45)",
+              color: "var(--accent-cyan)",
+            }}
+          >
+            {t.nav.concierge}
+          </a>
           {comicUnlocked && (
             <motion.button
               initial={{ opacity: 0, scale: 0.8 }}
@@ -1287,6 +1300,20 @@ function LandingPage() {
           <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
             <a href="#experience" className="cta-button">
               {t.hero.ctaPrimary} <ChevronRight size={16} />
+            </a>
+            <a
+              href="https://enriquekchan-concierge.web.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cta-button-outline"
+              style={{
+                borderColor: "rgba(56, 189, 248, 0.55)",
+                background: "rgba(56, 189, 248, 0.12)",
+                color: "var(--accent-cyan)",
+                fontWeight: 700,
+              }}
+            >
+              <Sparkles size={16} /> {t.hero.ctaConcierge} <ExternalLink size={14} />
             </a>
             <button
               onClick={openResume}
