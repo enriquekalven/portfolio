@@ -18,7 +18,7 @@ A production-grade, multilingual (`EN` / `ES` / `中文`) executive portfolio sh
 | **40M+ Viewers / 90M+ Queries** | Owned technical strategy for the **NBC Paris 2024 Olympic Games AI Concierge (OLI)** on Vertex AI Provisioned Throughput (0.5% error rate). |
 | **32,000+ Developers & 5T Tokens** | Co-led **Advent of Agents** (Seasons 1 & 2), surging into a Top 5 Global GitHub repository and winning a **Silver Google AI Award**. |
 | **1.5M+ Registered Learners** | Co-authored the official Kaggle **Executive "Intro to Agents" Whitepaper**, establishing industry patterns for LLM Ops & Agent Orchestration. |
-| **Multi-Cloud Certified** | 8x Google Cloud (including Professional ML Engineer, Cloud Architect, Security Engineer) & 6x AWS (including Solutions Architect Professional, Security, Data Analytics). |
+| **Multi-Cloud Certified** | 9x Google Cloud (including Professional Agentic Architect, Professional ML Engineer, Cloud Architect, Security Engineer) & 6x AWS (including Solutions Architect Professional, Security, Data Analytics). |
 
 ---
 

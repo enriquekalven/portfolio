@@ -113,7 +113,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
   en: {
     banner: {
       tag: 'NEWS',
-      text: 'Enrique won a Silver Google AI Award (2026 Q3) for Advent of Agents & drove 4x Gartner/Forrester Leader wins 🏆'
+      text: 'Newly Certified: Google Cloud Professional Agentic Architect (9x GCP) • Silver Google AI Award & 4x Gartner/Forrester Leader 🏆'
     },
     nav: {
       about: 'About',
@@ -221,7 +221,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
   es: {
     banner: {
       tag: 'NOVEDAD',
-      text: 'Enrique ganó el premio Silver Google AI (2026 Q3) por Advent of Agents y lideró 4 victorias como Líder en Gartner/Forrester 🏆'
+      text: 'Nueva Certificación: Google Cloud Professional Agentic Architect (9x GCP) • Premio Silver Google AI y 4x Líder Gartner/Forrester 🏆'
     },
     nav: {
       about: 'Perfil',
@@ -328,8 +328,8 @@ export const TRANSLATIONS: Record<Language, Translations> = {
   },
   zh: {
     banner: {
-      tag: '最新荣誉',
-      text: 'Enrique 荣获 Google AI 银奖 (, 2026 Q3 - Advent of Agents)，并主导 4 项 Gartner/Forrester 领导者象限大满贯 🏆'
+      tag: '最新认证',
+      text: '最新认证：荣膺 Google Cloud 专业智能体架构师 (Professional Agentic Architect · 9x GCP)，斩获 Google AI 银奖与 4x 领导者象限 🏆'
     },
     nav: {
       about: '关于我',

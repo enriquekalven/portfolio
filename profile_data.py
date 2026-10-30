@@ -342,10 +342,10 @@ AWARDS = [
 ]
 
 CERTIFICATIONS = [
-    "8x Google Cloud (ML Engineer, Cloud Architect, Data Engineer, Security Engineer, Network Engineer, Database Engineer, etc.)",
+    "9x Google Cloud (Professional Agentic Architect, ML Engineer, Cloud Architect, Data Engineer, Security Engineer, Network Engineer, Database Engineer, etc.)",
     "6x AWS (Solutions Architect Pro, Security Specialty, Data Analytics Specialty, etc.)",
     "2x Agile & Data (SAFe 4, Splunk Certified Power User)",
-    "16x TOTAL CLOUD & AI CERTIFICATIONS"
+    "17x TOTAL CLOUD & AI CERTIFICATIONS"
 ]
 
 SPEAKING = [

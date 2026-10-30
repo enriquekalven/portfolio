@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, Navigate, useMatch, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, Navigate, useMatch, useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
+import { trackEvent, trackPageView } from './firebase';
 import {
   ArrowRight,
   Linkedin,
@@ -335,6 +336,7 @@ const CERTIFICATIONS = [
     provider: 'Google Cloud (Professional)',
     logo: 'https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg',
     certs: [
+      'Professional Agentic Architect',
       'Machine Learning Engineer (PMLE)',
       'Cloud Database Engineer (PCDE)',
       'Cloud Architect (PCA)',
@@ -683,6 +685,7 @@ export function ContactModal({
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
 
   useEffect(() => {
+    trackEvent('contact_modal_view', { page_location: window.location.href });
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
     };
@@ -691,6 +694,7 @@ export function ContactModal({
   }, [onClose]);
 
   const handleCopy = (text: string, key: string) => {
+    trackEvent('contact_email_copy', { email_type: key, email: text });
     navigator.clipboard.writeText(text);
     setCopiedKey(key);
     setTimeout(() => setCopiedKey(null), 2500);
@@ -880,6 +884,7 @@ export function ContactModal({
               </button>
               <a
                 href="mailto:enriq@google.com"
+                onClick={() => trackEvent('contact_email_send', { email_type: 'work' })}
                 style={{
                   background: 'var(--accent-cyan)',
                   color: '#0b1120',
@@ -940,6 +945,7 @@ export function ContactModal({
               </button>
               <a
                 href="mailto:enriquekalven@gmail.com"
+                onClick={() => trackEvent('contact_email_send', { email_type: 'personal' })}
                 style={{
                   background: 'var(--accent-coral)',
                   color: '#0b1120',
@@ -963,6 +969,7 @@ export function ContactModal({
             href="https://www.linkedin.com/in/enriquechan/"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackEvent('contact_linkedin_click', { source: 'contact_modal' })}
             style={{
               background: 'rgba(255,255,255,0.03)',
               border: '1px solid var(--border-subtle)',
@@ -1078,6 +1085,7 @@ function Navbar({
             href="https://enriquekchan-concierge.web.app"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackEvent('concierge_launch', { source: 'navbar' })}
             className="nav-media-btn"
             style={{
               background: "rgba(56, 189, 248, 0.14)",
@@ -1152,7 +1160,7 @@ function Navbar({
 
 function WhatsNewBanner({ t }: { t: Translations }) {
   return (
-    <a href="#awards" className="whats-new-banner">
+    <a href="#certifications" className="whats-new-banner">
       <span className="banner-tag">{t.banner.tag}</span>
       <span>{t.banner.text}</span>
       <ArrowRight size={14} />
@@ -1190,7 +1198,10 @@ function LandingPage() {
   const navigate = useNavigate();
   // The Executive Resume is URL-driven (/resume) so recruiters can share or bookmark a direct link.
   const showResume = useMatch('/resume') !== null;
-  const openResume = useCallback(() => navigate('/resume'), [navigate]);
+  const openResume = useCallback(() => {
+    trackEvent('resume_open_click', { source: 'landing_page' });
+    navigate('/resume');
+  }, [navigate]);
   const closeResume = useCallback(() => {
     const historyIdx = (window.history.state as { idx?: number } | null)?.idx ?? 0;
     if (historyIdx > 0) navigate(-1);
@@ -1201,6 +1212,7 @@ function LandingPage() {
   const [emailCopied, setEmailCopied] = useState(false);
 
   const handleCopyEmail = () => {
+    trackEvent('contact_email_copy', { email_type: 'work_hero', email: 'enriq@google.com' });
     navigator.clipboard.writeText('enriq@google.com');
     setEmailCopied(true);
     setTimeout(() => setEmailCopied(false), 2500);
@@ -1237,6 +1249,7 @@ function LandingPage() {
   const triggerEasterEgg = useCallback(() => {
     if (comicUnlocked) return;
 
+    trackEvent('easter_egg_unlock', { method: 'konami_or_triple_tap' });
     confetti({
       particleCount: 150,
       spread: 70,
@@ -1273,12 +1286,25 @@ function LandingPage() {
       <Navbar
         onEasterEgg={triggerEasterEgg}
         comicUnlocked={comicUnlocked}
-        onShowComic={() => setShowComic(true)}
-        onContact={() => setShowContact(true)}
+        onShowComic={() => {
+          trackEvent('comic_library_open');
+          setShowComic(true);
+        }}
+        onContact={() => {
+          trackEvent('contact_modal_open', { source: 'navbar' });
+          setShowContact(true);
+        }}
         theme={theme}
-        onToggleTheme={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+        onToggleTheme={() => {
+          const nextTheme = theme === 'dark' ? 'light' : 'dark';
+          trackEvent('theme_toggle', { theme: nextTheme, page: 'landing' });
+          setTheme(nextTheme);
+        }}
         lang={lang}
-        onChangeLang={setLang}
+        onChangeLang={(nextLang) => {
+          trackEvent('language_change', { from_lang: lang, to_lang: nextLang });
+          setLang(nextLang);
+        }}
         t={t}
       />
 
@@ -1517,6 +1543,14 @@ function LandingPage() {
                 href={report.link}
                 target="_blank"
                 rel="noreferrer"
+                onClick={() =>
+                  trackEvent('analyst_report_click', {
+                    report_title: report.title,
+                    report_badge: report.badge,
+                    report_date: report.date,
+                    report_url: report.link
+                  })
+                }
                 className="cta-button-outline"
                 style={{
                   display: 'inline-flex',
@@ -1558,7 +1592,10 @@ function LandingPage() {
               <h3 className="card-title">{service.title}</h3>
               <p className="card-description">{service.description}</p>
               <button
-                onClick={() => setShowContact(true)}
+                onClick={() => {
+                  trackEvent('contact_modal_open', { source: 'service_card', service_title: service.title });
+                  setShowContact(true);
+                }}
                 style={{
                   background: 'none',
                   border: 'none',
@@ -1650,7 +1687,16 @@ function LandingPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35 }}
-              onClick={() => creation.details && setSelectedProject(creation as Project)}
+              onClick={() => {
+                if (creation.details) {
+                  trackEvent('project_case_study_open', {
+                    project_title: creation.title,
+                    project_tag: creation.tag,
+                    section: 'author'
+                  });
+                  setSelectedProject(creation as Project);
+                }
+              }}
               style={{ cursor: creation.details ? 'pointer' : 'default' }}
             >
               <div className="author-card-media">
@@ -1682,7 +1728,14 @@ function LandingPage() {
                       href={creation.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        trackEvent('author_app_launch', {
+                          project_title: creation.title,
+                          project_tag: creation.tag,
+                          project_url: creation.link
+                        });
+                      }}
                       className="cta-button"
                       style={{ padding: '8px 18px', fontSize: '13px', fontWeight: 700 }}
                     >
@@ -1694,7 +1747,14 @@ function LandingPage() {
                       href={(creation as Project).repoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        trackEvent('author_repo_click', {
+                          project_title: creation.title,
+                          project_tag: creation.tag,
+                          repo_url: (creation as Project).repoUrl
+                        });
+                      }}
                       className="cta-button-outline"
                       style={{ padding: '8px 16px', fontSize: '13px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
                     >
@@ -1705,6 +1765,11 @@ function LandingPage() {
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
+                        trackEvent('project_case_study_open', {
+                          project_title: creation.title,
+                          project_tag: creation.tag,
+                          section: 'author_button'
+                        });
                         setSelectedProject(creation as Project);
                       }}
                       className="cta-button-outline"
@@ -1728,7 +1793,11 @@ function LandingPage() {
             <h2 className="section-title" style={{ margin: 0 }}>{t.sections.workTitle}</h2>
           </div>
           <button
-            onClick={() => setProjectsExpanded(!projectsExpanded)}
+            onClick={() => {
+              const nextState = !projectsExpanded;
+              trackEvent('projects_expand_toggle', { expanded: nextState, source: 'header' });
+              setProjectsExpanded(nextState);
+            }}
             className="cta-button-outline"
             style={{
               padding: '8px 18px',
@@ -1763,7 +1832,16 @@ function LandingPage() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.25 }}
                 layout
-                onClick={() => work.details && setSelectedProject(work as Project)}
+                onClick={() => {
+                  if (work.details) {
+                    trackEvent('project_case_study_open', {
+                      project_title: work.title,
+                      project_tag: work.tag,
+                      section: 'enterprise_work'
+                    });
+                    setSelectedProject(work as Project);
+                  }
+                }}
                 style={{ cursor: work.details ? 'pointer' : 'default' }}
               >
                 <img src={work.image} alt={work.title} loading="lazy" decoding="async" />
@@ -1778,6 +1856,11 @@ function LandingPage() {
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
+                          trackEvent('project_case_study_open', {
+                            project_title: work.title,
+                            project_tag: work.tag,
+                            section: 'enterprise_work_button'
+                          });
                           setSelectedProject(work as Project);
                         }}
                         className="cta-button-outline"
@@ -1791,7 +1874,14 @@ function LandingPage() {
                         href={(work as Project).repoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          trackEvent('enterprise_project_repo_click', {
+                            project_title: work.title,
+                            project_tag: work.tag,
+                            repo_url: (work as Project).repoUrl
+                          });
+                        }}
                         className="cta-button-outline"
                         style={{ padding: '6px 14px', fontSize: '13px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
                       >
@@ -1803,7 +1893,14 @@ function LandingPage() {
                         href={work.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          trackEvent('enterprise_project_visit', {
+                            project_title: work.title,
+                            project_tag: work.tag,
+                            project_url: work.link
+                          });
+                        }}
                         style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '13px', fontWeight: 700, color: 'var(--accent-cyan)' }}
                       >
                         {t.sections.visitBtn} <ExternalLink size={14} />
@@ -1821,7 +1918,9 @@ function LandingPage() {
               if (projectsExpanded) {
                 document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
               }
-              setProjectsExpanded(!projectsExpanded);
+              const nextState = !projectsExpanded;
+              trackEvent('projects_expand_toggle', { expanded: nextState, source: 'footer_button' });
+              setProjectsExpanded(nextState);
             }}
             className="cta-button-outline"
             style={{
@@ -1859,7 +1958,11 @@ function LandingPage() {
             <h2 className="section-title" style={{ margin: 0 }}>{t.sections.speakingTitle}</h2>
           </div>
           <button
-            onClick={() => setSpeakingExpanded(!speakingExpanded)}
+            onClick={() => {
+              const nextState = !speakingExpanded;
+              trackEvent('speaking_expand_toggle', { expanded: nextState, source: 'header' });
+              setSpeakingExpanded(nextState);
+            }}
             className="cta-button-outline"
             style={{
               padding: '8px 18px',
@@ -1896,7 +1999,9 @@ function LandingPage() {
               if (speakingExpanded) {
                 document.getElementById('speaking')?.scrollIntoView({ behavior: 'smooth' });
               }
-              setSpeakingExpanded(!speakingExpanded);
+              const nextState = !speakingExpanded;
+              trackEvent('speaking_expand_toggle', { expanded: nextState, source: 'footer_button' });
+              setSpeakingExpanded(nextState);
             }}
             className="cta-button-outline"
             style={{
@@ -1939,6 +2044,13 @@ function LandingPage() {
               href={pub.link}
               target="_blank"
               rel="noreferrer"
+              onClick={() =>
+                trackEvent('publication_click', {
+                  publication_title: pub.title,
+                  publication_platform: pub.platform,
+                  publication_url: pub.link
+                })
+              }
               className="service-card"
               style={{ padding: '0', overflow: 'hidden' }}
               whileHover={{ y: -6 }}
@@ -2027,7 +2139,7 @@ function LandingPage() {
           ))}
         </div>
 
-        <h3 style={{ fontSize: '26px', marginBottom: '28px', textAlign: 'center' }}>{t.sections.certsSubtitle}</h3>
+        <h3 id="certifications" style={{ fontSize: '26px', marginBottom: '28px', textAlign: 'center', scrollMarginTop: '100px' }}>{t.sections.certsSubtitle}</h3>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
           {CERTIFICATIONS.map((group, idx) => (
             <motion.div key={idx} className="glass-card" style={{ padding: '28px' }}>
@@ -2132,6 +2244,12 @@ function LandingPage() {
                       href={selectedProject.link}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() =>
+                        trackEvent('case_study_visit_project', {
+                          project_title: selectedProject.title,
+                          project_url: selectedProject.link
+                        })
+                      }
                       className="cta-button"
                       style={{ padding: '10px 20px', fontSize: '13px', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
                     >
@@ -2143,6 +2261,12 @@ function LandingPage() {
                       href={selectedProject.repoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() =>
+                        trackEvent('case_study_repo_click', {
+                          project_title: selectedProject.title,
+                          repo_url: selectedProject.repoUrl
+                        })
+                      }
                       className="cta-button-outline"
                       style={{ padding: '10px 18px', fontSize: '13px', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
                     >
@@ -2238,7 +2362,10 @@ function LandingPage() {
                   ].map((doc, i) => (
                     <div
                       key={i}
-                      onClick={() => setActiveComic(doc)}
+                      onClick={() => {
+                        trackEvent('comic_edition_open', { comic_name: doc.name, comic_file: doc.file });
+                        setActiveComic(doc);
+                      }}
                       style={{
                         background: 'rgba(255,255,255,0.04)',
                         border: '1px solid var(--border-subtle)',
@@ -2279,7 +2406,17 @@ function LandingPage() {
           <a href="https://github.com/enriquekalven" target="_blank" rel="noopener noreferrer" className="social-icon" title="GitHub"><Github size={20} /></a>
           <a href="https://www.linkedin.com/in/enriquechan/" target="_blank" rel="noopener noreferrer" className="social-icon" title="LinkedIn"><Linkedin size={20} /></a>
           <button onClick={openResume} className="social-icon" style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'inherit', display: 'flex', alignItems: 'center', justifyContent: 'center' }} title="Executive Resume"><FileText size={20} /></button>
-          <button onClick={() => setShowContact(true)} className="social-icon" style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'inherit', display: 'flex', alignItems: 'center', justifyContent: 'center' }} title="Contact Enrique"><Mail size={20} /></button>
+          <button
+            onClick={() => {
+              trackEvent('contact_modal_open', { source: 'footer' });
+              setShowContact(true);
+            }}
+            className="social-icon"
+            style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'inherit', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+            title="Contact Enrique"
+          >
+            <Mail size={20} />
+          </button>
         </div>
         <p style={{ marginTop: '48px', fontSize: '13px', color: 'var(--text-muted)' }}>
           © {new Date().getFullYear()} {t.footer.rights}
@@ -2306,6 +2443,7 @@ function LandingPage() {
           filter: 'drop-shadow(0 0 12px rgba(56,189,248,0.4))'
         }}
         onClick={() => {
+          trackEvent('easter_egg_hint_click');
           setShowHint(true);
           setTimeout(() => setShowHint(false), 3000);
         }}
@@ -2340,9 +2478,117 @@ function LandingPage() {
   );
 }
 
+/**
+ * Global Analytics Tracker for route changes, section visibility reach,
+ * and automatic click telemetry across all links and buttons for GRAD reporting.
+ */
+function AnalyticsTracker() {
+  const location = useLocation();
+
+  // Track route & hash navigation
+  useEffect(() => {
+    const fullPath = `${location.pathname}${location.search}${location.hash}`;
+    trackPageView(fullPath);
+  }, [location]);
+
+  // Track section reach when user scrolls through portfolio sections
+  useEffect(() => {
+    if (typeof IntersectionObserver === 'undefined') return;
+    const seenSections = new Set<string>();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting && entry.target.id && !seenSections.has(entry.target.id)) {
+            seenSections.add(entry.target.id);
+            trackEvent('section_view', {
+              section_id: entry.target.id,
+              page_path: window.location.pathname
+            });
+          }
+        }
+      },
+      { threshold: 0.25 }
+    );
+
+    const sections = document.querySelectorAll('section[id]');
+    sections.forEach((sec) => observer.observe(sec));
+
+    return () => observer.disconnect();
+  }, [location.pathname]);
+
+  // Global delegated click listener for links and buttons
+  useEffect(() => {
+    const handleGlobalClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (!target) return;
+
+      const clickable = target.closest('a, button') as HTMLElement | null;
+      if (!clickable) return;
+
+      const sectionEl = clickable.closest('section[id], nav, footer, [role="dialog"]');
+      const section =
+        sectionEl?.id ||
+        (sectionEl?.tagName.toLowerCase() === 'nav'
+          ? 'navbar'
+          : sectionEl?.tagName.toLowerCase() === 'footer'
+            ? 'footer'
+            : sectionEl?.getAttribute('role') === 'dialog'
+              ? 'modal'
+              : 'page');
+
+      const label = (
+        clickable.getAttribute('aria-label') ||
+        clickable.getAttribute('title') ||
+        clickable.textContent ||
+        ''
+      )
+        .replace(/\s+/g, ' ')
+        .trim()
+        .slice(0, 100);
+
+      if (clickable.tagName.toLowerCase() === 'a') {
+        const anchor = clickable as HTMLAnchorElement;
+        const href = anchor.getAttribute('href') || '';
+        const isOutbound = /^https?:\/\//i.test(href) && !href.includes(window.location.hostname);
+
+        if (isOutbound) {
+          trackEvent('outbound_link_click', {
+            link_text: label,
+            link_url: href,
+            section
+          });
+        } else if (href.startsWith('#')) {
+          trackEvent('section_nav_click', {
+            target_section: href.slice(1),
+            link_text: label,
+            section
+          });
+        } else {
+          trackEvent('internal_link_click', {
+            link_text: label,
+            link_url: href,
+            section
+          });
+        }
+      } else {
+        trackEvent('button_click', {
+          button_text: label,
+          section
+        });
+      }
+    };
+
+    document.addEventListener('click', handleGlobalClick, { capture: true });
+    return () => document.removeEventListener('click', handleGlobalClick, { capture: true });
+  }, []);
+
+  return null;
+}
+
 function App() {
   return (
     <Router>
+      <AnalyticsTracker />
       <Routes>
         {/* Nested /resume keeps LandingPage mounted and opens the Executive Resume as a shareable deep link */}
         <Route path="/" element={<LandingPage />}>
@@ -2357,3 +2603,4 @@ function App() {
 }
 
 export default App;
+

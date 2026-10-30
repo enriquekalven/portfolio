@@ -5,6 +5,7 @@ import './App.css';
 import { motion } from 'framer-motion';
 import { ContactModal } from './App';
 import { ExecutiveResumeModal } from './ExecutiveResumeModal';
+import { trackEvent } from './firebase';
 
 const MEDIA = [
   {
@@ -148,8 +149,14 @@ function MediaPage() {
     ? MEDIA
     : MEDIA.filter(item => item.category === activeCategory);
 
-  const handlePlayVideo = (id: string) => {
-    setPlayingVideos(prev => ({ ...prev, [id]: true }));
+  const handlePlayVideo = (item: typeof MEDIA[number]) => {
+    trackEvent('media_video_play', {
+      video_id: item.id,
+      video_title: item.title,
+      video_category: item.category,
+      video_type: item.type
+    });
+    setPlayingVideos(prev => ({ ...prev, [item.id]: true }));
   };
 
   return (
@@ -167,7 +174,11 @@ function MediaPage() {
           </div>
           <div className="media-nav-actions" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <button
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              onClick={() => {
+                const nextTheme = theme === 'dark' ? 'light' : 'dark';
+                trackEvent('theme_toggle', { theme: nextTheme, page: 'media' });
+                setTheme(nextTheme);
+              }}
               className="theme-toggle-btn hide-on-small"
               title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
               aria-label="Toggle Theme"
@@ -175,7 +186,10 @@ function MediaPage() {
               {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
             </button>
             <button
-              onClick={() => setShowResume(true)}
+              onClick={() => {
+                trackEvent('resume_open_click', { source: 'media_navbar' });
+                setShowResume(true);
+              }}
               className="cta-button-outline"
               style={{ padding: '9px 14px', fontSize: '13px', cursor: 'pointer' }}
               aria-label="Executive Resume"
@@ -184,7 +198,10 @@ function MediaPage() {
               <FileText size={15} /> <span className="hide-on-xs">Resume</span>
             </button>
             <button
-              onClick={() => setShowContact(true)}
+              onClick={() => {
+                trackEvent('contact_modal_open', { source: 'media_navbar' });
+                setShowContact(true);
+              }}
               className="cta-button"
               style={{ padding: '10px 20px', fontSize: '14px', border: 'none', cursor: 'pointer', whiteSpace: 'nowrap' }}
             >
@@ -210,7 +227,10 @@ function MediaPage() {
               return (
                 <button
                   key={category}
-                  onClick={() => setActiveCategory(category)}
+                  onClick={() => {
+                    trackEvent('media_category_select', { category });
+                    setActiveCategory(category);
+                  }}
                   style={{
                     padding: '8px 18px',
                     borderRadius: '100px',
@@ -253,7 +273,7 @@ function MediaPage() {
                     />
                   ) : (
                     <button
-                      onClick={() => handlePlayVideo(item.id)}
+                      onClick={() => handlePlayVideo(item)}
                       aria-label={`Play ${item.title}`}
                       style={{
                         position: 'absolute',
@@ -327,6 +347,13 @@ function MediaPage() {
                     href={`https://youtube.com/watch?v=${item.id}`}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() =>
+                      trackEvent('media_youtube_click', {
+                        video_id: item.id,
+                        video_title: item.title,
+                        video_category: item.category
+                      })
+                    }
                     style={{
                       fontWeight: 800,
                       color: 'var(--accent-cyan)',
@@ -364,7 +391,10 @@ function MediaPage() {
           I deliver customized workshops and keynotes for executive leadership teams on transitioning from POC to production-grade AI agents.
         </p>
         <button
-          onClick={() => setShowContact(true)}
+          onClick={() => {
+            trackEvent('contact_modal_open', { source: 'media_book_workshop' });
+            setShowContact(true);
+          }}
           className="cta-button"
           style={{ border: 'none', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
         >

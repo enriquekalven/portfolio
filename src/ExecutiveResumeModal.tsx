@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { motion } from 'framer-motion';
+import { trackEvent } from './firebase';
 import {
   X,
   Printer,
@@ -30,7 +31,7 @@ Highlights:
 • Led technical RFIs and live demos for 4 consecutive Google Cloud analyst Leader recognitions in 2026 (Gartner® MQ Enterprise AI Assistants, Gartner® MQ Cloud-Native Application Platforms, The Forrester Wave™: AI Platforms, Gartner® MQ AI Application Development Platforms).
 • Owned technical strategy for NBC's Paris 2024 Olympic Games chatbot (40M viewers, 90M queries) and led Disney+ global cloud scaling (100M+ users) at Accenture.
 • Co-led Advent of Agents (32,000+ developers, Top 5 global GitHub repo, Silver Google AI Award) and co-authored the Executive "Intro to Agents" whitepaper for Kaggle's course (1.5M registered attendees).
-• Multi-cloud certified: 8x Google Cloud and 6x AWS.
+• Multi-cloud certified: 9x Google Cloud (including Professional Agentic Architect) and 6x AWS.
 
 Contact: enriq@google.com | enriquekalven@gmail.com | linkedin.com/in/enriquechan | enriquekchan.web.app/resume`;
 
@@ -139,6 +140,7 @@ export function ExecutiveResumeModal({ onClose }: { onClose: () => void }) {
   }, [onClose]);
 
   useEffect(() => {
+    trackEvent('resume_view', { page_location: window.location.href });
     const body = document.body;
     const previousOverflow = body.style.overflow;
     body.classList.add('resume-open'); // print stylesheet hides everything except the resume
@@ -156,7 +158,10 @@ export function ExecutiveResumeModal({ onClose }: { onClose: () => void }) {
     };
   }, []);
 
-  const copyText = (text: string, setState: (state: CopyState) => void) => {
+  const copyText = (text: string, setState: (state: CopyState) => void, actionLabel?: string) => {
+    if (actionLabel) {
+      trackEvent(actionLabel, { source: 'executive_resume_modal' });
+    }
     const write = navigator.clipboard?.writeText(text) ?? Promise.reject(new Error('Clipboard unavailable'));
     write
       .then(() => setState('copied'), () => setState('failed'))
@@ -228,7 +233,7 @@ export function ExecutiveResumeModal({ onClose }: { onClose: () => void }) {
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
             <button
-              onClick={() => copyText(`${window.location.origin}/resume`, setLinkState)}
+              onClick={() => copyText(`${window.location.origin}/resume`, setLinkState, 'resume_copy_link')}
               className="cta-button-outline"
               style={{ padding: '8px 14px', fontSize: '12.5px', fontWeight: 700 }}
               title="Copy a shareable link to this resume"
@@ -238,7 +243,7 @@ export function ExecutiveResumeModal({ onClose }: { onClose: () => void }) {
             </button>
 
             <button
-              onClick={() => copyText(EXECUTIVE_BIO_TEXT, setBioState)}
+              onClick={() => copyText(EXECUTIVE_BIO_TEXT, setBioState, 'resume_copy_bio')}
               className="cta-button-outline"
               style={{
                 padding: '8px 14px',
@@ -252,7 +257,14 @@ export function ExecutiveResumeModal({ onClose }: { onClose: () => void }) {
               {copyLabel(bioState, 'Copy Executive Bio', 'Bio Copied!')}
             </button>
 
-            <button onClick={() => window.print()} className="cta-button" style={{ padding: '8px 16px', fontSize: '12.5px', fontWeight: 800 }}>
+            <button
+              onClick={() => {
+                trackEvent('resume_print_pdf', { source: 'executive_resume_modal' });
+                window.print();
+              }}
+              className="cta-button"
+              style={{ padding: '8px 16px', fontSize: '12.5px', fontWeight: 800 }}
+            >
               <Printer size={14} /> Print / Save PDF
             </button>
 
@@ -387,8 +399,8 @@ export function ExecutiveResumeModal({ onClose }: { onClose: () => void }) {
               <CheckCircle2 size={15} /> Cloud &amp; AI Certifications
             </h4>
             <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: 1.6, margin: 0 }}>
-              <strong>Google Cloud (8):</strong> Professional ML Engineer, Cloud Architect, Cloud Security Engineer, Cloud Database Engineer, Network
-              Engineer, Workspace Administrator; Associate Cloud Engineer; Cloud Digital Leader.
+              <strong>Google Cloud (9):</strong> Professional Agentic Architect, Professional ML Engineer, Cloud Architect, Cloud Security Engineer, Cloud
+              Database Engineer, Network Engineer, Workspace Administrator; Associate Cloud Engineer; Cloud Digital Leader.
               <br />
               <strong>AWS (6):</strong> Solutions Architect Professional &amp; Associate, Security Specialty, Data Analytics Specialty, Developer Associate,
               SysOps Administrator Associate.

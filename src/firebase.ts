@@ -1,8 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getAnalytics, logEvent, isSupported, type Analytics } from "firebase/analytics";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -18,4 +16,56 @@ const firebaseConfig = {
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
-export const analytics = getAnalytics(app);
+
+let analyticsInstance: Analytics | null = null;
+
+if (typeof window !== "undefined") {
+  try {
+    analyticsInstance = getAnalytics(app);
+  } catch {
+    // Fallback check if synchronous init fails in restricted browser environments
+    isSupported()
+      .then((supported) => {
+        if (supported) {
+          analyticsInstance = getAnalytics(app);
+        }
+      })
+      .catch(() => {
+        // Ignore analytics initialization errors (e.g., strict ad-blockers)
+      });
+  }
+}
+
+export const analytics = analyticsInstance;
+
+export type AnalyticsParams = Record<string, string | number | boolean | undefined>;
+
+/**
+ * Logs a custom Google Analytics 4 / Firebase Analytics event for GRAD & portfolio reporting.
+ */
+export function trackEvent(eventName: string, params?: AnalyticsParams): void {
+  try {
+    if (analyticsInstance) {
+      logEvent(analyticsInstance, eventName, params);
+    } else if (typeof window !== "undefined") {
+      const win = window as Window & { gtag?: (...args: unknown[]) => void };
+      if (typeof win.gtag === "function") {
+        win.gtag("event", eventName, params);
+      }
+    }
+  } catch {
+    // Fail silently if blocked by client extensions
+  }
+}
+
+/**
+ * Logs virtual page/route views and hash section navigation.
+ */
+export function trackPageView(pagePath: string, pageTitle?: string): void {
+  trackEvent("page_view", {
+    page_path: pagePath,
+    page_title: pageTitle || (typeof document !== "undefined" ? document.title : ""),
+    page_location: typeof window !== "undefined" ? window.location.href : pagePath
+  });
+}
+
