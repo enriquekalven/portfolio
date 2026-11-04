@@ -350,6 +350,15 @@ CERTIFICATIONS = [
 
 SPEAKING = [
     {
+        "title": "One agent harness for PMs, UXers and FDEs",
+        "event": "CAT Conf 2026",
+        "session": "Presenter",
+        "date": "November 2026",
+        "location": "Google Global / Virtual",
+        "image": f"{BASE_URL}/cat_conf_2026.jpg",
+        "status": "UPCOMING"
+    },
+    {
         "title": "Build with Gemini: AI for Enterprise Builders",
         "event": "Build with Gemini",
         "session": "Keynote & Hands-On Architecture",

@@ -35,6 +35,11 @@ Every fact below mirrors the portfolio site (https://enriquekchan.web.app). Exec
 - SafeKids Portal — algorithm-free kids media blueprint for parents. Live: https://safe-kids.web.app/ · Code: https://github.com/enriquekalven/safe-kids
 - Advent of Agents — global developer campaign (32,000+ developers, Top 5 global GitHub repo, 5T tokens driven to Gemini). https://adventofagents.com/
 
+## Speaking (selected)
+- CAT Conf 2026 — Presenter: "One agent harness for PMs, UXers and FDEs" (Nov 2026, Upcoming)
+- Build with Gemini — Keynote & Hands-On Architecture, Bellevue & Seattle, WA (Aug 2026)
+- Google Cloud Next '26, '25 & '24 — Speaker & Executive Sessions, Las Vegas, NV (2024–2026)
+
 ## Awards
 - Silver Google AI Award (2026 Q3) — Advent of Agents
 - Cloud GTM Excellence Award (2025) — Enterprise Retail Agentic Commerce Use Cases

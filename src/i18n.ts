@@ -112,8 +112,8 @@ export interface Translations {
 export const TRANSLATIONS: Record<Language, Translations> = {
   en: {
     banner: {
-      tag: 'NEWS',
-      text: 'Newly Certified: Google Cloud Professional Agentic Architect (9x GCP) • Silver Google AI Award & 4x Gartner/Forrester Leader 🏆'
+      tag: 'SPEAKING',
+      text: 'Presenting at CAT Conf 2026: "One agent harness for PMs, UXers and FDEs" 🎤 • 9x GCP Certified (Agentic Architect) 🏆'
     },
     nav: {
       about: 'About',
@@ -220,8 +220,8 @@ export const TRANSLATIONS: Record<Language, Translations> = {
   },
   es: {
     banner: {
-      tag: 'NOVEDAD',
-      text: 'Nueva Certificación: Google Cloud Professional Agentic Architect (9x GCP) • Premio Silver Google AI y 4x Líder Gartner/Forrester 🏆'
+      tag: 'CONFERENCIA',
+      text: 'Presentador en CAT Conf 2026: "One agent harness for PMs, UXers and FDEs" 🎤 • Certificado 9x GCP (Agentic Architect) 🏆'
     },
     nav: {
       about: 'Perfil',
@@ -328,8 +328,8 @@ export const TRANSLATIONS: Record<Language, Translations> = {
   },
   zh: {
     banner: {
-      tag: '最新认证',
-      text: '最新认证：荣膺 Google Cloud 专业智能体架构师 (Professional Agentic Architect · 9x GCP)，斩获 Google AI 银奖与 4x 领导者象限 🏆'
+      tag: '最新演讲',
+      text: '受邀主讲 CAT Conf 2026："One agent harness for PMs, UXers and FDEs" 🎤 • 9x GCP 认证 (专业智能体架构师) 🏆'
     },
     nav: {
       about: '关于我',

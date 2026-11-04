@@ -512,6 +512,16 @@ interface SpeakingEvent {
 
 const SPEAKING: SpeakingEvent[] = [
   {
+    title: "One agent harness for PMs, UXers and FDEs 🛠️",
+    event: "CAT Conf 2026",
+    session: "Presenter",
+    time: "November 2026",
+    location: "Google Global / Virtual",
+    image: "/cat_conf_2026.jpg",
+    link: "#",
+    status: "UPCOMING"
+  },
+  {
     title: "Build with Gemini: AI for Enterprise Builders 🚀",
     event: "Build with Gemini",
     session: "Keynote & Hands-On Architecture",
@@ -597,6 +607,7 @@ const SPEAKING: SpeakingEvent[] = [
 function SpeakingCardItem({ speech }: { speech: SpeakingEvent }) {
   const images = speech.images && speech.images.length > 0 ? speech.images : [speech.image];
   const [activeImgIdx, setActiveImgIdx] = useState(0);
+  const isUpcoming = speech.status === 'UPCOMING';
 
   return (
     <motion.div
@@ -606,13 +617,44 @@ function SpeakingCardItem({ speech }: { speech: SpeakingEvent }) {
       viewport={{ once: true }}
       exit={{ opacity: 0, scale: 0.98 }}
       layout
+      style={
+        isUpcoming
+          ? {
+              borderColor: 'var(--accent-coral)',
+              boxShadow: '0 12px 40px var(--accent-coral-glow)'
+            }
+          : undefined
+      }
     >
       <div style={{ flex: '1.2', padding: '40px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
-          <Award size={18} style={{ color: 'var(--accent-cyan)' }} />
-          <span style={{ fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1.5px', fontSize: '11px', color: 'var(--accent-cyan)' }}>
-            {speech.status} SESSION
-          </span>
+          {isUpcoming ? (
+            <span
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                background: 'var(--accent-coral-glow)',
+                border: '1px solid var(--accent-coral)',
+                color: 'var(--accent-coral)',
+                padding: '4px 12px',
+                borderRadius: '999px',
+                fontWeight: 800,
+                textTransform: 'uppercase',
+                letterSpacing: '1.5px',
+                fontSize: '11px'
+              }}
+            >
+              <Sparkles size={14} /> {speech.status} SESSION
+            </span>
+          ) : (
+            <>
+              <Award size={18} style={{ color: 'var(--accent-cyan)' }} />
+              <span style={{ fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1.5px', fontSize: '11px', color: 'var(--accent-cyan)' }}>
+                {speech.status} SESSION
+              </span>
+            </>
+          )}
         </div>
         <h3 style={{ fontSize: '28px', marginBottom: '20px', lineHeight: '1.3' }}>{speech.title}</h3>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '20px', marginBottom: '24px' }}>
@@ -1160,7 +1202,11 @@ function Navbar({
 
 function WhatsNewBanner({ t }: { t: Translations }) {
   return (
-    <a href="#certifications" className="whats-new-banner">
+    <a
+      href="#speaking"
+      onClick={() => trackEvent('banner_click', { destination: '#speaking', event_name: 'CAT Conf 2026' })}
+      className="whats-new-banner"
+    >
       <span className="banner-tag">{t.banner.tag}</span>
       <span>{t.banner.text}</span>
       <ArrowRight size={14} />

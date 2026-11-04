@@ -127,7 +127,7 @@ export function getLocalizedServices(lang: Language) {
       },
       {
         title: 'Evangelismo Técnico y Habilitación 🎤',
-        description: 'Orador principal en Google Cloud Next, Build with Gemini y NorthAm Tech Immersion, coautor de Intro to Agents (1.5M lectores) y Advent of Agents (32k+ desarrolladores).',
+        description: 'Orador y presentador en Google Cloud Next, CAT Conf, Build with Gemini y NorthAm Tech Immersion; coautor de Intro to Agents (1.5M lectores) y Advent of Agents (32k+ desarrolladores).',
         icon: MessageSquare,
         color: '#ff7e5f'
       }
@@ -149,7 +149,7 @@ export function getLocalizedServices(lang: Language) {
       },
       {
         title: '全球技术布道与生态赋能 🎤',
-        description: 'Google Cloud Next 与 Build with Gemini 峰会演讲嘉宾，《Intro to Agents》白皮书合著者（150 万+ 读者）及 Advent of Agents 联合发起人（3.2 万+ 开发者）。',
+        description: 'Google Cloud Next、CAT Conf 与 Build with Gemini 峰会演讲嘉宾，《Intro to Agents》白皮书合著者（150 万+ 读者）及 Advent of Agents 联合发起人（3.2 万+ 开发者）。',
         icon: MessageSquare,
         color: '#ff7e5f'
       }
@@ -170,7 +170,7 @@ export function getLocalizedServices(lang: Language) {
     },
     {
       title: 'Technical Evangelism & Enablement 🎤',
-      description: 'Keynote speaker at Google Cloud Next, Build with Gemini, & NorthAm Tech Immersion, co-author of Intro to Agents (1.5M attendees) and Advent of Agents (32k+ devs).',
+      description: 'Speaker & presenter at Google Cloud Next, CAT Conf, Build with Gemini, & NorthAm Tech Immersion; co-author of Intro to Agents (1.5M attendees) and Advent of Agents (32k+ devs).',
       icon: MessageSquare,
       color: '#ff7e5f'
     }
