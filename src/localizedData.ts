@@ -199,8 +199,8 @@ export function getLocalizedExperience(lang: Language, defaultExp: ExperienceIte
         highlights: [
           'Líder del modelo operativo de Forward Deployed Engineering (FDE) para 15 cuentas empresariales prioritarias en sectores Fortune 50 automotriz, semiconductores e industrial.',
           'Definió el modelo operativo conjunto entre Ingeniería Desplegada (FDE), Servicios Profesionales, Acuerdos Estratégicos Globales, Liderazgo de Producto y Directores de Cuenta para acelerar la activación de IA empresarial.',
-          'Dimensionó oportunidades de ingeniería desplegada para líderes automotrices y de semiconductores basadas en casos de uso de IA de alto impacto.',
-          'Miembro del equipo de cierre de acuerdos por $2B multianuales, generando integrated Google Cloud consulting, enterprise enablement, and partner co-delivery programs.'
+          'Dimensionó proyectos de ingeniería desplegada para líderes automotrices y de semiconductores basados en casos de uso de IA en producción de alto impacto.',
+          'Miembro central del equipo estratégico en acuerdos multianuales multimillonarios de nube e IA, integrando consultoría de Google Cloud, habilitación empresarial y co-entrega con partners.'
         ],
         skills: ['Despliegue Técnico', 'Modelo Operativo FDE', 'Transformación Empresarial', 'Estructuración de Acuerdos']
       },
@@ -212,7 +212,7 @@ export function getLocalizedExperience(lang: Language, defaultExp: ExperienceIte
         description: 'Outbound Product Manager impulsando relaciones con analistas (4 victorias como Líder en Gartner/Forrester), estrategia competitiva y Gobernanza de Agentes GA.',
         highlights: [
           'Lideró las respuestas técnicas RFI, pruebas de arquitectura y construcción de demos en vivo para 4 victorias consecutivas como Líder en Gartner y Forrester (Asistentes de IA Empresarial, CNAP, Forrester Wave AI Platforms y AIADP).',
-          'Dirigió el equipo táctico y sesiones de escalamiento para tarjetas competitivas de Google Cloud across enterprise agent platforms; destacado en GTM Prompt Live Seminar.',
+          'Dirigió el equipo táctico y sesiones de habilitación sobre diferenciación competitiva de agentes empresariales; destacado en GTM Prompt Live Seminar.',
           'Lideró la habilitación de equipos de campo y capturó feedback de clientes sobre Agent Identity, Agent Registry y Agent Gateway para el lanzamiento GA.',
           'Colaboró estrechamente con PMs de producto e ingeniería para priorizar funciones de gobernanza empresarial en la hoja de ruta.'
         ],
@@ -229,7 +229,7 @@ export function getLocalizedExperience(lang: Language, defaultExp: ExperienceIte
           'Coautor del whitepaper ejecutivo "Intro to Agents" para el curso de Kaggle con 1.5M de inscritos, estableciendo el estándar de la industria para LLM Ops.',
           'Lideró la respuesta al Magic Quadrant de Gartner para RFI y Demo, logrando el reconocimiento de Google como Líder en Plataformas de Desarrollo de Aplicaciones de IA.',
           'Coautor de un RFC clave sobre Gobernanza de Agentes, alineando la hoja de ruta a nivel de VP y Directores en 5 áreas de producto.',
-          'Autor de "Gemini Enterprise Governance at Scale", presentado ante los 50 principales clientes empresariales across financial services, life sciences, consulting, and media.',
+          'Autor de "Gemini Enterprise Governance at Scale", presentado ante los 50 principales clientes empresariales en servicios financieros, ciencias de la vida, consultoría y medios.',
           'Ideó y desarrolló AgentOps Cockpit para llevar la gestión de flotas a Gobernanza como Código; dirigió la auditoría global de seguridad de 44 agentes empresariales.'
         ],
         skills: ['Ecosistema de Desarrolladores', 'Gartner Magic Quadrant', 'AgentOps Cockpit', 'Gobernanza Empresarial', 'ADK y A2A']
@@ -239,10 +239,10 @@ export function getLocalizedExperience(lang: Language, defaultExp: ExperienceIte
         logo: 'https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg',
         role: 'Consultor Senior de IA | Cloud Professional Services (PSO)',
         period: 'Jun 2023 — Dic 2025',
-        description: 'Entregó soluciones de IA para 24 proyectos empresariales (portafolio multimillonario, 100% CSAT). Cerró 21 contratos con clientes.',
+        description: 'Entregó soluciones de IA en producción para 24 proyectos empresariales (portafolio multimillonario, 100% CSAT) y cerró 21 acuerdos con clientes.',
         highlights: [
           'Chatbot Olímpico NBC (Oli): Lideró la estrategia técnica del chatbot para los Juegos Olímpicos de París 2024 (40M de espectadores, 90M de consultas) con una tasa de error del 0.5%.',
-          'Arquitectura RLHF y Localización en Global Media: Diseñó una solución RLHF personalizada con 4 pipelines de producción para subtítulos y traducción, asegurando multi-phase expansion en ingresos.',
+          'Arquitectura RLHF y Localización para Medios Globales: Diseñó una solución RLHF personalizada con 4 pipelines de producción para subtítulos y traducción multilingüe, asegurando expansión multifase.',
           'Lanzó el Centro Global de Habilitación de Agentes para Ingenieros de Clientes, Technical Account Managers y Consultoría.'
         ],
         skills: ['Vertex AI', 'RLHF / SFT', 'Provisioned Throughput', 'MLOps Empresarial', 'Chatbots a Gran Escala']
@@ -254,9 +254,9 @@ export function getLocalizedExperience(lang: Language, defaultExp: ExperienceIte
         period: 'Jun 2021 — Jun 2023',
         description: 'Lideró la entrega técnica de migraciones analíticas estratégicas y arquitecturas Data Mesh.',
         highlights: [
-          'Plataforma Analítica Aeroespacial Global: Transformó la migración mono-inquilino en una Arquitectura Mesh Orientada a Fuentes, escalando a casi 30 unidades de negocio.',
+          'Plataforma Analítica Aeroespacial Global: Transformó una migración mono-inquilino en una Arquitectura Mesh Orientada a Fuentes, escalando a casi 30 unidades de negocio.',
           'Líder de Oferta para Modernización de Enterprise Data Warehouse (EDW) en Delivery Navigator.',
-          'Lanzó el panel PSO Noogler Shadow como parte del equipo ganador del Hackathon Q3 2022.'
+          'Lanzó el panel de mentoría PSO Noogler Shadow como parte del equipo ganador del Hackathon Q3 2022.'
         ],
         skills: ['BigQuery', 'Arquitectura de Datos', 'Data Mesh', 'Estrategia de Migración']
       },
@@ -297,10 +297,10 @@ export function getLocalizedExperience(lang: Language, defaultExp: ExperienceIte
         period: '2026 年 6 月 — 至今',
         description: '担任 Google Cloud Delta 团队及 AI 激活 / 前线部署工程 (FDE) 团队的首席技术部署负责人 (Staff TDL)。',
         highlights: [
-          '主导 15 家顶级战略客户（涵盖全球 50 强汽车制造、半导体与工业龙头）的前线部署工程 (FDE) 运营模式。',
+          '主导 15 家顶级战略企业（涵盖全球 50 强汽车制造、半导体与工业龙头）的前线部署工程 (FDE) 运营模式。',
           '跨前线部署工程 (FDE)、专业服务部、全球战略交易团队、产品领导层与大客户高管团队建立联合运营体系，加速企业级 AI 激活。',
-          '围绕高影响力 AI 用例，为头部汽车与半导体企业规划并落地前线部署工程项目。',
-          '作为核心交易团队成员斩获 20 亿美元多年期云承诺，统筹整合 Google Cloud 咨询、企业级赋能与合作伙伴联合交付计划。'
+          '围绕高影响力生产级 AI 用例，为头部汽车与半导体企业规划并落地前线部署工程项目。',
+          '作为核心战略交易团队成员构建十亿美元级多年期云与 AI 合作承诺，统筹整合 Google Cloud 咨询、企业级赋能与合作伙伴联合交付计划。'
         ],
         skills: ['技术部署 (TDL)', 'FDE 运营模式', '企业级 AI 转型', '战略级交易架构']
       },
@@ -312,7 +312,7 @@ export function getLocalizedExperience(lang: Language, defaultExp: ExperienceIte
         description: '负责分析师关系（主导 4 项 Gartner/Forrester 领导者象限大满贯）、竞争策略及 Gemini Enterprise App 智能体治理 GA 发布。',
         highlights: [
           '主导 Google Cloud 连续 4 项权威分析师报告领导者象限的技术 RFI 答辩、架构实证与现场演示环境搭建（Gartner 企业级 AI 助手、云原生应用平台 CNAP、Forrester Wave AI 平台及 Gartner AI 应用开发平台）。',
-          '领导across enterprise agent platforms 的竞争策略与攻防演练特别小组，成果在 Google Cloud GTM 峰会上作为标杆展示。',
+          '领导企业级智能体竞争差异化与一线攻防赋能特别小组，成果在 Google Cloud GTM 峰会上作为标杆展示。',
           '主导一线团队技术赋能，收集客户对 Agent Identity、Agent Registry 与 Agent Gateway 的核心反馈并推动 GA 上线。',
           '与核心产品及工程团队紧密协作，将企业级智能体安全与治理特性纳入核心路线图。'
         ],
@@ -329,7 +329,7 @@ export function getLocalizedExperience(lang: Language, defaultExp: ExperienceIte
           '合著 Kaggle 官方课程《Intro to Agents》高管白皮书，覆盖 150 万+ 注册学员，确立 LLM Ops 与智能体编排行业标准。',
           '主导 Gartner AI 应用开发平台魔力象限技术 RFI 与实时演示，助力 Google 获评领导者象限且执行力位列第一。',
           '合著跨部门智能体治理核心 RFC，促成 5 大产品线（Apigee、Workspace、Gemini Enterprise、Agent Platform、Agent Builder）VP 与总监级路线图对齐。',
-          '撰写《Gemini Enterprise 大规模治理指南》，向全球 Top 50 企业客户（涵盖金融服务、生命科学、咨询与媒体行业）宣讲。',
+          '撰写《Gemini Enterprise 大规模治理指南》，向全球 Top 50 金融服务、生命科学、咨询与媒体行业领军企业宣讲。',
           '设计并研发 AgentOps Cockpit，将智能体集群管理升级为代码化治理 (Governance-as-Code)；主导 44 个企业级智能体的全球安全审计。'
         ],
         skills: ['开发者生态', 'Gartner 魔力象限', 'AgentOps Cockpit', '企业级治理', 'ADK & A2A']
@@ -339,10 +339,10 @@ export function getLocalizedExperience(lang: Language, defaultExp: ExperienceIte
         logo: 'https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg',
         role: '高级 AI 顾问 | 专业服务部 (PSO)',
         period: '2023 年 6 月 — 2025 年 12 月',
-        description: '主导交付 24 个大型企业 AI 项目（数千万美元级业务规模，100% 客户满意度），跨部门促成 21 个客户签约。',
+        description: '主导交付 24 个大型企业生产级 AI 项目（数千万美元级业务规模，100% 客户满意度），跨部门促成 21 个企业客户签约。',
         highlights: [
           'NBC 巴黎奥运会 Oli 智能助手：全权负责 2024 巴黎奥运会官方 AI 助手技术战略（服务 4000 万观众，处理 9000 万次查询），在 GA 前率先落地 Vertex AI 预置吞吐量方案，错误率仅 0.5%。',
-          '全球媒体 本地化与 RLHF 架构：定制研发包含 4 条生产级流水线的 RLHF 字幕与多语言翻译方案，挽救延期风险并推动企业级多期扩展落地。',
+          '全球媒体本地化与 RLHF 架构：定制研发包含 4 条生产级流水线的 RLHF 字幕与多语言翻译方案，加速项目交付并推动多期增购扩展。',
           '面向全球客户工程师 (CE)、技术客户经理 (TAM) 与 Google Cloud 咨询团队创立全球智能体赋能中心。'
         ],
         skills: ['Vertex AI', 'RLHF / 微调', '预置吞吐量 (Provisioned Throughput)', '企业级 MLOps', '超大规模对话系统']
@@ -458,12 +458,12 @@ export function getLocalizedRecentWork<T extends { title: string; tag: string; d
           description: 'Lanzamiento de tecnología transformadora para visitantes (FastPass+, MagicBands) en Walt Disney World.'
         };
       }
-      if (w.title.includes('Global Media Caption & Localization AI')) {
+      if (w.title.includes('Global Media Caption')) {
         return {
           ...w,
-          title: 'IA de Subtítulos y Traducción Global 🎬',
+          title: 'IA de Subtítulos y Localización Global 🎬',
           tag: 'MLOps Avanzado',
-          description: 'Pipelines de STT y traducción de grado de producción utilizando retroalimentación humana (RLHF) y ajuste fino, asegurando multi-phase expansion en ingresos.'
+          description: 'Pipelines de STT y traducción de grado de producción utilizando retroalimentación humana (RLHF) y ajuste fino, asegurando expansión empresarial multifase.'
         };
       }
       return w;
@@ -535,10 +535,10 @@ export function getLocalizedRecentWork<T extends { title: string; tag: string; d
           description: '担任华特迪士尼世界核心研发架构师，推出 FastPass+ 与 MagicBands 智能穿戴游客体验系统。'
         };
       }
-      if (w.title.includes('Global Media Caption & Localization AI')) {
+      if (w.title.includes('Global Media Caption')) {
         return {
           ...w,
-          title: '全球媒体 智能字幕与翻译 AI 🎬',
+          title: '全球媒体智能字幕与多语言本地化 AI 🎬',
           tag: '高阶 MLOps',
           description: '结合人类反馈强化学习 (RLHF) 与模型微调构建生产级语音识别及多语言翻译流水线，推动企业级多期扩展落地。'
         };
@@ -581,7 +581,7 @@ export function getLocalizedAwards(lang: Language, defaultAwards: AwardItem[]): 
       {
         title: "Premio a la Excelencia Cloud GTM 2025 🌟",
         organization: "Google",
-        detail: "Otorgado por el trabajo pionero en casos de uso agénticos para retail en comercio retail empresarial, definiendo el futuro del comercio impulsado por IA.",
+        detail: "Otorgado por el trabajo pionero en casos de uso agénticos de comercio retail empresarial, definiendo el futuro del comercio impulsado por IA.",
         tags: ["2025", "Excelencia Estratégica"]
       },
       {
@@ -640,7 +640,7 @@ export function getLocalizedAwards(lang: Language, defaultAwards: AwardItem[]): 
       {
         title: "2025 Google Cloud GTM 卓越奖 🌟",
         organization: "Google",
-        detail: "表彰在 大型企业零售智能体商业用例中的开创性贡献，定义了 AI 驱动的下一代电子商务体验。",
+        detail: "表彰在大型企业零售智能体商业用例中的开创性贡献，定义了 AI 驱动的下一代电子商务体验。",
         tags: ["2025", "战略卓越奖"]
       },
       {
@@ -669,7 +669,7 @@ export function getLocalizedAwards(lang: Language, defaultAwards: AwardItem[]): 
         tags: ["2024 H2", "客户成功"]
       },
       {
-        title: "PSO 新员工导师赋能看板 (PSO Noogler Shadow) 📈",
+        title: "PSO 新员工导师赋能看板 (Noogler Shadow) 📈",
         organization: "PSO 黑客松",
         detail: "2022 — 北美大区冠军。开发了用于优化 Google 新员工入职导师辅导与项目实践全流程的数字化看板。",
         tags: ["北美区冠军", "2022"]

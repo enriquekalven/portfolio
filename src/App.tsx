@@ -51,8 +51,8 @@ const EXPERIENCE = [
     highlights: [
       'Forward Deployed Engineer (FDE) Operating Model lead for 15 top-qualified enterprise accounts across Fortune 50 automotive, semiconductor, and industrial sectors.',
       'Defined the unified enterprise operating model across Go-To-Market FDE, Delta FDE, Professional Services, Global Strategic Deals, Product Leadership, and Executive Account Leaders to accelerate enterprise AI activation.',
-      'Scoped forward-deployed engineering opportunities across marquee automotive and semiconductor leaders based on high-impact AI use cases.',
-      'Deal team capturing a $2B multi-year commit, generating integrated Google Cloud consulting, enterprise enablement, and partner co-delivery programs.'
+      'Scoped forward-deployed engineering engagements across marquee automotive and semiconductor leaders based on high-impact production AI use cases.',
+      'Core strategic deal team structuring a multi-billion-dollar multi-year cloud & AI commitment across Google Cloud consulting, enterprise enablement, and partner co-delivery programs.'
     ],
     skills: ['Technical Deployment', 'FDE Operating Model', 'Enterprise Transformation', 'Strategic Deal Scoping']
   },
@@ -64,7 +64,7 @@ const EXPERIENCE = [
     description: 'Outbound Product Manager driving analyst relations (4x Gartner/Forrester Leader wins), competitive strategy, and General Availability (GA) Agent Governance for Gemini Enterprise App.',
     highlights: [
       'Led technical RFIs, architectural proof points, and live demo builds for 4 consecutive Google Cloud Analyst Leader wins: Gartner® MQ for Enterprise AI Assistants (Inaugural Leader, Sep 2026), Gartner® MQ for Cloud-Native Application Platforms (Leader 3rd consecutive year, Aug 2026), The Forrester Wave™: AI Platforms (Leader & Top Strategy Score, Aug 2026), and Gartner® MQ for AI Application Development Platforms (Leader & Highest Ability to Execute, May 2026).',
-      'Led tiger team and escalation sessions for Google Cloud competitive battlecards across enterprise agent platforms; featured on GTM Prompt Live Seminar.',
+      'Led cross-functional tiger team and field enablement sessions on enterprise agent competitive differentiation; featured on GTM Prompt Live Seminar.',
       'Led field team training enablement and captured customer feedback on Agent Identity, Agent Registry, and Agent Gateway for Gemini Enterprise App GA Launch.',
       'Partnered closely with inbound PM and engineering teams to prioritize enterprise governance features on the core product roadmap.'
     ],
@@ -81,9 +81,9 @@ const EXPERIENCE = [
       'Co-authored Executive "Intro to Agents" whitepaper for Kaggle course reaching 1.5M registered attendees, setting the industry standard for LLM Ops & Agent Orchestration.',
       'Led Gartner® Magic Quadrant response for RFI and Demo resulting in Google recognized as a Leader in AI Application Development Platforms (Positioned highest for Ability to Execute).',
       'Co-authored pivotal cross-org RFC on Agent Governance, securing VP and Director-level roadmap alignment across 5 distinct product areas (Apigee, Workspace, Gemini Enterprise, Agent Platform, Agent Builder).',
-      'Authored "Gemini Enterprise Governance at Scale" and presented to Top 50 enterprise customers across financial services, life sciences, consulting, and media.',
+      'Authored "Gemini Enterprise Governance at Scale" and presented to Top 50 enterprise customers across global financial services, life sciences, consulting, and media.',
       'Envisioned and developed AgentOps Cockpit to transition fleet management to Governance-as-Code; directed global security audit of 44 active enterprise agents and embedded OpenTelemetry tracing into ADK.',
-      'Authored rapid-response playbook defending large-scale multi-thousand-seat Gemini Enterprise opportunities across technology and telecom accounts.',
+      'Authored rapid-response enterprise positioning playbook defending large-scale multi-thousand-seat Gemini Enterprise opportunities across technology and telecommunications accounts.',
       'Standardized official GenAI Forward Deployed Engineer (FDE) Interview Guide and wrote question banks for the Google Cloud Professional ML Engineer exam.'
     ],
     skills: ['Developer Ecosystem', 'Gartner Magic Quadrant', 'AgentOps Cockpit', 'Enterprise Governance', 'ADK & A2A']
@@ -93,10 +93,10 @@ const EXPERIENCE = [
     logo: 'https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg',
     role: 'Senior AI Consultant | Cloud Professional Services (PSO)',
     period: 'Jun 2023 — Dec 2025',
-    description: 'Delivered AI solutions for 24 customer projects (multi-million-dollar portfolio, 100% CSAT). Closed 21 customer deals.',
+    description: 'Delivered production AI solutions across 24 enterprise engagements (multi-million-dollar portfolio, 100% CSAT) and closed 21 customer deals.',
     highlights: [
       'NBC Olympic Games Oli Chatbot: Owned technical strategy for Paris 2024 Olympic Games chatbot (40M viewers, 90M queries), autonomously devising Vertex AI Provisioned Throughput adoption strategy before GA with 0.5% error rate.',
-      'Global Media Localization & RLHF Architecture: Engineered custom RLHF solution with 4 production-grade pipelines for captions/translation, preventing a 2-week deal delay and securing multi-phase expansion.',
+      'Global Media Localization & RLHF Architecture: Engineered custom RLHF solution with 4 production-grade pipelines for broadcast captions and multilingual translation, accelerating delivery and securing multi-phase expansion.',
       'Launched global Agent Center of Enablement across Customer Engineers, Technical Account Managers, and Google Cloud Consulting.'
     ],
     skills: ['Vertex AI', 'RLHF / SFT', 'Provisioned Throughput', 'Enterprise MLOps', 'High-Scale Chatbots']
@@ -267,7 +267,7 @@ const RECENT_WORK = [
   {
     title: 'Global Media Caption & Localization AI 🎬',
     tag: 'Advanced MLOps',
-    description: 'Production-grade STT/Translation pipelines using human feedback (RLHF) and fine-tuning, securing multi-phase expansion.',
+    description: 'Production-grade STT/Translation pipelines using human feedback (RLHF) and fine-tuning, securing multi-phase enterprise expansion.',
     image: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=1200&auto=format&fit=crop',
     link: '#'
   }
@@ -295,7 +295,7 @@ const AWARDS = [
   {
     title: "Cloud GTM Excellence Award 2025 🌟",
     organization: "Google",
-    detail: "Awarded for pioneering work on Enterprise Retail Agentic Commerce Use Cases, establishing the future of AI-driven commerce experiences.",
+    detail: "Awarded for pioneering work on enterprise retail agentic commerce use cases, establishing the future of AI-driven commerce experiences.",
     tags: ["2025", "Strategic Excellence"]
   },
   {

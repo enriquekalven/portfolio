@@ -13,7 +13,7 @@ A production-grade, multilingual (`EN` / `ES` / `中文`) executive portfolio sh
 
 | Metric | Scope & Outcome |
 | :--- | :--- |
-| **$2B+ Multi-Year Deal Scope** | Core deal & technical scoping team for marquee enterprise AI transformations (integrated Google Cloud consulting, enterprise enablement, and partner co-delivery programs). |
+| **$2B+ Multi-Year Deal Scope** | Core deal & technical scoping team structuring multi-billion-dollar enterprise cloud & AI transformations across consulting, enablement, and partner co-delivery. |
 | **4x Analyst Leader Wins (2026)** | Technical RFI & Live Demo Lead for **Gartner® MQ Enterprise AI Assistants** (Inaugural Leader), **Gartner® MQ CNAP** (3rd consecutive year), **The Forrester Wave™: AI Platforms** (Top Strategy Score), and **Gartner® MQ AIADP** (Highest Ability to Execute). |
 | **40M+ Viewers / 90M+ Queries** | Owned technical strategy for the **NBC Paris 2024 Olympic Games AI Concierge (OLI)** on Vertex AI Provisioned Throughput (0.5% error rate). |
 | **32,000+ Developers & 5T Tokens** | Co-led **Advent of Agents** (Seasons 1 & 2), surging into a Top 5 Global GitHub repository and winning a **Silver Google AI Award**. |

@@ -14,11 +14,11 @@ Every fact below mirrors the portfolio site (https://enriquekchan.web.app). Exec
 - Contact: enriq@google.com (work) · enriquekalven@gmail.com (direct / advisory)
 
 ## Career
-- Google Cloud Delta — Staff Technical Deployment Lead (TDL), Delta (Jun 2026 — Present). Forward Deployed Engineering (FDE) operating-model lead for 15 top-qualified enterprise accounts across Fortune 50 automotive, semiconductor, and industrial sectors; deal team capturing a $2B multi-year commit (integrated Google Cloud consulting, enterprise enablement, and partner co-delivery programs).
+- Google Cloud Delta — Staff Technical Deployment Lead (TDL), Delta (Jun 2026 — Present). Forward Deployed Engineering (FDE) operating-model lead for 15 top-qualified enterprise accounts across Fortune 50 automotive, semiconductor, and industrial sectors; core deal team structuring a multi-billion-dollar multi-year cloud & AI commitment across consulting, enablement, and partner co-delivery.
 - Google Cloud AI — Outbound Product Manager, Gemini Enterprise App (20% rotation, Jun 2026 — Present). Led technical RFIs and live demos for 4 consecutive Google Cloud analyst Leader recognitions; GA launch of Agent Governance for Gemini Enterprise App.
 - Google Cloud AI — Outbound Product Manager, GE Agent Platform & Gemini Enterprise App (full-time rotation, Dec 2025 — Jun 2026). Co-led Advent of Agents Seasons 1 & 2; co-authored the Executive "Intro to Agents" whitepaper for the Kaggle course (1.5M registered attendees); built AgentOps Cockpit.
-- Google Cloud — Senior AI Consultant, Professional Services (PSO) (Jun 2023 — Dec 2025). 24 customer projects (multi-million-dollar portfolio, 100% CSAT); 21 customer deals closed; technical strategy for the NBC Paris 2024 Olympic Games chatbot (40M viewers, 90M queries).
-- Google Cloud — Senior Data Consultant, Professional Services (PSO) (Jun 2021 — Jun 2023). Scaled the Global Aerospace Analytical Platform across nearly 30 business-unit tenants with a source-oriented mesh architecture.
+- Google Cloud — Senior AI Consultant, Professional Services (PSO) (Jun 2023 — Dec 2025). 24 enterprise AI engagements (multi-million-dollar portfolio, 100% CSAT); 21 customer deals closed; technical strategy for the NBC Paris 2024 Olympic Games chatbot (40M viewers, 90M queries).
+- Google Cloud — Senior Data Consultant, Professional Services (PSO) (Jun 2021 — Jun 2023). Scaled a global aerospace analytical platform across nearly 30 business-unit tenants with a source-oriented mesh architecture.
 - Amazon Web Services — Senior Cloud Architect, ProServe Public Sector (May 2020 — May 2021).
 - Accenture — Senior Manager, Cloud Strategy & Data Analytics (May 2011 — May 2020). Led Disney+ global cloud scaling (100M+ users) and MyMagic+ (FastPass+ / MagicBands) product development for Walt Disney World.
 
@@ -42,7 +42,7 @@ Every fact below mirrors the portfolio site (https://enriquekchan.web.app). Exec
 
 ## Awards
 - Silver Google AI Award (2026 Q3) — Advent of Agents
-- Cloud GTM Excellence Award (2025) — Enterprise Retail Agentic Commerce Use Cases
+- Cloud GTM Excellence Award (2025) — Enterprise retail agentic commerce use cases
 - GTM Cloud Tech Impact Award (2024) — NBC Olympics concierge
 - Customer Empathy Award from Google Cloud CEO Thomas Kurian (H2 2024)
 

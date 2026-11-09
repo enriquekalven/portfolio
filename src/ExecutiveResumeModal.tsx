@@ -57,8 +57,8 @@ const ROLES: { role: string; company: string; period: string; note?: string; bul
     company: 'Google Cloud',
     period: 'Jun 2026 — Present',
     bullets: [
-      'Forward Deployed Engineering (FDE) operating-model lead for 15 top-qualified enterprise accounts across Fortune 50 automotive, semiconductor, and industrial sectors; scoped FDE opportunities based on high-impact AI use cases.',
-      'Deal team capturing a $2B multi-year commit, generating integrated Google Cloud consulting, enterprise enablement, and partner co-delivery programs.'
+      'Forward Deployed Engineering (FDE) operating-model lead for 15 top-qualified enterprise accounts across Fortune 50 automotive, semiconductor, and industrial sectors; scoped FDE engagements around high-impact production AI use cases.',
+      'Core strategic deal team structuring a multi-billion-dollar multi-year cloud & AI commitment across Google Cloud consulting, enterprise enablement, and partner co-delivery programs.'
     ]
   },
   {
@@ -77,9 +77,9 @@ const ROLES: { role: string; company: string; period: string; note?: string; bul
     company: 'Google Cloud',
     period: 'Jun 2021 — Dec 2025',
     bullets: [
-      'Delivered AI solutions for 24 customer projects (multi-million-dollar portfolio, 100% CSAT) and closed 21 customer deals.',
+      'Delivered production AI solutions across 24 enterprise engagements (multi-million-dollar portfolio, 100% CSAT) and closed 21 customer deals.',
       'Owned technical strategy for the NBC Paris 2024 Olympic Games chatbot (40M viewers, 90M queries; 0.5% error rate on Vertex AI Provisioned Throughput).',
-      'Engineered a custom RLHF solution with 4 production pipelines for Global Media captions and translation (multi-phase expansion); scaled the Global Aerospace Analytical Platform across nearly 30 business-unit tenants.'
+      'Engineered a custom RLHF solution with 4 production pipelines for global media broadcast captions and multilingual translation (securing multi-phase expansion); scaled a global aerospace analytical platform across nearly 30 business-unit tenants using a source-oriented data mesh.'
     ]
   },
   {
@@ -103,7 +103,7 @@ const ROLES: { role: string; company: string; period: string; note?: string; bul
 
 const AWARDS = [
   'Silver Google AI Award (2026 Q3) — Advent of Agents',
-  'Cloud GTM Excellence Award (2025) — Enterprise Retail Agentic Commerce Use Cases',
+  'Cloud GTM Excellence Award (2025) — Enterprise retail agentic commerce use cases',
   'GTM Cloud Tech Impact Award (2024) — NBC Olympics concierge',
   'Customer Empathy Award from Google Cloud CEO Thomas Kurian (H2 2024)'
 ];

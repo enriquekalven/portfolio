@@ -37,8 +37,8 @@ EXPERIENCE = [
         "highlights": [
             "Forward Deployed Engineer (FDE) Operating Model lead for 15 top-qualified enterprise accounts across Fortune 50 automotive, semiconductor, and industrial sectors.",
             "Defined the unified enterprise operating model across Go-To-Market FDE, Delta FDE, Professional Services, Global Strategic Deals, Product Leadership, and Executive Account Leaders.",
-            "Led scoping of Forward Deployed Engineering opportunities across marquee automotive and semiconductor leaders based on their AI use cases.",
-            "Deal team capturing a $2B multi-year commit, generating integrated Google Cloud consulting, enterprise enablement, and partner co-delivery programs."
+            "Led scoping of Forward Deployed Engineering engagements across marquee automotive and semiconductor leaders based on high-impact production AI use cases.",
+            "Core strategic deal team structuring a multi-billion-dollar multi-year cloud & AI commitment across Google Cloud consulting, enterprise enablement, and partner co-delivery programs."
         ],
         "skills": ["Technical Deployment", "FDE Operating Model", "Enterprise Transformation", "Strategic Deal Scoping"]
     },
@@ -48,7 +48,7 @@ EXPERIENCE = [
         "period": "Jun 2026 - Present",
         "highlights": [
             "Led technical RFIs, architectural proof points, and live demo builds for 4 consecutive Google Cloud Analyst Leader wins: Gartner® MQ for Enterprise AI Assistants (Inaugural Leader, Sep 2026), Gartner® MQ for Cloud-Native Application Platforms (Leader 3rd consecutive year, Aug 2026), The Forrester Wave™: AI Platforms (Leader & Top Strategy Score, Aug 2026), and Gartner® MQ for AI Application Development Platforms (Leader & Highest Ability to Execute, May 2026).",
-            "Launched led tiger team and escalation sessions to build competitive strategy across enterprise agent platforms; refreshed battlecards featured on the GTM Prompt Live Seminar.",
+            "Led cross-functional tiger team and field enablement sessions on enterprise agent competitive differentiation; featured on the GTM Prompt Live Seminar.",
             "Launched General Availability (GA) of Agent Governance for Gemini Enterprise App.",
             "Led field team training enablement and captured customer feedback on Agent Identity, Agent Registry, and Agent Gateway for Gemini Enterprise App."
         ],
@@ -63,10 +63,10 @@ EXPERIENCE = [
             "Co-authored Executive 'Intro to Agents' whitepaper for Kaggle course reaching 1.5M registered attendees, setting the industry standard for LLM Ops and agent orchestration.",
             "Led Gartner Magic Quadrant response for RFI and Demo, resulting in Google named a Leader in AI Application Development Platforms (Positioned highest for Ability to Execute).",
             "Enterprise Agent Governance & Platform Strategy: Co-authored pivotal cross-org RFC resolving strategic messaging across 5 product areas (Apigee, Workspace, Gemini Enterprise, Agent Platform, Agent Builder); secured VP and Director-level roadmap alignment.",
-            "Gemini Enterprise Governance at Scale: Authored seller-facing guidance presented to Top 50 customers across financial services, life sciences, consulting, and media.",
+            "Gemini Enterprise Governance at Scale: Authored seller-facing guidance presented to Top 50 enterprise customers across global financial services, life sciences, consulting, and media.",
             "Co-owner solving end-to-end OAuth flow from Gemini Enterprise to custom agents (ADK & A2A).",
             "Proposed and launched ADK Skills within ADK core based on UX and user requirements.",
-            "Competitive Strategy: Authored rapid-response playbook defending a large-scale multi-thousand-seat Gemini Enterprise opportunities across technology and telecom accounts.",
+            "Competitive Strategy: Authored rapid-response enterprise positioning playbook defending large-scale multi-thousand-seat Gemini Enterprise opportunities across technology and telecommunications accounts.",
             "Envisioned and developed AgentOps Cockpit to transition fleet management to Governance-as-Code; directed global security audit of 44 enterprise agents, hardened 450+ sample agents, and embedded OpenTelemetry tracing into ADK.",
             "Standardized official GenAI Forward Deployed Engineer (FDE) Interview Guide and authored question banks for the Google Cloud Professional ML Engineer certification exam."
         ],
@@ -77,10 +77,10 @@ EXPERIENCE = [
         "role": "Senior AI Consultant | Cloud Professional Services Organization (PSO)",
         "period": "Jun 2023 - Dec 2025",
         "highlights": [
-            "Delivered AI solutions for 24 customer projects (multi-million-dollar portfolio, 100% CSAT).",
+            "Delivered production AI solutions across 24 enterprise engagements (multi-million-dollar portfolio, 100% CSAT).",
             "NBC Olympic Games Oli Chatbot: Owned technical strategy for Paris 2024 Olympic Games AI concierge (40M viewers, 90M queries), autonomously devising Vertex AI Provisioned Throughput strategy with a 0.5% error rate.",
-            "Global Media Localization & RLHF Architecture: Engineered custom RLHF solution with 4 production-grade pipelines for captions and translation, preventing a 2-week deal delay and securing multi-phase expansion.",
-            "Closed 21 customer deals cross-functionally with Sales and Professional Services.",
+            "Global Media Localization & RLHF Architecture: Engineered custom RLHF solution with 4 production-grade pipelines for broadcast captions and multilingual translation, accelerating delivery and securing multi-phase expansion.",
+            "Closed 21 customer engagements cross-functionally with Sales and Professional Services.",
             "Launched global Agent Center of Enablement across Customer Engineers, Technical Account Managers, and Google Cloud Consulting."
         ],
         "skills": ["Vertex AI", "RLHF / SFT", "Provisioned Throughput", "Enterprise MLOps", "High-Scale Chatbots"]
@@ -91,7 +91,7 @@ EXPERIENCE = [
         "period": "Jun 2021 - Jun 2023",
         "highlights": [
             "Global Aerospace Analytical Platform: Re-architected single-tenant migration into a Source-Oriented Mesh Architecture, scaling across nearly 30 business-unit tenants.",
-            "Global Media Analytics: Quarterbacked large-scale enterprise analytics migrations to BigQuery.",
+            "Global Media & Streaming Analytics: Quarterbacked large-scale enterprise analytics migrations to BigQuery.",
             "Offering Lead for Enterprise Data Warehouse (EDW) Modernization into Google Cloud Delivery Navigator.",
             "Launched PSO Noogler Shadow mentorship dashboard as part of the Q3 2022 Hackathon North America winning team."
         ],
