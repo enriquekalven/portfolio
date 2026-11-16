@@ -39,6 +39,13 @@ import {
 import confetti from 'canvas-confetti';
 // @ts-expect-error: konami-code-js does not have type definitions
 import Konami from 'konami-code-js';
+import { SEASON_THEMES, type SeasonSelection, type SeasonThemeDefinition, type SeasonThemeId } from './seasonalTheme';
+import { useSeasonalTheme } from './useSeasonalTheme';
+import {
+  SeasonalSkyCanvas,
+  SeasonalThemePicker,
+  SeasonalGreetingRibbon
+} from './SeasonalExperience';
 
 /* --- Data --- */
 const EXPERIENCE = [
@@ -1059,6 +1066,13 @@ function Navbar({
   onToggleTheme,
   lang,
   onChangeLang,
+  seasonSelection,
+  activeSeasonTheme,
+  calendarSeasonId,
+  motionEnabled,
+  onSelectSeason,
+  onToggleMotion,
+  onCelebrate,
   t
 }: {
   onEasterEgg: () => void;
@@ -1069,6 +1083,13 @@ function Navbar({
   onToggleTheme: () => void;
   lang: Language;
   onChangeLang: (lang: Language) => void;
+  seasonSelection: SeasonSelection;
+  activeSeasonTheme: SeasonThemeDefinition;
+  calendarSeasonId: SeasonThemeId;
+  motionEnabled: boolean;
+  onSelectSeason: (next: SeasonSelection, source?: string) => void;
+  onToggleMotion: (enabled: boolean) => void;
+  onCelebrate: (x?: number, y?: number) => void;
   t: Translations;
 }) {
   const [scrolled, setScrolled] = useState(false);
@@ -1107,7 +1128,7 @@ function Navbar({
           onClick={handleTap}
           style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }}
         >
-          <div style={{ width: '38px', height: '38px', borderRadius: '50%', overflow: 'hidden', border: '2px solid var(--accent-cyan)', boxShadow: '0 0 12px rgba(56,189,248,0.3)' }}>
+          <div style={{ width: '38px', height: '38px', borderRadius: '50%', overflow: 'hidden', border: '2px solid var(--accent-cyan)', boxShadow: 'var(--glow-shadow)' }}>
             <img src="/profile_bubble.jpg" alt="Enrique Chan" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
           <span style={{ fontWeight: 800 }}>Enrique Chan</span>
@@ -1130,8 +1151,8 @@ function Navbar({
             onClick={() => trackEvent('concierge_launch', { source: 'navbar' })}
             className="nav-media-btn"
             style={{
-              background: "rgba(56, 189, 248, 0.14)",
-              borderColor: "rgba(56, 189, 248, 0.45)",
+              background: "var(--accent-soft)",
+              borderColor: "var(--accent-border)",
               color: "var(--accent-cyan)",
             }}
           >
@@ -1160,6 +1181,17 @@ function Navbar({
         </div>
 
         <div className="nav-actions">
+          <SeasonalThemePicker
+            lang={lang}
+            selection={seasonSelection}
+            activeTheme={activeSeasonTheme}
+            calendarThemeId={calendarSeasonId}
+            motionEnabled={motionEnabled}
+            onSelect={onSelectSeason}
+            onToggleMotion={onToggleMotion}
+            onCelebrate={onCelebrate}
+          />
+
           <div className="lang-switcher" title="Language / Idioma / 语言">
             <Globe size={13} style={{ marginLeft: '6px', color: 'var(--text-secondary)' }} />
             <button
@@ -1270,6 +1302,21 @@ function LandingPage() {
   const [lang, setLang] = useState<Language>(() => {
     return (localStorage.getItem('lang') as Language) || 'en';
   });
+  const {
+    selection: seasonSelection,
+    activeTheme: activeSeasonTheme,
+    calendarThemeId: calendarSeasonId,
+    motionEnabled: seasonMotionEnabled,
+    setSelection: setSeasonSelection,
+    setMotionEnabled: setSeasonMotionEnabled,
+    triggerCelebration
+  } = useSeasonalTheme();
+
+  const cycleNextSeasonTheme = useCallback(() => {
+    const idx = SEASON_THEMES.findIndex((item) => item.id === activeSeasonTheme.id);
+    const next = SEASON_THEMES[(idx + 1) % SEASON_THEMES.length];
+    setSeasonSelection(next.id, 'hero_ribbon_cycle');
+  }, [activeSeasonTheme.id, setSeasonSelection]);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -1300,10 +1347,10 @@ function LandingPage() {
       particleCount: 150,
       spread: 70,
       origin: { y: 0.6 },
-      colors: ['#38bdf8', '#ff7e5f', '#818cf8', '#ffffff']
+      colors: [...activeSeasonTheme.confettiColors]
     });
     setComicUnlocked(true);
-  }, [comicUnlocked]);
+  }, [comicUnlocked, activeSeasonTheme.confettiColors]);
 
   useEffect(() => {
     new Konami(() => {
@@ -1328,6 +1375,7 @@ function LandingPage() {
 
   return (
     <div className="app">
+      <SeasonalSkyCanvas theme={activeSeasonTheme} motionEnabled={seasonMotionEnabled} />
       <WhatsNewBanner t={t} />
       <Navbar
         onEasterEgg={triggerEasterEgg}
@@ -1351,6 +1399,13 @@ function LandingPage() {
           trackEvent('language_change', { from_lang: lang, to_lang: nextLang });
           setLang(nextLang);
         }}
+        seasonSelection={seasonSelection}
+        activeSeasonTheme={activeSeasonTheme}
+        calendarSeasonId={calendarSeasonId}
+        motionEnabled={seasonMotionEnabled}
+        onSelectSeason={setSeasonSelection}
+        onToggleMotion={setSeasonMotionEnabled}
+        onCelebrate={triggerCelebration}
         t={t}
       />
 
@@ -1362,6 +1417,16 @@ function LandingPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
+          <div>
+            <SeasonalGreetingRibbon
+              lang={lang}
+              selection={seasonSelection}
+              activeTheme={activeSeasonTheme}
+              onCelebrate={triggerCelebration}
+              onCycleNext={cycleNextSeasonTheme}
+            />
+          </div>
+
           <div className="role-badge">
             <Sparkles size={16} /> {t.hero.badge}
           </div>
@@ -1405,8 +1470,8 @@ function LandingPage() {
               rel="noopener noreferrer"
               className="cta-button-outline"
               style={{
-                borderColor: "rgba(56, 189, 248, 0.55)",
-                background: "rgba(56, 189, 248, 0.12)",
+                borderColor: "var(--accent-border)",
+                background: "var(--accent-soft)",
                 color: "var(--accent-cyan)",
                 fontWeight: 700,
               }}
@@ -1418,8 +1483,8 @@ function LandingPage() {
               className="cta-button-outline"
               style={{
                 cursor: 'pointer',
-                borderColor: 'rgba(56, 189, 248, 0.45)',
-                background: 'rgba(56, 189, 248, 0.08)',
+                borderColor: 'var(--accent-border)',
+                background: 'var(--accent-soft)',
                 color: 'var(--accent-cyan)',
                 fontWeight: 700
               }}
@@ -1571,7 +1636,7 @@ function LandingPage() {
             >
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px', gap: '8px', flexWrap: 'wrap' }}>
-                  <span style={{ fontSize: '11px', fontWeight: 800, color: 'var(--accent-cyan)', textTransform: 'uppercase', letterSpacing: '1px', background: 'rgba(56, 189, 248, 0.12)', padding: '4px 10px', borderRadius: '999px' }}>
+                  <span style={{ fontSize: '11px', fontWeight: 800, color: 'var(--accent-cyan)', textTransform: 'uppercase', letterSpacing: '1px', background: 'var(--accent-soft)', padding: '4px 10px', borderRadius: '999px' }}>
                     {report.badge}
                   </span>
                   <span style={{ fontSize: '12px', color: 'var(--text-muted)', fontWeight: 600 }}>

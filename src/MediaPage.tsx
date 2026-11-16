@@ -6,6 +6,9 @@ import { motion } from 'framer-motion';
 import { ContactModal } from './App';
 import { ExecutiveResumeModal } from './ExecutiveResumeModal';
 import { trackEvent } from './firebase';
+import type { Language } from './i18n';
+import { useSeasonalTheme } from './useSeasonalTheme';
+import { SeasonalSkyCanvas, SeasonalThemePicker } from './SeasonalExperience';
 
 const MEDIA = [
   {
@@ -139,6 +142,18 @@ function MediaPage() {
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
     return (localStorage.getItem('theme') as 'dark' | 'light') || 'dark';
   });
+  const [lang] = useState<Language>(() => {
+    return (localStorage.getItem('lang') as Language) || 'en';
+  });
+  const {
+    selection: seasonSelection,
+    activeTheme: activeSeasonTheme,
+    calendarThemeId: calendarSeasonId,
+    motionEnabled: seasonMotionEnabled,
+    setSelection: setSeasonSelection,
+    setMotionEnabled: setSeasonMotionEnabled,
+    triggerCelebration
+  } = useSeasonalTheme();
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -161,10 +176,11 @@ function MediaPage() {
 
   return (
     <div className="app">
+      <SeasonalSkyCanvas theme={activeSeasonTheme} motionEnabled={seasonMotionEnabled} />
       <nav className="navbar scrolled">
         <div className="nav-container">
           <Link to="/" className="logo" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
-            <div style={{ width: '38px', height: '38px', borderRadius: '50%', overflow: 'hidden', border: '2px solid var(--accent-cyan)', boxShadow: '0 0 12px rgba(56,189,248,0.3)' }}>
+            <div style={{ width: '38px', height: '38px', borderRadius: '50%', overflow: 'hidden', border: '2px solid var(--accent-cyan)', boxShadow: 'var(--glow-shadow)' }}>
               <img src="/profile_bubble.jpg" alt="Enrique Chan" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
             <span style={{ fontWeight: 800 }}>Enrique Chan</span>
@@ -173,6 +189,16 @@ function MediaPage() {
             <Link to="/">Home</Link>
           </div>
           <div className="media-nav-actions" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <SeasonalThemePicker
+              lang={lang}
+              selection={seasonSelection}
+              activeTheme={activeSeasonTheme}
+              calendarThemeId={calendarSeasonId}
+              motionEnabled={seasonMotionEnabled}
+              onSelect={setSeasonSelection}
+              onToggleMotion={setSeasonMotionEnabled}
+              onCelebrate={triggerCelebration}
+            />
             <button
               onClick={() => {
                 const nextTheme = theme === 'dark' ? 'light' : 'dark';
@@ -239,7 +265,7 @@ function MediaPage() {
                     cursor: 'pointer',
                     transition: 'all 0.2s ease',
                     border: isActive ? '1px solid var(--accent-cyan)' : '1px solid var(--border-subtle)',
-                    background: isActive ? 'rgba(56, 189, 248, 0.14)' : 'var(--bg-card)',
+                    background: isActive ? 'var(--accent-soft)' : 'var(--bg-card)',
                     color: isActive ? 'var(--accent-cyan)' : 'var(--text-secondary)'
                   }}
                 >
@@ -327,7 +353,7 @@ function MediaPage() {
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '14px' }}>
                     <span
                       style={{
-                        background: 'rgba(56, 189, 248, 0.12)',
+                        background: 'var(--accent-soft)',
                         color: 'var(--accent-cyan)',
                         padding: '4px 12px',
                         borderRadius: '100px',

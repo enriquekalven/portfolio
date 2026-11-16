@@ -91,7 +91,7 @@ body::before {
   width: 50vw;
   height: 50vw;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+  background: radial-gradient(circle, var(--orb-1, rgba(56, 189, 248, 0.08)) 0%, rgba(0, 0, 0, 0) 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -104,7 +104,7 @@ body::after {
   width: 50vw;
   height: 50vw;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 126, 95, 0.07) 0%, rgba(0, 0, 0, 0) 70%);
+  background: radial-gradient(circle, var(--orb-2, rgba(255, 126, 95, 0.07)) 0%, rgba(0, 0, 0, 0) 70%);
   pointer-events: none;
   z-index: 0;
 }
