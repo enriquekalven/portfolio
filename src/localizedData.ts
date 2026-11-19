@@ -579,8 +579,8 @@ export function getLocalizedAwards(lang: Language, defaultAwards: AwardItem[]): 
       {
         title: "1er Lugar: Hackathon VibeLift 2026 🥇",
         organization: "Hackathon VibeLift 2026",
-        detail: "2026 — Ganador del 1er Lugar en el Hackathon VibeLift 2026.",
-        tags: ["1er Lugar", "2026"]
+        detail: "2026 — Ganador del 1er Lugar entre 131 ideas presentadas (22 preseleccionadas, 3 ganadores) en el Hackathon VibeLift 2026.",
+        tags: ["1er Lugar", "1 / 131", "2026"]
       },
       {
         title: "Premio Silver Google AI 🥈",
@@ -644,8 +644,8 @@ export function getLocalizedAwards(lang: Language, defaultAwards: AwardItem[]): 
       {
         title: "冠军 (第 1 名)：VibeLift 2026 黑客松 🥇",
         organization: "VibeLift 2026 Hackathon",
-        detail: "2026 — 荣获 VibeLift 2026 黑客松第一名 (1st Place)。",
-        tags: ["第 1 名", "2026"]
+        detail: "2026 — 在 VibeLift 2026 黑客松中从 131 份参赛创意中脱颖而出（22 项入围、3 项获奖），荣获第一名 (1st Place)。",
+        tags: ["第 1 名", "1 / 131", "2026"]
       },
       {
         title: "Google AI 银奖 🥈",

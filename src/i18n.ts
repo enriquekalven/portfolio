@@ -113,7 +113,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
   en: {
     banner: {
       tag: '1ST PLACE',
-      text: '🥇 1st Place — VibeLift 2026 Hackathon • Presenting at CAT Conf 2026 🎤 • Explore Atlas of Wonder 🌍'
+      text: '🥇 1st Place — VibeLift 2026 Hackathon (131 ideas submitted, 22 shortlisted, 3 winners) • Presenting at CAT Conf 2026 🎤 • Atlas of Wonder 🌍'
     },
     nav: {
       about: 'About',
@@ -221,7 +221,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
   es: {
     banner: {
       tag: '1ER LUGAR',
-      text: '🥇 1er Lugar — Hackathon VibeLift 2026 • Ponente en CAT Conf 2026 🎤 • Explora Atlas of Wonder 🌍'
+      text: '🥇 1er Lugar — Hackathon VibeLift 2026 (131 ideas presentadas, 22 preseleccionadas, 3 ganadores) • CAT Conf 2026 🎤 • Atlas of Wonder 🌍'
     },
     nav: {
       about: 'Perfil',
@@ -329,7 +329,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
   zh: {
     banner: {
       tag: '黑客松冠军',
-      text: '🥇 VibeLift 2026 黑客松冠军 (1st Place) • 受邀主讲 CAT Conf 2026 🎤 • 探索 Atlas of Wonder 🌍'
+      text: '🥇 VibeLift 2026 黑客松冠军 (131 份创意 · 22 项入围 · 3 项获奖) • 受邀主讲 CAT Conf 2026 🎤 • Atlas of Wonder 🌍'
     },
     nav: {
       about: '关于我',

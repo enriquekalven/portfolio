@@ -303,8 +303,8 @@ const AWARDS = [
   {
     title: "1st Place Winner: VibeLift 2026 Hackathon 🥇",
     organization: "VibeLift 2026 Hackathon",
-    detail: "2026 — Awarded 1st Place at the VibeLift 2026 Hackathon.",
-    tags: ["1st Place", "2026"]
+    detail: "2026 — Won 1st Place out of 131 ideas submitted (22 shortlisted, 3 winners) at the VibeLift 2026 Hackathon.",
+    tags: ["1st Place", "1 / 131", "2026"]
   },
   {
     title: "Silver Google AI Award 🥈",

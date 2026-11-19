@@ -102,7 +102,7 @@ const ROLES: { role: string; company: string; period: string; note?: string; bul
 ];
 
 const AWARDS = [
-  '1st Place Winner — VibeLift 2026 Hackathon',
+  '1st Place Winner — VibeLift 2026 Hackathon (131 ideas submitted, 22 shortlisted, 3 winners)',
   'Silver Google AI Award (2026 Q3) — Advent of Agents',
   'Cloud GTM Excellence Award (2025) — Enterprise retail agentic commerce use cases',
   'GTM Cloud Tech Impact Award (2024) — NBC Olympics concierge',
