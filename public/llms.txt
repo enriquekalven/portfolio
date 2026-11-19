@@ -29,6 +29,7 @@ Every fact below mirrors the portfolio site (https://enriquekchan.web.app). Exec
 - Gartner® Magic Quadrant for AI Application Development Platforms — Leader, Highest Ability to Execute (May 2026)
 
 ## Open-source projects & live apps
+- Atlas of Wonder — Interactive 3D family & science discovery portal uniting 13 live worlds across space, anatomy, deep time, fossils, engineering, and stories in 11 languages with 25 seasonal & global holiday themes. Live: https://atlas-of-wonder.web.app/ · Code: https://github.com/enriquekalven/atlas-of-wonder
 - AgentOps Cockpit — Governance-as-Code for enterprise agent fleets. Live: https://agent-cockpit.web.app/ · Code: https://github.com/enriquekalven/agent-cockpit · PyPI: https://pypi.org/project/agentops-cockpit/
 - Economic Research Agent (Agent Garden) — ADK econometrics agent over FRED, Census & HUD APIs. Live: https://economic-research.web.app/ · Code: https://github.com/enriquekalven/economic-research-agent
 - Curious Little Minds (Lily & Robo Story Agent) — Gemini + AlphaEvolve children's book publishing engine. Live: https://curious-little-minds.web.app/ · Code: https://github.com/enriquekalven/story-agent
@@ -41,6 +42,7 @@ Every fact below mirrors the portfolio site (https://enriquekchan.web.app). Exec
 - Google Cloud Next '26, '25 & '24 — Speaker & Executive Sessions, Las Vegas, NV (2024–2026)
 
 ## Awards
+- 1st Place Winner — VibeLift 2026 Hackathon (2026)
 - Silver Google AI Award (2026 Q3) — Advent of Agents
 - Cloud GTM Excellence Award (2025) — Enterprise retail agentic commerce use cases
 - GTM Cloud Tech Impact Award (2024) — NBC Olympics concierge

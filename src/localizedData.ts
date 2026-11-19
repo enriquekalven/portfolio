@@ -394,6 +394,14 @@ export function getLocalizedExperience(lang: Language, defaultExp: ExperienceIte
 export function getLocalizedRecentWork<T extends { title: string; tag: string; description: string }>(lang: Language, defaultWork: T[]): T[] {
   if (lang === 'es') {
     return defaultWork.map((w) => {
+      if (w.title.includes('Atlas of Wonder')) {
+        return {
+          ...w,
+          title: 'Atlas of Wonder 🌍✨',
+          tag: 'Portal 3D Interactivo / 13 Mundos en Vivo',
+          description: 'Portal interactivo de ciencia y descubrimiento familiar que reúne 13 mundos 3D en vivo — desde Cosmic Explorer, Human Body Atlas y ChronoVerse hasta DinoVerse, Inside Out Studio y Hominin Atlas — en 11 idiomas con 25 temas estacionales y festivos.'
+        };
+      }
       if (w.title.includes('Economic Research Agent')) {
         return {
           ...w,
@@ -471,6 +479,14 @@ export function getLocalizedRecentWork<T extends { title: string; tag: string; d
   }
   if (lang === 'zh') {
     return defaultWork.map((w) => {
+      if (w.title.includes('Atlas of Wonder')) {
+        return {
+          ...w,
+          title: 'Atlas of Wonder 奇境图谱 🌍✨',
+          tag: '交互式 3D 探索门户 / 13 个在线世界',
+          description: '面向家庭与科学探索的交互式 3D 门户，汇聚 13 个实时在线世界——涵盖宇宙探索、人体解剖、时间长河、恐龙化石、机械透视与人类演化——支持 11 种语言与 25 套四季及全球节日主题。'
+        };
+      }
       if (w.title.includes('Economic Research Agent')) {
         return {
           ...w,
@@ -561,6 +577,12 @@ export function getLocalizedAwards(lang: Language, defaultAwards: AwardItem[]): 
   if (lang === 'es') {
     return [
       {
+        title: "1er Lugar: Hackathon VibeLift 2026 🥇",
+        organization: "Hackathon VibeLift 2026",
+        detail: "2026 — Ganador del 1er Lugar en el Hackathon VibeLift 2026.",
+        tags: ["1er Lugar", "2026"]
+      },
+      {
         title: "Premio Silver Google AI 🥈",
         organization: "Google AI",
         detail: "2026 Q3 — Ganador del Premio Silver Google AI (2026 Q3) por Advent of Agents.",
@@ -619,6 +641,12 @@ export function getLocalizedAwards(lang: Language, defaultAwards: AwardItem[]): 
   }
   if (lang === 'zh') {
     return [
+      {
+        title: "冠军 (第 1 名)：VibeLift 2026 黑客松 🥇",
+        organization: "VibeLift 2026 Hackathon",
+        detail: "2026 — 荣获 VibeLift 2026 黑客松第一名 (1st Place)。",
+        tags: ["第 1 名", "2026"]
+      },
       {
         title: "Google AI 银奖 🥈",
         organization: "Google AI",

@@ -751,6 +751,38 @@
   box-shadow: var(--card-shadow), var(--glow-shadow);
 }
 
+.author-card--featured {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  border-color: var(--accent-border, rgba(56, 189, 248, 0.35));
+}
+
+.author-card--featured .author-card-media {
+  flex: 1.05;
+  height: auto;
+  min-height: 320px;
+}
+
+.author-card--featured .author-card-content {
+  flex: 1;
+  padding: 34px;
+}
+
+@media (max-width: 900px) {
+  .author-card--featured {
+    flex-direction: column;
+  }
+
+  .author-card--featured .author-card-media {
+    min-height: 220px;
+    height: 240px;
+  }
+
+  .author-card--featured .author-card-content {
+    padding: 28px;
+  }
+}
+
 .author-card-media {
   position: relative;
   width: 100%;

@@ -149,7 +149,26 @@ const EXPERIENCE = [
   }
 ];
 
-const RECENT_WORK = [
+const RECENT_WORK: Project[] = [
+  {
+    title: 'Atlas of Wonder 🌍✨',
+    tag: 'Interactive 3D Portal / 13 Live Worlds',
+    featured: true,
+    description: 'An interactive family & science discovery portal uniting 13 live 3D worlds—from Cosmic Explorer, Human Body Atlas, and ChronoVerse to DinoVerse, Inside Out Studio, and Hominin Atlas—in 11 languages with 25 seasonal & global holiday themes.',
+    image: '/atlas_of_wonder.jpg',
+    link: 'https://atlas-of-wonder.web.app/',
+    repoUrl: 'https://github.com/enriquekalven/atlas-of-wonder',
+    details: {
+      highlights: [
+        "13 Live Interactive Worlds: Spans space (Cosmic Explorer 3D), anatomy (Human Body 3D Atlas), deep time (ChronoVerse 3D), paleontology (DinoVerse & Hominin Atlas), engineering cutaways (Inside Out Studio), anime universes, stories, and family digital wellness.",
+        "11-Language Global Parity: Full localized UI and catalog across English, Spanish, Chinese (Simplified & Cantonese), Japanese, Korean, Portuguese, French, Italian, German, and Arabic with RTL support.",
+        "25-Theme Seasonal & Holiday Engine: Adapts automatically across all 4 seasons and 21 cultural & USA holidays with Canvas 2D sky effects, Celebrate! bursts, and seamless ?season= carryover across every child world.",
+        "Zero-Dependency Strict CSP Architecture: Built with pure HTML, CSS, and ES modules, Day/Night themes, audience filters (Kids, Students, Parents, Clinicians), and 58 automated verification tests."
+      ],
+      strategy: "Designed as a joyful, ad-free doorway for kids, students, parents, and clinicians to explore science, history, engineering, and stories together—turning curiosity into hands-on 3D discovery.",
+      team: "Enrique Chan"
+    }
+  },
   {
     title: 'SafeKids Portal 🛡️👶',
     tag: 'Parenting Tech / Family Blueprint',
@@ -281,6 +300,12 @@ const RECENT_WORK = [
 ];
 
 const AWARDS = [
+  {
+    title: "1st Place Winner: VibeLift 2026 Hackathon 🥇",
+    organization: "VibeLift 2026 Hackathon",
+    detail: "2026 — Awarded 1st Place at the VibeLift 2026 Hackathon.",
+    tags: ["1st Place", "2026"]
+  },
   {
     title: "Silver Google AI Award 🥈",
     organization: "Google AI",
@@ -1235,8 +1260,8 @@ function Navbar({
 function WhatsNewBanner({ t }: { t: Translations }) {
   return (
     <a
-      href="#speaking"
-      onClick={() => trackEvent('banner_click', { destination: '#speaking', event_name: 'CAT Conf 2026' })}
+      href="#awards"
+      onClick={() => trackEvent('banner_click', { destination: '#awards', event_name: 'VibeLift 2026 Hackathon 1st Place' })}
       className="whats-new-banner"
     >
       <span className="banner-tag">{t.banner.tag}</span>
@@ -1254,6 +1279,7 @@ interface Comic {
 interface Project {
   title: string;
   tag: string;
+  featured?: boolean;
   description: string;
   image: string;
   link: string;
@@ -1264,6 +1290,24 @@ interface Project {
     team: string;
     caseStudyImage?: string;
   };
+}
+
+const SEASONAL_CARRYOVER_HOSTS = new Set([
+  'atlas-of-wonder.web.app',
+  'safe-kids.web.app',
+  'curious-little-minds.web.app'
+]);
+
+function withSeasonCarryover(rawUrl: string, selection: SeasonSelection): string {
+  if (selection === 'auto' || !rawUrl || rawUrl === '#') return rawUrl;
+  try {
+    const parsed = new URL(rawUrl);
+    if (!SEASONAL_CARRYOVER_HOSTS.has(parsed.hostname)) return rawUrl;
+    parsed.searchParams.set('season', selection);
+    return parsed.toString();
+  } catch {
+    return rawUrl;
+  }
 }
 
 function LandingPage() {
@@ -1334,8 +1378,8 @@ function LandingPage() {
   const localizedRecentWork = getLocalizedRecentWork(lang, RECENT_WORK);
   const localizedAwards = getLocalizedAwards(lang, AWARDS);
 
-  const authorCreations = localizedRecentWork.slice(0, 4);
-  const enterpriseDeployments = localizedRecentWork.slice(4);
+  const authorCreations = localizedRecentWork.slice(0, 5);
+  const enterpriseDeployments = localizedRecentWork.slice(5);
   const displayedEnterpriseProjects = projectsExpanded ? enterpriseDeployments : enterpriseDeployments.slice(0, 3);
   const displayedSpeaking = speakingExpanded ? SPEAKING : SPEAKING.slice(0, 3);
 
@@ -1793,7 +1837,7 @@ function LandingPage() {
           {authorCreations.map((creation) => (
             <motion.div
               key={creation.title}
-              className="author-card"
+              className={`author-card${creation.featured ? ' author-card--featured' : ''}`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -1836,7 +1880,7 @@ function LandingPage() {
                 <div className="author-card-actions">
                   {creation.link && creation.link !== '#' && (
                     <a
-                      href={creation.link}
+                      href={withSeasonCarryover(creation.link, seasonSelection)}
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(e) => {
@@ -2352,7 +2396,7 @@ function LandingPage() {
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center', paddingTop: '20px', borderTop: '1px solid var(--border-subtle)' }}>
                   {selectedProject.link && selectedProject.link !== '#' && (
                     <a
-                      href={selectedProject.link}
+                      href={withSeasonCarryover(selectedProject.link, seasonSelection)}
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() =>

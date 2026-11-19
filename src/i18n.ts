@@ -112,8 +112,8 @@ export interface Translations {
 export const TRANSLATIONS: Record<Language, Translations> = {
   en: {
     banner: {
-      tag: 'SPEAKING',
-      text: 'Presenting at CAT Conf 2026: "One agent harness for PMs, UXers and FDEs" 🎤 • 9x GCP Certified (Agentic Architect) 🏆'
+      tag: '1ST PLACE',
+      text: '🥇 1st Place — VibeLift 2026 Hackathon • Presenting at CAT Conf 2026 🎤 • Explore Atlas of Wonder 🌍'
     },
     nav: {
       about: 'About',
@@ -220,8 +220,8 @@ export const TRANSLATIONS: Record<Language, Translations> = {
   },
   es: {
     banner: {
-      tag: 'CONFERENCIA',
-      text: 'Presentador en CAT Conf 2026: "One agent harness for PMs, UXers and FDEs" 🎤 • Certificado 9x GCP (Agentic Architect) 🏆'
+      tag: '1ER LUGAR',
+      text: '🥇 1er Lugar — Hackathon VibeLift 2026 • Ponente en CAT Conf 2026 🎤 • Explora Atlas of Wonder 🌍'
     },
     nav: {
       about: 'Perfil',
@@ -328,8 +328,8 @@ export const TRANSLATIONS: Record<Language, Translations> = {
   },
   zh: {
     banner: {
-      tag: '最新演讲',
-      text: '受邀主讲 CAT Conf 2026："One agent harness for PMs, UXers and FDEs" 🎤 • 9x GCP 认证 (专业智能体架构师) 🏆'
+      tag: '黑客松冠军',
+      text: '🥇 VibeLift 2026 黑客松冠军 (1st Place) • 受邀主讲 CAT Conf 2026 🎤 • 探索 Atlas of Wonder 🌍'
     },
     nav: {
       about: '关于我',
